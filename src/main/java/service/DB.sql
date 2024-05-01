@@ -4,6 +4,10 @@ create table Students(
 std_id integer primary key auto_increment,
 std_name varchar(50) not null,
 std_lastName varchar(50) not null,
+email varchar(100) not  null unique,
+username varchar(60) not null unique,
+salt varchar(100) not null,
+passwordHash varchar(256) not null,
 address_id integer not null,
 foreign key(address_id) references Address(address_id)
 );
@@ -12,6 +16,10 @@ create table Teachers(
 t_id integer primary key auto_increment,
 t_name  varchar(50) not null,
 t_lastName varchar(50) not null,
+email varchar(100) not  null unique,
+username varchar(60) not null unique,
+salt varchar(100) not null,
+passwordHash varchar(256) not null,
 address_id integer not null,
 foreign key(address_id) references Address(address_id)
 );
@@ -20,20 +28,12 @@ create table Administrator(
 a_id integer primary key auto_increment,
 a_name varchar(50) not null,
 a_lastName varchar(50) not null,
-address_id integer not null,
-foreign key(address_id) references Address(address_id)
-);
-
-create table users(
-user_id integer primary key auto_increment,
-first_name varchar(50) not null,
-last_name varchar(50) not null,
 email varchar(100) not  null unique,
 username varchar(60) not null unique,
 salt varchar(100) not null,
 passwordHash varchar(256) not null,
-user_type varchar(50) not null,
-CONSTRAINT chk_user_type CHECK (user_type IN ('student', 'teacher', 'administrator'))
+address_id integer not null,
+foreign key(address_id) references Address(address_id)
 );
 
 create table Subjects(
@@ -77,3 +77,17 @@ foreign key(subject_id) references Subjects(subject_id),
 foreign key(std_id) references Students(std_id),
 foreign key(period_id) references Period(period_id)
 );
+
+create table teacher_subject(
+t_id integer,
+subject_id integer,
+period_id integer,
+primary key(t_id, subject_id, period_id),
+foreign key(t_id) references Teachers(t_id),
+foreign key(subject_id) references Subjects(subject_id),
+foreign key(period_id) references Period(period_id)
+);
+
+
+ALTER TABLE Grades
+ADD CONSTRAINT check_grade_range CHECK (grade >= 1 AND grade <= 5);
