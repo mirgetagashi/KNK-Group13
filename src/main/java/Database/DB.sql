@@ -26,6 +26,8 @@ foreign key(address_id) references Address(address_id)
 
 create table users(
 user_id integer primary key auto_increment,
+first_name varchar(50) not null,
+last_name varchar(50) not null,
 email varchar(100) not  null unique,
 username varchar(60) not null unique,
 salt varchar(100) not null,
