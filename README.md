@@ -1,4 +1,4 @@
-# Grade Statistics in Pre-University Education System
+## Grade Statistics in Pre-University Education System
 
-### Languag
+### Language
 Java language - JavaFX library
