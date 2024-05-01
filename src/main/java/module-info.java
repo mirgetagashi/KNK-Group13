@@ -5,5 +5,5 @@ module com.example.knkgroup13 {
 
 
     opens com.example.knkgroup13 to javafx.fxml;
-    exports com.example.knkgroup13;
+    //exports com.example.knkgroup13;
 }
