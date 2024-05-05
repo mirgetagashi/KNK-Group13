@@ -3,12 +3,10 @@ package model;
 public class Address {
     private int id;
     private String city;
-    private String street;
 
-    public Address(int id, String city, String street) {
+    public Address(int id, String city) {
         this.id = id;
         this.city = city;
-        this.street = street;
     }
 
     public int getId() {
@@ -19,7 +17,4 @@ public class Address {
         return city;
     }
 
-    public String getStreet() {
-        return street;
-    }
 }

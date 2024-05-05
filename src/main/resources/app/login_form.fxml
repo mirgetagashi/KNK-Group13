@@ -88,7 +88,7 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <AnchorPane prefHeight="374.0" prefWidth="258.0" style="-fx-background-color: A9A9A9;">
+            <AnchorPane prefHeight="374.0" prefWidth="258.0" style="-fx-background-color: #5AA7AD;">
                <children>
                   <Label layoutX="85.0" layoutY="135.0" text="LOG IN" textFill="WHITE">
                      <font>
@@ -97,12 +97,12 @@
                   </Label>
                </children>
             </AnchorPane>
-            <TextField fx:id="txtUsername" layoutX="355.0" layoutY="88.0" prefHeight="35.0" prefWidth="183.0" promptText="Username">
+            <TextField fx:id="txtEmail" layoutX="355.0" layoutY="88.0" prefHeight="35.0" prefWidth="183.0" promptText="Email">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="pwsPassword" layoutX="355.0" layoutY="150.0" prefHeight="35.0" prefWidth="183.0" promptText="Password">
+            <PasswordField fx:id="pwdPassword" layoutX="355.0" layoutY="150.0" prefHeight="35.0" prefWidth="183.0" promptText="Password">
                <font>
                   <Font size="13.0" />
                </font>
@@ -117,8 +117,8 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label layoutX="355.0" layoutY="195.0" text="Change password" underline="true" />
-            <Hyperlink layoutX="392.0" layoutY="317.0" text="Create new Account" />
+            <Label layoutX="355.0" layoutY="195.0" onMouseClicked="#handleForgotPasswordClick" text="Forgot password" underline="true" />
+            <Hyperlink layoutX="392.0" layoutY="317.0" onMouseClicked="#handleCreateAccountClick" text="Create new Account" />
       </children>
     </AnchorPane>
   </children>

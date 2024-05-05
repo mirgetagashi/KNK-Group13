@@ -10,16 +10,16 @@ public class DBConnector {
     private static String PASSWORD = "mirgeta12.,";
     private static Connection connection = null;
 
-    public static Connection getConnection(){
-        if(connection == null){
-            try {
+    public static Connection getConnection() {
+        try {
+        if(connection == null || connection.isClosed()){
                 connection = DriverManager.getConnection(
                         URL, USER, PASSWORD
                 );
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
         return connection;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
