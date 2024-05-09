@@ -41,6 +41,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -88,37 +90,41 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <AnchorPane prefHeight="374.0" prefWidth="258.0" style="-fx-background-color: #5AA7AD;">
+            <AnchorPane prefHeight="374.0" prefWidth="258.0" styleClass="login-bg" stylesheets="@style.css">
                <children>
-                  <Label layoutX="85.0" layoutY="135.0" text="LOG IN" textFill="WHITE">
-                     <font>
-                        <Font name="Cambria" size="29.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <TextField fx:id="txtEmail" layoutX="355.0" layoutY="88.0" prefHeight="35.0" prefWidth="183.0" promptText="Email">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="54.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/education.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+            <TextField fx:id="txtEmail" layoutX="347.0" layoutY="156.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="pwdPassword" layoutX="355.0" layoutY="150.0" prefHeight="35.0" prefWidth="183.0" promptText="Password">
+            <PasswordField fx:id="pwdPassword" layoutX="347.0" layoutY="196.0" prefHeight="32.0" prefWidth="200.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css">
                <font>
                   <Font size="13.0" />
                </font>
             </PasswordField>
-            <Button layoutX="355.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleLoginClick" text="Login">
+            <Button layoutX="357.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="30.0" prefWidth="79.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="478.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleCancelClick" text="Cancel">
+            <Button layoutX="467.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleCancelClick" prefHeight="30.0" prefWidth="79.0" styleClass="button-design" stylesheets="@style.css" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label layoutX="355.0" layoutY="195.0" onMouseClicked="#handleForgotPasswordClick" text="Forgot password" underline="true" />
-            <Hyperlink layoutX="392.0" layoutY="317.0" onMouseClicked="#handleCreateAccountClick" text="Create new Account" />
+            <Label layoutX="355.0" layoutY="237.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" underline="true" />
+            <Hyperlink layoutX="397.0" layoutY="327.0" onMouseClicked="#handleCreateAccountClick" styleClass="hyperlink-design" stylesheets="@style.css" text="Create new Account" />
+            <Label layoutX="394.0" layoutY="98.0" text="LOG IN" textFill="#002554">
+               <font>
+                  <Font name="Arial Bold" size="29.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
   </children>
