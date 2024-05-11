@@ -51,3 +51,27 @@
 -fx-text-inner-color:#000;
 
 }
+.side-anchor{
+-fx-background-color: #002554;
+-fx-border-color: #002554;
+-fx-border-width:2px,2px,2px,2px;
+-fx-border-radius:20px;
+-fx-background-radius:20px;
+-fx-border-style:solid;
+}
+.inner_pane{
+-fx-background-color: #1d477d;
+-fx-border-color:#1d477d ;
+-fx-border-width:2px,2px,2px,2px;
+-fx-border-radius:20px;
+-fx-background-radius:20px;
+-fx-border-style:solid;
+
+}
+.navigator_btn{
+-fx-background-color: #1d477e;
+-fx-border-color:#002554 ;
+
+
+
+}
