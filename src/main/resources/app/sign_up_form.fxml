@@ -44,9 +44,9 @@
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentSignUpController">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="464.0" prefWidth="651.0" styleClass="login-bg" stylesheets="@style.css" VBox.vgrow="ALWAYS">
-      <children>
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="464.0" prefWidth="651.0" styleClass="login-bg" stylesheets="@style.css" VBox.vgrow="ALWAYS">
+         <children>
             <AnchorPane layoutX="245.0" layoutY="-1.0" prefHeight="470.0" prefWidth="394.0" style="-fx-background-color: #ffff;">
                <children>
                   <TextField fx:id="txtFirstName" layoutX="12.0" layoutY="149.0" prefHeight="32.0" prefWidth="183.0" promptText="First Name" styleClass="textfield-design" stylesheets="@style.css">
@@ -100,7 +100,7 @@
                   <Image url="@../Images/education.png" />
                </image>
             </ImageView>
-      </children>
-    </AnchorPane>
-  </children>
+         </children>
+      </AnchorPane>
+   </children>
 </VBox>

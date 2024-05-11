@@ -1,13 +1,11 @@
 package model.dto;
 
-import model.Address;
-import model.Major;
-import model.Period;
-import model.School;
+import model.*;
 
 import java.util.Date;
 
-public class CreateStudentDto {
+public class CreateTeacherDto {
+
     private String firstName;
     private String lastName;
     private String email;
@@ -15,34 +13,31 @@ public class CreateStudentDto {
     private String passwordHash;
 
     private Address address;
+    private String education;
     private School school;
-    private Major major;
-    private Period period;
+    private Subject subject;
+    private String title;
     private String gender;
     private Date birthday;
 
-    public CreateStudentDto(String firstName, String lastName, String email,
-                         String salt, String passwordHash, Address city, School school,
-                         Major major, Period period, String gender, Date birthday) {
+    public CreateTeacherDto(String firstName, String lastName, String email, String salt, String passwordHash,
+                            Address address, String education, School school, Subject subject, String title, String gender, Date birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.salt = salt;
         this.passwordHash = passwordHash;
-        this.address = city;
+        this.address = address;
         this.school = school;
-        this.major = major;
-        this.period = period;
-        this.gender=gender;
-        this.birthday=birthday;
+        this.subject = subject;
+        this.title = title;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.education=education;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public java.sql.Date getBirthday() {
-        return (java.sql.Date) birthday;
+    public String getEducation() {
+        return education;
     }
 
     public String getFirstName() {
@@ -73,11 +68,19 @@ public class CreateStudentDto {
         return school;
     }
 
-    public Major getMajor() {
-        return major;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public Period getPeriod() {
-        return period;
+    public String getTitle() {
+        return title;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public java.sql.Date getBirthday() {
+        return (java.sql.Date) birthday;
     }
 }

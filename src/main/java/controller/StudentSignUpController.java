@@ -46,7 +46,7 @@ public class StudentSignUpController implements Initializable{
 
     @FXML
     private void handleSignUpClick(ActionEvent ae){
-        StudentDto userSignUpData = new StudentDto(
+       /* StudentDto userSignUpData = new StudentDto(
                 this.txtFirstName.getText(),
                 this.txtLastName.getText(),
                 this.txtEmail.getText(),
@@ -61,7 +61,7 @@ public class StudentSignUpController implements Initializable{
 
         if(response){
             Navigator.navigate(ae, Navigator.LOGIN_PAGE);
-        }
+        }*/
 
     }
     @FXML
@@ -92,7 +92,7 @@ public class StudentSignUpController implements Initializable{
 
     }
     private void handleCitySelection(ActionEvent event) {
-       String selectedCity = cityComboBox.getValue();
+        String selectedCity = cityComboBox.getValue();
         ArrayList<String> schools = SchoolRepository.getSchoolByCity(selectedCity);
         schoolComboBox.getItems().addAll(schools);
 

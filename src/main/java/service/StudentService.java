@@ -12,9 +12,6 @@ public class StudentService {
         String password = userData.getPassword();
         String confirmPassword = userData.getConfirmPassword();
 
-        if(!password.equals(confirmPassword)){
-            return false;
-        }
 
         String salt = PasswordHasher.generateSalt();
         String passwordHash = PasswordHasher.generateSaltedHash(
@@ -30,7 +27,9 @@ public class StudentService {
                 userData.getAddress(),
                 userData.getSchool(),
                 userData.getMajor(),
-                userData.getPeriod()
+                userData.getPeriod(),
+                userData.getGender(),
+                userData.getBirthday()
         );
 
         return StudentRepository.create(createStudentData);

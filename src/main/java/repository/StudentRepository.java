@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 public class StudentRepository {
     public static boolean create(CreateStudentDto userData){
         Connection conn = DBConnector.getConnection();
-        String query = " INSERT INTO STUDENTS (std_name, std_lastName, email, salt, passwordHash, address_id, school_id, major_id, period_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+        String query = " INSERT INTO STUDENTS (std_name, std_lastName, email, salt, passwordHash, address_id, school_id, major_id, level_id,gender, birthday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
         try{
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, userData.getFirstName());
@@ -23,6 +23,8 @@ public class StudentRepository {
             pst.setInt(7,userData.getSchool().getId());
             pst.setInt(8,userData.getMajor().getId());
             pst.setInt(9,userData.getPeriod().getId());
+            pst.setString(10,userData.getGender());
+            pst.setDate(11,userData.getBirthday());
 
 
 

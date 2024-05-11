@@ -10,10 +10,11 @@ passwordHash varchar(256) not null,
 address_id integer not null,
 school_id integer not null,
 major_id integer not null,
-period_id integer not null,
+level_id integer not null,
+gender char not null,
 foreign key(major_id) references majors(major_id),
 foreign key(school_id) references School(school_id),
-foreign key(period_id) references Period(period_id),
+foreign key(level_id) references Grade_level(level_id),
 foreign key(address_id) references Address(address_id)
 );
 
@@ -26,6 +27,11 @@ email varchar(100) not  null unique,
 salt varchar(100) not null,
 passwordHash varchar(256) not null,
 address_id integer not null,
+title varchar(100) not null,
+education varchar(500) not null,
+school_id integer not null,
+major_id integer not null,
+gender char not null,
 foreign key(address_id) references Address(address_id)
 );
 
@@ -91,12 +97,17 @@ create table student_teacher(
 std_id integer,
 t_id integer,
 subject_id integer,
-period_id integer,
-primary key(std_id, t_id, subject_id, period_id),
+level_id integer,
+primary key(std_id, t_id, subject_id, level_id),
 foreign key(std_id) references Students(std_id),
 foreign key(t_id) references Teachers(t_id),
 foreign key(subject_id) references Subjects(subject_id),
-foreign key(period_id) references Period(period_id)
+foreign key(level_id) references Grade_level(level_id)
+);
+
+create table Grade_level(
+level_id integer primary key auto_increment,
+level_name varchar(100) not null
 );
 
 create table Period(
@@ -107,11 +118,13 @@ period_name varchar(100) not null
 
 create table Grades(
 grade_id integer primary key auto_increment,
-period_id integer,
-std_id integer,
+level_id integer not null,
+period_id integer not null,
+std_id integer not null,
 subject_id integer not null,
 t_id integer not null,
 grade integer not null,
+foreign key(level_id) references Grade_level(level_id),
 foreign key(t_id) references Teachers(t_id),
 foreign key(subject_id) references Subjects(subject_id),
 foreign key(std_id) references Students(std_id),
@@ -132,7 +145,7 @@ ADD CONSTRAINT check_grade_range CHECK (grade >= 1 AND grade <= 5);
 ALTER TABLE Students
 ADD CONSTRAINT fk_students_major_id FOREIGN KEY (major_id) REFERENCES majors(major_id) ON DELETE CASCADE,
 ADD CONSTRAINT fk_students_school_id FOREIGN KEY (school_id) REFERENCES School(school_id) ON DELETE CASCADE,
-ADD CONSTRAINT fk_students_period_id FOREIGN KEY (period_id) REFERENCES Period(period_id) ON DELETE CASCADE,
+ADD CONSTRAINT fk_students_period_id FOREIGN KEY (level_id) REFERENCES Grade_level(level_id) ON DELETE CASCADE,
 ADD CONSTRAINT fk_students_address_id FOREIGN KEY (address_id) REFERENCES Address(address_id) ON DELETE CASCADE;
 
 ALTER TABLE Teachers
@@ -181,12 +194,16 @@ values
 ("Major 3"),
 ("Major 4");
 
+insert into grade_level(level_name)
+values
+("10th grade"),
+("11th grade"),
+("12th grade");
 
 insert into Period(period_name)
 values
-("10th grade"),
-("12th grade"),
-("13th grade");
+("First period"),
+("Second period");
 
 insert into address_school(address_id, school_id)
 values
@@ -232,6 +249,13 @@ MODIFY COLUMN passwordHash VARCHAR(300) NOT NULL;
 
 select * from students;
 
+SELECT m.major_name FROM majors m 
+INNER JOIN school_major sm ON sm.major_id = m.major_id 
+INNER JOIN School s ON s.school_id = sm.school_id 
+WHERE s.school_name ="School 1"; 
 
+select * from period;
 
+DELETE FROM period
+WHERE period_id IN (6,2,3,4,5);
 

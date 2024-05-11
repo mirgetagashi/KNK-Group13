@@ -1,9 +1,7 @@
 package service;
 
 import model.Teacher;
-import model.dto.CreateStudentDto;
-import model.dto.LoginUserDto;
-import model.dto.StudentDto;
+import model.dto.*;
 import repository.StudentRepository;
 import repository.TeacherRepository;
 
@@ -24,31 +22,31 @@ public class TeacherService {
         );
     }
 
-    public static boolean signUp(StudentDto userData){
-        String password = userData.getPassword();
-        String confirmPassword = userData.getConfirmPassword();
+    public static boolean signUp(TeacherDto teacherData){
+        String password = teacherData.getPassword();
+        String confirmPassword = teacherData.getConfirmPassword();
 
-        if(!password.equals(confirmPassword)){
-            return false;
-        }
 
         String salt = PasswordHasher.generateSalt();
         String passwordHash = PasswordHasher.generateSaltedHash(
                 password, salt
         );
 
-        CreateStudentDto createStudentData = new CreateStudentDto(
-                userData.getFirstName(),
-                userData.getLastName(),
-                userData.getEmail(),
+        CreateTeacherDto createTeacherDto = new CreateTeacherDto(
+                teacherData.getFirstName(),
+                teacherData.getLastName(),
+                teacherData.getEmail(),
                 salt,
                 passwordHash,
-                userData.getAddress(),
-                userData.getSchool(),
-                userData.getMajor(),
-                userData.getPeriod()
+                teacherData.getAddress(),
+                teacherData.getEducation(),
+                teacherData.getSchool(),
+                teacherData.getSubject(),
+                teacherData.getLevel(),
+                teacherData.getGender(),
+                teacherData.getBirthday()
         );
 
-        return StudentRepository.create(createStudentData);
+        return TeacherRepository.create(createTeacherDto);
     }
 }

@@ -2,6 +2,7 @@ package repository;
 
 import model.*;
 import model.dto.CreateStudentDto;
+import model.dto.CreateTeacherDto;
 import service.DBConnector;
 
 import java.sql.Connection;
@@ -9,20 +10,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class TeacherRepository {
-    public static boolean create(CreateStudentDto userData){
+    public static boolean create(CreateTeacherDto userData){
         Connection conn = DBConnector.getConnection();
-        String query = " INSERT INTO Teachers (t_name, t_lastName, email, username, salt, passwordHash, address_id, school_id, major_id, period_id) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+        String query = " INSERT INTO TEACHERS (t_name, t_lastName, email, salt, passwordHash, address_id, education, school_id, gender,title, subject_id, birthday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
         try{
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, userData.getFirstName());
             pst.setString(2, userData.getLastName());
             pst.setString(3, userData.getEmail());
-            pst.setString(5, userData.getSalt());
-            pst.setString(6, userData.getPasswordHash());
-            pst.setInt(7,userData.getAddress().getId());
+            pst.setString(4, userData.getSalt());
+            pst.setString(5, userData.getPasswordHash());
+            pst.setInt(6,userData.getAddress().getId());
+            pst.setString(7,userData.getEducation());
             pst.setInt(8,userData.getSchool().getId());
-            pst.setInt(9,userData.getMajor().getId());
-            pst.setInt(10,userData.getPeriod().getId());
+            pst.setString(9,userData.getGender());
+            pst.setString(10,userData.getTitle());
+            pst.setInt(11,userData.getSubject().getId());
+            pst.setDate(12,userData.getBirthday());
 
 
 

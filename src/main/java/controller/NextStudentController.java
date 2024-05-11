@@ -5,21 +5,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import model.Address;
+import model.Grade_level;
+import model.Grades;
 import model.Period;
 import model.dto.StudentDto;
 import model.dto.UserDto;
-import repository.AddressRepository;
-import repository.MajorRepository;
-import repository.PeriodRepository;
-import repository.SchoolRepository;
+import repository.*;
 import service.StudentService;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
-public class TeacherSignUpController implements Initializable {
+public class NextStudentController implements Initializable {
 
     @FXML
     private ComboBox<String> cityComboBox;
@@ -32,12 +34,9 @@ public class TeacherSignUpController implements Initializable {
 
     @FXML
     private ComboBox<String> schoolComboBox;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String confirmPassword;
     private UserDto userDto;
+
+
 
     @FXML
     void handleCancelClick(ActionEvent event) {}
@@ -46,13 +45,15 @@ public class TeacherSignUpController implements Initializable {
 
     @FXML
     void handleSignUpClick(ActionEvent event) {
-       /* UserDto userDto = this.userDto;
+        UserDto userDto = this.userDto;
 
         String firstName = userDto.getFirstName();
         String lastName = userDto.getLastName();
         String email = userDto.getEmail();
         String password = userDto.getPassword();
         String confirmPassword = userDto.getConfirmPassword();
+        String gender=userDto.getGender();
+        Date birthday= userDto.getBirthday();
 
         StudentDto userSignUpData = new StudentDto(
                 firstName,
@@ -63,14 +64,16 @@ public class TeacherSignUpController implements Initializable {
                 AddressRepository.getAddressByCity(cityComboBox.getValue()),
                 SchoolRepository.getSchoolByName(schoolComboBox.getValue()),
                 MajorRepository.getMajorByName(majorComboBox.getValue()),
-                PeriodRepository.getPeriodByName(periodComboBox.getValue())
+                PeriodRepository.getPeriodByName(periodComboBox.getValue()),
+                gender,
+                birthday
         );
 
         boolean response = StudentService.signUp(userSignUpData);
 
         if (response) {
             Navigator.navigate(event, Navigator.LOGIN_PAGE);
-        }*/
+        }
     }
 
 
@@ -88,16 +91,11 @@ public class TeacherSignUpController implements Initializable {
         cityComboBox.getItems().addAll(cities);
         cityComboBox.setOnAction(this::handleCitySelection);
 
-        ArrayList<String> periods= new ArrayList<>();
-        for(Period period: PeriodRepository.getAllPeriods()){
-            periods.add(period.getName());
+        ArrayList<String> levels= new ArrayList<>();
+        for(Grade_level level: GradeLevelRepository.getAllLevels()){
+            levels.add(level.getLevel_name());
         }
-        periodComboBox.getItems().addAll(periods);
-
-
-
-
-
+        periodComboBox.getItems().addAll(levels);
 
     }
     private void handleCitySelection(ActionEvent event) {

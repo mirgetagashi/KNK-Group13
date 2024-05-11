@@ -2,13 +2,14 @@ package model;
 
 public class Grades {
     private int grade_id;
+    private Grade_level gradeLevel;
     private Period period;
     private Students student;
     private Subject subject;
     private Teacher teacher;
     private int grade;
 
-    public Grades(int grade_id, Period period, Students student,
+    public Grades(int grade_id, Grade_level gradeLevel, Period period, Students student,
                   Subject subject, Teacher teacher, int grade) {
         this.grade_id = grade_id;
         this.period = period;
@@ -16,6 +17,7 @@ public class Grades {
         this.subject = subject;
         this.teacher = teacher;
         this.grade = grade;
+        this.gradeLevel=gradeLevel;
     }
 
     public int getGrade_id() {
@@ -24,6 +26,10 @@ public class Grades {
 
     public Period getPeriod() {
         return period;
+    }
+
+    public Grade_level getGradeLevel() {
+        return gradeLevel;
     }
 
     public Students getStudent() {

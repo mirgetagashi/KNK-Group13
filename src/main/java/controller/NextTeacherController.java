@@ -5,56 +5,65 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import model.Address;
-import model.Period;
+import model.School;
+import model.Subject;
 import model.dto.StudentDto;
+import model.dto.TeacherDto;
 import model.dto.UserDto;
-import repository.AddressRepository;
-import repository.MajorRepository;
-import repository.PeriodRepository;
-import repository.SchoolRepository;
+import repository.*;
 import service.StudentService;
+import service.TeacherService;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
-public class TeacherSignUpController implements Initializable {
+public class NextTeacherController implements Initializable {
 
     @FXML
     private ComboBox<String> cityComboBox;
 
-    @FXML
-    private ComboBox<String> majorComboBox;
-
-    @FXML
-    private ComboBox<String> periodComboBox;
 
     @FXML
     private ComboBox<String> schoolComboBox;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String confirmPassword;
-    private UserDto userDto;
 
     @FXML
-    void handleCancelClick(ActionEvent event) {}
+    private ComboBox<String> subjectComboBox;
+
+    @FXML
+    private ComboBox<String> titleComboBox;
+
+    @FXML
+    private TextField txtEducation;
+    private UserDto userDto;
+
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
+    }
 
 
+
+    @FXML
+    void handleCancelClick(ActionEvent event) {
+
+    }
 
     @FXML
     void handleSignUpClick(ActionEvent event) {
-       /* UserDto userDto = this.userDto;
+        UserDto userDto = this.userDto;
 
         String firstName = userDto.getFirstName();
         String lastName = userDto.getLastName();
         String email = userDto.getEmail();
         String password = userDto.getPassword();
         String confirmPassword = userDto.getConfirmPassword();
+        String gender=userDto.getGender();
+        Date birthday= userDto.getBirthday();
 
-        StudentDto userSignUpData = new StudentDto(
+        TeacherDto userSignUpData = new TeacherDto(
                 firstName,
                 lastName,
                 email,
@@ -62,25 +71,27 @@ public class TeacherSignUpController implements Initializable {
                 confirmPassword,
                 AddressRepository.getAddressByCity(cityComboBox.getValue()),
                 SchoolRepository.getSchoolByName(schoolComboBox.getValue()),
-                MajorRepository.getMajorByName(majorComboBox.getValue()),
-                PeriodRepository.getPeriodByName(periodComboBox.getValue())
+                SubjectRepository.getSubjectByName(subjectComboBox.getValue()),
+                this.txtEducation.getText(),
+                titleComboBox.getValue(),
+                birthday,
+                gender
         );
 
-        boolean response = StudentService.signUp(userSignUpData);
+        boolean response = TeacherService.signUp(userSignUpData);
 
         if (response) {
             Navigator.navigate(event, Navigator.LOGIN_PAGE);
-        }*/
-    }
+        }
 
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         cityComboBox.setValue("Address");
         schoolComboBox.setValue("School");
-        majorComboBox.setValue("Major");
-        periodComboBox.setValue("Level");
+        subjectComboBox.setValue("Subject");
         ArrayList<String> cities= new ArrayList<>();
         for (Address city : (AddressRepository.getAllCities())) {
             cities.add(city.getCity());
@@ -88,36 +99,24 @@ public class TeacherSignUpController implements Initializable {
         cityComboBox.getItems().addAll(cities);
         cityComboBox.setOnAction(this::handleCitySelection);
 
-        ArrayList<String> periods= new ArrayList<>();
-        for(Period period: PeriodRepository.getAllPeriods()){
-            periods.add(period.getName());
+        ArrayList<String > subjects= new ArrayList<>();
+        for(Subject subject: SubjectRepository.getAllSubjects()){
+            subjects.add(subject.getName());
         }
-        periodComboBox.getItems().addAll(periods);
+        subjectComboBox.getItems().addAll(subjects);
 
-
-
-
-
-
+        String[] titles={"Bsc","Msc","Phd"};
+        titleComboBox.getItems().addAll(titles);
     }
+
+
+
     private void handleCitySelection(ActionEvent event) {
         String selectedCity = cityComboBox.getValue();
         ArrayList<String> schools = SchoolRepository.getSchoolByCity(selectedCity);
         schoolComboBox.getItems().addAll(schools);
 
-        schoolComboBox.setOnAction(this::handleSchoolSelection);
 
-
-    }
-
-    private void handleSchoolSelection(ActionEvent ae){
-        String selectedSchool= schoolComboBox.getValue();
-        ArrayList<String> majors= MajorRepository.getMajorBySchool(selectedSchool);
-        majorComboBox.getItems().addAll(majors);
-    }
-
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
     }
 
 

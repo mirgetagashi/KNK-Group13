@@ -10,6 +10,9 @@ import model.Major;
 import model.Period;
 import model.School;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class StudentDto {
     private String firstName;
     private String lastName;
@@ -20,9 +23,11 @@ public class StudentDto {
     private School school;
     private Major major;
     private Period period;
+    private String gender;
+    private Date birthday;
 
     public StudentDto(String firstName, String lastName, String email, String password,
-                   String confirmPassword, Address city, School  school, Major major, Period period) {
+                   String confirmPassword, Address city, School  school, Major major, Period period, String  gender, Date birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -32,6 +37,8 @@ public class StudentDto {
         this.school=school;
         this.major=major;
         this.period=period;
+        this.gender=gender;
+        this.birthday=birthday;
 
     }
 
@@ -42,6 +49,14 @@ public class StudentDto {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String  getGender() {
+        return gender;
+    }
+
+    public Date getBirthday() {
+        return birthday;
     }
 
     public String getEmail() {
