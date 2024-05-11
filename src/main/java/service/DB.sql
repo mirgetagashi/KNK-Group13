@@ -12,12 +12,13 @@ school_id integer not null,
 major_id integer not null,
 level_id integer not null,
 gender char not null,
+birthday date not null,
 foreign key(major_id) references majors(major_id),
 foreign key(school_id) references School(school_id),
 foreign key(level_id) references Grade_level(level_id),
 foreign key(address_id) references Address(address_id)
 );
-
+select * from teachers;
 
 create table Teachers(
 t_id integer primary key auto_increment,
@@ -30,9 +31,13 @@ address_id integer not null,
 title varchar(100) not null,
 education varchar(500) not null,
 school_id integer not null,
-major_id integer not null,
+subject_id integer not null,
 gender char not null,
-foreign key(address_id) references Address(address_id)
+birthday date not null,
+foreign key(address_id) references Address(address_id),
+foreign key(school_id) references School(school_id),
+foreign key(subject_id) references subjects(subject_id)
+
 );
 
 create table Administrator(
