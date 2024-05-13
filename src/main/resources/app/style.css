@@ -82,7 +82,14 @@
     -fx-background-color: #002554;
 }
 .table-header .label{
--fx-text-fill: #e29e10;
+    -fx-text-fill: #e29e10;
+}
+
+.btn-modify, .btn-cancel{
+    -fx-background-color: #002554;
+    -fx-background-radius:20px;
+    -fx-cursor:hand;
+    -fx-text-fill: #fffff;
 }
 
 
