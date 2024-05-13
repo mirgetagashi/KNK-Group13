@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import java.lang.String?>
-
-
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentTableController">
     <children>
-
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="730.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="studentTable" layoutX="39.0" layoutY="44.0" prefHeight="311.0" prefWidth="569.0" styleClass="student-table" stylesheets="@style.css">
+            <TableView fx:id="studentTable" layoutX="56.0" layoutY="44.0" prefHeight="311.0" prefWidth="583.0">
               <columns>
-                <TableColumn fx:id="no" prefWidth="56.0" text="No." styleClass="table-header" />
-                <TableColumn fx:id="subjectId" prefWidth="73.60003662109375" text="Subject ID" styleClass="table-header"/>
-                  <TableColumn fx:id="subject" prefWidth="74.39996337890625" text="Subject" styleClass="table-header"/>
-                  <TableColumn fx:id="professor" prefWidth="80.800048828125" text="Professor" styleClass="table-header"/>
-                  <TableColumn fx:id="firstPeriodGrade" prefWidth="99.99993896484375" text="1st period grade" styleClass="table-header"/>
-                  <TableColumn fx:id="secondPeriodGrade" prefWidth="105.5999755859375" text="2nd period grade" styleClass="table-header"/>
-                  <TableColumn fx:id="finalGrade" prefWidth="76.79998779296875" text="Final grade" styleClass="table-header" />
+                <TableColumn fx:id="subjectId" prefWidth="73.60003662109375" text="Subject ID" />
+                  <TableColumn fx:id="subject" prefWidth="61.5999755859375" text="Subject" />
+                  <TableColumn fx:id="profFirstName" prefWidth="91.20001220703125" text="Teacher's FN" />
+                  <TableColumn fx:id="profLastName" prefWidth="89.5999755859375" text="Teacher's LN" />
+                  <TableColumn fx:id="firstPeriodGrade" prefWidth="78.39996337890625" text="1st period " />
+                  <TableColumn fx:id="secondPeriodGrade" prefWidth="95.20001220703125" text="2nd period " />
+                  <TableColumn fx:id="finalGrade" prefWidth="109.5999755859375" text="Final grade" />
               </columns>
             </TableView>
          </children>

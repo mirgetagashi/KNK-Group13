@@ -74,15 +74,11 @@
 
 }
 
-.student-table {
-    -fx-background-color: #EAEBEE;
-}
-
-.table-header {
+.btn-modify, .btn-cancel{
     -fx-background-color: #002554;
-}
-.table-header .label{
--fx-text-fill: #e29e10;
+    -fx-background-radius:20px;
+    -fx-cursor:hand;
+    -fx-text-fill: #fffff;
 }
 
 

@@ -3,7 +3,6 @@ package repository;
 import model.*;
 import model.dto.CreateStudentDto;
 import model.dto.StudentDto;
-import repository.Interfaces.StudentInterface;
 import service.DBConnector;
 
 import java.sql.Connection;
