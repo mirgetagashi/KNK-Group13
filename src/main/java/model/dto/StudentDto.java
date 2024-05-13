@@ -19,15 +19,15 @@ public class StudentDto {
     private String email;
     private String password;
     private String confirmPassword;
-    private Address address;
-    private School school;
-    private Major major;
-    private Period period;
+    private int address;
+    private int school;
+    private int major;
+    private int period;
     private String gender;
     private Date birthday;
 
     public StudentDto(String firstName, String lastName, String email, String password,
-                   String confirmPassword, Address city, School  school, Major major, Period period, String  gender, Date birthday) {
+                   String confirmPassword, int city, int  school, int major, int period, String  gender, Date birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -71,19 +71,19 @@ public class StudentDto {
         return confirmPassword;
     }
 
-    public Address getAddress() {
+    public int getAddress() {
         return address;
     }
 
-    public School getSchool() {
+    public int getSchool() {
         return school;
     }
 
-    public Major getMajor() {
+    public int getMajor() {
         return major;
     }
 
-    public Period getPeriod() {
+    public int getPeriod() {
         return period;
     }
 }

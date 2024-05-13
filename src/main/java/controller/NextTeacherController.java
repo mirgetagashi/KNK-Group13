@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import model.Address;
 import model.School;
@@ -40,6 +41,25 @@ public class NextTeacherController implements Initializable {
     private TextField txtEducation;
     private UserDto userDto;
 
+    @FXML
+    private RadioButton radioButtonFemale;
+
+    @FXML
+    private RadioButton radioButtonMale;
+
+
+    public String getGender(ActionEvent ae){
+        String  genderSelect;
+        if(radioButtonMale.isSelected()){
+            genderSelect="M";
+        }else if(radioButtonFemale.isSelected()){
+            genderSelect="F";
+        }else {
+            genderSelect="";
+        }
+        return genderSelect;
+    }
+
     public void setUserDto(UserDto userDto) {
         this.userDto = userDto;
     }
@@ -60,7 +80,6 @@ public class NextTeacherController implements Initializable {
         String email = userDto.getEmail();
         String password = userDto.getPassword();
         String confirmPassword = userDto.getConfirmPassword();
-        String gender=userDto.getGender();
         Date birthday= userDto.getBirthday();
 
         TeacherDto userSignUpData = new TeacherDto(
@@ -75,7 +94,7 @@ public class NextTeacherController implements Initializable {
                 this.txtEducation.getText(),
                 titleComboBox.getValue(),
                 birthday,
-                gender
+                this.getGender(event)
         );
 
         boolean response = TeacherService.signUp(userSignUpData);

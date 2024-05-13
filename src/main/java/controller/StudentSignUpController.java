@@ -46,16 +46,16 @@ public class StudentSignUpController implements Initializable{
 
     @FXML
     private void handleSignUpClick(ActionEvent ae){
-       /* StudentDto userSignUpData = new StudentDto(
+   /*     StudentDto userSignUpData = new StudentDto(
                 this.txtFirstName.getText(),
                 this.txtLastName.getText(),
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText(),
-                AddressRepository.getAddressByCity(cityComboBox.getValue()),
-                SchoolRepository.getSchoolByName(schoolComboBox.getValue()),
-                MajorRepository.getMajorByName(majorComboBox.getValue()),
-                PeriodRepository.getPeriodByName(periodComboBox.getValue())
+                AddressRepository.getAddressByCity(cityComboBox.getValue()).getId(),
+                SchoolRepository.getSchoolByName(schoolComboBox.getValue()).getId(),
+                MajorRepository.getMajorByName(majorComboBox.getValue()).getId(),
+                PeriodRepository.getPeriodByName(periodComboBox.getValue()).getId()
         );
         boolean response = StudentService.signUp(userSignUpData);
 

@@ -72,6 +72,22 @@
 -fx-background-color: #1d477e;
 -fx-border-color:#002554 ;
 
-
-
 }
+
+.student-table {
+    -fx-background-color: #EAEBEE;
+}
+
+.table-header {
+    -fx-background-color: #002554;
+}
+.table-header .label{
+-fx-text-fill: #e29e10;
+}
+
+
+
+
+
+
+

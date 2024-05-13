@@ -9,23 +9,21 @@ public class UserDto {
     private String email;
     private String password;
     private String confirmPassword;
-    private String gender;
     private Date birthday;
 
     private UserDto(){}
 
-    private UserDto(String firstName, String lastName, String email, String password, String confirmPassword, Date birthday, String gender) {
+    private UserDto(String firstName, String lastName, String email, String password, String confirmPassword, Date birthday) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.gender=gender;
         this.birthday=birthday;
     }
 
-    public static UserDto getInstance(String firstName, String lastName, String email, String password, String confirmPassword, String gender, Date birthday){
-        return new UserDto(firstName,lastName,email,password,confirmPassword, birthday,gender);
+    public static UserDto getInstance(String firstName, String lastName, String email, String password, String confirmPassword,  Date birthday){
+        return new UserDto(firstName,lastName,email,password,confirmPassword, birthday);
     }
     public static UserDto getInstance(){
         return new UserDto();
@@ -43,17 +41,11 @@ public class UserDto {
         this.birthday = birthday;
     }
 
-    public void setGender(String  gender) {
-        this.gender = gender;
-    }
 
     public Date getBirthday() {
         return birthday;
     }
 
-    public String getGender() {
-        return gender;
-    }
 
     public String getEmail() {
         return email;

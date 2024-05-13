@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import model.Address;
 import model.Major;
 import model.Period;
@@ -38,28 +40,13 @@ public class RegisterController {
     private PasswordField pwdConfirmPassword;
 
     @FXML
-    private RadioButton radioButtonFemale;
-
-    @FXML
-    private RadioButton radioButtonMale;
-
-    @FXML
     private DatePicker datePickerBirthday;
 
+    @FXML
+    private VBox vPane;
 
 
 
-    public String getGender(ActionEvent ae){
-        String  genderSelect;
-        if(radioButtonMale.isSelected()){
-            genderSelect="M";
-        }else if(radioButtonFemale.isSelected()){
-            genderSelect="F";
-        }else {
-            genderSelect="";
-        }
-        return genderSelect;
-    }
 
 
     @FXML
@@ -71,16 +58,15 @@ public class RegisterController {
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText(),
-                this.getGender(ae),
                 birthday
         );
         boolean response = Validator.validate(userSignUpData);
 
         if (response) {
             if(this.txtEmail.getText().contains("@student")){
-                Navigator.navigateWithUserDto(ae, Navigator.NEXT_STUDENT, userSignUpData);
+                Navigator.navigateee(vPane, Navigator.NEXT_STUDENT, userSignUpData);
             }else {
-                Navigator.navigateWithUserDto(ae, Navigator.NEXT_TEACHER, userSignUpData);
+                Navigator.navigateee(vPane, Navigator.NEXT_TEACHER, userSignUpData);
             }
 
         }

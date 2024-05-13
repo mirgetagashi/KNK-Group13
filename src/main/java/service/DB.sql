@@ -136,6 +136,51 @@ foreign key(std_id) references Students(std_id),
 foreign key(period_id) references Period(period_id)
 );
 
+drop table Grades;
+
+CREATE TABLE Grades (
+    grade_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    level_id INTEGER NOT NULL,
+    period1_grade INTEGER NOT NULL,
+    period2_grade INTEGER NOT NULL,
+    final_grade INTEGER,
+    std_id INTEGER NOT NULL,
+    subject_id INTEGER NOT NULL,
+    t_id INTEGER NOT NULL,
+    FOREIGN KEY (level_id) REFERENCES Grade_level(level_id),
+    FOREIGN KEY (t_id) REFERENCES Teachers(t_id),
+    FOREIGN KEY (subject_id) REFERENCES Subjects(subject_id),
+    FOREIGN KEY (std_id) REFERENCES Students(std_id)
+);
+DELIMITER $$
+CREATE FUNCTION Caulculate_final_grade(x int, y int)
+RETURNS int DETERMINISTIC /*by default not deterministic*/
+BEGIN
+RETURN round((x+y)/2);
+END $$
+DELIMITER ;
+
+
+DROP FUNCTION IF EXISTS Caulculate_final_grade;
+
+DELIMITER $$
+CREATE FUNCTION Calculate_final_grade(x INT, y INT)
+RETURNS INT DETERMINISTIC
+BEGIN
+    RETURN ROUND((x + y) / 2);
+END $$
+$$
+DELIMITER ;
+
+SELECT Calculate_final_grade(5, 4) AS final_grade;
+
+
+select * from subjects;
+
+INSERT INTO Grades (level_id, period1_grade, period2_grade, final_grade, std_id, subject_id, t_id)
+VALUES (1, 4, 5, Calculate_final_grade(4, 5), 1, 1, 1);
+
+select * from students;
 create table teacher_subject(
 t_id integer,
 subject_id integer,
@@ -263,4 +308,6 @@ select * from period;
 
 DELETE FROM period
 WHERE period_id IN (6,2,3,4,5);
+
+SELECT * FROM Students;
 

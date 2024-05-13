@@ -36,6 +36,25 @@ public class NextStudentController implements Initializable {
     private ComboBox<String> schoolComboBox;
     private UserDto userDto;
 
+    @FXML
+    private RadioButton radioButtonFemale;
+
+    @FXML
+    private RadioButton radioButtonMale;
+
+
+    public String getGender(ActionEvent ae){
+        String  genderSelect;
+        if(radioButtonMale.isSelected()){
+            genderSelect="M";
+        }else if(radioButtonFemale.isSelected()){
+            genderSelect="F";
+        }else {
+            genderSelect="";
+        }
+        return genderSelect;
+    }
+
 
 
     @FXML
@@ -52,7 +71,6 @@ public class NextStudentController implements Initializable {
         String email = userDto.getEmail();
         String password = userDto.getPassword();
         String confirmPassword = userDto.getConfirmPassword();
-        String gender=userDto.getGender();
         Date birthday= userDto.getBirthday();
 
         StudentDto userSignUpData = new StudentDto(
@@ -61,18 +79,18 @@ public class NextStudentController implements Initializable {
                 email,
                 password,
                 confirmPassword,
-                AddressRepository.getAddressByCity(cityComboBox.getValue()),
-                SchoolRepository.getSchoolByName(schoolComboBox.getValue()),
-                MajorRepository.getMajorByName(majorComboBox.getValue()),
-                PeriodRepository.getPeriodByName(periodComboBox.getValue()),
-                gender,
+                AddressRepository.getAddressByCity(cityComboBox.getValue()).getId(),
+                SchoolRepository.getSchoolByName(schoolComboBox.getValue()).getId(),
+                MajorRepository.getMajorByName(majorComboBox.getValue()).getId(),
+                GradeLevelRepository.getLevelByName(periodComboBox.getValue()).getLevel_id(),
+                this.getGender(event),
                 birthday
         );
 
         boolean response = StudentService.signUp(userSignUpData);
 
         if (response) {
-            Navigator.navigate(event, Navigator.LOGIN_PAGE);
+            Navigator.navigate(event, Navigator.ADMIN_STUDENT_PAGE);
         }
     }
 

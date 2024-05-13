@@ -12,6 +12,22 @@ import java.util.ArrayList;
 
 public class GradeLevelRepository {
 
+    public static Grade_level getLevelByName(String level) {
+        String query = "SELECT * FROM Grade_level WHERE level_name = ? LIMIT 1;";
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, level);
+            ResultSet result = pst.executeQuery();
+            if(result.next()){
+                return getFromResultSet(result);
+            }
+            return null;
+        }catch (Exception e){
+            return null;
+        }
+    }
+
     public static ArrayList<Grade_level> getAllLevels() {
         ArrayList<Grade_level> levels = new ArrayList<>();
 

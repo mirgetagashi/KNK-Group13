@@ -6,6 +6,9 @@ module com.example.knkgroup13 {
     exports app;
     opens controller to javafx.fxml;
     opens app to javafx.graphics;
+   // opens model to javafx.graphics;
     opens com.example.knkgroup13 to javafx.fxml;
+    opens model to javafx.base;
+ //   opens model to javafx.base;
 
 }
