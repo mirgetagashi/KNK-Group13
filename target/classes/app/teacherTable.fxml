@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="908.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherTableController">
+    <children>
+        <TableView fx:id="studentTable" layoutX="292.0" layoutY="82.0" prefHeight="324.0" prefWidth="569.0" stylesheets="@style.css">
+            <columns>
+                <TableColumn fx:id="studentIdColumn" minWidth="30.0" prefWidth="100.0" text="Student ID" />
+                <TableColumn fx:id="levelColumn" prefWidth="100.0" text="Level " />
+                <TableColumn fx:id="period1GradeColumn" prefWidth="130.0" text="First Period Grade" />
+                <TableColumn fx:id="period2GradeColumn" prefWidth="140.0" text="Second Period Grade" />
+                <TableColumn fx:id="finalGradeColumn" prefWidth="100.0" text="Final Grade" />
+            </columns>
+        </TableView>
+        <AnchorPane fx:id="addgradeForm" prefHeight="440.0" prefWidth="248.0" style="-fx-background-color: white;" styleClass="student-table" stylesheets="@style.css">
+            <children>
+                <Text layoutX="30.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID :" wrappingWidth="110.9367446899414">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Text>
+                <TextField fx:id="txtStudentId" layoutX="21.0" layoutY="75.0" prefHeight="32.0" prefWidth="183.0" styleClass="textfield-design" stylesheets="@style.css" />
+                <Text layoutX="21.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Level:" wrappingWidth="46.94061279296875">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Text>
+                <Text layoutX="21.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Period Grade:" wrappingWidth="129.7202758789063">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Text>
+                <Button layoutX="65.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleAddGradeClick" prefHeight="35.0" prefWidth="98.0" styleClass="button-design" stylesheets="@style.css" text="Add " textFill="WHITE" />
+                <Spinner fx:id="period1GradeSpinner" layoutX="21.0" layoutY="205.0" prefHeight="30.0" prefWidth="183.0" style="-fx-border-color: #002554; -fx-border-radius: 5px;" />
+                <ComboBox fx:id="levelComboBox" layoutX="21.0" layoutY="141.0" prefHeight="32.0" prefWidth="183.0" styleClass="textfield-design" stylesheets="@style.css" />
+                <Text layoutX="21.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Second Period Grade:" wrappingWidth="143.08123779296875">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Text>
+                <Spinner fx:id="period2GradeSpinner" layoutX="21.0" layoutY="279.0" prefHeight="30.0" prefWidth="183.0" style="-fx-border-color: #002554; -fx-border-radius: 5px;" />
+            </children>
+        </AnchorPane>
+        <Button layoutX="419.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleUpdateClick" prefHeight="30.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Update" textFill="WHITE" />
+        <Button layoutX="525.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="30.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Delete " textFill="WHITE" />
+        <Button layoutX="305.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleAddGradeClick" prefHeight="30.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Add " textFill="WHITE" />
+    </children>
+</AnchorPane>
