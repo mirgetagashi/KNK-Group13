@@ -76,16 +76,6 @@
 
 .btn-modify, .btn-cancel{
     -fx-background-color: #002554;
-<<<<<<< Updated upstream
-=======
-}
-.table-header .label{
-    -fx-text-fill: #e29e10;
-}
-
-.btn-modify, .btn-cancel{
-    -fx-background-color: #002554;
->>>>>>> Stashed changes
     -fx-background-radius:20px;
     -fx-cursor:hand;
     -fx-text-fill: #fffff;

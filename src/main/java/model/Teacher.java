@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class Teacher {
     private int id;
     private String firstName;
@@ -7,17 +9,28 @@ public class Teacher {
     private String email;
     private String salt;
     private String passwordHash;
-    private Address address;
+    private int address_id;
+    private String title;
+    private String education;
+    private int school_id;
+    private int subject_id;
+    private String gender;
+    private Date birthday;
 
-    public Teacher(int id, String firstName, String lastName, String email,
-                    String salt, String passwordHash, Address address) {
+    public Teacher(int id, String firstName, String lastName, String email, String salt, String passwordHash, int address_id, String title, String education, int school_id, int subject_id, String gender, Date birthday) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.salt = salt;
         this.passwordHash = passwordHash;
-        this.address = address;
+        this.address_id = address_id;
+        this.title = title;
+        this.education = education;
+        this.school_id = school_id;
+        this.subject_id = subject_id;
+        this.gender = gender;
+        this.birthday = birthday;
     }
 
     public int getId() {
@@ -44,7 +57,31 @@ public class Teacher {
         return passwordHash;
     }
 
-    public Address getAddress() {
-        return address;
+    public int getAddress_id() {
+        return address_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public int getSchool_id() {
+        return school_id;
+    }
+
+    public int getSubject_id() {
+        return subject_id;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public Date getBirthday() {
+        return birthday;
     }
 }

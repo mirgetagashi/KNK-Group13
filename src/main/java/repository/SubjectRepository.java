@@ -53,10 +53,11 @@ public class SubjectRepository {
         try{
             int id = result.getInt("subject_id");
            String name=result.getString("subject_name");
+           int address_id =result.getInt("address_id");
 
 
             return new Subject(
-                    id, name
+                    id, name, address_id
             );
         }catch (Exception e){
             return null;

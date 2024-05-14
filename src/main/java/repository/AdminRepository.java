@@ -49,7 +49,7 @@ public class AdminRepository {
             String email = result.getString("email");
             String salt = result.getString("salt");
             String passwordHash = result.getString("passwordHash");
-            Address address = AddressRepository.getById(result.getInt("address_id"));
+            int address = result.getInt("address_id");
 
 
             return new Administrator(

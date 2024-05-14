@@ -100,7 +100,7 @@ public class NextTeacherController implements Initializable {
         boolean response = TeacherService.signUp(userSignUpData);
 
         if (response) {
-            Navigator.navigate(event, Navigator.LOGIN_PAGE);
+            Navigator.navigate(event, Navigator.ADMIN_TEACHER_PAGE);
         }
 
 

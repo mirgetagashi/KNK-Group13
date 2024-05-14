@@ -23,5 +23,11 @@ public class App extends Application {
 
        // Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
 
+        Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
+
+//        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+
+
+
     }
 }

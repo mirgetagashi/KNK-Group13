@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -43,7 +44,7 @@
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="57.0" layoutY="208.0" onMouseClicked="#settings" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="57.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/settings.png" />
                      </image>
@@ -83,5 +84,9 @@
          </children>
       </VBox>
       <AnchorPane fx:id="dashboardPane" prefHeight="572.0" prefWidth="693.0" />
+      <AnchorPane fx:id="dashboardPane" prefHeight="572.0" prefWidth="693.0">
+         <children>
+            <Label fx:id="lblTest" layoutX="304.0" layoutY="196.0" prefHeight="18.0" prefWidth="178.0" />
+         </children></AnchorPane>
    </children>
 </HBox>
