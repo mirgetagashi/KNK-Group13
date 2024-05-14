@@ -1,12 +1,21 @@
 package controller;
 
 import app.Navigator;
+import app.SessionManager.AdminSession;
+import app.SessionManager.StudentSession;
+import app.SessionManager.TeacherSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import model.Administrator;
+import model.Students;
+import model.Teacher;
 import model.dto.LoginUserDto;
+import repository.AdminRepository;
+import repository.StudentRepository;
+import repository.TeacherRepository;
 import service.AdminService;
 import service.StudentService;
 import service.TeacherService;
@@ -23,19 +32,35 @@ public class LoginController {
                 this.pwdPassword.getText()
         );
         boolean isLogedIn;
+        String useremail=this.txtEmail.getText();
 
-        if (this.txtEmail.getText().contains("@student")) {
+        if (useremail.contains("@student")) {
             isLogedIn = StudentService.login(loginUserData);
-        } else if (this.txtEmail.getText().contains("@teacher")) {
+        } else if (useremail.contains("@teacher")) {
             isLogedIn = TeacherService.login(loginUserData);
-        }else if (this.txtEmail.getText().contains("@admin")) {
+        }else if (useremail.contains("@admin")) {
             isLogedIn = AdminService.login(loginUserData);
         } else {
             isLogedIn = false;
         }
 
-        if(!isLogedIn){
-            Navigator.navigate(ae, Navigator.LOGIN_PAGE);
+        if(isLogedIn){
+            if(useremail.contains("@student")){
+                Students student= StudentRepository.getByEmail(useremail);
+                StudentSession.setStudent(student);
+                Navigator.navigate(ae,Navigator.STUDENT_PAGE);
+            }else if(useremail.contains("@teacher")){
+                Teacher teacher= TeacherRepository.getByEmail(useremail);
+                TeacherSession.setTeacher(teacher);
+                Navigator.navigate(ae,Navigator.TEACHER_PAGE);
+            }else if(useremail.contains("@admin")){
+                Administrator admin= AdminRepository.getByEmail(useremail);
+                AdminSession.setAdmin(admin);
+                Navigator.navigate(ae,Navigator.ADMIN_PAGE);
+            }else {
+                Navigator.navigate(ae,Navigator.LOGIN_PAGE);
+            }
+
         }
 
     }

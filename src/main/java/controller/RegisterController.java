@@ -64,9 +64,9 @@ public class RegisterController {
 
         if (response) {
             if(this.txtEmail.getText().contains("@student")){
-                Navigator.navigateee(vPane, Navigator.NEXT_STUDENT, userSignUpData);
+                Navigator.navigateWithDto(vPane, Navigator.NEXT_STUDENT, userSignUpData);
             }else {
-                Navigator.navigateee(vPane, Navigator.NEXT_TEACHER, userSignUpData);
+                Navigator.navigateWithDto(vPane, Navigator.NEXT_TEACHER, userSignUpData);
             }
 
         }

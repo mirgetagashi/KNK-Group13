@@ -51,6 +51,10 @@ address_id integer not null,
 foreign key(address_id) references Address(address_id)
 );
 
+
+insert into Administrator (a_name, a_lastName, email, salt, passwordHash, address_id)
+values ("Mirgeta","Gashi","mirgeta.gashi@admin.com","WRF/dgaooVSOOpRAWZVT02zXDu5L+BGXZTPsom/KGSo=","5752462f6467616f6f56534f4f705241575a565430327a584475354c2b4247585a5450736f6d2f4b47536f3d6e76aa12a6fb420a108006aece4d0962214f2ddf41b785a3fbf101cfe2bace1e",1);
+
 create table Subjects(
 subject_id integer primary key auto_increment,
 subject_name varchar(100) not null

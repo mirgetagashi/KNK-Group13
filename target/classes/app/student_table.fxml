@@ -5,7 +5,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< Updated upstream
 <VBox prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentTableController">
+=======
+<<<<<<< Updated upstream
+=======
+<?import java.lang.String?>
+
+
+>>>>>>> Stashed changes
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> Stashed changes
     <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
          <children>
