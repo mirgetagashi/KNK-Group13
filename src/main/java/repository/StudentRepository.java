@@ -5,10 +5,7 @@ import model.dto.CreateStudentDto;
 import model.dto.StudentDto;
 import service.DBConnector;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class StudentRepository {
@@ -117,6 +114,38 @@ public class StudentRepository {
         }catch (Exception e){
             return null;
         }
+    }
+
+    //nje funksion qe ta kthen hashpasswordin e studentit qe u bo login permes id ose permes emailes
+    public static String getSaltById(int studentId){
+        String query = "SELECT salt FROM Students WHERE id = ?";
+        try(Connection connection = DBConnector.getConnection();
+        PreparedStatement pst = connection.prepareStatement(query)){
+            pst.setInt(1, studentId);
+            try(ResultSet resultSet = pst.executeQuery()){
+                if (resultSet.next()){
+                    return resultSet.getString("salt");
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //nje funksion tjt qe ja qoj si parameter dto e servisit edhe e ekzekuton queryn qe e nrron passwordin ne db
+    public static boolean updatePassword(int studentId, String newPassword) {
+        String query = "UPDATE Students SET passwordHash = ? WHERE id = ?;";
+        try (Connection connection = DBConnector.getConnection();
+             PreparedStatement pst = connection.prepareStatement(query)) {
+            pst.setString(1, newPassword);
+            pst.setInt(2, studentId);
+            int rowsAffected = pst.executeUpdate();
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 

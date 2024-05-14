@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminNavigatorController">
    <children>
       <VBox prefHeight="572.0" prefWidth="156.0">
          <children>
-            <AnchorPane fx:id="side_ankerpane" prefHeight="572.0" prefWidth="190.0" styleClass="side-anchor" stylesheets="@style.css">
+            <AnchorPane fx:id="side_ankerpane" prefHeight="572.0" prefWidth="201.0" styleClass="side-anchor" stylesheets="@style.css">
                <children>
                   <Pane layoutX="12.0" layoutY="22.0" prefHeight="53.0" prefWidth="187.0" styleClass="inner_pane" stylesheets="@style.css">
                      <children>
@@ -28,7 +28,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="8.0" layoutY="107.0" mnemonicParsing="false" onMouseClicked="#dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="        Dashboard" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="8.0" layoutY="107.0" mnemonicParsing="false" onMouseClicked="#handleDashboardClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="        Dashboard" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
@@ -38,7 +38,7 @@
                         <Image url="@../Images/statistics.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="14.0" layoutY="199.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Settings" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="14.0" layoutY="199.0" mnemonicParsing="false" onMouseClicked="#handleSettingsClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Settings" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <Image url="@../Images/settings.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="8.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="8.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#handleHelpClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
@@ -58,22 +58,22 @@
                         <Image url="@../Images/help.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="9.0" layoutY="291.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="     Profile" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="9.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#handleProfileClick" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="     Profile" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="59.0" layoutY="301.0" onMouseDragged="#profile" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="59.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/profile.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="1.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Edit " textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="25.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#handleStudentsClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Students" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="60.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="58.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/edit.png" />
                      </image>
@@ -82,5 +82,6 @@
             </AnchorPane>
          </children>
       </VBox>
+      <AnchorPane fx:id="dashboardPane" prefHeight="572.0" prefWidth="693.0" />
    </children>
 </HBox>

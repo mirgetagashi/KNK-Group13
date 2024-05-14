@@ -13,11 +13,15 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-<<<<<<< Updated upstream
-        Navigator.navigate(stage, Navigator.REGISTER_PAGE);
-=======
+
         Navigator.navigate(stage, Navigator.LOGIN_PAGE);
 
->>>>>>> Stashed changes
+        //Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+
+
+        //Navigator.navigate(stage, Navigator.STUDENT_CHART);
+
+       // Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
+
     }
 }

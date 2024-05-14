@@ -1,10 +1,17 @@
 package controller;
+import app.SessionManager.StudentSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import repository.AddressRepository;
+import repository.SchoolRepository;
 
-public class StudentProfileController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class StudentProfileController implements Initializable {
     @FXML
     private Label address;
 
@@ -45,4 +52,16 @@ public class StudentProfileController {
 
     }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        firstName.setText(StudentSession.getStudent().getFirstName());
+        lastName.setText(StudentSession.getStudent().getLastName());
+        gender.setText(StudentSession.getStudent().getGender());
+        level.setText(String.valueOf(StudentSession.getStudent().getLevel()));
+        school.setText(SchoolRepository.getById(StudentSession.getStudent().getSchool()).getName());
+        email.setText(StudentSession.getStudent().getEmail());
+        birthday.setText(String.valueOf(StudentSession.getStudent().getBirthday()));
+        address.setText(AddressRepository.getById(StudentSession.getStudent().getAddress()).getCity());
+    }
 }

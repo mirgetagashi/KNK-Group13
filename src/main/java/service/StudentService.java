@@ -6,9 +6,11 @@ import model.dto.LoginUserDto;
 import model.dto.StudentDto;
 import repository.StudentRepository;
 
+import java.sql.SQLException;
+
 public class StudentService {
 
-    public static boolean signUp(StudentDto userData){
+    public static boolean signUp(StudentDto userData) {
         String password = userData.getPassword();
         String confirmPassword = userData.getConfirmPassword();
 
@@ -34,9 +36,10 @@ public class StudentService {
 
         return StudentRepository.create(createStudentData);
     }
-    public static boolean login(LoginUserDto loginData){
+
+    public static boolean login(LoginUserDto loginData) {
         Students user = StudentRepository.getByEmail(loginData.getEmail());
-        if(user == null){
+        if (user == null) {
             return false;
         }
 
@@ -49,3 +52,4 @@ public class StudentService {
         );
     }
 }
+

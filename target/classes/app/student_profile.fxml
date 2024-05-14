@@ -1,86 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentProfileController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="401.0" prefWidth="687.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="401.0" prefWidth="687.0" style="-fx-background-color: #EAEBEE;" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="93.0" fitWidth="87.0" layoutX="194.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" styleClass="student-profile">
-               <image>
-                  <Image url="@../Images/user (2).png" />
-               </image>
-            </ImageView>
-            <Label fx:id="firstName" layoutX="175.0" layoutY="160.0" prefHeight="18.0" prefWidth="70.0" styleClass="first-name" text="fn">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="lastName" layoutX="260.0" layoutY="160.0" prefHeight="18.0" prefWidth="70.0" styleClass="last-name" text="ln">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="school" layoutX="175.0" layoutY="197.0" prefHeight="18.0" prefWidth="146.0" styleClass="school" text="sc">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="birthday" layoutX="175.0" layoutY="268.0" styleClass="birthday" text="bd">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Text layoutX="175.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <Text layoutX="173.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <Label fx:id="gender" layoutX="175.0" layoutY="328.0" styleClass="gender" text="gen">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="email" layoutX="496.0" layoutY="59.0" styleClass="email" text="Label">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="address" layoutX="496.0" layoutY="122.0" styleClass="address" text="Label">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label fx:id="level" layoutX="496.0" layoutY="176.0" styleClass="level" text="Label">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Text layoutX="390.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <Text layoutX="389.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <Text layoutX="390.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
-               <font>
-                  <Font size="14.0" />
-               </font></Text>
-            <Button fx:id="modify" layoutX="368.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleModify" prefHeight="26.0" prefWidth="87.0" styleClass="btn-modify" text="Modify" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button fx:id="cancel" layoutX="484.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="26.0" prefWidth="87.0" styleClass="btn-cancel" text="Cancel" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
+            <Pane layoutX="41.0" layoutY="27.0" prefHeight="344.0" prefWidth="579.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
+               <children>
+                  <Label fx:id="email" layoutX="373.0" layoutY="150.0" styleClass="email" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Text fill="#002554" layoutX="308.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#002554" layoutX="308.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#002554" layoutX="308.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#002554" layoutX="76.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full name:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#002554" layoutX="76.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#002554" layoutX="76.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#002554" layoutX="76.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="firstName" layoutX="162.0" layoutY="150.0" prefHeight="20.0" prefWidth="73.0" styleClass="first-name" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastName" layoutX="225.0" layoutY="150.0" prefHeight="20.0" prefWidth="74.0" styleClass="last-name" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="school" layoutX="162.0" layoutY="184.0" prefHeight="18.0" prefWidth="146.0" styleClass="school" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="93.0" fitWidth="87.0" layoutX="235.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" styleClass="student-profile">
+                     <image>
+                        <Image url="@../Images/user (2).png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="gender" layoutX="162.0" layoutY="266.0" styleClass="gender" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="address" layoutX="373.0" layoutY="205.0" styleClass="address" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="level" layoutX="373.0" layoutY="265.0" styleClass="level" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="birthday" layoutX="162.0" layoutY="229.0" textAlignment="CENTER" />
+                  <Text fill="#002554" layoutX="213.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student's profile">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
          </children>
     </AnchorPane>
-      <Line endX="100.0" startX="-100.0" />
   </children>
 </VBox>

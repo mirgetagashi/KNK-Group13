@@ -1,17 +1,42 @@
 package controller;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
+import model.Students;
+import service.StudentService;
+
+import java.sql.SQLException;
 
 public class SettingsStudentController {
+
     @FXML
     private ChoiceBox<?> choiceBox;
-    @FXML
-    private TextField confirmNewPwd;
 
     @FXML
-    private TextField newPwd;
+    private PasswordField confirmNewPwd;
 
     @FXML
-    private TextField oldPwd;
+    private PasswordField newPwd;
+
+    @FXML
+    private PasswordField oldPwd;
+
+    @FXML
+    void handleCancel(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void handleSave(ActionEvent event) throws SQLException {
+
+    }
+
+
 }
+
+
+

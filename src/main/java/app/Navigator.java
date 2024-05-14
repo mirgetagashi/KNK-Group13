@@ -29,6 +29,9 @@ public class Navigator {
 
 
     public  final static String STUDENT_TABLE="student_table.fxml";
+    public  final static String STUDENT_CHART="student_chart.fxml";
+
+    public  final static String STUDENT_PROFILE="student_profile.fxml";
 
 
 
