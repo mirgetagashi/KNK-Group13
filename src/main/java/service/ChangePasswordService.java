@@ -6,6 +6,6 @@ public class ChangePasswordService {
     // a jon krejt ne rregull e mer salt edhe hashpasswordin prej db per qat student edhe e mer passwordin e ri ja bashkangjit salt
     //edhe e gjeneron hashin e ri e qon ni dto te repository
 
-    
+
 
 }

@@ -187,4 +187,80 @@ GROUP BY
     s.school_id, s.school_name, a.city;
 
 select * from School_info;
-               
+
+insert into subjects (subject_name)
+values("Matematike"),
+	  ("Gjuhe shqipe"),
+      ("Biologji"),
+      ("Kimi"),
+      ("Fizike"),
+      ("Gjeografi"),
+      ("Histori"),
+      ("Muzike"),
+      ("Edukate fizike"),
+      ("Teknologji"),
+      ("Astronomi"),
+      ("Psikologji"),
+      ("Filozofi"),
+      ("Anatomi"),
+      ("Kontabilitet");
+
+      insert into majors(major_name)
+      values ("Gjimnaz natyror"),
+      	   ("Gjimnaz shoqeror"),
+             ("Ekonomi"),
+             ("Mjekesi");
+             insert into majors(major_name)
+             values("Teknike");
+
+insert into School (school_name, address_id)
+values("Aleksander Xhuvani", 1),
+	   ("Fan Noli", 1),
+       ("Xhevdet Doda", 2),
+       ("Sami Frasheri", 2),
+       ("Remzi Ademaj", 3),
+       ("Ymer Prizreni", 3),
+       ("Mehmet Isai", 4),
+       ("Zenel Hajdini", 4),
+       ("Frang Bardhi", 5),
+       ("Hasan Prishtina", 5);
+       insert into school(school_name, address_id)
+       values("Xheladin Deda", 5);
+
+insert into school_major(school_id, major_id)
+values(11, 4),
+	  (10, 3),
+      (9, 1),
+      (9, 2),
+      (8, 1),
+      (8, 2),
+      (7, 5),
+      (6, 1),
+      (6, 2),
+      (5, 3),
+      (4, 1),
+      (4, 2),
+      (3, 1),
+      (3, 2),
+      (2, 5),
+      (1, 1),
+      (1, 2);
+
+      insert  into Grade_level(level_name)
+      values ("Klasa e 10-te"),
+      	   ("Klasa e 11-te"),
+             ("Klasa e 12-te");
+
+insert into Period(period_name)
+values ("Perioda e pare"),
+	   ("Perioda e dyte");
+
+	   INSERT INTO Address (city)
+       VALUES ('Podujeva'),
+              ('Prishtina'),
+              ('Prizren'),
+              ('Gjilan'),
+              ('Mitrovica');
+              select * from address;
+
+
