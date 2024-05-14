@@ -8,6 +8,8 @@ import service.DBConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class TeacherRepository {
     public static boolean create(CreateTeacherDto userData){
@@ -72,19 +74,43 @@ public class TeacherRepository {
         }
     }
 
+    public static ArrayList<Teacher> getAllTeachers(){
+        ArrayList<Teacher> teachers = new ArrayList<>();
+        String query = "SELECT * FROM Teachers;";
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+            while (result.next()){
+                Teacher teacher= getFromResultSet(result);
+                teachers.add(teacher);
+            }
+        }catch (Exception e){
+            return null;
+        }
+        return teachers;
+    }
+
     private static Teacher getFromResultSet(ResultSet result){
         try{
-            int id = result.getInt("id");
+            int id = result.getInt("t_id");
             String firstName = result.getString("t_name");
             String lastName = result.getString("t_lastName");
             String email = result.getString("email");
             String salt = result.getString("salt");
             String passwordHash = result.getString("passwordHash");
-            Address address = AddressRepository.getById(result.getInt("address_id"));
+            int address = result.getInt("address_id");
+            String title=result.getString("title");
+            String education= result.getString("education");
+            int school_id=result.getInt("school_id");
+            int subject_id=result.getInt("subject_id");
+            String gender=result.getString("gender");
+            Date birthday=result.getDate("birthday");
+
 
 
             return new Teacher(
-                    id, firstName, lastName, email, salt, passwordHash, address
+                    id, firstName, lastName, email, salt, passwordHash, address,title,education,school_id,subject_id,gender,birthday
             );
         }catch (Exception e){
             return null;

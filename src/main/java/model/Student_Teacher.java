@@ -1,31 +1,31 @@
 package model;
 
 public class Student_Teacher {
-    private Students student;
-    private Teacher teacher;
-    private Subject subject;
-    private Period period;
+    private int student_id;
+    private int teacher_id;
+    private int subject_id;
+    private int period_id;
 
-    public Student_Teacher(Students student, Teacher teacher, Subject subject, Period period) {
-        this.student = student;
-        this.teacher = teacher;
-        this.subject = subject;
-        this.period = period;
+    public int getStudent_id() {
+        return student_id;
     }
 
-    public Students getStudent() {
-        return student;
+    public int getTeacher_id() {
+        return teacher_id;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public int getSubject_id() {
+        return subject_id;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public int getPeriod_id() {
+        return period_id;
     }
 
-    public Period getPeriod() {
-        return period;
+    public Student_Teacher(int student_id, int teacher_id, int subject_id, int period_id) {
+        this.student_id = student_id;
+        this.teacher_id = teacher_id;
+        this.subject_id = subject_id;
+        this.period_id = period_id;
     }
 }

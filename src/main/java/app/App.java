@@ -13,10 +13,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-
-        Navigator.navigate(stage, Navigator.TEACHER_TABLE);
+        Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
 
 //        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+
 
 
     }

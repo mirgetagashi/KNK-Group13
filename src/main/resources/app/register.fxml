@@ -43,7 +43,7 @@
 
 <VBox fx:id="vPane" prefHeight="424.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="424.0" prefWidth="320.0" styleClass="login-bg" stylesheets="@style.css" VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="424.0" prefWidth="320.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
             <children>
                 <AnchorPane layoutY="-1.0" prefHeight="456.0" prefWidth="320.0" style="-fx-background-color: #ffff;">
                     <children>

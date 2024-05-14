@@ -12,12 +12,12 @@ public class Teacher {
     private int address_id;
     private String title;
     private String education;
-    private String school_id;
+    private int school_id;
     private int subject_id;
     private String gender;
     private Date birthday;
 
-    public Teacher(int id, String firstName, String lastName, String email, String salt, String passwordHash, int address_id, String title, String education, String school_id, int subject_id, String gender, Date birthday) {
+    public Teacher(int id, String firstName, String lastName, String email, String salt, String passwordHash, int address_id, String title, String education, int school_id, int subject_id, String gender, Date birthday) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -69,7 +69,7 @@ public class Teacher {
         return education;
     }
 
-    public String getSchool_id() {
+    public int getSchool_id() {
         return school_id;
     }
 

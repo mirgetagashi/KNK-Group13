@@ -7,17 +7,17 @@ public class Administrator {
     private String email;
     private String salt;
     private String passwordHash;
-    private Address address;
+    private int address_id;
 
     public Administrator(int id, String firstName, String lastName, String email,
-                     String salt, String passwordHash, Address address) {
+                     String salt, String passwordHash, int address_id) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.salt = salt;
         this.passwordHash = passwordHash;
-        this.address = address;
+        this.address_id = address_id;
     }
 
     public int getId() {
@@ -32,8 +32,8 @@ public class Administrator {
         return lastName;
     }
 
-    public Address getAddress() {
-        return address;
+    public int getAddress() {
+        return address_id;
     }
 
     public String getEmail() {

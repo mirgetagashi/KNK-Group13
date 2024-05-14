@@ -17,10 +17,10 @@ public class SchoolRepository {
    public static ArrayList<String> getSchoolByCity(String city) {
        ArrayList<String> schools = new ArrayList<>();
 
-       String query = "SELECT s.school_name FROM School s " +
-               "INNER JOIN address_school cs ON cs.school_id = s.school_id " +
-               "INNER JOIN Address a ON a.address_id = cs.address_id " +
-               "WHERE a.city = ?";
+       String query = "SELECT s.school_name " +
+               "FROM School s "+
+               "INNER JOIN Address a ON a.address_id = s.address_id " +
+               "WHERE a.city= ?;";
        Connection conn = DBConnector.getConnection();
        try{
            PreparedStatement pst = conn.prepareStatement(query);
@@ -90,8 +90,9 @@ public class SchoolRepository {
         try{
             int id = result.getInt("school_id");
             String name = result.getString("school_name");
+            int address_id=result.getInt("address_id");
             return new School(
-                    id, name
+                    id, name, address_id
             );
         }catch (Exception e){
             return null;
