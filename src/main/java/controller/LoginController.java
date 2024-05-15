@@ -48,7 +48,7 @@ public class LoginController {
             if(useremail.contains("@student")){
                 Students student= StudentRepository.getByEmail(useremail);
                 StudentSession.setStudent(student);
-                Navigator.navigate(ae,Navigator.STUDENT_SETTINGS);
+                Navigator.navigate(ae,Navigator.STUDENT_PROFILE);
             }else if(useremail.contains("@teacher")){
                 Teacher teacher= TeacherRepository.getByEmail(useremail);
                 TeacherSession.setTeacher(teacher);

@@ -30,6 +30,7 @@ public class Navigator {
     public  final static String ADMIN_TEACHER_PAGE="admin_teachers_table.fxml";
     public  final static String STUDENT_TABLE="student_table.fxml";
     public  final static String STUDENT_CHART="student_chart.fxml";
+    public  final static String FORGET_PASSWORD="Forget_Password.fxml";
     public  final static String STUDENT_SETTINGS="settings_student.fxml";
 
     public  final static String STUDENT_PROFILE="student_profile.fxml";
