@@ -1,5 +1,6 @@
 package controller;
 
+import app.Navigator;
 import app.SessionManager.TeacherSession;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -16,6 +17,8 @@ import repository.GradeLevelRepository;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
 import repository.GradeRepository;
+import repository.TeacherTableRepository;
+import service.GradeService;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -56,6 +59,9 @@ public class TeacherTableController implements Initializable {
     @FXML
     private TableColumn<Grades, Integer> finalGradeColumn;
 
+    @FXML
+    private TableColumn<Grades, String> editColumn;
+
 
     @FXML
     private void handleAddGradeClick (ActionEvent ae){
@@ -69,15 +75,38 @@ public class TeacherTableController implements Initializable {
                 this.period2GradeSpinner.getValue()
 
         );
-
-
-    };
+        boolean response= GradeService.addGrade(teacherTableDto);
+        if (response) {
+            Navigator.navigate(ae, Navigator.TEACHER_TABLE);
+        }
+    }
     @FXML
     private void handleUpdateClick(ActionEvent ae){
 
     }
     @FXML
-    private void handleDeleteClick(ActionEvent ae){
+    private void handleDeleteClick(ActionEvent event){
+        {
+
+            Grades selectedGrade = studentTable.getSelectionModel().getSelectedItem();
+
+
+            if (selectedGrade != null) {
+
+                boolean deleted = GradeRepository.deleteGrade(selectedGrade.getGrade_id());
+
+
+                if (deleted) {
+
+                    studentTable.getItems().remove(selectedGrade);
+                    System.out.println("The row has been successfully deleted.");
+                } else {
+                    System.out.println( "Error during row deletion.");
+                }
+            } else {
+                System.out.println("Please select a row to delete.");
+            }
+        }
 
     }
 
@@ -102,22 +131,23 @@ public class TeacherTableController implements Initializable {
         valueFactory2.setValue(1);
         period2GradeSpinner.setValueFactory(valueFactory2);
 
-        ObservableList<Grades> grades = FXCollections.observableArrayList(GradeRepository.getAllGrades());
+        ObservableList<Grades> grades = FXCollections.observableArrayList(TeacherTableRepository.getGradesTable());
         if (studentTable != null) {
-            studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-            levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
-            period1GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period1Grade"));
-            period2GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period2Grade"));
-            finalGradeColumn.setCellValueFactory(new PropertyValueFactory<>("finalGrade"));
+            studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("std_id"));
+            levelColumn.setCellValueFactory(new PropertyValueFactory<>("level_id"));
+            period1GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period1_grade"));
+            period2GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period2_grade"));
+            finalGradeColumn.setCellValueFactory(new PropertyValueFactory<>("final_grade"));
 
             studentTable.setItems(grades);
         } else {
-            System.out.println("studentTable is null.");
+            System.out.println("GradesTable is null.");
         }
 
 
 
     }
+
 
 
 

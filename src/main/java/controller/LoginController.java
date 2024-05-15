@@ -52,7 +52,7 @@ public class LoginController {
             }else if(useremail.contains("@teacher")){
                 Teacher teacher= TeacherRepository.getByEmail(useremail);
                 TeacherSession.setTeacher(teacher);
-                Navigator.navigate(ae,Navigator.TEACHER_PAGE);
+                Navigator.navigate(ae,Navigator.TEACHER_TABLE);
             }else if(useremail.contains("@admin")){
                 Administrator admin= AdminRepository.getByEmail(useremail);
                 AdminSession.setAdmin(admin);
