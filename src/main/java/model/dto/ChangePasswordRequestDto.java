@@ -2,15 +2,13 @@ package model.dto;
 
 //i merr te dhenat prej controllleri
 public class ChangePasswordRequestDto {
+    private int id;
     private String oldPassword;
     private String newPassword;
     private String confirmNewPassword;
 
-    public ChangePasswordRequestDto(String oldPassword, String newPassword, String confirmNewPassword) {
-        this.oldPassword = oldPassword;
-        this.newPassword = newPassword;
-        this.confirmNewPassword = confirmNewPassword;
-    }
+    private String passwordHash;
+    private String salt;
 
     public String getOldPassword() {
         return oldPassword;
@@ -20,19 +18,28 @@ public class ChangePasswordRequestDto {
         return newPassword;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getConfirmNewPassword() {
         return confirmNewPassword;
     }
 
-    public void setOldPassword(String oldPassword) {
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public ChangePasswordRequestDto(int id,String oldPassword, String newPassword, String confirmNewPassword, String passwordHash, String salt) {
         this.oldPassword = oldPassword;
-    }
-
-    public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
-    }
-
-    public void setConfirmNewPassword(String confirmNewPassword) {
         this.confirmNewPassword = confirmNewPassword;
+        this.passwordHash = passwordHash;
+        this.salt = salt;
+        this.id=id;
     }
 }

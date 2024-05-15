@@ -48,7 +48,7 @@ public class LoginController {
             if(useremail.contains("@student")){
                 Students student= StudentRepository.getByEmail(useremail);
                 StudentSession.setStudent(student);
-                Navigator.navigate(ae,Navigator.STUDENT_PROFILE);
+                Navigator.navigate(ae,Navigator.STUDENT_SETTINGS);
             }else if(useremail.contains("@teacher")){
                 Teacher teacher= TeacherRepository.getByEmail(useremail);
                 TeacherSession.setTeacher(teacher);
@@ -66,7 +66,6 @@ public class LoginController {
     }
     @FXML
     private void handleCancelClick(ActionEvent ae){
-
     }
     @FXML
     private void handleCreateAccountClick(MouseEvent me){

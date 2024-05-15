@@ -120,10 +120,7 @@ public class NextStudentController implements Initializable {
         String selectedCity = cityComboBox.getValue();
         ArrayList<String> schools = SchoolRepository.getSchoolByCity(selectedCity);
         schoolComboBox.getItems().addAll(schools);
-
         schoolComboBox.setOnAction(this::handleSchoolSelection);
-
-
     }
 
     private void handleSchoolSelection(ActionEvent ae){

@@ -1,6 +1,7 @@
 package repository;
 
 import model.*;
+import model.dto.ChangePasswordDto;
 import model.dto.CreateStudentDto;
 import model.dto.StudentDto;
 import service.DBConnector;
@@ -27,8 +28,6 @@ public class StudentRepository {
             pst.setInt(9,userData.getPeriod());
             pst.setString(10,userData.getGender());
             pst.setDate(11,userData.getBirthday());
-
-
 
             pst.execute();
             pst.close();
@@ -116,7 +115,6 @@ public class StudentRepository {
         }
     }
 
-    //nje funksion qe ta kthen hashpasswordin e studentit qe u bo login permes id ose permes emailes
     public static String getSaltById(int studentId){
         String query = "SELECT salt FROM Students WHERE id = ?";
         try(Connection connection = DBConnector.getConnection();
@@ -133,20 +131,24 @@ public class StudentRepository {
         return null;
     }
 
-    //nje funksion tjt qe ja qoj si parameter dto e servisit edhe e ekzekuton queryn qe e nrron passwordin ne db
-    public static boolean updatePassword(int studentId, String newPassword) {
-        String query = "UPDATE Students SET passwordHash = ? WHERE id = ?;";
+    public static boolean updatePassword(ChangePasswordDto userData) {
+        String newHashPassword=userData.getNewHashPassword();
+        int id= userData.getId();
+        String query = "UPDATE Students SET passwordHash = ? WHERE std_id = ?;";
         try (Connection connection = DBConnector.getConnection();
              PreparedStatement pst = connection.prepareStatement(query)) {
-            pst.setString(1, newPassword);
-            pst.setInt(2, studentId);
-            int rowsAffected = pst.executeUpdate();
-            return rowsAffected > 0;
-        } catch (Exception e) {
-            e.printStackTrace();
+            pst.setString(1, newHashPassword);
+            pst.setInt(2, id);
+
+            pst.execute();
+            pst.close();
+            connection.close();
+            return true;
+        }catch (Exception e){
+            return false;
         }
-        return false;
     }
+
 
 
 

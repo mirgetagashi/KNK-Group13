@@ -51,8 +51,6 @@ public class StudentProfileController implements Initializable {
     void handleModify(ActionEvent event) {
 
     }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         firstName.setText(StudentSession.getStudent().getFirstName());

@@ -17,7 +17,7 @@ public class SubjectRepository {
 
     public static ArrayList<Subject> getAllSubjects(){
         ArrayList<Subject> subjects = new ArrayList<>();
-        String query = "SELECT * FROM Subjects";
+        String query = "SELECT * FROM Subjects;";
         Connection connection = DBConnector.getConnection();
         try{
             PreparedStatement pst = connection.prepareStatement(query);
@@ -53,11 +53,9 @@ public class SubjectRepository {
         try{
             int id = result.getInt("subject_id");
            String name=result.getString("subject_name");
-           int address_id =result.getInt("address_id");
-
 
             return new Subject(
-                    id, name, address_id
+                    id, name
             );
         }catch (Exception e){
             return null;

@@ -34,7 +34,7 @@
                </image>
             </ImageView>
             <PasswordField fx:id="oldPwd" layoutX="318.0" layoutY="209.0" />
-            <PasswordField fx:id="newPwod" layoutX="318.0" layoutY="259.0" />
+            <PasswordField fx:id="newPwd" layoutX="318.0" layoutY="259.0" />
             <PasswordField fx:id="confirmNewPwd" layoutX="318.0" layoutY="312.0" />
             <Button layoutX="300.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="26.0" prefWidth="111.0" text="Change password" />
             <Button layoutX="442.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />

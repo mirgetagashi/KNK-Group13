@@ -4,7 +4,6 @@ import model.Teacher;
 
 public class TeacherSession {
     private static Teacher teacher;
-
     public static void setTeacher(Teacher newTeacher){
         teacher = newTeacher;
     }

@@ -13,7 +13,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="401.0" prefWidth="687.0" style="-fx-background-color: #EAEBEE;" VBox.vgrow="ALWAYS">
          <children>
-            <Pane layoutX="41.0" layoutY="27.0" prefHeight="344.0" prefWidth="579.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
+            <Pane layoutX="30.0" layoutY="28.0" prefHeight="344.0" prefWidth="579.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
                <children>
                   <Label fx:id="email" layoutX="373.0" layoutY="150.0" styleClass="email" textAlignment="CENTER">
                      <font>

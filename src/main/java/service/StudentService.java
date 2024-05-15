@@ -1,9 +1,7 @@
 package service;
 
 import model.Students;
-import model.dto.CreateStudentDto;
-import model.dto.LoginUserDto;
-import model.dto.StudentDto;
+import model.dto.*;
 import repository.StudentRepository;
 
 import java.sql.SQLException;
@@ -50,6 +48,34 @@ public class StudentService {
         return PasswordHasher.compareSaltedHash(
                 password, salt, passwordHash
         );
+    }
+
+
+    public static boolean changePassword(ChangePasswordRequestDto userData){
+        int id= userData.getId();
+        String salt= userData.getSalt();
+        String passwordHash= userData.getPasswordHash();
+        String oldPassword= userData.getOldPassword();
+        String newPassword= userData.getNewPassword();
+        String confirmNewPassword= userData.getConfirmNewPassword();
+
+        String oldPasswordHash=PasswordHasher.generateSaltedHash(oldPassword,salt);
+        String newPasswordHash=PasswordHasher.generateSaltedHash(newPassword,salt);
+        if(!oldPasswordHash.equals(passwordHash)){
+            return false;
+        }
+
+        if(!newPassword.equals(confirmNewPassword)){
+            return false;
+        }
+
+        if(newPasswordHash.equals(oldPasswordHash)){
+            return false;
+        }
+
+        ChangePasswordDto dto= new ChangePasswordDto(id, newPasswordHash);
+
+        return StudentRepository.updatePassword(dto);
     }
 }
 

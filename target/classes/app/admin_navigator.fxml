@@ -83,7 +83,6 @@
             </AnchorPane>
          </children>
       </VBox>
-      <AnchorPane fx:id="dashboardPane" prefHeight="572.0" prefWidth="693.0" />
       <AnchorPane fx:id="dashboardPane" prefHeight="572.0" prefWidth="693.0">
          <children>
             <Label fx:id="lblTest" layoutX="304.0" layoutY="196.0" prefHeight="18.0" prefWidth="178.0" />
