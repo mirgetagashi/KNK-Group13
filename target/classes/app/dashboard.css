@@ -1,0 +1,17 @@
+.pane{
+-fx-background-radius:10px 10px 10px 10px;
+-fx-border-radius:10px 10px 10px 10px;
+}
+
+.box{
+-fx-background-radius:10px 10px 10px 10px;
+-fx-border-radius:10px 10px 10px 10px;
+}
+
+.default-color0.chart_bar{
+-fx-bar-fill:#002554;
+}
+
+.default-color1.chart_bar{
+-fx-bar-fill:#002554;
+}

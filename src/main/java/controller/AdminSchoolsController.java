@@ -16,6 +16,7 @@ import model.SchoolTable;
 import model.Students;
 import model.dto.CreateSchoolDto;
 import repository.AddressRepository;
+import repository.AdminDashboardRepository;
 import repository.SchoolRepository;
 import repository.StudentRepository;
 import service.SchoolService;
@@ -66,7 +67,7 @@ public class AdminSchoolsController  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<SchoolTable> schoolTables=FXCollections.observableArrayList(SchoolRepository.getSchoolsInfo());
+        ObservableList<SchoolTable> schoolTables=FXCollections.observableArrayList(AdminDashboardRepository.getSchoolsInfo());
         if (tblSchools != null) {
             columnCity.setCellValueFactory(new PropertyValueFactory<>("city"));
             columnNumOfStudents.setCellValueFactory(new PropertyValueFactory<>("numberOfStudents"));

@@ -42,6 +42,26 @@ public class TeacherRepository {
 
     }
 
+
+    public static boolean delete(int id) {
+
+        String query = "DELETE FROM Teachers WHERE t_id = ?";
+
+        try {
+            Connection conn = DBConnector.getConnection();
+            PreparedStatement pst= conn.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+            pst.close();
+            conn.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     public static Teacher getByEmail(String email){
         String query = "SELECT * FROM Teachers WHERE email = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();

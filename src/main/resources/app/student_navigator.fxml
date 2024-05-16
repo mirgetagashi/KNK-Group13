@@ -80,5 +80,6 @@
                </children></AnchorPane>
          </children>
       </VBox>
+      <fx:include source="admin_dashboard.fxml" />
    </children>
 </HBox>

@@ -8,8 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Grades;
+import model.Grades_Teacher_Subject;
 import model.Students;
 import model.Teacher;
+import repository.GradeRepository;
 import repository.StudentRepository;
 import repository.TeacherRepository;
 
@@ -56,6 +59,21 @@ public class AdminTeacherController implements Initializable {
 
     @FXML
     void handleDeleteClick(ActionEvent event) {
+
+        Teacher selectedItem = TeachersTable.getSelectionModel().getSelectedItem();
+
+
+        if (selectedItem != null) {
+
+            boolean deleted = TeacherRepository.delete(selectedItem.getId());
+
+
+            if (deleted) {
+                TeachersTable.getItems().remove(selectedItem);
+            } else {
+            System.out.println("Please select a row to delete.");
+        }
+    }
 
     }
 

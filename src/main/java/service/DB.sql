@@ -283,6 +283,10 @@ LEFT JOIN
     Students st ON s.school_id = st.school_id
 GROUP BY 
     s.school_id, s.school_name, a.city;
+    
+    select * from teachers;
+    
+    select * from grades;
 
 
 CREATE VIEW School_Table_Info AS
@@ -302,4 +306,23 @@ LEFT JOIN
     Students st ON s.school_id = st.school_id
 GROUP BY 
     s.school_id, s.school_name, a.city;
+    
+    use project_knk;
+    
+    select * from grades;
+    
+create view Schools_Statistic as
+SELECT 
+    s.school_name AS School_Name,
+    ROUND(AVG(g.final_grade), 2) AS Average_Grade
+FROM 
+    School s
+INNER JOIN 
+    Students st ON s.school_id = st.school_id
+INNER JOIN 
+    Grades g ON st.std_id = g.std_id
+GROUP BY 
+    s.school_name;
+    
+    SELECT COUNT(*) AS Number_of_Schools FROM School;
 

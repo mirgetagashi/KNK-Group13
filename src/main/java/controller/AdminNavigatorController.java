@@ -1,114 +1,60 @@
-/*package controller;
-
-import app.Navigator;
-import app.SessionManager.AdminSession;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
-
-public class AdminNavigatorController implements Initializable {
-
-    @FXML
-    private AnchorPane dashboardPane;
-
-
-    @FXML
-    private AnchorPane side_ankerpane;
-
-    @FXML
-    private Label lblTest;
-
-
-    @FXML
-    void handleDashboardClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void handleHelpClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void handleProfileClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void handleSettingsClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void handleStudentsClick(MouseEvent event) {
-        Navigator.navigate(dashboardPane,Navigator.ADMIN_STUDENT_PAGE);
-
-    }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        lblTest.setText(AdminSession.getAdmin().getFirstName());
-    }
-}*/
-
 package controller;
 
-import app.SessionManager.AdminSession;
+import app.Navigator;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class AdminNavigatorController implements Initializable {
+public class AdminNavigatorController {
 
     @FXML
-    private AnchorPane dashboardPane;
-
-    @FXML
-    private Label lblTest;
+    private HBox root;
 
     @FXML
     private AnchorPane side_ankerpane;
 
     @FXML
-    void handleDashboardClick(MouseEvent event) {
+    private AnchorPane pane;
+
+    @FXML
+    void handleDashboardClick(ActionEvent event) {
+        //Navigator.navigate(pane,Navigator.ADMIN_DASHBOARD_PAGE);
 
     }
 
     @FXML
-    void handleHelpClick(MouseEvent event) {
+    void handleHelpClick(ActionEvent event) {
+
 
     }
 
     @FXML
-    void handleProfileClick(MouseEvent event) {
+    void handleProfileClick(ActionEvent event) {
+      //  Navigator.navigate(pane,Navigator.navigate(Navigator.ADMIN_PROFILE););
 
     }
 
     @FXML
-    void handleSettingsClick(MouseEvent event) {
+    void handleStudentsClick(ActionEvent event) {
+        Navigator.navigate(pane,Navigator.ADMIN_STUDENT_PAGE);
 
     }
 
     @FXML
-    void handleStudentsClick(MouseEvent event) {
+    void handleTeacherClick(ActionEvent event) {
+        Navigator.navigate(pane,Navigator.ADMIN_TEACHER_PAGE);
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    void hanldeSchoolsClick(ActionEvent event) {
+        Navigator.navigate(pane,Navigator.ADMIN_SCHOOLS_PAGE);
 
     }
+
+
+
+
 }
-

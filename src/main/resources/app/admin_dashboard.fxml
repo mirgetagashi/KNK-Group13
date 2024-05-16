@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dashboardPane" prefHeight="572.0" prefWidth="793.0" style="-fx-background-color: #EAEBEE;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardController">
+   <children>
+      <Pane layoutX="35.0" prefHeight="142.0" prefWidth="723.0" style="-fx-background-color: white;" styleClass="pane" stylesheets="@dashboard.css" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
+         <children>
+            <Pane layoutX="94.0" layoutY="18.0" prefHeight="106.0" prefWidth="125.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+               <children>
+                  <Label fx:id="studentsNumber" layoutX="60.0" layoutY="53.0" prefHeight="17.0" prefWidth="3.0" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="24.0" text="Students Number" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Pane layoutX="253.0" layoutY="18.0" prefHeight="106.0" prefWidth="125.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+               <children>
+                  <Label fx:id="teacherNumber" layoutX="61.0" layoutY="53.0" prefHeight="17.0" prefWidth="3.0" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="16.0" layoutY="24.0" text="Teachers Number" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Pane layoutX="425.0" layoutY="18.0" prefHeight="106.0" prefWidth="125.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+               <children>
+                  <Label fx:id="schoolsNumber" layoutX="50.0" layoutY="53.0" prefHeight="17.0" prefWidth="26.0" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="16.0" layoutY="24.0" text="Schools Number" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <BarChart fx:id="chart" layoutX="44.0" layoutY="235.0" prefHeight="278.0" prefWidth="481.0" styleClass="default-color0" stylesheets="@dashboard.css">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>
