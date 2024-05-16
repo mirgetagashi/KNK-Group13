@@ -16,14 +16,14 @@
          <children>
             <AnchorPane fx:id="side_ankerpane" prefHeight="572.0" prefWidth="184.0" styleClass="side-anchor" stylesheets="@style.css">
                <children>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-2.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#student_dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Dashboard" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-7.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#student_dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Dashboard" textFill="WHITE">
                      <font>
                         <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
                   <ImageView fitHeight="29.0" fitWidth="27.0" layoutX="41.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/home-smile-svgrepo-com.png" />
+                        <Image url="@../Images/dashboard-svgrepo-com.png" />
                      </image>
                   </ImageView>
                   <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-1.0" layoutY="301.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Profile" textFill="WHITE">
@@ -66,7 +66,7 @@
                         <Image url="@../Images/settings-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <Line endX="93.10000610351562" layoutX="100.0" layoutY="155.0" startX="-100.0" stroke="WHITE" strokeMiterLimit="0.0" strokeWidth="1.9" />
+                  <Line endX="93.10000610351562" layoutX="100.0" layoutY="155.0" startX="-100.0" stroke="#fafafa" strokeMiterLimit="0.0" strokeWidth="0.6" />
                   <ImageView fitHeight="71.0" fitWidth="72.0" layoutX="59.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/profile.png" />
