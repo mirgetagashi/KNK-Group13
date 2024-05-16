@@ -14,9 +14,9 @@ public class App extends Application {
 
 
 
-//      Navigator.navigate(stage, Navigator.STUDENT_CHART);
-   Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
-//      Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
+// Navigator.navigate(stage, Navigator.STUDENT_CHART);
+  Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+  //    Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
 //        Navigator.navigate(stage, Navigator.FORGET_PASSWORD);
         //   Navigator.navigate(stage, Navigator.STUDENT_CHART);
         //   Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
