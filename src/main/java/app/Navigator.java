@@ -84,10 +84,6 @@ public class Navigator {
     }
 
 
-
-
-
-
     public static void navigate(Pane pane, String form){
         Pane formPane = loadPane(form);
         pane.getChildren().clear();

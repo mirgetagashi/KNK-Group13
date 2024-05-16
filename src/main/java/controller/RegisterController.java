@@ -69,6 +69,24 @@ public class RegisterController {
                 Navigator.navigateWithDto(vPane, Navigator.NEXT_TEACHER, userSignUpData);
             }
 
+        }else {
+            if(!Validator.firstNameValidate(txtFirstName.getText())){
+                txtFirstName.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.lastNameValidate(txtLastName.getText())){
+                txtLastName.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.emailValidate(txtEmail.getText())){
+                txtEmail.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.birthdayValidate(birthday)){
+                datePickerBirthday.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.passwordValidate(pwdPassword.getText(), pwdConfirmPassword.getText())){
+                pwdPassword.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+                pwdConfirmPassword.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+
         }
     }
 

@@ -7,7 +7,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.PasswordHasher;
 
-import java.io.IOException;
 
 public class App extends Application {
     @Override
@@ -15,10 +14,14 @@ public class App extends Application {
 
 
 
-//       Navigator.navigate(stage, Navigator.STUDENT_CHART);
-  //   Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
-//       Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
+// Navigator.navigate(stage, Navigator.STUDENT_CHART);
+  Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+  //    Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
 //        Navigator.navigate(stage, Navigator.FORGET_PASSWORD);
+        //   Navigator.navigate(stage, Navigator.STUDENT_CHART);
+        //   Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
+        //     Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
+        //       Navigator.navigate(stage, Navigator.FORGET_PASSWORD);
 //       Navigator.navigate(st`age, Navigator.ADMIN_TEACHER_PAGE);
           Navigator.navigate(stage, Navigator.ADMIN_DASHBOARD);
 //        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
