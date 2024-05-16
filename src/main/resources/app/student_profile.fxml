@@ -131,6 +131,7 @@
                   <Line endX="65.40168762207031" endY="190.56048583984375" layoutX="39.0" layoutY="151.0" startX="-37.784812927246094" startY="86.27426147460938" stroke="#b29758" />
                   <Line endX="55.99998474121094" endY="-25.201751708984375" layoutX="51.0" layoutY="165.0" startX="-29.259044647216797" startY="179.0" stroke="#b29758" />
                   <Line endX="-18.550334930419922" endY="-136.6068572998047" layoutX="57.0" layoutY="139.0" startX="-7.300270080566406" startY="201.75009155273438" stroke="#b29758" />
+                  <ImageView fitHeight="69.0" fitWidth="105.0" layoutX="420.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
          </children>

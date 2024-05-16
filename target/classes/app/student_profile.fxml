@@ -24,7 +24,7 @@
                         <Font size="12.5" />
                      </font>
                   </Label>
-                  <Text fill="#7c7c7c" layoutX="424.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="62.32734869917317">
+                  <Text fill="#7c7c7c" layoutX="524.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="62.32734869917317">
                      <font>
                         <Font size="8.0" />
                      </font>
@@ -39,7 +39,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="24.0" fitWidth="19.0" layoutX="483.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" styleClass="student-profile">
+                  <ImageView fitHeight="24.0" fitWidth="19.0" layoutX="521.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="student-profile">
                      <image>
                         <Image url="@../Images/people.png" />
                      </image>
@@ -115,7 +115,7 @@
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="360.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="CENTER">
+                  <Text fill="#727272" layoutX="360.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -131,11 +131,6 @@
                   <Line endX="65.40168762207031" endY="190.56048583984375" layoutX="39.0" layoutY="151.0" startX="-37.784812927246094" startY="86.27426147460938" stroke="#b29758" />
                   <Line endX="55.99998474121094" endY="-25.201751708984375" layoutX="51.0" layoutY="165.0" startX="-29.259044647216797" startY="179.0" stroke="#b29758" />
                   <Line endX="-18.550334930419922" endY="-136.6068572998047" layoutX="57.0" layoutY="139.0" startX="-7.300270080566406" startY="201.75009155273438" stroke="#b29758" />
-                  <Label fx:id="firstName1" alignment="CENTER" contentDisplay="CENTER" layoutX="503.0" layoutY="7.0" prefHeight="15.0" prefWidth="82.0" style="-fx-border-color: grey; -fx-border-radius: 30;" styleClass="first-name" textAlignment="CENTER" textFill="#727272">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
                </children>
             </Pane>
          </children>
