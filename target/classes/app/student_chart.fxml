@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentChartController">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="458.0" prefWidth="710.0" VBox.vgrow="ALWAYS">
-         <children>
-            <PieChart fx:id="gradeChart" layoutX="548.0" layoutY="48.0" prefHeight="257.0" prefWidth="315.0" title="Grade Chart" />
-            <LineChart layoutX="25.0" layoutY="143.0" prefHeight="211.0" prefWidth="350.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-         </children>
-    </AnchorPane>
-  </children>
+<VBox prefHeight="600.0" prefWidth="640.0" spacing="20" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentChartController" style="-fx-padding: 10;">
+
+    <Label fx:id="studentNameLabel" text="Emri i Studentit" style="-fx-font-size: 16px; -fx-padding: 10;"/>
+
+    <LineChart fx:id="gradesLineChart" prefHeight="200.0" prefWidth="600.0">
+        <xAxis>
+            <CategoryAxis label="Lëndët"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Notat"/>
+        </yAxis>
+    </LineChart>
+    <PieChart fx:id="gradeChart" layoutX="176.0" layoutY="42.0" prefHeight="290.0" prefWidth="400.0" title="Grade Chart" />
 </VBox>
