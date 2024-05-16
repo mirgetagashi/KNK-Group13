@@ -53,10 +53,7 @@ public class SubjectRepository {
         try{
             int id = result.getInt("subject_id");
            String name=result.getString("subject_name");
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 
             return new Subject(
                     id, name
