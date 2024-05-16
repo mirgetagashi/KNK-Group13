@@ -14,6 +14,7 @@ public class App extends Application {
     public void start(Stage stage) {
 
 
+<<<<<<< Updated upstream
 
           Navigator.navigate(stage, Navigator.ADMIN_SCHOOLS_PAGE);
 //        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
@@ -23,6 +24,15 @@ public class App extends Application {
 //        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
 //        Navigator.navigate(stage, Navigator.ADMIN_TEACHER_PAGE);
 
+=======
+ //       Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+      Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+//       Navigator.navigate(stage, Navigator.STUDENT_CHART);
+  //   Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
+//       Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
+//        Navigator.navigate(stage, Navigator.FORGET_PASSWORD);
+//       Navigator.navigate(st`age, Navigator.ADMIN_TEACHER_PAGE);
+>>>>>>> Stashed changes
 
 
 
