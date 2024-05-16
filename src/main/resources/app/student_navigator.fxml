@@ -67,12 +67,12 @@
                         <Image url="@../Images/settings-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="71.0" fitWidth="72.0" layoutX="56.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="71.0" fitWidth="72.0" layoutX="67.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/profile.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="62.0" layoutY="129.0" text="Lum Hoxha" textFill="WHITE">
+                  <Label layoutX="70.0" layoutY="130.0" text="Lum Hoxha" textFill="WHITE">
                      <font>
                         <Font name="Fahkwang Medium" size="13.0" />
                      </font>
@@ -110,7 +110,7 @@
                   </Label>
                   <Line endX="92.40640258789062" endY="7.62939453125E-6" layoutX="106.0" layoutY="404.0" startX="-100.0" stroke="WHITE" />
                   <CubicCurve controlX1="-50.0" controlX2="-4.194862365722656" controlY1="-100.0" controlY2="64.0" endX="135.0" endY="-18.0" fill="#002554" layoutX="61.0" layoutY="174.0" startX="-121.0" startY="4.0" stroke="WHITE" />
-                  <CubicCurve controlX1="-50.0" controlX2="-4.194862365722656" controlY1="-100.0" controlY2="64.0" endX="-132.19485473632812" endY="-29.29290771484375" fill="#002554" layoutX="146.0" layoutY="434.0" startX="-146.0" startY="3.0" stroke="WHITE" />
+                  <CubicCurve controlX1="-50.0" controlX2="-4.194862365722656" controlY1="-100.0" controlY2="64.0" endX="-140.7071075439453" endY="-30.70709228515625" fill="#002554" layoutX="146.0" layoutY="434.0" startX="-146.0" startY="3.0" stroke="WHITE" />
                </children></AnchorPane>
          </children>
       </VBox>
