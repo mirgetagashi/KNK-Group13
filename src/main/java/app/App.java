@@ -14,12 +14,19 @@ public class App extends Application {
 
 
 
+<<<<<<< Updated upstream
 //      Navigator.navigate(stage, Navigator.STUDENT_CHART);
   //   Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
 //       Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
 //        Navigator.navigate(stage, Navigator.FORGET_PASSWORD);
+=======
+        //   Navigator.navigate(stage, Navigator.STUDENT_CHART);
+        //   Navigator.navigate(stage, Navigator.STUDENT_PROFILE);
+        //     Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
+        //        Navigator.navigate(stage, Navigator.FORGET_PASSWORD);
+>>>>>>> Stashed changes
 //       Navigator.navigate(st`age, Navigator.ADMIN_TEACHER_PAGE);
-
+        
 
 
 
