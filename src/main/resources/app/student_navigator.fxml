@@ -107,6 +107,7 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
+                  <Line endX="92.40640258789062" endY="7.62939453125E-6" layoutX="106.0" layoutY="404.0" startX="-100.0" stroke="#b2b2b2" />
                </children></AnchorPane>
          </children>
       </VBox>
