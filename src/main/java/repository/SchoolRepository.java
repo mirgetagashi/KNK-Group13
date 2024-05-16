@@ -1,9 +1,8 @@
 package repository;
 
-import model.Address;
-import model.Major;
-import model.Period;
-import model.School;
+import model.*;
+import model.dto.CreateSchoolDto;
+import model.dto.CreateStudentDto;
 import service.DBConnector;
 
 import java.sql.Connection;
@@ -13,6 +12,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SchoolRepository {
+
+
+
+    public static boolean create(CreateSchoolDto userData){
+        Connection conn = DBConnector.getConnection();
+        String query = " INSERT INTO SCHOOL (school_name, address_id) VALUES (?, ?); ";
+        try{
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, userData.getName());
+            pst.setInt(2, userData.getAddress_id());
+
+            pst.execute();
+            pst.close();
+            conn.close();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+
 
    public static ArrayList<String> getSchoolByCity(String city) {
        ArrayList<String> schools = new ArrayList<>();
@@ -53,6 +73,29 @@ public class SchoolRepository {
         return schools;
     }
 
+    public static ArrayList<SchoolTable> getSchoolsInfo(){
+        ArrayList<SchoolTable> schools= new ArrayList<>();
+        String query="select * from School_Table_Info";
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            ResultSet result = pst.executeQuery();
+            while(result.next()){
+                schools.add(new SchoolTable(
+                        result.getInt("School_id"),
+                        result.getString("School_Name"),
+                        result.getString("City"),
+                        result.getInt("Number_of_Students"),
+                        result.getInt("Number_of_Majors")
+                ));
+            }
+        }catch (Exception e){
+            System.out.println("Ka problem tek databaza");
+        }
+        return schools;
+
+    }
+
 
 
     public static School getSchoolByName(String school){
@@ -85,6 +128,7 @@ public class SchoolRepository {
             return null;
         }
     }
+
 
     private static School getFromResultSet(ResultSet result){
         try{

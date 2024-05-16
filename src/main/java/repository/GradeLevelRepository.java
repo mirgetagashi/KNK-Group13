@@ -1,6 +1,8 @@
 package repository;
 
+import model.Address;
 import model.Grade_level;
+import model.Major;
 import model.Period;
 import service.DBConnector;
 
@@ -27,6 +29,7 @@ public class GradeLevelRepository {
             return null;
         }
     }
+  
 
     public static ArrayList<Grade_level> getAllLevels() {
         ArrayList<Grade_level> levels = new ArrayList<>();

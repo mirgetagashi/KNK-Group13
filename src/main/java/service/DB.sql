@@ -188,6 +188,8 @@ GROUP BY
 
 select * from School_info;
 
+use project_knk;
+
 insert into subjects (subject_name)
 values("Matematike"),
 	  ("Gjuhe shqipe"),
@@ -224,27 +226,32 @@ values("Aleksander Xhuvani", 1),
        ("Zenel Hajdini", 4),
        ("Frang Bardhi", 5),
        ("Hasan Prishtina", 5);
+       
        insert into school(school_name, address_id)
        values("Xheladin Deda", 5);
+       
+       select * from school;
 
 insert into school_major(school_id, major_id)
-values(11, 4),
-	  (10, 3),
-      (9, 1),
-      (9, 2),
-      (8, 1),
-      (8, 2),
-      (7, 5),
-      (6, 1),
-      (6, 2),
-      (5, 3),
-      (4, 1),
-      (4, 2),
-      (3, 1),
-      (3, 2),
-      (2, 5),
-      (1, 1),
-      (1, 2);
+values(21, 4),
+	  (21, 3),
+      (22, 1),
+      (22, 2),
+      (23, 1),
+      (23, 2),
+      (24, 5),
+      (24, 1),
+      (25, 2),
+      (26, 3),
+      (27, 1),
+      (28, 2),
+      (29, 1),
+      (29, 2),
+      (28, 5),
+      (30, 1),
+      (31, 2);
+      
+      select * from majors;
 
       insert  into Grade_level(level_name)
       values ("Klasa e 10-te"),
@@ -263,4 +270,36 @@ values ("Perioda e pare"),
               ('Mitrovica');
               select * from address;
 
+SELECT 
+	s.school_id AS School_id,
+    s.school_name AS School_Name,
+    a.city AS City,
+    COUNT(st.std_id) AS Number_of_Students
+FROM 
+    School s
+INNER JOIN 
+    Address a ON s.address_id = a.address_id
+LEFT JOIN 
+    Students st ON s.school_id = st.school_id
+GROUP BY 
+    s.school_id, s.school_name, a.city;
+
+
+CREATE VIEW School_Table_Info AS
+SELECT 
+    s.school_id AS School_id,
+    s.school_name AS School_Name,
+    a.city AS City,
+    COUNT(st.std_id) AS Number_of_Students,
+    COUNT(sm.school_id) as Number_of_Majors
+FROM 
+    School s
+INNER JOIN 
+    Address a ON s.address_id = a.address_id
+inner join 
+	school_major sm on sm.school_id=s.school_id
+LEFT JOIN 
+    Students st ON s.school_id = st.school_id
+GROUP BY 
+    s.school_id, s.school_name, a.city;
 

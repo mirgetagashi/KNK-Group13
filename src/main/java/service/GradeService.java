@@ -14,8 +14,11 @@ public class GradeService {
             System.out.println("Student ID does not exist.");
             return false;
         }
-
-
+        boolean gradesExist = GradeRepository.gradesExistForStudentAndLevel(teacherTableDto.getStudentId(), teacherTableDto.getLevel());
+        if (gradesExist) {
+            System.out.println("Grades for this student in this level already exist.");
+            return false;
+        }
 
 
 
