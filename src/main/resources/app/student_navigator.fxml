@@ -14,7 +14,7 @@
    <children>
       <VBox prefHeight="572.0" prefWidth="156.0">
          <children>
-            <AnchorPane fx:id="side_ankerpane" prefHeight="572.0" prefWidth="191.0" styleClass="side-anchor" stylesheets="@style.css">
+            <AnchorPane fx:id="side_ankerpane" prefHeight="572.0" prefWidth="184.0" styleClass="side-anchor" stylesheets="@style.css">
                <children>
                   <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-2.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#student_dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Dashboard" textFill="WHITE">
                      <font>
@@ -26,7 +26,7 @@
                         <Image url="@../Images/home-smile-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-1.0" layoutY="301.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="  Settings" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-1.0" layoutY="301.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Profile" textFill="WHITE">
                      <font>
                         <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
@@ -43,7 +43,7 @@
                   </ImageView>
                   <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="41.0" layoutY="310.0" onMouseClicked="#settings" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/settings-svgrepo-com.png" />
+                        <Image url="@../Images/profile-svgrepo-com%20(1).png" />
                      </image>
                   </ImageView>
                   <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
@@ -56,25 +56,35 @@
                         <Image url="@../Images/help-svgrepo-com%20(1).png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-9.0" layoutY="421.0" mnemonicParsing="false" onMouseClicked="#student_profile" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="          Profile" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="12.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#student_profile" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Settings" textFill="WHITE">
                      <font>
                         <Font name="Adelle Sans Devanagari Semibold" size="14.0" />
                      </font>
                   </Button>
                   <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="41.0" layoutY="430.0" onMouseDragged="#profile" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/profile-svgrepo-com%20(1).png" />
+                        <Image url="@../Images/settings-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <Line endX="103.66064453125" layoutX="100.0" layoutY="155.0" startX="-100.0" stroke="WHITE" strokeMiterLimit="0.0" strokeWidth="2.5" />
-                  <ImageView fitHeight="71.0" fitWidth="72.0" layoutX="61.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                  <Line endX="93.10000610351562" layoutX="100.0" layoutY="155.0" startX="-100.0" stroke="WHITE" strokeMiterLimit="0.0" strokeWidth="1.9" />
+                  <ImageView fitHeight="71.0" fitWidth="72.0" layoutX="59.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/profile.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="58.0" layoutY="103.0" text="Lum Hoxha" textFill="WHITE">
+                  <Label layoutX="57.0" layoutY="118.0" text="Lum Hoxha" textFill="WHITE">
                      <font>
                         <Font name="Fahkwang Medium" size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="10.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="43.0" layoutY="17.0" text="edu." textFill="WHITE">
+                     <font>
+                        <Font name="Euphemia UCAS Bold" size="13.0" />
                      </font>
                   </Label>
                </children></AnchorPane>
