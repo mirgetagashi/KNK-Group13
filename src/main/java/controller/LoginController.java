@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.Administrator;
 import model.Students;
@@ -25,6 +27,7 @@ public class LoginController {
     private TextField txtEmail;
     @FXML
     private PasswordField pwdPassword;
+
     @FXML
     private void handleLoginClick(ActionEvent ae){
         LoginUserDto loginUserData = new LoginUserDto(
@@ -74,6 +77,12 @@ public class LoginController {
     @FXML
     private void handleForgotPasswordClick(MouseEvent me){
 
+    }
+    @FXML
+    private void handleKeyPressed(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            handleLoginClick(null); // Simulate a click on the login button
+        }
     }
 
 }
