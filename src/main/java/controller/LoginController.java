@@ -61,7 +61,7 @@ public class LoginController {
                 AdminSession.setAdmin(admin);
                 Navigator.navigate(ae,Navigator.ADMIN_PAGE);
             }else {
-                Navigator.navigate(ae,Navigator.LOGIN_PAGE);
+                Navigator.navigate(ae,Navigator.ADMIN_STUDENT_PAGE);
             }
 
         }

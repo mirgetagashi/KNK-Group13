@@ -30,6 +30,7 @@ public static ArrayList<Grades> getGradesTable(){
     return grades;
 
 }
+
     private static Grades getFromResultSet(ResultSet resultSet) {
         try {
             int gradeId = resultSet.getInt("grade_id");

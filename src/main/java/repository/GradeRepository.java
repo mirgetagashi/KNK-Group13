@@ -2,6 +2,7 @@ package repository;
 
 import model.Grades;
 import model.dto.CreateGradeDto;
+import model.dto.UpdateGradeDto;
 import service.DBConnector;
 
 import java.sql.Connection;
@@ -54,6 +55,28 @@ public class GradeRepository {
             return false;
         }
     }
+    public static boolean updateGrade(UpdateGradeDto updatedGradeDto) {
+        String query = "UPDATE Grades SET period1_grade = ?, period2_grade = ?, final_grade = calculate_final_grade(?, ?) " +
+                "WHERE grade_id = ?";
+        try {
+            Connection conn = DBConnector.getConnection();
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, updatedGradeDto.getPeriod1_grade());
+            pst.setInt(2, updatedGradeDto.getPeriod2_grade());
+            pst.setInt(3, updatedGradeDto.getPeriod1_grade());
+            pst.setInt(4, updatedGradeDto.getPeriod2_grade());
+            pst.setInt(5, updatedGradeDto.getGrade_id());
+
+            int updatedRows = pst.executeUpdate();
+            pst.close();
+            conn.close();
+
+            return updatedRows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
 
@@ -74,6 +97,21 @@ public class GradeRepository {
         return false;
     }
 
+    public static boolean gradesExistForStudentInAnyOtherLevel(int studentId, int currentLevelId) {
+        String query = "SELECT COUNT(*) FROM grades WHERE std_id = ? AND level_id <> ? AND (period1_grade IS NOT NULL OR period2_grade IS NOT NULL)";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, studentId);
+            stmt.setInt(2, currentLevelId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     public static ArrayList<Grades> getAllGrades() {
         ArrayList<Grades> grades = new ArrayList<>();
         String query = "SELECT * FROM Grades";

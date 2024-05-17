@@ -2,6 +2,8 @@ package controller;
 
 import app.Navigator;
 import app.SessionManager.TeacherSession;
+
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +12,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import model.Grade_level;
 import model.Grades;
-
+;
 import model.dto.TeacherTableDto;
+
+import model.dto.UpdateGradeDto;
 import repository.GradeLevelRepository;
 
 import javafx.collections.ObservableList;
@@ -23,6 +27,7 @@ import service.GradeService;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 public class TeacherTableController implements Initializable {
 
@@ -59,8 +64,7 @@ public class TeacherTableController implements Initializable {
     @FXML
     private TableColumn<Grades, Integer> finalGradeColumn;
 
-    @FXML
-    private TableColumn<Grades, String> editColumn;
+
 
 
     @FXML
@@ -80,10 +84,7 @@ public class TeacherTableController implements Initializable {
             Navigator.navigate(ae, Navigator.TEACHER_TABLE);
         }
     }
-    @FXML
-    private void handleUpdateClick(ActionEvent ae){
 
-    }
     @FXML
     private void handleDeleteClick(ActionEvent event){
         {
@@ -100,6 +101,9 @@ public class TeacherTableController implements Initializable {
 
                     studentTable.getItems().remove(selectedGrade);
                     System.out.println("The row has been successfully deleted.");
+                    studentTable.getSelectionModel().clearSelection();
+                    clearForm();
+
                 } else {
                     System.out.println( "Error during row deletion.");
                 }
@@ -110,10 +114,49 @@ public class TeacherTableController implements Initializable {
 
     }
 
+    @FXML
+    private void handleUpdateClick(ActionEvent ae) {
+
+        int studentId = Integer.parseInt(txtStudentId.getText());
+        String level = levelComboBox.getValue();
+        int period1Grade = period1GradeSpinner.getValue();
+        int period2Grade = period2GradeSpinner.getValue();
+
+        Grades selectedGrade = studentTable.getSelectionModel().getSelectedItem();
+
+        if (selectedGrade != null) {
+
+            UpdateGradeDto updatedGradeDto = new UpdateGradeDto(selectedGrade.getGrade_id(), selectedGrade.getLevel_id(),
+                    period1Grade, period2Grade,
+                    selectedGrade.getFinal_grade(), studentId,
+                    selectedGrade.getSubject_id(), selectedGrade.getT_id());
+
+            boolean updated = GradeRepository.updateGrade(updatedGradeDto);
+
+            if (updated) {
+
+                ObservableList<Grades> updatedGradesList = FXCollections.observableArrayList(GradeRepository.getAllGrades());
+                studentTable.setItems(updatedGradesList);
+                System.out.println("Grade successfully updated.");
+                clearForm();
+            } else {
+                System.out.println("Error updating grade.");
+            }
+        } else {
+            System.out.println("Please select a grade to update.");
+        }
+    }
+
+    //I largon te dhenat nga forma sa here qe bohet grade update ose grade delete
+    private void clearForm() {
+        txtStudentId.clear();
+        levelComboBox.getSelectionModel().clearSelection();
+        period1GradeSpinner.getValueFactory().setValue(1);
+        period2GradeSpinner.getValueFactory().setValue(1);
+    }
+
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         ArrayList<String> levels= new ArrayList<>();
         for(Grade_level level: GradeLevelRepository.getAllLevels()){
             levels.add(level.getLevel_name());
@@ -140,6 +183,22 @@ public class TeacherTableController implements Initializable {
             finalGradeColumn.setCellValueFactory(new PropertyValueFactory<>("final_grade"));
 
             studentTable.setItems(grades);
+
+            //mbushet forma me te dhenat e rreshtit qe eshte selektu
+            studentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+                if (newSelection != null) {
+                    txtStudentId.setText(String.valueOf(newSelection.getStd_id()));
+
+                    // merr emrin e levelit qe eshte selektu permes Id
+                    Grade_level selectedLevel = GradeLevelRepository.getLevelById(newSelection.getLevel_id());
+                    if (selectedLevel != null) {
+                        levelComboBox.setValue(selectedLevel.getLevel_name());
+                    }
+
+                    period1GradeSpinner.getValueFactory().setValue(newSelection.getPeriod1_grade());
+                    period2GradeSpinner.getValueFactory().setValue(newSelection.getPeriod2_grade());
+                }
+            });
         } else {
             System.out.println("GradesTable is null.");
         }
@@ -147,8 +206,5 @@ public class TeacherTableController implements Initializable {
 
 
     }
-
-
-
 
 }

@@ -29,7 +29,8 @@ public class GradeLevelRepository {
             return null;
         }
     }
-  
+
+
 
     public static ArrayList<Grade_level> getAllLevels() {
         ArrayList<Grade_level> levels = new ArrayList<>();
@@ -49,6 +50,21 @@ public class GradeLevelRepository {
         return levels;
 
     }
+    public static Grade_level getLevelById(int id) {
+        String query = "SELECT * FROM Grade_level WHERE level_id = ? LIMIT 1;";
+        try (Connection connection = DBConnector.getConnection();
+             PreparedStatement pst = connection.prepareStatement(query)) {
+
+            pst.setInt(1, id);
+            ResultSet result = pst.executeQuery();
+            if (result.next()) {
+                return getFromResultSet(result);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
     private static Grade_level getFromResultSet(ResultSet result) {
@@ -62,5 +78,6 @@ public class GradeLevelRepository {
             return null;
         }
     }
+
 
 }

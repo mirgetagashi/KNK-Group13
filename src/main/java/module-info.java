@@ -2,6 +2,7 @@ module com.example.knkgroup13 {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires fontawesomefx;
 
     exports app;
     opens controller to javafx.fxml;

@@ -54,6 +54,7 @@ public class SubjectRepository {
             int id = result.getInt("subject_id");
            String name=result.getString("subject_name");
 
+
             return new Subject(
                     id, name
             );
