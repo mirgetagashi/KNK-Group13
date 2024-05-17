@@ -57,9 +57,8 @@
     -fx-border-color: #002554;
     -fx-border-width: 1px;
     -fx-border-style: solid;
-    -fx-background-radius: 0 40px 40px 0; /* top-right and bottom-right rounded */
-    -fx-border-radius: 0 40px 40px 0; /* make sure the border follows the same radius */
-    /* Remove -fx-shape for a simpler approach */
+    -fx-background-radius: 0 40px 40px 0;
+    -fx-border-radius: 0 40px 40px 0;
 }
 
 
@@ -88,10 +87,7 @@
     -fx-text-fill: #ffffff;
 }
 
-.navigator_btn{
 
-
-}
 
 .curve{
 

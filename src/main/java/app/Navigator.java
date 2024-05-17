@@ -36,7 +36,7 @@ public class Navigator {
     public  final static String STUDENT_SETTINGS="settings_student.fxml";
 
     public  final static String STUDENT_PROFILE="student_profile.fxml";
-    public  final static String ADMIN_DASHBOARD="admin_dashboard.fxml";
+    public  final static String ADMIN_DASHBOARD="prova.fxml";
 
 
 
