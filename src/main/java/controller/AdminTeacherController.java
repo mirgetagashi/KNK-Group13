@@ -1,26 +1,39 @@
 package controller;
 
+import app.Navigator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Grades;
-import model.Grades_Teacher_Subject;
-import model.Students;
+import javafx.scene.layout.AnchorPane;
+import model.Address;
+import model.Subject;
 import model.Teacher;
-import repository.GradeRepository;
-import repository.StudentRepository;
+import model.dto.TeacherDto;
+import repository.AddressRepository;
+import repository.SchoolRepository;
+import repository.SubjectRepository;
 import repository.TeacherRepository;
+import service.TeacherService;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AdminTeacherController implements Initializable {
+
+    @FXML
+    private ComboBox<String> cityComboBox;
 
     @FXML
     private TableView<Teacher> TeachersTable;
@@ -53,13 +66,69 @@ public class AdminTeacherController implements Initializable {
     private TableColumn<Teacher, String> columnTitle;
 
     @FXML
+    private DatePicker datePickerBirthday;
+
+    @FXML
+    private PasswordField pwdConfirmPassword;
+
+    @FXML
+    private PasswordField pwdPassword;
+
+    @FXML
+    private RadioButton radioButtonFemale;
+
+    @FXML
+    private RadioButton radioButtonMale;
+
+    @FXML
+    private ComboBox<String> schoolComboBox;
+
+    @FXML
+    private ComboBox<String> subjectComboBox;
+
+    @FXML
+    private TextField txtEmail;
+
+    @FXML
+    private TextField txtFirstName;
+
+    @FXML
+    private TextField txtLastName;
+    @FXML
+    private ComboBox<String> titleComboBox;
+
+    @FXML
+    private TextField txtEducation;
+    @FXML
+    private AnchorPane invisiblePane;
+
+    @FXML
     void handleAddClick(ActionEvent event) {
+        TeacherDto userSignUpData = new TeacherDto(
+                this.txtFirstName.getText(),
+                this.txtLastName.getText(),
+                this.txtEmail.getText(),
+                this.pwdPassword.getText(),
+                this.pwdConfirmPassword.getText(),
+                AddressRepository.getAddressByCity(cityComboBox.getValue()),
+                SchoolRepository.getSchoolByName(schoolComboBox.getValue()),
+                SubjectRepository.getSubjectByName(subjectComboBox.getValue()),
+                this.txtEducation.getText(),
+                titleComboBox.getValue(),
+                java.sql.Date.valueOf(datePickerBirthday.getValue()),
+                this.getGender(event)
+        );
+
+        boolean response = TeacherService.signUp(userSignUpData);
+
+        if (response) {
+            Navigator.navigate(event, Navigator.ADMIN_TEACHER_PAGE);
+        }
 
     }
 
     @FXML
     void handleDeleteClick(ActionEvent event) {
-
         Teacher selectedItem = TeachersTable.getSelectionModel().getSelectedItem();
 
 
@@ -71,9 +140,14 @@ public class AdminTeacherController implements Initializable {
             if (deleted) {
                 TeachersTable.getItems().remove(selectedItem);
             } else {
-            System.out.println("Please select a row to delete.");
+                System.out.println("Please select a row to delete.");
+            }
         }
     }
+
+    @FXML
+    void handleNextClick(ActionEvent event) {
+        invisiblePane.setVisible(true);
 
     }
 
@@ -82,8 +156,23 @@ public class AdminTeacherController implements Initializable {
 
     }
 
+
+    public String getGender(ActionEvent ae){
+        String  genderSelect;
+        if(radioButtonMale.isSelected()){
+            genderSelect="M";
+        }else if(radioButtonFemale.isSelected()){
+            genderSelect="F";
+        }else {
+            genderSelect="";
+        }
+        return genderSelect;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         ObservableList<Teacher> teachers = FXCollections.observableArrayList(TeacherRepository.getAllTeachers());
         if (TeachersTable != null) {
             columnAddress.setCellValueFactory(new PropertyValueFactory<>("address_id"));
@@ -100,6 +189,36 @@ public class AdminTeacherController implements Initializable {
         } else {
             System.out.println("StudentTable is null.");
         }
+
+
+        cityComboBox.setValue("Address");
+        schoolComboBox.setValue("School");
+        subjectComboBox.setValue("Subject");
+        ArrayList<String> cities= new ArrayList<>();
+        for (Address city : (AddressRepository.getAllCities())) {
+            cities.add(city.getCity());
+        }
+        cityComboBox.getItems().addAll(cities);
+        cityComboBox.setOnAction(this::handleCitySelection);
+
+        ArrayList<String > subjects= new ArrayList<>();
+        for(Subject subject: SubjectRepository.getAllSubjects()){
+            subjects.add(subject.getName());
+        }
+        subjectComboBox.getItems().addAll(subjects);
+
+        String[] titles={"Bsc","Msc","Phd"};
+        titleComboBox.getItems().addAll(titles);
+    }
+
+
+
+    private void handleCitySelection(ActionEvent event) {
+        String selectedCity = cityComboBox.getValue();
+        ArrayList<String> schools = SchoolRepository.getSchoolByCity(selectedCity);
+        schoolComboBox.getItems().addAll(schools);
+
+
     }
 
 }

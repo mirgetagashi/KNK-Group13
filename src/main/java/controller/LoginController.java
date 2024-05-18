@@ -72,7 +72,7 @@ public class LoginController {
     }
     @FXML
     private void handleCreateAccountClick(MouseEvent me){
-        Navigator.navigate(me, Navigator.SIGN_UP_PAGE);
+   //     Navigator.navigate(me, Navigator.SIGN_UP_PAGE);
     }
     @FXML
     private void handleForgotPasswordClick(MouseEvent me){

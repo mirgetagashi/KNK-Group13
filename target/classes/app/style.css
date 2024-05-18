@@ -95,6 +95,37 @@
 
 }
 
+.line{
+
+
+}
+
+.admin_dashboard {
+    -fx-font-family: 'Montserrat';
+    -fx-font-size: 14px; /* Adjust size as needed */
+    -fx-font-weight: bold;
+}
+
+.box {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 10, 0.5, 0, 0);
+    -fx-background-color: #ffffff; /* Ensure the background color is set for visibility */
+    -fx-padding: 10px; /* Add padding to see the shadow effect clearly */
+}
+
+.pane {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0.5, 0, 0);
+    -fx-background-color: #ffffff; /* Ensure the background color is set for visibility */
+    -fx-padding: 10px; /* Add padding to see the shadow effect clearly */
+}
+
+.adminTxt {
+    -fx-font-family: 'Montserrat';
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    /* Use transparent fill since the actual gradient will be applied in Java code */
+}
+
+
 
 
 

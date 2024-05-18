@@ -1,29 +1,26 @@
 package service;
 
-import model.dto.StudentDto;
-import model.dto.UserDto;
-
 import java.util.Calendar;
 import java.util.Date;
 
 public class Validator {
 
 
-    public static boolean validate(UserDto userData){
-        String firstName = userData.getFirstName();
-        String lastName = userData.getLastName();
-        String email = userData.getEmail();
-        String password = userData.getPassword();
-        String confirmPassword = userData.getConfirmPassword();
-        Date birthday = userData.getBirthday();
-
-
-        boolean respond = firstNameValidate(firstName) && lastNameValidate(lastName) && passwordValidate(password,confirmPassword) && emailValidate(email)
-                && birthdayValidate(birthday);
-
-        return  respond;
-
-    }
+//    public static boolean validate(UserDto userData){
+//        String firstName = userData.getFirstName();
+//        String lastName = userData.getLastName();
+//        String email = userData.getEmail();
+//        String password = userData.getPassword();
+//        String confirmPassword = userData.getConfirmPassword();
+//        Date birthday = userData.getBirthday();
+//
+//
+//        boolean respond = firstNameValidate(firstName) && lastNameValidate(lastName) && passwordValidate(password,confirmPassword) && emailValidate(email)
+//                && birthdayValidate(birthday);
+//
+//        return  respond;
+//
+//    }
 
     public static boolean firstNameValidate(String firstName){
         if (!firstName.matches("[a-zA-Z]+")){

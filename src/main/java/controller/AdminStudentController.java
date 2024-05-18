@@ -1,5 +1,6 @@
 package controller;
 
+import app.Navigator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,16 +17,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Address;
 import model.Grade_level;
+import model.Grades;
 import model.Students;
-import model.Teacher;
 import model.dto.StudentDto;
-import model.dto.UserDto;
+import model.dto.UpdateGradeDto;
 import repository.*;
+import service.StudentService;
+import service.Validator;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AdminStudentController implements Initializable {
@@ -98,6 +99,44 @@ public class AdminStudentController implements Initializable {
 
     @FXML
     void handleAddClick(ActionEvent event) {
+        StudentDto userSignUpData = new StudentDto(
+                this.txtFirstName.getText(),
+                this.txtLastName.getText(),
+                this.txtEmail.getText(),
+                this.pwdPassword.getText(),
+                this.pwdConfirmPassword.getText(),
+                AddressRepository.getAddressByCity(cityComboBox.getValue()).getId(),
+                SchoolRepository.getSchoolByName(schoolComboBox.getValue()).getId(),
+                MajorRepository.getMajorByName(majorComboBox.getValue()).getId(),
+                GradeLevelRepository.getLevelByName(periodComboBox.getValue()).getLevel_id(),
+                this.getGender(event),
+                java.sql.Date.valueOf(datePickerBirthday.getValue()));
+
+        boolean response = StudentService.signUp(userSignUpData);
+
+        if (response) {
+            Navigator.navigate(event, Navigator.ADMIN_STUDENT_PAGE);
+        }else {
+            if(!Validator.firstNameValidate(txtFirstName.getText())){
+                txtFirstName.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.lastNameValidate(txtLastName.getText())){
+                txtLastName.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.emailValidate(txtEmail.getText())){
+                txtEmail.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.birthdayValidate(java.sql.Date.valueOf(datePickerBirthday.getValue()))){
+                datePickerBirthday.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+            if(!Validator.passwordValidate(pwdPassword.getText(), pwdConfirmPassword.getText())){
+                pwdPassword.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+                pwdConfirmPassword.setStyle("-fx-border-color: red; -fx-border-width: 0.5px;");
+            }
+
+        }
+
+
 
     }
 
@@ -113,8 +152,8 @@ public class AdminStudentController implements Initializable {
         Students selectedItem = StudentTable.getSelectionModel().getSelectedItem();
 
 
-//        if (selectedItem != null) {
-//
+        if (selectedItem != null) {
+
 //            boolean deleted = StudentRepository.delete(selectedItem.getId());
 //
 //
@@ -123,38 +162,18 @@ public class AdminStudentController implements Initializable {
 //            } else {
 //                System.out.println("Please select a row to delete.");
 //            }
-//        }
+        }
 
     }
 
     @FXML
     void handleEditClick(ActionEvent event) {
 
+
+
     }
 
-    @FXML
-    void handleSubmitClick(ActionEvent event) {
 
-        String firstName = this.txtFirstName.getText();
-        String lastName = this.txtLastName.getText();
-        String email = this.txtEmail.getText();
-        String password = this.pwdPassword.getText();
-        String confirmPassword = this.pwdConfirmPassword.getText();
-        LocalDate birthday= this.datePickerBirthday.getValue();
-
-        StudentDto userSignUpData = new StudentDto(
-                firstName,
-                lastName,
-                email,
-                password,
-                confirmPassword,
-                AddressRepository.getAddressByCity(cityComboBox.getValue()).getId(),
-                SchoolRepository.getSchoolByName(schoolComboBox.getValue()).getId(),
-                MajorRepository.getMajorByName(majorComboBox.getValue()).getId(),
-                GradeLevelRepository.getLevelByName(periodComboBox.getValue()).getLevel_id(),
-                this.getGender(event),
-                java.sql.Date.valueOf(datePickerBirthday.getValue()));
-    }
 
 
     public String getGender(ActionEvent ae){
@@ -171,25 +190,7 @@ public class AdminStudentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cityComboBox.setValue("Address");
-        schoolComboBox.setValue("School");
-        majorComboBox.setValue("Major");
-        periodComboBox.setValue("Level");
-        ArrayList<String> cities= new ArrayList<>();
-        for (Address city : (AddressRepository.getAllCities())) {
-            cities.add(city.getCity());
-        }
-        cityComboBox.getItems().addAll(cities);
-        cityComboBox.setOnAction(this::handleCitySelection);
-
-        ArrayList<String> levels= new ArrayList<>();
-        for(Grade_level level: GradeLevelRepository.getAllLevels()){
-            levels.add(level.getLevel_name());
-        }
-        periodComboBox.getItems().addAll(levels);
-
-
-
+        this.ComboBoxInitialize();
 
         ObservableList<Students> students = FXCollections.observableArrayList(StudentRepository.getAllStudents());
         if (StudentTable != null) {
@@ -208,6 +209,28 @@ public class AdminStudentController implements Initializable {
         }
 
     }
+
+
+    public void ComboBoxInitialize(){
+        cityComboBox.setValue("Address");
+        schoolComboBox.setValue("School");
+        majorComboBox.setValue("Major");
+        periodComboBox.setValue("Level");
+        ArrayList<String> cities= new ArrayList<>();
+        for (Address city : (AddressRepository.getAllCities())) {
+            cities.add(city.getCity());
+        }
+        cityComboBox.getItems().addAll(cities);
+        cityComboBox.setOnAction(this::handleCitySelection);
+
+        ArrayList<String> levels= new ArrayList<>();
+        for(Grade_level level: GradeLevelRepository.getAllLevels()){
+            levels.add(level.getLevel_name());
+        }
+        periodComboBox.getItems().addAll(levels);
+
+    }
+
     private void handleCitySelection(ActionEvent event) {
         String selectedCity =  cityComboBox.getValue();
         ArrayList<String> schools = SchoolRepository.getSchoolByCity(selectedCity);
