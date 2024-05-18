@@ -2,46 +2,45 @@ package model;
 
 import java.sql.Date;
 
-public class Students {
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String salt;
-    private String passwordHash;
-    private int address;
+public class Students extends User{
     private int school;
     private int major;
     private int level;
-    private String gender;
-    private Date birthday;
-
-    public int getId() {
-        return id;
+    public Students(int id, String firstName, String lastName, String email, String salt, String passwordHash,
+                    int address, int school, int major, int level, String gender, Date birthday) {
+        super(id, firstName, lastName, email, salt, passwordHash, address, gender, birthday);
+        this.school = school;
+        this.major = major;
+        this.level = level;
     }
 
+    public int getId() {
+        return super.getId();
+    }
+
+
     public String getFirstName() {
-        return firstName;
+        return super.getFirstName();
     }
 
     public String getLastName() {
-        return lastName;
+        return super.getLastName();
     }
 
     public String getEmail() {
-        return email;
+        return super.getEmail();
     }
 
     public String getSalt() {
-        return salt;
+        return super.getSalt();
     }
 
     public String getPasswordHash() {
-        return passwordHash;
+        return super.getPasswordHash();
     }
 
     public int getAddress() {
-        return address;
+        return super.getAddress();
     }
 
     public int getSchool() {
@@ -57,26 +56,11 @@ public class Students {
     }
 
     public String getGender() {
-        return gender;
+        return super.getGender();
     }
 
     public Date getBirthday() {
-        return birthday;
+        return super.getBirthday();
     }
 
-    public Students(int id, String firstName, String lastName, String email, String salt, String passwordHash,
-                    int address, int school, int major, int level, String gender, Date birthday) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.salt = salt;
-        this.passwordHash = passwordHash;
-        this.address = address;
-        this.school = school;
-        this.major = major;
-        this.level = level;
-        this.gender = gender;
-        this.birthday = birthday;
-    }
 }

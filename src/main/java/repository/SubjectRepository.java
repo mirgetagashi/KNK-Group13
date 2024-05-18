@@ -48,6 +48,22 @@ public class SubjectRepository {
         }
     }
 
+    public static Subject getById(int subject_id){
+        String query = "SELECT * FROM Subjects WHERE subject_id = ? LIMIT 1;";
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setInt(1, subject_id);
+            ResultSet result = pst.executeQuery();
+            if(result.next()){
+                return getFromResultSet(result);
+            }
+            return null;
+        }catch (Exception e){
+            return null;
+        }
+    }
+
 
     private static Subject getFromResultSet(ResultSet result){
         try{

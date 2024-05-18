@@ -13,20 +13,20 @@ import java.util.ArrayList;
 
 public class MajorRepository {
 
-    public static ArrayList<String> getMajorBySchool(String school){
-        ArrayList<String> majors = new ArrayList<>();
+    public static ArrayList<Major> getMajorBySchool(int school_id){
+        ArrayList<Major> majors = new ArrayList<>();
 
         try (Connection conn = DBConnector.getConnection()) {
             String query = "SELECT m.major_name FROM majors m " +
                     "INNER JOIN school_major sm ON sm.major_id = m.major_id " +
-                    "INNER JOIN School s ON s.school_id = sm.school_id " +
-                    "WHERE s.school_name = ?";
+                    "WHERE sm.school_id = ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, school);
+            pst.setInt(1, school_id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
+                int major_id=rs.getInt("major_id");
                 String major_name = rs.getString("major_name");
-                majors.add(major_name);
+                majors.add(new Major(major_id,major_name));
             }
         } catch (SQLException e) {
             e.printStackTrace();

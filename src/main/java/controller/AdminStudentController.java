@@ -15,10 +15,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import model.Address;
-import model.Grade_level;
-import model.Grades;
-import model.Students;
+import model.*;
+import model.dto.CreateSchoolDto;
 import model.dto.StudentDto;
 import model.dto.UpdateGradeDto;
 import repository.*;
@@ -98,6 +96,22 @@ public class AdminStudentController implements Initializable {
     private TextField txtLastName;
 
     @FXML
+    private ComboBox<String> comboBoxLevelFilter;
+
+    @FXML
+    private ComboBox<String> comboBoxMajorFilter;
+
+    @FXML
+    private ComboBox<String> conboBoxSchoolFilter;
+    @FXML
+    private TextField txtFilterName;
+
+    @FXML
+    void handleFilterClick(ActionEvent event) {
+
+    }
+
+    @FXML
     void handleAddClick(ActionEvent event) {
         StudentDto userSignUpData = new StudentDto(
                 this.txtFirstName.getText(),
@@ -105,10 +119,10 @@ public class AdminStudentController implements Initializable {
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText(),
-                AddressRepository.getAddressByCity(cityComboBox.getValue()).getId(),
-                SchoolRepository.getSchoolByName(schoolComboBox.getValue()).getId(),
-                MajorRepository.getMajorByName(majorComboBox.getValue()).getId(),
-                GradeLevelRepository.getLevelByName(periodComboBox.getValue()).getLevel_id(),
+                returnId(cityComboBox.getValue()),
+                returnId(schoolComboBox.getValue()),
+                returnId(majorComboBox.getValue()),
+                returnId(periodComboBox.getValue()),
                 this.getGender(event),
                 java.sql.Date.valueOf(datePickerBirthday.getValue()));
 
@@ -218,29 +232,39 @@ public class AdminStudentController implements Initializable {
         periodComboBox.setValue("Level");
         ArrayList<String> cities= new ArrayList<>();
         for (Address city : (AddressRepository.getAllCities())) {
-            cities.add(city.getCity());
+            cities.add(city.getId()+" "+city.getCity());
         }
         cityComboBox.getItems().addAll(cities);
         cityComboBox.setOnAction(this::handleCitySelection);
 
         ArrayList<String> levels= new ArrayList<>();
         for(Grade_level level: GradeLevelRepository.getAllLevels()){
-            levels.add(level.getLevel_name());
+            levels.add(level.getLevel_id()+" "+level.getLevel_name());
         }
         periodComboBox.getItems().addAll(levels);
 
     }
 
     private void handleCitySelection(ActionEvent event) {
-        String selectedCity =  cityComboBox.getValue();
-        ArrayList<String> schools = SchoolRepository.getSchoolByCity(selectedCity);
-        schoolComboBox.getItems().addAll(schools);
+        int id=returnId(cityComboBox.getValue());
+        ArrayList<School> schools = SchoolRepository.getSchoolByCity(id);
+        for(School s: schools){
+            schoolComboBox.getItems().addAll(s.getId()+" "+s.getName());
+        }
         schoolComboBox.setOnAction(this::handleSchoolSelection);
     }
 
     private void handleSchoolSelection(ActionEvent ae){
-        String selectedSchool= schoolComboBox.getValue();
-        ArrayList<String> majors= MajorRepository.getMajorBySchool(selectedSchool);
-        majorComboBox.getItems().addAll(majors);
+        int id=returnId(schoolComboBox.getValue());
+        ArrayList<Major> majors= MajorRepository.getMajorBySchool(id);
+        for(Major m:majors){
+            majorComboBox.getItems().addAll(m.getId()+" "+m.getMajor_name());
+        }
+    }
+
+    private int returnId(String select){
+        String[] vargu=select.split(" ");
+        int id=Integer.parseInt(vargu[0]);
+        return id;
     }
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Address;
+import model.School;
 import model.Subject;
 import model.Teacher;
 import model.dto.TeacherDto;
@@ -104,15 +105,20 @@ public class AdminTeacherController implements Initializable {
 
     @FXML
     void handleAddClick(ActionEvent event) {
+        int cityID=returnId(cityComboBox.getValue());
+        int schoolID=returnId(schoolComboBox.getValue());
+        int subjectID=returnId(subjectComboBox.getValue());
+
+
         TeacherDto userSignUpData = new TeacherDto(
                 this.txtFirstName.getText(),
                 this.txtLastName.getText(),
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText(),
-                AddressRepository.getAddressByCity(cityComboBox.getValue()),
-                SchoolRepository.getSchoolByName(schoolComboBox.getValue()),
-                SubjectRepository.getSubjectByName(subjectComboBox.getValue()),
+                AddressRepository.getById(cityID),
+                SchoolRepository.getById(schoolID),
+                SubjectRepository.getById(subjectID),
                 this.txtEducation.getText(),
                 titleComboBox.getValue(),
                 java.sql.Date.valueOf(datePickerBirthday.getValue()),
@@ -196,14 +202,14 @@ public class AdminTeacherController implements Initializable {
         subjectComboBox.setValue("Subject");
         ArrayList<String> cities= new ArrayList<>();
         for (Address city : (AddressRepository.getAllCities())) {
-            cities.add(city.getCity());
+            cities.add(city.getId()+" "+city.getCity());
         }
         cityComboBox.getItems().addAll(cities);
         cityComboBox.setOnAction(this::handleCitySelection);
 
         ArrayList<String > subjects= new ArrayList<>();
         for(Subject subject: SubjectRepository.getAllSubjects()){
-            subjects.add(subject.getName());
+            subjects.add(subject.getId()+" "+subject.getName());
         }
         subjectComboBox.getItems().addAll(subjects);
 
@@ -214,11 +220,19 @@ public class AdminTeacherController implements Initializable {
 
 
     private void handleCitySelection(ActionEvent event) {
-        String selectedCity = cityComboBox.getValue();
-        ArrayList<String> schools = SchoolRepository.getSchoolByCity(selectedCity);
-        schoolComboBox.getItems().addAll(schools);
+        int id=returnId(cityComboBox.getValue());
+        ArrayList<School> schools = SchoolRepository.getSchoolByCity(id);
+        for(School s: schools){
+            schoolComboBox.getItems().addAll(s.getId()+" "+s.getName());
+        }
 
 
+    }
+
+    private int returnId(String select){
+        String[] vargu=select.split(" ");
+        int id=Integer.parseInt(vargu[0]);
+        return id;
     }
 
 }

@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox prefHeight="398.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminSchoolsController">
+<HBox fx:id="hBox" prefHeight="455.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminSchoolsController">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="907.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="869.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="tblSchools" layoutX="401.0" layoutY="57.0" prefHeight="327.0" prefWidth="378.0">
+            <TableView fx:id="tblSchools" layoutX="325.0" layoutY="51.0" prefHeight="327.0" prefWidth="490.0">
               <columns>
                 <TableColumn fx:id="columnID" prefWidth="75.0" text="School ID" />
                 <TableColumn fx:id="columnName" prefWidth="101.59994506835938" text="School Name" />
                   <TableColumn fx:id="columnCity" prefWidth="83.99993896484375" text="City" />
                   <TableColumn fx:id="columnNumOfStudents" prefWidth="116.00006103515625" text="Num of Students" />
+                  <TableColumn fx:id="columnNumberOfMajors" prefWidth="111.99997558593748" text="Num of  Majors" />
               </columns>
             </TableView>
+            <TextField fx:id="txtName" layoutX="88.0" layoutY="87.0" promptText="School Name" />
+            <ComboBox fx:id="comboBoxCity" layoutX="88.0" layoutY="154.0" prefWidth="150.0" promptText="City" />
+            <Button layoutX="88.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleAddClick" text="Add" />
+            <Button layoutX="146.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleUpdateClick" text="Update" />
+            <Button layoutX="213.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleDeleteClick" text="Delete" />
+            <AnchorPane fx:id="invisiblePane" layoutX="38.0" layoutY="54.0" prefHeight="327.0" prefWidth="250.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <ComboBox fx:id="ComboBoxMajors" layoutX="50.0" layoutY="41.0" prefWidth="150.0" promptText="Chose Majors" />
+                  <Button layoutX="149.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleAddMajorsClick" text="Button" />
+                  <Label layoutX="50.0" layoutY="14.0" text="Select School From Table First" />
+               </children>
+            </AnchorPane>
+            <Button layoutX="325.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAddMajorToSchoolClick" text="Add Major to School" />
          </children>
         </AnchorPane>
     </children>

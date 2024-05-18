@@ -1,6 +1,7 @@
 package repository;
 
 import model.*;
+import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
 import model.dto.CreateStudentDto;
 import service.DBConnector;
@@ -33,22 +34,38 @@ public class SchoolRepository {
 
     }
 
+    public static boolean delete(int id){
+        String query = "DELETE FROM School WHERE school_id = ?";
 
-   public static ArrayList<String> getSchoolByCity(String city) {
-       ArrayList<String> schools = new ArrayList<>();
+        try {
+            Connection conn = DBConnector.getConnection();
+            PreparedStatement pst= conn.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+            pst.close();
+            conn.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-       String query = "SELECT s.school_name " +
-               "FROM School s "+
-               "INNER JOIN Address a ON a.address_id = s.address_id " +
-               "WHERE a.city= ?;";
+
+   public static ArrayList<School> getSchoolByCity(int city_id) {
+       ArrayList<School> schools = new ArrayList<>();
+
+       String query = "select * from school where address_id=?";
        Connection conn = DBConnector.getConnection();
        try{
            PreparedStatement pst = conn.prepareStatement(query);
-           pst.setString(1, city);
+           pst.setInt(1, city_id);
            ResultSet rs = pst.executeQuery();
            while (rs.next()) {
+               int school_id=rs.getInt("school_id");
                String school_name = rs.getString("school_name");
-               schools.add(school_name);
+               int address_id=rs.getInt("address_id");
+               schools.add(new School(school_id, school_name, address_id));
            }
        } catch (SQLException e) {
            System.out.println("Diçka ka shkuar gabim: " + e.getMessage());
@@ -71,6 +88,45 @@ public class SchoolRepository {
             return null;
         }
         return schools;
+    }
+
+    public static boolean addSchoolMajor(AddSchoolMajorDto userData){
+        String query = "insert into school_major(school_id, major_id) values(?, ?);";
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setInt(1, userData.getSchool_id());
+            pst.setInt(2, userData.getMajor_id());
+            pst.execute();
+            pst.close();
+            connection.close();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public static School_Major getSchoolMajor(AddSchoolMajorDto userData){
+        int school_id= userData.getSchool_id();
+        int major_id= userData.getMajor_id();
+        String query="select * from school_major where school_id=? and major_id=? LIMIT 1;";
+        Connection connection=DBConnector.getConnection();
+        try{
+            PreparedStatement pst= connection.prepareStatement(query);
+            pst.setInt(1, school_id);
+            pst.setInt(2, major_id);
+            ResultSet result=pst.executeQuery();
+            if(result.next()){
+
+                int sID = result.getInt("school_id");
+                int mID=result.getInt("major_id");
+                return new School_Major(sID,mID);
+            }else {
+                return null;
+            }
+        }catch (Exception e){
+            return null;
+        }
     }
 
 

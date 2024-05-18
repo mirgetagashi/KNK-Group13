@@ -130,7 +130,7 @@ public class TeacherRepository {
 
 
             return new Teacher(
-                    id, firstName, lastName, email, salt, passwordHash, address,title,education,school_id,subject_id,gender,birthday
+                    id, firstName, lastName, email, salt, passwordHash, address,gender, (java.sql.Date) birthday,title,education,school_id,subject_id
             );
         }catch (Exception e){
             return null;

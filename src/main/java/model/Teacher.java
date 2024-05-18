@@ -1,64 +1,19 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
-public class Teacher {
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String salt;
-    private String passwordHash;
-    private int address_id;
+public class Teacher extends User{
     private String title;
     private String education;
     private int school_id;
     private int subject_id;
-    private String gender;
-    private Date birthday;
 
-    public Teacher(int id, String firstName, String lastName, String email, String salt, String passwordHash, int address_id, String title, String education, int school_id, int subject_id, String gender, Date birthday) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.salt = salt;
-        this.passwordHash = passwordHash;
-        this.address_id = address_id;
+    public Teacher(int id, String firstName, String lastName, String email, String salt, String passwordHash, int address, String gender, Date birthday, String title, String education, int school_id, int subject_id) {
+        super(id, firstName, lastName, email, salt, passwordHash, address, gender, birthday);
         this.title = title;
         this.education = education;
         this.school_id = school_id;
         this.subject_id = subject_id;
-        this.gender = gender;
-        this.birthday = birthday;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public int getAddress_id() {
-        return address_id;
     }
 
     public String getTitle() {
@@ -77,11 +32,48 @@ public class Teacher {
         return subject_id;
     }
 
-    public String getGender() {
-        return gender;
+    @Override
+    public int getId() {
+        return super.getId();
     }
 
+    @Override
+    public String getFirstName() {
+        return super.getFirstName();
+    }
+
+    @Override
+    public String getLastName() {
+        return super.getLastName();
+    }
+
+    @Override
+    public String getEmail() {
+        return super.getEmail();
+    }
+
+    @Override
+    public String getSalt() {
+        return super.getSalt();
+    }
+
+    @Override
+    public String getPasswordHash() {
+        return super.getPasswordHash();
+    }
+
+    @Override
+    public int getAddress() {
+        return super.getAddress();
+    }
+
+    @Override
+    public String getGender() {
+        return super.getGender();
+    }
+
+    @Override
     public Date getBirthday() {
-        return birthday;
+        return super.getBirthday();
     }
 }

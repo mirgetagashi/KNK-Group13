@@ -16,8 +16,8 @@
 
 <HBox prefHeight="398.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminStudentController">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="905.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
-            <TableView fx:id="StudentTable" layoutX="262.0" layoutY="103.0" prefHeight="311.0" prefWidth="620.0">
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="906.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="StudentTable" layoutX="262.0" layoutY="135.0" prefHeight="311.0" prefWidth="620.0">
                 <columns>
                     <TableColumn fx:id="columnStudentID" prefWidth="32.799986243247986" text="ID" />
                     <TableColumn fx:id="columnStudentName" prefWidth="80.8000717163086" text="First Name" />
@@ -57,7 +57,7 @@
             <TextField fx:id="txtLastName" layoutX="53.0" layoutY="82.0" promptText="Last Name" />
             <DatePicker fx:id="datePickerBirthday" layoutX="52.0" layoutY="120.0" prefHeight="26.0" prefWidth="150.0" promptText="Birthday" />
             <Button layoutX="177.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleNextClick" text="Next" />
-            <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="462.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
+            <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
                 <children>
                     <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="Email" />
                     <PasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="134.0" promptText="Password" />
@@ -79,6 +79,11 @@
                   </Button>
                 </children>
             </AnchorPane>
+         <ComboBox fx:id="comboBoxMajorFilter" layoutX="433.0" layoutY="39.0" prefHeight="19.0" prefWidth="150.0" promptText="Major" />
+         <ComboBox fx:id="conboBoxSchoolFilter" layoutX="262.0" layoutY="78.0" prefWidth="150.0" promptText="School" />
+         <ComboBox fx:id="comboBoxLevelFilter" layoutX="433.0" layoutY="78.0" prefWidth="150.0" promptText="Level" />
+         <TextField fx:id="txtFilterName" layoutX="263.0" layoutY="39.0" promptText="Name" />
+         <Button layoutX="622.0" layoutY="52.0" mnemonicParsing="false" onAction="#handleFilterClick" text="Filter" />
         </AnchorPane>
     </children>
 </HBox>
