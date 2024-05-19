@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import model.Grade_level;
 import model.Grades;
 ;
+import model.Teacher;
 import model.dto.TeacherTableDto;
 
 import model.dto.UpdateGradeDto;
@@ -63,6 +64,12 @@ public class TeacherTableController implements Initializable {
 
     @FXML
     private TableColumn<Grades, Integer> finalGradeColumn;
+
+    @FXML
+    private Pagination pagination;
+    private final static int rowsPerPage = 15;
+
+    private ObservableList<Grades> dataList;
 
 
 
@@ -155,6 +162,14 @@ public class TeacherTableController implements Initializable {
         period2GradeSpinner.getValueFactory().setValue(1);
     }
 
+    private TableView<Grades> createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, dataList.size());
+        studentTable.setItems(FXCollections.observableArrayList(dataList.subList(fromIndex, toIndex)));
+        return studentTable;
+    }
+
+
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<String> levels= new ArrayList<>();
@@ -173,16 +188,17 @@ public class TeacherTableController implements Initializable {
         SpinnerValueFactory<Integer> valueFactory2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5);
         valueFactory2.setValue(1);
         period2GradeSpinner.setValueFactory(valueFactory2);
+        dataList = FXCollections.observableArrayList(TeacherTableRepository.getGradesTable());
 
-        ObservableList<Grades> grades = FXCollections.observableArrayList(TeacherTableRepository.getGradesTable());
-        if (studentTable != null) {
-            studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("std_id"));
-            levelColumn.setCellValueFactory(new PropertyValueFactory<>("level_id"));
-            period1GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period1_grade"));
-            period2GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period2_grade"));
-            finalGradeColumn.setCellValueFactory(new PropertyValueFactory<>("final_grade"));
+        studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("std_id"));
+        levelColumn.setCellValueFactory(new PropertyValueFactory<>("level_id"));
+        period1GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period1_grade"));
+        period2GradeColumn.setCellValueFactory(new PropertyValueFactory<>("period2_grade"));
+        finalGradeColumn.setCellValueFactory(new PropertyValueFactory<>("final_grade"));
 
-            studentTable.setItems(grades);
+        pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
+        pagination.setPageFactory(this::createPage);
+
 
             //mbushet forma me te dhenat e rreshtit qe eshte selektu
             studentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -199,11 +215,6 @@ public class TeacherTableController implements Initializable {
                     period2GradeSpinner.getValueFactory().setValue(newSelection.getPeriod2_grade());
                 }
             });
-        } else {
-            System.out.println("GradesTable is null.");
-        }
-
-
 
     }
 

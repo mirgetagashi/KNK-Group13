@@ -6,13 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.*;
@@ -105,6 +99,11 @@ public class AdminStudentController implements Initializable {
     private ComboBox<String> conboBoxSchoolFilter;
     @FXML
     private TextField txtFilterName;
+    @FXML
+    private Pagination pagination;
+    private final static int rowsPerPage = 15;
+
+    private ObservableList<Students> dataList;
 
     @FXML
     void handleFilterClick(ActionEvent event) {
@@ -202,25 +201,30 @@ public class AdminStudentController implements Initializable {
         return genderSelect;
     }
 
+    private TableView<Students> createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, dataList.size());
+        StudentTable.setItems(FXCollections.observableArrayList(dataList.subList(fromIndex, toIndex)));
+        return StudentTable;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.ComboBoxInitialize();
 
-        ObservableList<Students> students = FXCollections.observableArrayList(StudentRepository.getAllStudents());
-        if (StudentTable != null) {
-            columnStudentEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-            columnStudentName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-            columnStudentLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-            columnStudentID.setCellValueFactory(new PropertyValueFactory<>("id"));
-            columnsStudentAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-            columnsStudentMajor.setCellValueFactory(new PropertyValueFactory<>("major"));
-            columnsStudentLevel.setCellValueFactory(new PropertyValueFactory<>("level"));
-            columnsStudentSchool.setCellValueFactory(new PropertyValueFactory<>("school"));
+        dataList = FXCollections.observableArrayList(StudentRepository.getAllStudents());
 
-            StudentTable.setItems(students);
-        } else {
-            System.out.println("StudentTable is null.");
-        }
+        columnStudentEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        columnStudentName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        columnStudentLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        columnStudentID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        columnsStudentAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        columnsStudentMajor.setCellValueFactory(new PropertyValueFactory<>("major"));
+        columnsStudentLevel.setCellValueFactory(new PropertyValueFactory<>("level"));
+        columnsStudentSchool.setCellValueFactory(new PropertyValueFactory<>("school"));
+
+        pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
+        pagination.setPageFactory(this::createPage);
 
     }
 

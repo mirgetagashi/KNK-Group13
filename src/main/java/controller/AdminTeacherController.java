@@ -6,24 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import model.Address;
-import model.School;
-import model.Subject;
-import model.Teacher;
+import model.*;
 import model.dto.TeacherDto;
-import repository.AddressRepository;
-import repository.SchoolRepository;
-import repository.SubjectRepository;
-import repository.TeacherRepository;
+import repository.*;
 import service.TeacherService;
 
 import java.net.URL;
@@ -104,6 +92,13 @@ public class AdminTeacherController implements Initializable {
     private AnchorPane invisiblePane;
 
     @FXML
+    private Pagination pagination;
+    private final static int rowsPerPage = 15;
+
+    private ObservableList<Teacher> dataList;
+
+
+    @FXML
     void handleAddClick(ActionEvent event) {
         int cityID=returnId(cityComboBox.getValue());
         int schoolID=returnId(schoolComboBox.getValue());
@@ -175,27 +170,29 @@ public class AdminTeacherController implements Initializable {
         return genderSelect;
     }
 
+    private TableView<Teacher> createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, dataList.size());
+        TeachersTable.setItems(FXCollections.observableArrayList(dataList.subList(fromIndex, toIndex)));
+        return TeachersTable;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        dataList = FXCollections.observableArrayList(TeacherRepository.getAllTeachers());
+        columnAddress.setCellValueFactory(new PropertyValueFactory<>("address_id"));
+        columnBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+        columnTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        columnSubject.setCellValueFactory(new PropertyValueFactory<>("subject_id"));
+        columnSchool.setCellValueFactory(new PropertyValueFactory<>("school_id"));
+        columnLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        columnFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        ObservableList<Teacher> teachers = FXCollections.observableArrayList(TeacherRepository.getAllTeachers());
-        if (TeachersTable != null) {
-            columnAddress.setCellValueFactory(new PropertyValueFactory<>("address_id"));
-            columnBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
-            columnTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-            columnSubject.setCellValueFactory(new PropertyValueFactory<>("subject_id"));
-            columnSchool.setCellValueFactory(new PropertyValueFactory<>("school_id"));
-            columnLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-            columnFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-            columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-            columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
-
-            TeachersTable.setItems(teachers);
-        } else {
-            System.out.println("StudentTable is null.");
-        }
-
+        pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
+        pagination.setPageFactory(this::createPage);
 
         cityComboBox.setValue("Address");
         schoolComboBox.setValue("School");

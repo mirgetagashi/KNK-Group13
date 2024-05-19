@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,10 +8,10 @@
 
 <VBox prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentTableController">
     <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="718.0" VBox.vgrow="ALWAYS">
          <children>
 
-            <TableView fx:id="studentTable" layoutX="56.0" layoutY="44.0" prefHeight="311.0" prefWidth="583.0">
+            <TableView fx:id="studentTable" layoutX="61.0" layoutY="27.0" prefHeight="311.0" prefWidth="583.0">
               <columns>
 
                 <TableColumn fx:id="subjectId" prefWidth="73.60003662109375" text="Subject ID" />
@@ -22,6 +23,7 @@
                   <TableColumn fx:id="finalGrade" prefWidth="109.5999755859375" text="Final grade" />
               </columns>
             </TableView>
+            <Pagination fx:id="pagination" layoutX="64.0" layoutY="25.0" prefHeight="358.0" prefWidth="583.0" />
          </children>
     </AnchorPane>
   </children>

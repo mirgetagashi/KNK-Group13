@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,7 +15,7 @@
     <children>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="869.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="tblSchools" layoutX="325.0" layoutY="51.0" prefHeight="327.0" prefWidth="490.0">
+            <TableView fx:id="tblSchools" layoutX="303.0" layoutY="54.0" prefHeight="327.0" prefWidth="490.0">
               <columns>
                 <TableColumn fx:id="columnID" prefWidth="75.0" text="School ID" />
                 <TableColumn fx:id="columnName" prefWidth="101.59994506835938" text="School Name" />
@@ -36,6 +37,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="325.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAddMajorToSchoolClick" text="Add Major to School" />
+            <Pagination fx:id="pagination" layoutX="288.0" layoutY="44.0" prefHeight="384.0" prefWidth="517.0" />
          </children>
         </AnchorPane>
     </children>

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,7 +18,7 @@
 <HBox prefHeight="398.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminStudentController">
     <children>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="906.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
-            <TableView fx:id="StudentTable" layoutX="262.0" layoutY="135.0" prefHeight="311.0" prefWidth="620.0">
+            <TableView fx:id="StudentTable" layoutX="257.0" layoutY="103.0" prefHeight="311.0" prefWidth="620.0">
                 <columns>
                     <TableColumn fx:id="columnStudentID" prefWidth="32.799986243247986" text="ID" />
                     <TableColumn fx:id="columnStudentName" prefWidth="80.8000717163086" text="First Name" />
@@ -79,11 +80,12 @@
                   </Button>
                 </children>
             </AnchorPane>
-         <ComboBox fx:id="comboBoxMajorFilter" layoutX="433.0" layoutY="39.0" prefHeight="19.0" prefWidth="150.0" promptText="Major" />
-         <ComboBox fx:id="conboBoxSchoolFilter" layoutX="262.0" layoutY="78.0" prefWidth="150.0" promptText="School" />
-         <ComboBox fx:id="comboBoxLevelFilter" layoutX="433.0" layoutY="78.0" prefWidth="150.0" promptText="Level" />
-         <TextField fx:id="txtFilterName" layoutX="263.0" layoutY="39.0" promptText="Name" />
+         <ComboBox fx:id="comboBoxMajorFilter" layoutX="433.0" layoutY="26.0" prefHeight="19.0" prefWidth="150.0" promptText="Major" />
+         <ComboBox fx:id="conboBoxSchoolFilter" layoutX="261.0" layoutY="65.0" prefWidth="150.0" promptText="School" />
+         <ComboBox fx:id="comboBoxLevelFilter" layoutX="433.0" layoutY="65.0" prefWidth="150.0" promptText="Level" />
+         <TextField fx:id="txtFilterName" layoutX="262.0" layoutY="26.0" promptText="Name" />
          <Button layoutX="622.0" layoutY="52.0" mnemonicParsing="false" onAction="#handleFilterClick" text="Filter" />
+         <Pagination fx:id="pagination" layoutX="237.0" layoutY="98.0" prefHeight="370.0" prefWidth="658.0" />
         </AnchorPane>
     </children>
 </HBox>

@@ -6,10 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -58,6 +55,12 @@ public class AdminSchoolsController  implements Initializable {
     private AnchorPane invisiblePane;
     @FXML
     private HBox hBox;
+
+    @FXML
+    private Pagination pagination;
+    private final static int rowsPerPage = 15;
+
+    private ObservableList<SchoolTable> dataList;
 
 
     @FXML
@@ -121,19 +124,27 @@ public class AdminSchoolsController  implements Initializable {
         }
     }
 
+    private TableView<SchoolTable> createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, dataList.size());
+        tblSchools.setItems(FXCollections.observableArrayList(dataList.subList(fromIndex, toIndex)));
+        return tblSchools;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<SchoolTable> schoolTables=FXCollections.observableArrayList(AdminDashboardRepository.getSchoolsInfo());
-        if (tblSchools != null) {
-            columnCity.setCellValueFactory(new PropertyValueFactory<>("city"));
-            columnNumOfStudents.setCellValueFactory(new PropertyValueFactory<>("numberOfStudents"));
-            columnNumberOfMajors.setCellValueFactory(new PropertyValueFactory<>("numberOfMajors"));
-            columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
-            columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
-            tblSchools.setItems(schoolTables);
-        } else {
-            System.out.println("StudentTable is null.");
-        }
+        columnCity.setCellValueFactory(new PropertyValueFactory<>("city"));
+        columnNumOfStudents.setCellValueFactory(new PropertyValueFactory<>("numberOfStudents"));
+        columnNumberOfMajors.setCellValueFactory(new PropertyValueFactory<>("numberOfMajors"));
+        columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        dataList = FXCollections.observableArrayList(FXCollections.observableArrayList(AdminDashboardRepository.getSchoolsInfo()));
+
+        pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
+
+        pagination.setPageFactory(this::createPage);
+
 
         comboBoxCity.setValue("Address");
         ComboBoxMajors.setValue("Majors");
