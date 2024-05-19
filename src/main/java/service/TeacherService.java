@@ -1,9 +1,12 @@
 package service;
 
+import model.Students;
 import model.Teacher;
 import model.dto.*;
 import repository.StudentRepository;
 import repository.TeacherRepository;
+
+import java.util.ArrayList;
 
 public class TeacherService {
 
@@ -48,5 +51,17 @@ public class TeacherService {
         );
 
         return TeacherRepository.create(createTeacherDto);
+    }
+
+    public static boolean delete(int id) {
+        return TeacherRepository.delete(id);
+    }
+
+    public static ArrayList<Teacher> getAllTeachers(){
+        return TeacherRepository.getAllTeachers();
+    }
+
+    public static Teacher getByEmail(String email){
+        return TeacherRepository.getByEmail(email);
     }
 }

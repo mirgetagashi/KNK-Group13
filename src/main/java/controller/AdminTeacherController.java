@@ -12,6 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import model.*;
 import model.dto.TeacherDto;
 import repository.*;
+import service.AddressService;
+import service.SchoolService;
+import service.SubjectService;
 import service.TeacherService;
 
 import java.net.URL;
@@ -135,7 +138,7 @@ public class AdminTeacherController implements Initializable {
 
         if (selectedItem != null) {
 
-            boolean deleted = TeacherRepository.delete(selectedItem.getId());
+            boolean deleted = TeacherService.delete(selectedItem.getId());
 
 
             if (deleted) {
@@ -180,7 +183,7 @@ public class AdminTeacherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        dataList = FXCollections.observableArrayList(TeacherRepository.getAllTeachers());
+        dataList = FXCollections.observableArrayList(TeacherService.getAllTeachers());
         columnAddress.setCellValueFactory(new PropertyValueFactory<>("address_id"));
         columnBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         columnTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -194,31 +197,37 @@ public class AdminTeacherController implements Initializable {
         pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
         pagination.setPageFactory(this::createPage);
 
+        this.ComboBoxInitialize();
+
+    }
+
+    private void ComboBoxInitialize(){
         cityComboBox.setValue("Address");
         schoolComboBox.setValue("School");
         subjectComboBox.setValue("Subject");
         ArrayList<String> cities= new ArrayList<>();
-        for (Address city : (AddressRepository.getAllCities())) {
+        for (Address city : (AddressService.getAllCities())) {
             cities.add(city.getId()+" "+city.getCity());
         }
         cityComboBox.getItems().addAll(cities);
         cityComboBox.setOnAction(this::handleCitySelection);
 
         ArrayList<String > subjects= new ArrayList<>();
-        for(Subject subject: SubjectRepository.getAllSubjects()){
+        for(Subject subject: SubjectService.getAllSubjects()){
             subjects.add(subject.getId()+" "+subject.getName());
         }
         subjectComboBox.getItems().addAll(subjects);
 
         String[] titles={"Bsc","Msc","Phd"};
         titleComboBox.getItems().addAll(titles);
+
     }
 
 
 
     private void handleCitySelection(ActionEvent event) {
         int id=returnId(cityComboBox.getValue());
-        ArrayList<School> schools = SchoolRepository.getSchoolByCity(id);
+        ArrayList<School> schools = SchoolService.getSchoolByCity(id);
         for(School s: schools){
             schoolComboBox.getItems().addAll(s.getId()+" "+s.getName());
         }

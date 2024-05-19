@@ -15,9 +15,6 @@ import model.Administrator;
 import model.Students;
 import model.Teacher;
 import model.dto.LoginUserDto;
-import repository.AdminRepository;
-import repository.StudentRepository;
-import repository.TeacherRepository;
 import service.AdminService;
 import service.StudentService;
 import service.TeacherService;
@@ -49,15 +46,15 @@ public class LoginController {
 
         if(isLogedIn){
             if(useremail.contains("@student")){
-                Students student= StudentRepository.getByEmail(useremail);
+                Students student= StudentService.getByEmail(useremail);
                 StudentSession.setStudent(student);
                 Navigator.navigate(ae,Navigator.STUDENT_PROFILE);
             }else if(useremail.contains("@teacher")){
-                Teacher teacher= TeacherRepository.getByEmail(useremail);
+                Teacher teacher= TeacherService.getByEmail(useremail);
                 TeacherSession.setTeacher(teacher);
                 Navigator.navigate(ae,Navigator.TEACHER_TABLE);
             }else if(useremail.contains("@admin")){
-                Administrator admin= AdminRepository.getByEmail(useremail);
+                Administrator admin= AdminService.getByEmail(useremail);
                 AdminSession.setAdmin(admin);
                 Navigator.navigate(ae,Navigator.ADMIN_PAGE);
             }else {
@@ -70,10 +67,7 @@ public class LoginController {
     @FXML
     private void handleCancelClick(ActionEvent ae){
     }
-    @FXML
-    private void handleCreateAccountClick(MouseEvent me){
-   //     Navigator.navigate(me, Navigator.SIGN_UP_PAGE);
-    }
+
     @FXML
     private void handleForgotPasswordClick(MouseEvent me){
 

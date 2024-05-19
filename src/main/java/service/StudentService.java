@@ -5,6 +5,7 @@ import model.dto.*;
 import repository.StudentRepository;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class StudentService {
 
@@ -76,6 +77,17 @@ public class StudentService {
         ChangePasswordDto dto= new ChangePasswordDto(id, newPasswordHash);
 
         return StudentRepository.updatePassword(dto);
+    }
+
+    public static ArrayList<Students> getAllStudents(){
+        return StudentRepository.getAllStudents();
+    }
+
+    public static boolean delete(int id){
+        return StudentRepository.delete(id);
+    }
+    public static Students getByEmail(String email){
+        return StudentRepository.getByEmail(email);
     }
 }
 

@@ -10,7 +10,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Grades_Teacher_Subject;
-import model.Students;
 import repository.StudentTableRepository;
 
 import java.net.URL;

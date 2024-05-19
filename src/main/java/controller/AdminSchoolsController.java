@@ -17,6 +17,8 @@ import model.Students;
 import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
 import repository.*;
+import service.AddressService;
+import service.MajorService;
 import service.SchoolService;
 
 import java.net.URL;
@@ -113,7 +115,7 @@ public class AdminSchoolsController  implements Initializable {
 
         if (selectedItem != null) {
 
-            boolean deleted = SchoolRepository.delete(selectedItem.getId());
+            boolean deleted = SchoolService.delete(selectedItem.getId());
 
 
             if (deleted) {
@@ -149,13 +151,13 @@ public class AdminSchoolsController  implements Initializable {
         comboBoxCity.setValue("Address");
         ComboBoxMajors.setValue("Majors");
         ArrayList<String> majors= new ArrayList<>();
-        for (Major major : MajorRepository.getAllMajors()) {
+        for (Major major : MajorService.getAllMajors()) {
             majors.add(major.getId()+" "+major.getMajor_name());
         }
         ComboBoxMajors.getItems().addAll(majors);
 
         ArrayList<String> cities= new ArrayList<>();
-        for (Address city : (AddressRepository.getAllCities())) {
+        for (Address city : (AddressService.getAllCities())) {
             cities.add(city.getId()+" "+city.getCity());
         }
         comboBoxCity.getItems().addAll(cities);

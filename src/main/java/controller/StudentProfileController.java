@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import repository.AddressRepository;
 import repository.SchoolRepository;
+import service.AddressService;
+import service.SchoolService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,9 +59,9 @@ public class StudentProfileController implements Initializable {
         lastName.setText(StudentSession.getStudent().getLastName());
         gender.setText(StudentSession.getStudent().getGender());
         level.setText(String.valueOf(StudentSession.getStudent().getLevel()));
-        school.setText(SchoolRepository.getById(StudentSession.getStudent().getSchool()).getName());
+        school.setText(SchoolService.getById(StudentSession.getStudent().getSchool()).getName());
         email.setText(StudentSession.getStudent().getEmail());
         birthday.setText(String.valueOf(StudentSession.getStudent().getBirthday()));
-        address.setText(AddressRepository.getById(StudentSession.getStudent().getAddress()).getCity());
+        address.setText(AddressService.getById(StudentSession.getStudent().getAddress()).getCity());
     }
 }

@@ -14,8 +14,7 @@ import model.dto.CreateSchoolDto;
 import model.dto.StudentDto;
 import model.dto.UpdateGradeDto;
 import repository.*;
-import service.StudentService;
-import service.Validator;
+import service.*;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -167,7 +166,7 @@ public class AdminStudentController implements Initializable {
 
         if (selectedItem != null) {
 
-//            boolean deleted = StudentRepository.delete(selectedItem.getId());
+//            boolean deleted = StudentService.delete(selectedItem.getId());
 //
 //
 //            if (deleted) {
@@ -212,7 +211,7 @@ public class AdminStudentController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.ComboBoxInitialize();
 
-        dataList = FXCollections.observableArrayList(StudentRepository.getAllStudents());
+        dataList = FXCollections.observableArrayList(StudentService.getAllStudents());
 
         columnStudentEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         columnStudentName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -235,14 +234,14 @@ public class AdminStudentController implements Initializable {
         majorComboBox.setValue("Major");
         periodComboBox.setValue("Level");
         ArrayList<String> cities= new ArrayList<>();
-        for (Address city : (AddressRepository.getAllCities())) {
+        for (Address city : (AddressService.getAllCities())) {
             cities.add(city.getId()+" "+city.getCity());
         }
         cityComboBox.getItems().addAll(cities);
         cityComboBox.setOnAction(this::handleCitySelection);
 
         ArrayList<String> levels= new ArrayList<>();
-        for(Grade_level level: GradeLevelRepository.getAllLevels()){
+        for(Grade_level level: GradeLevelService.getAllLevels()){
             levels.add(level.getLevel_id()+" "+level.getLevel_name());
         }
         periodComboBox.getItems().addAll(levels);
@@ -251,7 +250,7 @@ public class AdminStudentController implements Initializable {
 
     private void handleCitySelection(ActionEvent event) {
         int id=returnId(cityComboBox.getValue());
-        ArrayList<School> schools = SchoolRepository.getSchoolByCity(id);
+        ArrayList<School> schools = SchoolService.getSchoolByCity(id);
         for(School s: schools){
             schoolComboBox.getItems().addAll(s.getId()+" "+s.getName());
         }
@@ -260,7 +259,7 @@ public class AdminStudentController implements Initializable {
 
     private void handleSchoolSelection(ActionEvent ae){
         int id=returnId(schoolComboBox.getValue());
-        ArrayList<Major> majors= MajorRepository.getMajorBySchool(id);
+        ArrayList<Major> majors= MajorService.getMajorBySchool(id);
         for(Major m:majors){
             majorComboBox.getItems().addAll(m.getId()+" "+m.getMajor_name());
         }

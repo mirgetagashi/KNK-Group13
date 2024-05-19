@@ -22,4 +22,8 @@ public class AdminService {
                 password, salt, passwordHash
         );
     }
+    public static Administrator getByEmail(String email){
+        return AdminRepository.getByEmail(email);
+    }
+
 }
