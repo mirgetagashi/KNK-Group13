@@ -2,21 +2,16 @@ package controller;
 import app.Navigator;
 import app.SessionManager.StudentSession;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.event.ActionEvent;
 import javafx.scene.control.PasswordField;
-import javafx.stage.Stage;
-import model.Students;
 import model.dto.ChangePasswordRequestDto;
 import service.StudentService;
 
 import java.sql.SQLException;
 
-public class SettingsStudentController {
+public class ChangePasswordController {
 
-    @FXML
-    private ChoiceBox<?> choiceBox;
 
     @FXML
     private PasswordField confirmNewPwd;
@@ -29,7 +24,7 @@ public class SettingsStudentController {
 
     @FXML
     void handleCancel(ActionEvent event) {
-
+        Navigator.navigate(event,Navigator.STUDENT_PROFILE);
     }
 
 

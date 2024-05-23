@@ -19,7 +19,7 @@
          <children>
             <Pane layoutX="16.0" layoutY="25.0" prefHeight="344.0" prefWidth="607.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
                <children>
-                  <Label fx:id="email" alignment="CENTER" layoutX="360.0" layoutY="293.0" prefHeight="19.0" prefWidth="110.0" style="-fx-border-radius: 10; -fx-border-color: grey;" styleClass="email" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="email" alignment="CENTER" layoutX="359.0" layoutY="275.0" prefHeight="19.0" prefWidth="110.0" style="-fx-border-radius: 10; -fx-border-color: grey;" styleClass="email" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="12.5" />
                      </font>
@@ -29,12 +29,12 @@
                         <Font size="8.0" />
                      </font>
                   </Text>
-                  <Label fx:id="lastName" alignment="CENTER" layoutX="360.0" layoutY="159.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-radius: 20; -fx-border-color: grey;" styleClass="last-name" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="lastName" alignment="CENTER" layoutX="359.0" layoutY="141.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-radius: 20; -fx-border-color: grey;" styleClass="last-name" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="204.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="school" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="186.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="school" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -44,22 +44,22 @@
                         <Image url="@../Images/people.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="gender" alignment="CENTER" layoutX="155.0" layoutY="292.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="gender" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="gender" alignment="CENTER" layoutX="154.0" layoutY="274.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="gender" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="address" alignment="CENTER" layoutX="360.0" layoutY="204.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="address" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="address" alignment="CENTER" layoutX="359.0" layoutY="186.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="address" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="level" alignment="CENTER" layoutX="360.0" layoutY="249.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-radius: 20; -fx-border-color: grey;" styleClass="level" textAlignment="CENTER" textFill="#686868">
+                  <Label fx:id="level" alignment="CENTER" layoutX="359.0" layoutY="231.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-radius: 20; -fx-border-color: grey;" styleClass="level" textAlignment="CENTER" textFill="#686868">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="249.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" textAlignment="CENTER" textFill="#727272" />
+                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="231.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" textAlignment="CENTER" textFill="#727272" />
                   <Text fill="#8a8a8a" layoutX="125.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student profile" textAlignment="CENTER" wrappingWidth="158.5054331251995">
                      <font>
                         <Font name="Monospaced Bold" size="17.5" />
@@ -70,7 +70,7 @@
                         <Image url="@../Images/people.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="159.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 30;" styleClass="first-name" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="141.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 30;" styleClass="first-name" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -80,42 +80,42 @@
                         <Font size="6.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="155.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+                  <Text fill="#727272" layoutX="154.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="155.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="37.92308044433594">
+                  <Text fill="#727272" layoutX="154.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="37.92308044433594">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="155.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="52.31307710069984">
+                  <Text fill="#727272" layoutX="154.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="52.31307710069984">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="155.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="52.31307710069984">
+                  <Text fill="#727272" layoutX="154.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="52.31307710069984">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="360.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
+                  <Text fill="#727272" layoutX="359.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="360.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+                  <Text fill="#727272" layoutX="359.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="360.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
+                  <Text fill="#727272" layoutX="359.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="360.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
+                  <Text fill="#727272" layoutX="359.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
                      <font>
                         <Font size="11.0" />
                      </font>
@@ -131,7 +131,8 @@
                   <Line endX="65.40168762207031" endY="190.56048583984375" layoutX="39.0" layoutY="151.0" startX="-37.784812927246094" startY="86.27426147460938" stroke="#b29758" />
                   <Line endX="55.99998474121094" endY="-25.201751708984375" layoutX="51.0" layoutY="165.0" startX="-29.259044647216797" startY="179.0" stroke="#b29758" />
                   <Line endX="-18.550334930419922" endY="-136.6068572998047" layoutX="57.0" layoutY="139.0" startX="-7.300270080566406" startY="201.75009155273438" stroke="#b29758" />
-                  <ImageView fitHeight="69.0" fitWidth="105.0" layoutX="420.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="69.0" fitWidth="105.0" layoutX="419.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtChangePassword" fill="#696666" layoutX="361.0" layoutY="315.0" onMouseClicked="#handleChangePassword" strokeType="OUTSIDE" strokeWidth="0.0" text="Change password!" underline="true" />
                </children>
             </Pane>
          </children>

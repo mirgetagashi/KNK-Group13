@@ -1,4 +1,5 @@
 package controller;
+import app.Navigator;
 import app.SessionManager.StudentSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import repository.AddressRepository;
 import repository.SchoolRepository;
 import service.AddressService;
 import service.SchoolService;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -52,6 +55,15 @@ public class StudentProfileController implements Initializable {
     @FXML
     void handleModify(ActionEvent event) {
 
+    }
+
+    @FXML
+    private Text txtChangePassword;
+
+    @FXML
+    void handleChangePassword(MouseEvent event) {
+
+        Navigator.navigate(event,Navigator.STUDENT_SETTINGS);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
