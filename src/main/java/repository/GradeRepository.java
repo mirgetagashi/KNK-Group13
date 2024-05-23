@@ -2,6 +2,7 @@ package repository;
 
 import model.Grades;
 import model.dto.CreateGradeDto;
+import model.dto.DeleteGradeDto;
 import model.dto.UpdateGradeDto;
 import service.DBConnector;
 
@@ -19,7 +20,7 @@ public class GradeRepository {
                 "VALUES (?, ?, ?, calculate_final_grade(?, ?), ?, ?, ?)";
         try {
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setInt(1, GradeLevelRepository.getLevelByName(createGradeDto.getLevel()).getLevel_id());
+            pst.setInt(1, createGradeDto.getLevel_Id());
             pst.setInt(2, createGradeDto.getPeriod1Grade());
             pst.setInt(3, createGradeDto.getPeriod2Grade());
             pst.setInt(4, createGradeDto.getPeriod1Grade());
@@ -37,35 +38,33 @@ public class GradeRepository {
             return false;
         }
     }
-    public static boolean deleteGrade(int gradeId) {
+    public static boolean deleteGrade(DeleteGradeDto deleteGradeDto) {
 
         String query = "DELETE FROM Grades WHERE grade_id = ?";
-
         try {
             Connection conn = DBConnector.getConnection();
-            PreparedStatement pst= conn.prepareStatement(query);
-            pst.setInt(1, gradeId);
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, deleteGradeDto.getGrade_id());
             int deletedRow = pst.executeUpdate();
-            pst.executeUpdate();
             pst.close();
             conn.close();
-            return true;
+            return deletedRow > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-    public static boolean updateGrade(UpdateGradeDto updatedGradeDto) {
+    public static boolean updateGrade(UpdateGradeDto updateGradeDto) {
         String query = "UPDATE Grades SET period1_grade = ?, period2_grade = ?, final_grade = calculate_final_grade(?, ?) " +
                 "WHERE grade_id = ?";
         try {
             Connection conn = DBConnector.getConnection();
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setInt(1, updatedGradeDto.getPeriod1_grade());
-            pst.setInt(2, updatedGradeDto.getPeriod2_grade());
-            pst.setInt(3, updatedGradeDto.getPeriod1_grade());
-            pst.setInt(4, updatedGradeDto.getPeriod2_grade());
-            pst.setInt(5, updatedGradeDto.getGrade_id());
+            pst.setInt(1, updateGradeDto.getPeriod1_grade());
+            pst.setInt(2, updateGradeDto.getPeriod2_grade());
+            pst.setInt(3, updateGradeDto.getPeriod1_grade());
+            pst.setInt(4, updateGradeDto.getPeriod2_grade());
+            pst.setInt(5, updateGradeDto.getGrade_id());
 
             int updatedRows = pst.executeUpdate();
             pst.close();
@@ -81,12 +80,12 @@ public class GradeRepository {
 
 
 
-    public static boolean gradesExistForStudentAndLevel(int studentId, String level) {
+    public static boolean gradesExistForStudentAndLevel(int studentId, int level_id) {
         String query = "SELECT COUNT(*) FROM grades WHERE std_id = ? AND level_id = ? AND (period1_grade IS NOT NULL OR period2_grade IS NOT NULL)";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, studentId);
-            stmt.setInt(2, GradeLevelRepository.getLevelByName(level).getLevel_id());
+            stmt.setInt(2, level_id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next() && rs.getInt(1) > 0) {
                 return true;
@@ -131,6 +130,35 @@ public class GradeRepository {
         return grades;
     }
 
+    public static int getPeriod1Grade(int gradeId) {
+        String query = "SELECT period1_grade FROM Grades WHERE grade_id = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setInt(1, gradeId);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("period1_grade");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Return a sentinel value or handle error appropriately
+    }
+    public static int getPeriod2Grade(int gradeId) {
+        String query = "SELECT period2_grade FROM Grades WHERE grade_id = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setInt(1, gradeId);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("period2_grade");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Return a sentinel value or handle error appropriately
+    }
+
 
     private static Grades getFromResultSet(ResultSet resultSet) {
         try {
@@ -149,4 +177,51 @@ public class GradeRepository {
             return null;
         }
     }
+
+    public static Grades getGradeById(int gradeId) {
+        String query = "SELECT * FROM Grades WHERE grade_id = ? LIMIT 1;";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+
+            pst.setInt(1, gradeId);
+            ResultSet resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                return getFromResultSet(resultSet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static int countGrades() {
+        String query = "SELECT COUNT(*) FROM Grades";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query);
+             ResultSet rs = pst.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt(1); // Kthen numrin total të rreshtave
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0; // Kthehet 0 nëse ka ndonjë problem
+    }
+    public static double calculateAverageFinalGrade() {
+        String query = "SELECT AVG(final_grade) FROM Grades";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query);
+             ResultSet rs = pst.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getDouble(1); // Kthen mesataren e notave finale
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0; // Kthehet 0.0 nëse ka ndonjë problem
+    }
+
 }
+

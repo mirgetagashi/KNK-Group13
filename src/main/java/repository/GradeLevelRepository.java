@@ -1,9 +1,6 @@
 package repository;
 
-import model.Address;
 import model.Grade_level;
-import model.Major;
-import model.Period;
 import service.DBConnector;
 
 import java.sql.Connection;

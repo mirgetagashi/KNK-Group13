@@ -4,15 +4,15 @@ public class CreateGradeDto {
     private Integer t_id;
     private Integer subject_id;
     private Integer studentId;
-    private String level;
+    private int level_id;
     private Integer period1Grade;
     private Integer period2Grade;
 
-    public CreateGradeDto(Integer t_id, Integer subject_id, Integer studentId, String level, Integer period1Grade, Integer period2Grade) {
+    public CreateGradeDto(Integer t_id, Integer subject_id, Integer studentId, int level_id, Integer period1Grade, Integer period2Grade) {
         this.t_id = t_id;
         this.subject_id = subject_id;
         this.studentId = studentId;
-        this.level = level;
+        this.level_id = level_id;
         this.period1Grade = period1Grade;
         this.period2Grade = period2Grade;
     }
@@ -29,8 +29,8 @@ public class CreateGradeDto {
         return studentId;
     }
 
-    public String getLevel() {
-        return level;
+    public int getLevel_Id() {
+        return level_id;
     }
 
     public Integer getPeriod1Grade() {

@@ -75,11 +75,7 @@
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="57.0" layoutY="213.0" onMouseClicked="#settings" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/settings.png" />
-                     </image>
-                  </ImageView>
+
                   <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="8.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
@@ -87,7 +83,7 @@
                   </Button>
                   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="58.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/help.png" />
+                        <Image url="@../Images/help-svgrepo-com (1).png" />
                      </image>
                   </ImageView>
                   <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="296.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="          Profile" textFill="WHITE">
@@ -100,7 +96,7 @@
                         <Image url="@../Images/profile.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="1.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Add grade" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="1.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#addgrade" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Add grade" textFill="WHITE">
                      <font>
                         <Font name="Century Gothic Bold" size="13.0" />
                      </font>
@@ -114,5 +110,6 @@
             </AnchorPane>
          </children>
       </VBox>
+      <AnchorPane fx:id="pane" prefHeight="572.0" prefWidth="701.0" />
    </children>
 </HBox>
