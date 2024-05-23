@@ -6,6 +6,7 @@
 
 }
 .textfield-design{
+    -fx-font-family: 'Montserrat';
     -fx-underline: true; /* Enable underline */
     -fx-border-width: 0 0 2px 0; /* Set the bottom border width */
     -fx-border-color: #002554; /* Set the border color */
@@ -15,7 +16,9 @@
     -fx-font-size: 16px; /* Adjust the font size if needed */
 
 }
+/* Button styles */
 .button-design {
+    -fx-font-family: 'Montserrat';
     -fx-background-color: #002554;
     -fx-background-radius: 0px 0px 0px 0; /* top-left, top-right, bottom-right, bottom-left */
     -fx-cursor: hand;
@@ -57,6 +60,14 @@
     -fx-background-color: #002554;
     -fx-text-fill: white;
 }
+
+/* Label styles */
+.label-design {
+    -fx-font-family: 'Montserrat';
+    -fx-text-fill: #727272; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+}
+
 
 
 .label-design{

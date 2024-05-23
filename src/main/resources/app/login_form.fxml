@@ -59,7 +59,7 @@
                   <Label layoutX="54.0" layoutY="29.0" text="Edu." textFill="#d3d3d3" />
                   <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Users/PC%20i7/Downloads/logo-removebg-preview.png" />
+                        <Image url="@../Images/logo-removebg-preview.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="25.0" layoutY="52.0" text="Education, Simplified" textFill="WHITE">
@@ -67,21 +67,21 @@
                         <Font name="Montserrat Regular" size="12.0" />
                      </font>
                   </Label>
-                  <ImageView id="loginPhoto" fitHeight="241.0" fitWidth="248.0" layoutX="90.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" styleClass="loginPhoto">
+                  <ImageView id="loginPhoto" fitHeight="241.0" fitWidth="230.0" layoutX="74.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" styleClass="loginPhoto">
                      <image>
-                        <Image url="@../../../../../../Users/PC%20i7/Downloads/login2.png" />
+                        <Image url="@../Images/login2.png" />
                      </image>
                   </ImageView>
                   <CubicCurve controlX1="90.98579406738281" controlX2="16.985794067382812" controlY1="-174.0" controlY2="155.33331298828125" endX="210.60305786132812" endY="-36.0" fill="#002554" layoutX="101.0" layoutY="386.0" startX="-127.20709228515625" startY="-36.0" stroke="WHITE" />
                   <Line endX="31.936386108398438" layoutX="122.0" layoutY="72.0" startX="-100.0" stroke="WHITE" />
                </children>
                <effect>
-                  <Bloom />
+                  <Bloom threshold="0.73" />
                </effect>
             </AnchorPane>
-            <Pane id="rightPane" layoutX="299.0" prefHeight="410.0" prefWidth="380.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
+            <Pane id="rightPane" layoutX="275.0" prefHeight="410.0" prefWidth="404.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
                <children>
-                  <Label layoutX="99.0" layoutY="61.0" prefHeight="74.0" prefWidth="194.0" text="Login" textFill="#002554" textOverrun="CLIP">
+                  <Label layoutX="105.0" layoutY="61.0" prefHeight="74.0" prefWidth="194.0" text="Login" textFill="#002554" textOverrun="CLIP">
                      <font>
                         <Font name="Montserrat Bold" size="61.0" />
                      </font>
@@ -91,12 +91,12 @@
                         <Font size="13.0" />
                      </font>
                   </PasswordField>
-                  <TextField fx:id="txtEmail" layoutX="102.0" layoutY="148.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
+                  <TextField fx:id="txtEmail" layoutX="105.0" layoutY="148.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="207.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="40.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
+                  <Button layoutX="215.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="40.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -111,14 +111,14 @@
                         <Font name="Montserrat Bold" size="12.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="71.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                  <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="75.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
                      <image>
-                        <Image url="@../../../../../../Users/PC%20i7/Downloads/email-svgrepo-com.png" />
+                        <Image url="@../Images/email-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="73.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="75.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Users/PC%20i7/Downloads/password-svgrepo-com.png" />
+                        <Image url="@../Images/password-svgrepo-com.png" />
                      </image>
                   </ImageView>
                </children>
