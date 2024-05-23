@@ -12,54 +12,63 @@
     -fx-border-color: #002554; /* Set the border color */
     -fx-background-color: transparent; /* Ensure the background is transparent */
     -fx-padding: 0; /* Remove any padding */
-    -fx-text-fill: transparent; /* Make the text transparent */
-    -fx-font-size: 16px; /* Adjust the font size if needed */
+    -fx-font-size: 13px; /* Adjust the font size if needed */
 
 }
+/* Button styles */
 /* Button styles */
 .button-design {
     -fx-font-family: 'Montserrat';
     -fx-background-color: #002554;
-    -fx-background-radius: 0px 0px 0px 0; /* top-left, top-right, bottom-right, bottom-left */
+    -fx-background-radius: 0; /* top-left, top-right, bottom-right, bottom-left */
     -fx-cursor: hand;
     -fx-text-fill: white; /* Text color */
     -fx-padding: 10px 20px; /* Padding inside the button */
     -fx-font-size: 14px; /* Font size */
     -fx-border-color: transparent;
-    -fx-border-width: 0px;
+    -fx-border-width: 0;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-background-insets: 0, 1, 2, 3;
 }
 
-.button-design-hover {
-    -fx-background-color: #002554;
-    -fx-background-radius: 0px 0px 0px 0;
-    -fx-cursor: hand;
-    -fx-text-fill: white;
-    -fx-padding: 10px 20px;
-    -fx-font-size: 14px;
-    -fx-border-color: transparent;
-    -fx-border-width: 0px;
-}
-
-.button-design-hover:hover {
-    -fx-background-color: #004080; /* Darker shade on hover */
+.button-design:hover {
+    -fx-background-color: #003366; /* Lighter shade on hover */
+    -fx-text-fill: white; /* Keep text color white */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 15, 0, 0, 0);
 }
 
 .button-design-outline {
     -fx-background-color: transparent;
-    -fx-background-radius: 0px 0px 0px 0;
+    -fx-background-radius: 0;
     -fx-cursor: hand;
     -fx-text-fill: #002554;
     -fx-padding: 10px 20px;
     -fx-font-size: 14px;
     -fx-border-color: #002554;
-    -fx-border-width: 2px;
+    -fx-border-width: 2;
 }
 
 .button-design-outline:hover {
     -fx-background-color: #002554;
     -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 15, 0, 0, 0);
 }
+
+/* Label styles */
+.label-design {
+    -fx-font-family: 'Montserrat';
+    -fx-text-fill: #727272; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+}
+
+
+/* Label styles */
+.label-design {
+    -fx-font-family: 'Montserrat';
+    -fx-text-fill: #727272; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+}
+
 
 /* Label styles */
 .label-design {

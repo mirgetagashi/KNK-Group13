@@ -45,6 +45,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
 <VBox fx:id="rootVBox" onKeyPressed="#handleKeyPressed" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
@@ -67,21 +68,22 @@
                         <Font name="Montserrat Regular" size="12.0" />
                      </font>
                   </Label>
-                  <ImageView id="loginPhoto" fitHeight="241.0" fitWidth="230.0" layoutX="74.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" styleClass="loginPhoto">
+                  <ImageView id="loginPhoto" fitHeight="241.0" fitWidth="230.0" layoutX="79.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" styleClass="loginPhoto">
                      <image>
                         <Image url="@../Images/login2.png" />
                      </image>
                   </ImageView>
                   <CubicCurve controlX1="90.98579406738281" controlX2="16.985794067382812" controlY1="-174.0" controlY2="155.33331298828125" endX="210.60305786132812" endY="-36.0" fill="#002554" layoutX="101.0" layoutY="386.0" startX="-127.20709228515625" startY="-36.0" stroke="WHITE" />
-                  <Line endX="31.936386108398438" layoutX="122.0" layoutY="72.0" startX="-100.0" stroke="WHITE" />
+                  <Line endX="31.637710571289062" layoutX="128.0" layoutY="71.0" startX="-107.69793701171875" stroke="WHITE" />
+                  <QuadCurve controlX="-50.0" controlY="-100.0" endX="7.103050231933594" endY="-93.25" fill="#002554" layoutX="79.0" layoutY="410.0" startX="-67.3969497680664" startY="6.5" stroke="WHITE" strokeType="INSIDE" />
                </children>
                <effect>
                   <Bloom threshold="0.73" />
                </effect>
             </AnchorPane>
-            <Pane id="rightPane" layoutX="275.0" prefHeight="410.0" prefWidth="404.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
+            <Pane id="rightPane" layoutX="283.0" prefHeight="410.0" prefWidth="404.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
                <children>
-                  <Label layoutX="105.0" layoutY="61.0" prefHeight="74.0" prefWidth="194.0" text="Login" textFill="#002554" textOverrun="CLIP">
+                  <Label id="LoginText" layoutX="112.0" layoutY="65.0" prefHeight="74.0" prefWidth="194.0" stylesheets="@style.css" text="Login" textFill="#002554" textOverrun="CLIP">
                      <font>
                         <Font name="Montserrat Bold" size="61.0" />
                      </font>
@@ -106,7 +108,7 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Label layoutX="147.0" layoutY="236.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" textFill="#002554" underline="true">
+                  <Label layoutX="142.0" layoutY="236.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" textFill="#002554" underline="true">
                      <font>
                         <Font name="Montserrat Bold" size="12.0" />
                      </font>
