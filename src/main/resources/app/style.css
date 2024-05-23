@@ -1,29 +1,68 @@
 .login-bg{
 
+-fx-border-radius: 45px;
+
 -fx-background-color:  #002554;
 
 }
 .textfield-design{
--fx-background-color:transparent;
--fx-background-radius:10px;
--fx-border-color:#002554;
--fx-border-radius:10px;
--fx-text-inner-color:#000;
+    -fx-underline: true; /* Enable underline */
+    -fx-border-width: 0 0 2px 0; /* Set the bottom border width */
+    -fx-border-color: #002554; /* Set the border color */
+    -fx-background-color: transparent; /* Ensure the background is transparent */
+    -fx-padding: 0; /* Remove any padding */
+    -fx-text-fill: transparent; /* Make the text transparent */
+    -fx-font-size: 16px; /* Adjust the font size if needed */
 
 }
-.button-design{
+.button-design {
+    -fx-background-color: #002554;
+    -fx-background-radius: 0px 0px 0px 0; /* top-left, top-right, bottom-right, bottom-left */
+    -fx-cursor: hand;
+    -fx-text-fill: white; /* Text color */
+    -fx-padding: 10px 20px; /* Padding inside the button */
+    -fx-font-size: 14px; /* Font size */
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
 
--fx-background-color: #002554;
--fx-background-radius:0px 20px 20px 0;
--fx-cursor:hand;
+.button-design-hover {
+    -fx-background-color: #002554;
+    -fx-background-radius: 0px 0px 0px 0;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0px;
 }
-.button-design:hover{
--fx-background-color:#00173E;
+
+.button-design-hover:hover {
+    -fx-background-color: #004080; /* Darker shade on hover */
 }
+
+.button-design-outline {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px 0px 0px 0;
+    -fx-cursor: hand;
+    -fx-text-fill: #002554;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-border-color: #002554;
+    -fx-border-width: 2px;
+}
+
+.button-design-outline:hover {
+    -fx-background-color: #002554;
+    -fx-text-fill: white;
+}
+
 
 .label-design{
--fx-text-fill:#e29e10;
+-fx-text-fill:#002554;
 -fx-underline:false;
+
 
 }
 .label-design:hover{
@@ -123,6 +162,18 @@
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     /* Use transparent fill since the actual gradient will be applied in Java code */
+}
+
+.rightPane {
+    -fx-background-color: #002554;
+    -fx-border-radius: 30px 0 0 30px;   /* top-left, top-right, bottom-right, bottom-left */
+    -fx-background-radius: 30px 0 0 30px;  /* top-left, top-right, bottom-right, bottom-left */
+}
+
+.loginPhoto {
+    -fx-alignment: top-center;
+    -fx-padding: 40; /* Optional: Add some padding if needed */
+    -fx-translate-y: -10px; /* Adjust this value to move the image up if necessary */
 }
 
 

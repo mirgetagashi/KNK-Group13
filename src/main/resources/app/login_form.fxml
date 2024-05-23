@@ -32,49 +32,97 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="rootVBox" onKeyPressed="#handleKeyPressed" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<VBox fx:id="rootVBox" onKeyPressed="#handleKeyPressed" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="342.0" style="-fx-background-color: #002554;" VBox.vgrow="ALWAYS">
       <children>
-            <AnchorPane prefHeight="400.0" prefWidth="258.0" styleClass="login-bg" stylesheets="@style.css">
+            <AnchorPane layoutX="-13.0" layoutY="-10.0" prefHeight="420.0" prefWidth="300.0" style="-fx-background-color: #002554;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="54.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+                  <Label layoutX="54.0" layoutY="29.0" text="Edu." textFill="#d3d3d3" />
+                  <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/education.png" />
+                        <Image url="@../../../../../../Users/PC%20i7/Downloads/logo-removebg-preview.png" />
                      </image>
                   </ImageView>
-               </children></AnchorPane>
-            <TextField fx:id="txtEmail" layoutX="347.0" layoutY="156.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="pwdPassword" layoutX="347.0" layoutY="196.0" prefHeight="32.0" prefWidth="200.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </PasswordField>
-            <Button layoutX="357.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="30.0" prefWidth="79.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="467.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleCancelClick" prefHeight="30.0" prefWidth="79.0" styleClass="button-design" stylesheets="@style.css" text="Cancel" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="355.0" layoutY="237.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" underline="true" />
-            <Label layoutX="394.0" layoutY="98.0" text="LOG IN" textFill="#002554">
-               <font>
-                  <Font name="Arial Bold" size="29.0" />
-               </font>
-            </Label>
+                  <Label layoutX="25.0" layoutY="52.0" text="Education, Simplified" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Regular" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView id="loginPhoto" fitHeight="241.0" fitWidth="248.0" layoutX="90.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" styleClass="loginPhoto">
+                     <image>
+                        <Image url="@../../../../../../Users/PC%20i7/Downloads/login2.png" />
+                     </image>
+                  </ImageView>
+                  <CubicCurve controlX1="90.98579406738281" controlX2="16.985794067382812" controlY1="-174.0" controlY2="155.33331298828125" endX="210.60305786132812" endY="-36.0" fill="#002554" layoutX="101.0" layoutY="386.0" startX="-127.20709228515625" startY="-36.0" stroke="WHITE" />
+                  <Line endX="31.936386108398438" layoutX="122.0" layoutY="72.0" startX="-100.0" stroke="WHITE" />
+               </children>
+               <effect>
+                  <Bloom />
+               </effect>
+            </AnchorPane>
+            <Pane id="rightPane" layoutX="299.0" prefHeight="410.0" prefWidth="380.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
+               <children>
+                  <Label layoutX="99.0" layoutY="61.0" prefHeight="74.0" prefWidth="194.0" text="Login" textFill="#002554" textOverrun="CLIP">
+                     <font>
+                        <Font name="Montserrat Bold" size="61.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="pwdPassword" layoutX="102.0" layoutY="200.0" prefHeight="32.0" prefWidth="200.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </PasswordField>
+                  <TextField fx:id="txtEmail" layoutX="102.0" layoutY="148.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="207.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="40.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="105.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleCancelClick" prefHeight="40.0" prefWidth="92.0" styleClass="button-design" stylesheets="@style.css" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="147.0" layoutY="236.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" textFill="#002554" underline="true">
+                     <font>
+                        <Font name="Montserrat Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="71.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
+                     <image>
+                        <Image url="@../../../../../../Users/PC%20i7/Downloads/email-svgrepo-com.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="26.0" fitWidth="23.0" layoutX="73.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Users/PC%20i7/Downloads/password-svgrepo-com.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
       </children>
     </AnchorPane>
   </children>
