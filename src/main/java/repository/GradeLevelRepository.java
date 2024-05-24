@@ -1,11 +1,8 @@
 package repository;
 
 import model.Grade_level;
-<<<<<<< Updated upstream
-import service.DBConnector;
-=======
+
 import Database.DBConnector;
->>>>>>> Stashed changes
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
