@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -10,14 +11,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <HBox prefHeight="398.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminStudentController">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="906.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+        <AnchorPane layoutX="1.0" maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="906.0" style="-fx-background-color: white;" stylesheets="@style.css" VBox.vgrow="ALWAYS">
             <TableView fx:id="StudentTable" layoutX="257.0" layoutY="103.0" prefHeight="311.0" prefWidth="620.0">
                 <columns>
                     <TableColumn fx:id="columnStudentID" prefWidth="32.799986243247986" text="ID" />
@@ -31,33 +36,33 @@
                 </columns>
 
             </TableView>
-            <AnchorPane layoutX="40.0" layoutY="159.0" prefHeight="32.0" prefWidth="183.0" style="-fx-border-radius: 10px; -fx-border-color: #002554;">
+            <AnchorPane layoutX="48.0" layoutY="159.0" prefHeight="32.0" prefWidth="183.0" style="-fx-border-radius: px; -fx-border-color: #002554;" styleClass="textfield-design" stylesheets="@style.css">
                 <children>
-                    <Label layoutX="14.0" layoutY="6.0" text="Gender:">
+                    <Label layoutX="14.0" layoutY="6.0" stylesheets="@style.css" text="Gender:">
                         <font>
                             <Font size="14.0" />
                         </font>
                     </Label>
-                    <RadioButton fx:id="radioButtonMale" layoutX="126.0" layoutY="6.0" mnemonicParsing="false" text="M">
+                    <RadioButton fx:id="radioButtonMale" layoutX="127.0" layoutY="6.0" mnemonicParsing="false" stylesheets="@style.css" text="M" textFill="#575757">
                         <font>
                             <Font size="13.0" />
                         </font>
                     </RadioButton>
-                    <RadioButton fx:id="radioButtonFemale" layoutX="77.0" layoutY="6.0" mnemonicParsing="false" text="F">
+                    <RadioButton fx:id="radioButtonFemale" layoutX="77.0" layoutY="6.0" mnemonicParsing="false" text="F" textFill="#575757">
                         <font>
                             <Font size="13.0" />
                         </font>
                     </RadioButton>
                 </children>
             </AnchorPane>
-            <ComboBox fx:id="cityComboBox" layoutX="40.0" layoutY="205.0" prefHeight="32.0" prefWidth="183.0" promptText="City" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="schoolComboBox" layoutX="40.0" layoutY="259.0" prefHeight="32.0" prefWidth="183.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="majorComboBox" layoutX="40.0" layoutY="306.0" prefHeight="32.0" prefWidth="183.0" promptText="Major" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="periodComboBox" layoutX="40.0" layoutY="352.0" prefHeight="32.0" prefWidth="183.0" promptText="Period" styleClass="textfield-design" stylesheets="@style.css" />
-            <TextField fx:id="txtFirstName" layoutX="53.0" layoutY="39.0" promptText="First Name" />
-            <TextField fx:id="txtLastName" layoutX="53.0" layoutY="82.0" promptText="Last Name" />
-            <DatePicker fx:id="datePickerBirthday" layoutX="52.0" layoutY="120.0" prefHeight="26.0" prefWidth="150.0" promptText="Birthday" />
-            <Button layoutX="177.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleNextClick" text="Next" />
+            <ComboBox fx:id="cityComboBox" layoutX="45.0" layoutY="205.0" prefHeight="39.0" prefWidth="174.0" promptText="City" styleClass="textfield-design" stylesheets="@style.css" />
+            <ComboBox fx:id="schoolComboBox" layoutX="46.0" layoutY="249.0" prefHeight="39.0" prefWidth="165.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
+            <ComboBox fx:id="majorComboBox" layoutX="47.0" layoutY="294.0" prefHeight="34.0" prefWidth="192.0" promptText="Major" styleClass="textfield-design" stylesheets="@style.css" />
+            <ComboBox fx:id="periodComboBox" layoutX="48.0" layoutY="336.0" prefHeight="38.0" prefWidth="192.0" promptText="Period" styleClass="textfield-design" stylesheets="@style.css" />
+            <TextField fx:id="txtFirstName" layoutX="53.0" layoutY="40.0" promptText="First Name" styleClass="textfield-design" stylesheets="@style.css" />
+            <TextField fx:id="txtLastName" layoutX="53.0" layoutY="82.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
+            <DatePicker fx:id="datePickerBirthday" layoutX="53.0" layoutY="119.0" prefHeight="27.0" prefWidth="174.0" promptText="Birthday" styleClass="textfield-design" stylesheets="@style.css" />
+            <Button layoutX="53.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="38.0" prefWidth="192.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
             <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
                 <children>
                     <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="Email" />
@@ -80,11 +85,41 @@
                   </Button>
                 </children>
             </AnchorPane>
-         <ComboBox fx:id="conboBoxSchoolFilter" layoutX="261.0" layoutY="65.0" prefWidth="150.0" promptText="School" />
-         <ComboBox fx:id="comboBoxLevelFilter" layoutX="423.0" layoutY="26.0" prefWidth="150.0" promptText="Level" />
-         <TextField fx:id="txtFilterName" layoutX="262.0" layoutY="26.0" promptText="Name" />
-         <Button layoutX="423.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleFilterClick" text="Filter" />
-         <Pagination fx:id="pagination" layoutX="237.0" layoutY="98.0" prefHeight="370.0" prefWidth="658.0" />
+         <ComboBox fx:id="conboBoxSchoolFilter" layoutX="631.0" layoutY="54.0" prefHeight="32.0" prefWidth="131.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
+         <ComboBox fx:id="comboBoxLevelFilter" layoutX="465.0" layoutY="54.0" prefHeight="32.0" prefWidth="158.0" promptText="Level" styleClass="textfield-design" stylesheets="@style.css" />
+         <TextField fx:id="txtFilterName" layoutX="274.0" layoutY="66.0" promptText="Name" styleClass="textfield-design" stylesheets="@style.css" />
+         <Button layoutX="799.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
+         <Pagination fx:id="pagination" layoutX="237.0" layoutY="98.0" opacity="0.0" prefHeight="370.0" prefWidth="724.0" styleClass="table-view" stylesheets="@style.css" />
+         <Label layoutX="271.0" layoutY="22.0" text="Filters:" textFill="#686868">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+         <CubicCurve controlX1="58.0" controlX2="50.0" controlY1="-108.0" controlY2="100.0" endX="157.5" endY="-46.5" fill="WHITE" layoutX="149.0" layoutY="462.0" startX="-150.0" stroke="BLACK">
+            <effect>
+               <BoxBlur width="92.0" />
+            </effect>
+         </CubicCurve>
+         <Line endX="41.0" layoutX="276.0" layoutY="86.0" opacity="0.32" rotate="90.0" startX="-100.0">
+            <styleClass>
+               <String fx:value="arrow" />
+               <String fx:value="curve" />
+               <String fx:value="line" />
+            </styleClass>
+            <effect>
+               <Reflection />
+            </effect>
+         </Line>
+         <CubicCurve controlX1="31.0" controlX2="50.0" controlY1="-95.0" controlY2="100.0" endX="157.5" endY="-46.5" fill="WHITE" layoutX="482.0" layoutY="461.0" startX="-150.0" stroke="BLACK">
+            <effect>
+               <BoxBlur width="92.0" />
+            </effect>
+         </CubicCurve>
+         <CubicCurve controlX1="31.0" controlX2="50.0" controlY1="-95.0" controlY2="100.0" endX="112.0" endY="-46.0" fill="WHITE" layoutX="763.0" layoutY="470.0" startX="-150.0" stroke="BLACK">
+            <effect>
+               <BoxBlur width="92.0" />
+            </effect>
+         </CubicCurve>
         </AnchorPane>
     </children>
 </HBox>
