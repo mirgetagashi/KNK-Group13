@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherDashboardController">
    <children>
-      <Pane layoutX="151.0" layoutY="25.0" prefHeight="200.0" prefWidth="589.0" style="-fx-background-color: white; -fx-border-radius: 50;" styleClass="pane" stylesheets="@dashboard.css">
+      <Pane layoutX="151.0" layoutY="25.0" prefHeight="223.0" prefWidth="590.0" style="-fx-background-color: white; -fx-border-radius: 50;" styleClass="pane" stylesheets="@dashboard.css">
          <children>
-            <Pane layoutX="58.0" layoutY="28.0" prefHeight="145.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+            <Pane layoutX="54.0" layoutY="47.0" prefHeight="145.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
                <children>
                   <Label layoutX="53.0" layoutY="39.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css" text="My Students" textFill="#fff9f9">
                      <font>
@@ -18,18 +19,31 @@
                   </Label>
                   <Label fx:id="myStudents" layoutX="73.0" layoutY="73.0" prefHeight="35.0" prefWidth="48.0" textFill="WHITE" />
                </children></Pane>
-            <Pane layoutX="318.0" layoutY="28.0" prefHeight="145.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+            <Pane layoutX="316.0" layoutY="47.0" prefHeight="145.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
                <children>
                   <Label layoutX="41.0" layoutY="39.0" text="Grades Avarage" textFill="#f7f4f4">
                      <font>
                         <Font name="Montserrat Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gradesAverage" layoutX="74.0" layoutY="73.0" prefHeight="35.0" prefWidth="57.0" />
+                  <Label fx:id="gradesAverage" layoutX="74.0" layoutY="73.0" prefHeight="35.0" prefWidth="57.0" textFill="#f7f5f5">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
                </children>
             </Pane>
+            <Label layoutX="54.0" layoutY="20.0" prefHeight="17.0" prefWidth="102.0" text="Statistics">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <Pane layoutX="518.0" layoutY="258.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #002554;" styleClass="pane" stylesheets="@dashboard.css" />
+      <PieChart fx:id="gradesPieChart" layoutX="186.0" layoutY="298.0" prefHeight="282.0" prefWidth="518.0" />
+      <Label layoutX="329.0" layoutY="249.0" prefHeight="35.0" prefWidth="232.0" text="Students Gradebook">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

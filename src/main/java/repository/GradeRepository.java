@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GradeRepository {
 
@@ -222,6 +223,7 @@ public class GradeRepository {
         }
         return 0.0; // Kthehet 0.0 nëse ka ndonjë problem
     }
+
 
 }
 

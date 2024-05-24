@@ -9,7 +9,7 @@ public class DBConnector {
     private static String USER = "root";
 
 
-    private static String PASSWORD = "Lumi.123";
+    private static String PASSWORD = "";
 
  
     private static Connection connection = null;

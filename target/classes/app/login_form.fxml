@@ -76,7 +76,6 @@
                   <CubicCurve controlX1="90.98579406738281" controlX2="16.985794067382812" controlY1="-174.0" controlY2="155.33331298828125" endX="210.60305786132812" endY="-36.0" fill="#002554" layoutX="101.0" layoutY="386.0" startX="-127.20709228515625" startY="-36.0" stroke="WHITE" />
                   <Line endX="31.637710571289062" layoutX="128.0" layoutY="71.0" startX="-107.69793701171875" stroke="WHITE" />
                   <QuadCurve controlX="-50.0" controlY="-100.0" endX="7.103050231933594" endY="-93.25" fill="#002554" layoutX="79.0" layoutY="410.0" startX="-67.3969497680664" startY="6.5" stroke="WHITE" strokeType="INSIDE" />
-                  <QuadCurve controlX="-50.0" controlY="-100.0" endX="-67.8969497680664" endY="-94.75" fill="#002554" layoutX="89.0" layoutY="420.0" startX="-77.3969497680664" startY="-3.5" stroke="WHITE" strokeType="INSIDE" />
                </children>
                <effect>
                   <Bloom threshold="0.73" />
@@ -84,7 +83,7 @@
             </AnchorPane>
             <Pane id="rightPane" layoutX="283.0" prefHeight="410.0" prefWidth="404.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
                <children>
-                  <Label layoutX="112.0" layoutY="65.0" prefHeight="74.0" prefWidth="194.0" text="Login" textFill="#002554" textOverrun="CLIP">
+                  <Label id="LoginText" layoutX="112.0" layoutY="65.0" prefHeight="74.0" prefWidth="194.0" stylesheets="@style.css" text="Login" textFill="#002554" textOverrun="CLIP">
                      <font>
                         <Font name="Montserrat Bold" size="61.0" />
                      </font>
