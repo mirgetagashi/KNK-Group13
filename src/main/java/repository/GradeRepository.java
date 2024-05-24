@@ -244,6 +244,22 @@ public class GradeRepository {
         return 0.0; // Kthehet 0.0 nëse ka ndonjë problem
     }
 
+    public static double calculateAverageFinalGradeStudent(int std_id) {
+        String query = "SELECT AVG(final_grade) FROM Grades WHERE std_id = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+
+            pst.setInt(1, std_id);
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getDouble(1);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0; }
+
 
 }
 

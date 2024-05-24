@@ -98,7 +98,7 @@ public class GradeService {
 
         return false;
     }
-
+    public static double calculateAverageFinalGradeStudent(int std_id) {return GradeRepository.calculateAverageFinalGradeStudent(std_id);}
 
 
 
