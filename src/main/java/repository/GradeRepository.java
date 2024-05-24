@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GradeRepository {
 
@@ -76,6 +78,24 @@ public class GradeRepository {
             e.printStackTrace();
             return false;
         }
+    }
+    public static Map<String, Integer> getGradesByStudent(String username) {
+        Map<String, Integer> grades = new HashMap<>();
+        String query = "SELECT g.subject, g.grade FROM grades g INNER JOIN students s ON g.student_id = s.id WHERE s.username = ?";
+
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                grades.put(rs.getString("subject"), rs.getInt("grade"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return grades;
     }
 
 

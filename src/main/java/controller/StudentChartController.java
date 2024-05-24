@@ -1,48 +1,54 @@
 package controller;
 
-import javafx.beans.binding.Bindings;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
+import service.StudentService;
 
-public class StudentChartController implements Initializable {
+import java.util.Map;
+
+public class StudentChartController {
+
+    @FXML
+    private Label studentNameLabel;
+
+    @FXML
+    private LineChart<String, Number> gradesLineChart;
 
     @FXML
     private PieChart gradeChart;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<PieChart.Data> pieChartData = createChartData();
-        if (gradeChart != null) {
-            gradeChart.getData().addAll(pieChartData);
-            formatChartData(pieChartData);
-        } else {
-            System.err.println("gradeChart is not initialized! Check your FXML bindings.");
+    private String loggedInUsername;
+
+    public void setLoggedInUsername(String username) {
+        this.loggedInUsername = username;
+    }
+
+    public void initialize() {
+        if (loggedInUsername != null) {
+            studentNameLabel.setText("Grades for Student: " + loggedInUsername);
+            loadStudentGrades(loggedInUsername);
         }
     }
 
-    private ObservableList<PieChart.Data> createChartData() {
+    private void loadStudentGrades(String username) {
+        Map<String, Integer> grades = StudentService.getGradesByStudent(username);
 
-        return FXCollections.observableArrayList(
-                new PieChart.Data("Grade 9", 4),
-                new PieChart.Data("Grade 8", 6),
-                new PieChart.Data("Grade 10", 4),
-                new PieChart.Data("Grade 7", 5),
-                new PieChart.Data("Grade 6", 2)
-        );
-    }
+        // Populate PieChart
+        gradeChart.getData().clear();
+        for (Map.Entry<String, Integer> entry : grades.entrySet()) {
+            PieChart.Data slice = new PieChart.Data(entry.getKey(), entry.getValue());
+            gradeChart.getData().add(slice);
+        }
 
-    private void formatChartData(ObservableList<PieChart.Data> pieChartData) {
-
-        pieChartData.forEach(data ->
-                data.nameProperty().bind(
-                        Bindings.concat(
-                                data.getName(), ": ", data.pieValueProperty(), " nota")
-                )
-        );
+        // Populate LineChart
+        gradesLineChart.getData().clear();
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        for (Map.Entry<String, Integer> entry : grades.entrySet()) {
+            series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+        }
+        gradesLineChart.getData().add(series);
     }
 }

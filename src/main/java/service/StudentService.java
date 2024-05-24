@@ -3,10 +3,14 @@ package service;
 import model.Students;
 import model.dto.*;
 import model.filter.StudentFilter;
+import repository.GradeRepository;
 import repository.StudentRepository;
+import repository.TeacherDashboardRepository;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class StudentService {
 
@@ -90,7 +94,9 @@ public class StudentService {
 
         return StudentRepository.updatePassword(dto);
     }
-
+    public static Map<String, Integer> getGradesByStudent(String user){
+        return GradeRepository.getGradesByStudent(user);
+    }
     public static ArrayList<Students> getAllStudents(){
         return StudentRepository.getAllStudents();
     }
