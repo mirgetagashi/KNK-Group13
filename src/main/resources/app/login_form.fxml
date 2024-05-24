@@ -50,7 +50,7 @@
 
 <VBox fx:id="rootVBox" onKeyPressed="#handleKeyPressed" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="342.0" style="-fx-background-color: #002554;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="342.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
       <children>
             <AnchorPane layoutX="-13.0" layoutY="-10.0" prefHeight="420.0" prefWidth="300.0" style="-fx-background-color: #002554;">
                <cursor>
@@ -68,14 +68,14 @@
                         <Font name="Montserrat Regular" size="12.0" />
                      </font>
                   </Label>
-                  <ImageView id="loginPhoto" fitHeight="241.0" fitWidth="230.0" layoutX="79.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" styleClass="loginPhoto">
+                  <ImageView id="loginPhoto" fitHeight="230.0" fitWidth="242.0" layoutX="71.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" styleClass="loginPhoto">
                      <image>
                         <Image url="@../Images/login2.png" />
                      </image>
                   </ImageView>
                   <CubicCurve controlX1="90.98579406738281" controlX2="16.985794067382812" controlY1="-174.0" controlY2="155.33331298828125" endX="210.60305786132812" endY="-36.0" fill="#002554" layoutX="101.0" layoutY="386.0" startX="-127.20709228515625" startY="-36.0" stroke="WHITE" />
-                  <Line endX="31.637710571289062" layoutX="128.0" layoutY="71.0" startX="-107.69793701171875" stroke="WHITE" />
-                  <QuadCurve controlX="-50.0" controlY="-100.0" endX="7.103050231933594" endY="-93.25" fill="#002554" layoutX="79.0" layoutY="410.0" startX="-67.3969497680664" startY="6.5" stroke="WHITE" strokeType="INSIDE" />
+                  <Line endX="31.637710571289062" layoutX="127.0" layoutY="70.0" startX="-102.39694213867188" stroke="#aeaeae" />
+                  <QuadCurve controlX="-67.39694213867188" controlY="-95.8653564453125" endX="7.103050231933594" endY="-93.25" fill="#002554" layoutX="79.0" layoutY="410.0" startX="-67.3969497680664" startY="6.5" stroke="WHITE" strokeType="INSIDE" />
                </children>
                <effect>
                   <Bloom threshold="0.73" />
@@ -83,32 +83,22 @@
             </AnchorPane>
             <Pane id="rightPane" layoutX="283.0" prefHeight="410.0" prefWidth="404.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
                <children>
-                  <Label id="LoginText" layoutX="112.0" layoutY="65.0" prefHeight="74.0" prefWidth="194.0" stylesheets="@style.css" text="Login" textFill="#002554" textOverrun="CLIP">
+                  <Label id="LoginText" layoutX="114.0" layoutY="65.0" prefHeight="74.0" prefWidth="194.0" stylesheets="@style.css" text="Login" textFill="#002554" textOverrun="CLIP">
                      <font>
                         <Font name="Montserrat Bold" size="61.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="pwdPassword" layoutX="102.0" layoutY="200.0" prefHeight="32.0" prefWidth="200.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </PasswordField>
-                  <TextField fx:id="txtEmail" layoutX="105.0" layoutY="148.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
+                  <TextField fx:id="txtEmail" layoutX="107.0" layoutY="148.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="215.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="40.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
+                  <PasswordField fx:id="pwdPassword" layoutX="104.0" layoutY="200.0" prefHeight="32.0" prefWidth="200.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="13.0" />
                      </font>
-                  </Button>
-                  <Button layoutX="105.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleCancelClick" prefHeight="40.0" prefWidth="92.0" styleClass="button-design" stylesheets="@style.css" text="Cancel" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="142.0" layoutY="236.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" textFill="#002554" underline="true">
+                  </PasswordField>
+                  <Label layoutX="143.0" layoutY="236.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" textFill="#002554" underline="true">
                      <font>
                         <Font name="Montserrat Bold" size="12.0" />
                      </font>
@@ -123,6 +113,20 @@
                         <Image url="@../Images/password-svgrepo-com.png" />
                      </image>
                   </ImageView>
+                  <Button layoutX="103.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleCancelClick" prefHeight="40.0" prefWidth="92.0" styleClass="button-design" stylesheets="@style.css" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="218.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="40.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <QuadCurve controlX="38.60302734375" controlY="22.666664123535156" endX="115.9364013671875" endY="-60.0" fill="WHITE" layoutX="236.0" layoutY="60.0" startX="-33.396942138671875" startY="-67.0" stroke="#002554" strokeType="INSIDE" />
+                  <QuadCurve controlX="-102.73027038574219" controlY="-24.0" endX="-14.73028564453125" endY="-72.0" fill="WHITE" layoutX="34.0" layoutY="72.0" startX="-34.0" startY="40.0" stroke="#002554" strokeType="INSIDE" />
+                  <QuadCurve controlX="20.26971435546875" controlY="88.0" endX="-35.0" endY="238.66665649414062" fill="WHITE" layoutX="35.0" layoutY="116.0" startX="-35.0" startY="-4.0" stroke="#002554" strokeType="INSIDE" />
+                  <QuadCurve controlX="-271.0635986328125" controlY="-11.666667938232422" endX="-234.39694213867188" endY="43.0" fill="WHITE" layoutX="233.0" layoutY="69.0" startX="-213.73028564453125" startY="-69.0" stroke="#002554" strokeType="INSIDE" />
                </children>
             </Pane>
       </children>
