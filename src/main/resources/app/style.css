@@ -227,7 +227,82 @@
     -fx-background-radius: 20px;
 }
 
+/* STUDENT TABLE */
 
+.table-view {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #ffffff;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 24px;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #e0e0e0;
+    -fx-alignment: center-left;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fafafa;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: #f2f2f2;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #d3e0f5;
+}
+
+.table-view .table-cell {
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+.table-view .table-cell:selected {
+    -fx-background-color: #d3e0f5;
+    -fx-text-fill: #333333;
+}
+
+
+.combo-box {
+    -fx-padding: 4px;  /* Reduced padding */
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-pref-width: 150px;  /* Set a preferred width if needed */
+}
+
+.combo-box .arrow {
+    -fx-background-color: #3C5B6F;
+}
+
+.combo-box .list-cell {
+    -fx-padding: 2px;
+    -fx-font-size: 13px;
+    -fx-background-color: #3C5B6F;
+}
+
+.combo-box .list-cell:filled:selected, .combo-box .list-cell:filled:hover {
+    -fx-font-color: #fafafa;
+    -fx-background-color: #DDDDDD;
+        -fx-border-radius: 3px;
+        -fx-background-radius: 3px;
+}
 
 
 
