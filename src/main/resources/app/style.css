@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+}
+
+* {
+    -fx-font-family: 'Montserrat';
+}
+
+
+
 .login-bg{
 
 -fx-border-radius: 45px;
@@ -195,6 +206,27 @@
     -fx-padding: 40; /* Optional: Add some padding if needed */
     -fx-translate-y: -10px; /* Adjust this value to move the image up if necessary */
 }
+
+/* teacher Dashboard */
+
+
+.dashboard_Rectangle {
+    -fx-fill: #727272;
+    -fx-stroke: white;
+    -fx-stroke-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.5, 0, 0);
+    /* The following properties are more suitable for Region nodes */
+    -fx-background-radius: 20px;
+}
+
+.dashboard_pane {
+    -fx-background-color: #727272;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.5, 0, 0);
+    -fx-background-radius: 20px;
+}
+
 
 
 
