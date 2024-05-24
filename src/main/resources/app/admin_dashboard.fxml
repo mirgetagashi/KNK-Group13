@@ -5,18 +5,21 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardPane" prefHeight="588.0" prefWidth="943.0" style="-fx-background-color: #EAEBEE;" styleClass="admin_dashboard" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardController">
+<AnchorPane fx:id="dashboardPane" prefHeight="588.0" prefWidth="857.0" style="-fx-background-color: #EAEBEE;" styleClass="admin_dashboard" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardController">
    <children>
-      <Pane layoutX="124.0" layoutY="3.0" prefHeight="294.0" prefWidth="776.0" style="-fx-background-color: white; -fx-border-radius: 50;" styleClass="pane" stylesheets="@dashboard.css" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="124.0">
+      <Pane layoutX="37.0" layoutY="3.0" prefHeight="266.0" prefWidth="904.0" style="-fx-background-color: white; -fx-border-radius: 50;" styleClass="pane" stylesheets="@dashboard.css" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="11.0">
          <children>
             <Label layoutX="17.0" layoutY="14.0" styleClass="adminTxt" text="Admin Dashboard">
                <font>
@@ -40,7 +43,7 @@
                </textFill>
             </Label>
             <Line endX="-72.0" layoutX="242.0" layoutY="23.0" rotate="90.0" startX="-100.0" stroke="#727272" styleClass="line" />
-            <Label layoutX="165.0" layoutY="16.0" text="Hello Admin, Welcome back!" textFill="#a8a5a5">
+            <Label layoutX="165.0" layoutY="14.0" text="Hello Admin, Welcome back!" textFill="#a8a5a5">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
@@ -52,53 +55,59 @@
             </Label>
             <Pane layoutX="28.0" layoutY="98.0" prefHeight="120.0" prefWidth="185.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
                <children>
-                  <Label fx:id="studentsNumber" layoutX="84.0" layoutY="64.0" prefHeight="25.0" prefWidth="22.0" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="studentsNumber" layoutX="84.0" layoutY="68.0" prefHeight="25.0" prefWidth="22.0" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="18.0" layoutY="43.0" text="Students Number" textFill="WHITE">
+                  <Label layoutX="26.0" layoutY="43.0" text="Students Number" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="224.0" layoutY="98.0" prefHeight="120.0" prefWidth="185.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+            <Pane layoutX="235.0" layoutY="98.0" prefHeight="120.0" prefWidth="185.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
                <children>
                   <Label fx:id="teacherNumber" layoutX="86.0" layoutY="66.0" prefHeight="25.0" prefWidth="22.0" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="20.0" layoutY="43.0" text="Teachers Number" textFill="WHITE">
+                  <Label layoutX="27.0" layoutY="43.0" text="Teachers Number" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="419.0" layoutY="98.0" prefHeight="120.0" prefWidth="185.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+            <Pane layoutX="442.0" layoutY="98.0" prefHeight="120.0" prefWidth="185.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
                <children>
-                  <Label fx:id="schoolsNumber" layoutX="82.0" layoutY="64.0" prefHeight="25.0" prefWidth="22.0" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="schoolsNumber" layoutX="83.0" layoutY="69.0" prefHeight="25.0" prefWidth="22.0" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="23.0" layoutY="43.0" text="Schools Number" textFill="WHITE">
+                  <Label layoutX="33.0" layoutY="43.0" text="Schools Number" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Line endX="83.0" layoutX="647.0" layoutY="164.0" rotate="90.0" startX="-100.0" stroke="#b9b9b9" styleClass="pane" />
-            <QuadCurve controlX="-293.0" controlY="79.33334350585938" endX="-378.0" endY="96.0" fill="WHITE" layoutX="378.0" layoutY="184.0" opacity="0.39" startX="-378.0" startY="-5.0" stroke="BLACK" strokeType="INSIDE" styleClass="inner_pane" />
-            <QuadCurve controlX="-348.5" controlY="60.75" endX="-303.0" endY="100.0" fill="WHITE" layoutX="388.0" layoutY="194.0" startX="-388.0" startY="24.0" stroke="#002554" strokeType="INSIDE" />
-            <QuadCurve controlX="-388.0" controlY="75.25" endX="-329.25" endY="100.0" fill="WHITE" layoutX="388.0" layoutY="194.0" opacity="0.39" startX="-388.0" startY="-13.0" stroke="BLACK" strokeType="INSIDE" styleClass="inner_pane" />
+            <Line endX="83.0" layoutX="662.0" layoutY="164.0" rotate="90.0" startX="-100.0" stroke="#b9b9b9" styleClass="pane" />
+            <QuadCurve controlX="-293.0" controlY="79.33334350585938" endX="-347.255859375" endY="82.11544799804688" fill="WHITE" layoutX="378.0" layoutY="184.0" opacity="0.39" startX="-378.0" startY="-5.0" stroke="BLACK" strokeType="INSIDE" styleClass="inner_pane" />
+            <QuadCurve controlX="-348.5" controlY="60.75" endX="-348.5" endY="72.0" fill="WHITE" layoutX="388.0" layoutY="194.0" startX="-388.0" startY="24.0" stroke="#002554" strokeType="INSIDE" />
+            <QuadCurve controlX="-388.0" controlY="75.25" endX="-357.255859375" endY="72.0" fill="WHITE" layoutX="388.0" layoutY="194.0" opacity="0.39" startX="-388.0" startY="-13.0" stroke="BLACK" strokeType="INSIDE" styleClass="inner_pane" />
+            <ImageView fitHeight="166.0" fitWidth="163.0" layoutX="705.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Two_students_working_on_laptops_at_a_table-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <CubicCurve controlX1="-7.20684814453125" controlX2="24.8138427734375" controlY1="-85.0" controlY2="81.0" endX="125.1251220703125" endY="-25.0" fill="WHITE" layoutX="779.0" layoutY="242.0" startX="-125.0" startY="11.0" stroke="WHITE" styleClass="pane" />
          </children>
       </Pane>
-      <BarChart fx:id="chart" layoutX="386.0" layoutY="354.0" opacity="0.46" prefHeight="193.0" prefWidth="428.0" styleClass="default-color0" stylesheets="@dashboard.css">
+      <BarChart fx:id="chart" layoutX="386.0" layoutY="354.0" opacity="0.62" prefHeight="193.0" prefWidth="428.0" styleClass="default-color0" stylesheets="@dashboard.css">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -106,7 +115,7 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <AnchorPane layoutX="147.0" layoutY="345.0" prefHeight="193.0" prefWidth="197.0" style="-fx-border-color: #fafafa; -fx-border-radius: 2;" styleClass="pane">
+      <AnchorPane layoutX="143.0" layoutY="346.0" prefHeight="193.0" prefWidth="197.0" style="-fx-border-color: #fafafa; -fx-border-radius: 1;" styleClass="pane">
          <children>
             <Line endX="47.0" layoutX="119.0" layoutY="103.0" opacity="0.53" startX="-100.0" stroke="#c9c9c9" />
             <Label layoutX="23.0" layoutY="55.0" text="Highest" textAlignment="CENTER" textFill="#31c32c">
@@ -119,7 +128,7 @@
                   <Font name="Montserrat Regular" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="35.0" layoutY="127.0" text="1.0">
+            <Label layoutX="35.0" layoutY="127.0" text="2.5">
                <font>
                   <Font size="14.0" />
                </font>
@@ -132,9 +141,9 @@
          </children>
       </AnchorPane>
       <Label layoutX="578.0" layoutY="345.0" lineSpacing="1.2" text="Graph" textFill="#002554" textOverrun="LEADING_ELLIPSIS" />
-      <QuadCurve controlX="-50.0" controlY="-100.0" endX="50.0" fill="#eaebee" layoutX="867.0" layoutY="454.0" startX="-53.0" startY="114.0" stroke="#002554" strokeType="INSIDE" />
-      <QuadCurve controlX="-50.0" controlY="-100.0" endX="50.0" fill="#eaebee" layoutX="877.0" layoutY="464.0" opacity="0.27" startX="-63.0" startY="97.0" stroke="#002554" strokeType="INSIDE" styleClass="pane" />
-      <QuadCurve controlX="-24.0" controlY="-53.0" endX="50.0" fill="#eaebee" layoutX="877.0" layoutY="464.0" startX="-63.0" startY="104.0" stroke="#002554" strokeType="INSIDE" />
+      <QuadCurve controlX="-50.0" controlY="-100.0" endX="68.3809814453125" endY="-35.017822265625" fill="#eaebee" layoutX="883.0" layoutY="428.0" startX="60.0" startY="116.0" stroke="#002554" strokeType="INSIDE" />
+      <QuadCurve controlX="-50.0" controlY="-100.0" endX="58.3809814453125" endY="-25.0" fill="#eaebee" layoutX="893.0" layoutY="438.0" opacity="0.27" startX="50.0" startY="106.0" stroke="#002554" strokeType="INSIDE" styleClass="pane" />
+      <QuadCurve controlX="-24.0" controlY="-53.0" endX="59.01837158203125" endY="-1.0" fill="#eaebee" layoutX="893.0" layoutY="438.0" startX="50.0" startY="106.0" stroke="#002554" strokeType="INSIDE" />
       <Line endX="99.5" endY="2.5" layoutX="379.0" layoutY="441.0" rotate="90.0" startX="-100.0" stroke="#d0d0d0" styleClass="pane" />
    </children>
    <stylesheets>
