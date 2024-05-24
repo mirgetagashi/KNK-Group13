@@ -3,8 +3,7 @@ package repository;
 import model.*;
 import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
-import model.dto.CreateStudentDto;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

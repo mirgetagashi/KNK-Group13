@@ -3,8 +3,8 @@ package repository;
 import model.*;
 import model.dto.ChangePasswordDto;
 import model.dto.CreateStudentDto;
-import model.dto.StudentDto;
-import service.DBConnector;
+import Database.DBConnector;
+import model.filter.StudentFilter;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -106,36 +106,10 @@ public class StudentRepository {
         return students;
     }
 
-
-    private static Students getFromResultSet(ResultSet result){
-        try{
-            int id = result.getInt("std_id");
-            String firstName = result.getString("std_name");
-            String lastName = result.getString("std_lastName");
-            String email = result.getString("email");
-            String salt = result.getString("salt");
-            String passwordHash = result.getString("passwordHash");
-            int address = result.getInt("address_id");
-            int school = result.getInt("school_id");
-            int major =result.getInt("major_id") ;
-            int level = result.getInt("level_id");
-            String gender=result.getString("gender");
-            Date birthday=result.getDate("birthday");
-
-
-
-            return new Students(
-                    id, firstName, lastName, email, salt, passwordHash, address,school,major,level, gender, birthday
-            );
-        }catch (Exception e){
-            return null;
-        }
-    }
-
     public static String getSaltById(int studentId){
         String query = "SELECT salt FROM Students WHERE id = ?";
         try(Connection connection = DBConnector.getConnection();
-        PreparedStatement pst = connection.prepareStatement(query)){
+            PreparedStatement pst = connection.prepareStatement(query)){
             pst.setInt(1, studentId);
             try(ResultSet resultSet = pst.executeQuery()){
                 if (resultSet.next()){
@@ -168,5 +142,77 @@ public class StudentRepository {
 
 
 
+    public static ArrayList<Students> getByFilter(StudentFilter filter) throws SQLException {
+        ArrayList<Students> students = new ArrayList<>();
+        StringBuilder query = new StringBuilder("SELECT * FROM Students WHERE 1=1 ");
+        ArrayList<Object> params = new ArrayList<>();
 
+        query.append(filter.buildQuery());
+        params.addAll(filter.getFilterParams());
+
+        try {
+            Connection connection = DBConnector.getConnection();
+            PreparedStatement pst = connection.prepareStatement(query.toString());
+            for (int i = 0; i < params.size(); i++) {
+                pst.setObject(i + 1, params.get(i));
+            }
+
+            ResultSet result = pst.executeQuery();
+            while (result.next()) {
+                Students student = getFromResultSet(result);
+                students.add(student);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+        return students;
+    }
+
+
+
+
+//    public static ArrayList<Students> getByFilter(StudentFilter filter){
+//        ArrayList<Students> students = new ArrayList<>();
+//        String query = "SELECT * FROM users WHERE 1 == 1 ";
+//        String filterQuery = filter.buildQuery();
+//        query += filterQuery;
+//        Connection connection = DBConnector.getConnection();
+//        try{
+//            PreparedStatement pst = connection.prepareStatement(query);
+//            ResultSet result = pst.executeQuery();
+//            while (result.next()){
+//                Students student= getFromResultSet(result);
+//                students.add(student);
+//            }
+//        }catch (Exception e){
+//            return null;
+//        }
+//        return students;
+//    }
+
+
+    private static Students getFromResultSet(ResultSet result){
+        try{
+            int id = result.getInt("std_id");
+            String firstName = result.getString("std_name");
+            String lastName = result.getString("std_lastName");
+            String email = result.getString("email");
+            String salt = result.getString("salt");
+            String passwordHash = result.getString("passwordHash");
+            int address = result.getInt("address_id");
+            int school = result.getInt("school_id");
+            int major =result.getInt("major_id") ;
+            int level = result.getInt("level_id");
+            String gender=result.getString("gender");
+            Date birthday=result.getDate("birthday");
+
+
+
+            return new Students(
+                    id, firstName, lastName, email, salt, passwordHash, address,school,major,level, gender, birthday
+            );
+        }catch (Exception e){
+            return null;
+        }
+    }
 }

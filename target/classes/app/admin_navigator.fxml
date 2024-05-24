@@ -7,93 +7,115 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminNavigatorController">
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminNavigatorController">
    <children>
       <VBox prefHeight="572.0" prefWidth="156.0">
          <children>
-            <AnchorPane fx:id="side_ankerpane" prefHeight="572.0" prefWidth="190.0" styleClass="side-anchor" stylesheets="@style.css">
+            <AnchorPane fx:id="side_ankerpane" prefHeight="572.0" prefWidth="183.0" styleClass="side-anchor" stylesheets="@style.css">
                <children>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-12.0" layoutY="179.0" mnemonicParsing="false" onAction="#handleDashboardClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Dashboard" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-13.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleDashboardClick" onMouseClicked="#student_dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Dashboard" textFill="WHITE">
                      <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
+                        <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="29.0" fitWidth="27.0" layoutX="41.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="29.0" fitWidth="27.0" layoutX="40.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/dashboard.png" />
+                        <Image url="@../Images/dashboard-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-10.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleTeacherClick" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="    Teachers" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="5.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleStudentsClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Students" textFill="WHITE">
                      <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
+                        <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleStudentsClick" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="        Students" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#student_statistics" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="        Schools" textFill="WHITE">
                      <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
+                        <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
                   <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="41.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/statistics.png" />
+                        <Image url="@../Images/statistics-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-8.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleHelpClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-2.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleHelpClick" onMouseClicked="#help" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
                      <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
+                        <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="42.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="41.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/help.png" />
+                        <Image url="@../Images/help-svgrepo-com%20(2).png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-13.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleProfileClick" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="          Profile" textFill="WHITE">
-                     <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="41.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="71.0" fitWidth="72.0" layoutX="67.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/profile.png" />
                      </image>
                   </ImageView>
-                  <Line endX="100.0" layoutX="100.0" layoutY="155.0" startX="-100.0" stroke="WHITE" />
-                  <ImageView fitHeight="71.0" fitWidth="72.0" layoutX="57.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/student.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="58.0" layoutY="103.0" text="Lum Hoxha" textFill="WHITE">
+                  <Label fx:id="adminName" layoutX="70.0" layoutY="130.0" textFill="WHITE">
                      <font>
                         <Font name="Fahkwang Medium" size="13.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="41.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="10.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/statistics.png" />
+                        <Image url="@../Images/logo.png" />
                      </image>
                   </ImageView>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-3.0" layoutY="470.0" mnemonicParsing="false" onAction="#hanldeSchoolsClick" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Schools" textFill="WHITE">
+                  <Label layoutX="43.0" layoutY="17.0" text="edu." textFill="WHITE">
                      <font>
-                        <Font name="Century Gothic Bold" size="13.0" />
+                        <Font name="Euphemia UCAS Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Line endX="92.40640258789062" endY="7.62939453125E-6" layoutX="101.0" layoutY="50.0" startX="-100.0" stroke="#b2b2b2" />
+                  <Label layoutX="20.0" layoutY="467.0" text="GENERAL" textFill="#d7d7d7">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="43.0" layoutY="506.0" onMouseDragged="#profile" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/log-out-1-svgrepo-com%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="63.0" layoutY="502.0" mnemonicParsing="false" onAction="#handleLogOutClick" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #002554;" text="Log out" textFill="WHITE">
+                     <font>
+                        <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="41.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+                  <Label layoutX="20.0" layoutY="189.0" text="Menu" textFill="#d7d7d7">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Line endX="92.40640258789062" endY="7.62939453125E-6" layoutX="108.0" layoutY="424.0" startX="-100.0" stroke="WHITE" />
+                  <CubicCurve controlX1="-50.0" controlX2="-4.194862365722656" controlY1="-100.0" controlY2="64.0" endX="135.0" endY="-18.0" fill="#002554" layoutX="61.0" layoutY="174.0" startX="-121.0" startY="4.0" stroke="WHITE" />
+                  <CubicCurve controlX1="-50.0" controlX2="-4.194862365722656" controlY1="-100.0" controlY2="64.0" endX="-140.7071075439453" endY="-30.70709228515625" fill="#002554" layoutX="148.0" layoutY="454.0" startX="-146.0" startY="3.0" stroke="WHITE" />
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="41.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/statistics.png" />
+                        <Image url="@../Images/statistics-svgrepo-com.png" />
+                     </image>
+                  </ImageView>
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="4.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleTeacherClick" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Teachers" textFill="WHITE">
+                     <font>
+                        <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="42.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/statistics-svgrepo-com.png" />
                      </image>
                   </ImageView>
                </children></AnchorPane>
+
          </children>
       </VBox>
-      <AnchorPane fx:id="pane" prefHeight="572.0" prefWidth="792.0">
-         <children>
-            <fx:include source="admin_dashboard.fxml" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="changePane" prefHeight="588.0" prefWidth="943.0" />
+         <fx:include source="admin_dashboard.fxml" />
    </children>
 </HBox>

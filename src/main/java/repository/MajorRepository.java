@@ -1,9 +1,7 @@
 package repository;
 
-import model.Address;
 import model.Major;
-import model.School;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

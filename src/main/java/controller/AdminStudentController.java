@@ -13,6 +13,7 @@ import model.*;
 import model.dto.CreateSchoolDto;
 import model.dto.StudentDto;
 import model.dto.UpdateGradeDto;
+import model.filter.StudentFilter;
 import repository.*;
 import service.*;
 
@@ -92,9 +93,6 @@ public class AdminStudentController implements Initializable {
     private ComboBox<String> comboBoxLevelFilter;
 
     @FXML
-    private ComboBox<String> comboBoxMajorFilter;
-
-    @FXML
     private ComboBox<String> conboBoxSchoolFilter;
     @FXML
     private TextField txtFilterName;
@@ -107,7 +105,25 @@ public class AdminStudentController implements Initializable {
     @FXML
     void handleFilterClick(ActionEvent event) {
 
+        StudentFilter filter = new StudentFilter();
+        filter.setName(this.txtFilterName.getText());
+        filter.setLevel(this.comboBoxLevelFilter.getValue());
+        filter.setSchool(this.conboBoxSchoolFilter.getValue());
+        ArrayList<Students> filterStudents = StudentService.filterStudents(filter);
+        if(filterStudents == null){
+            System.out.println("Error occurred, check filter code!");
+        }else{
+            this.updateTable(filterStudents);
+        }
+
     }
+
+    private void updateTable(ArrayList<Students> filteredStudents) {
+        ObservableList<Students> filteredData = FXCollections.observableArrayList(filteredStudents);
+
+        StudentTable.setItems(filteredData);
+    }
+
 
     @FXML
     void handleAddClick(ActionEvent event) {
@@ -210,6 +226,7 @@ public class AdminStudentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.ComboBoxInitialize();
+        this.FilterComboBoxInitialize();
 
         dataList = FXCollections.observableArrayList(StudentService.getAllStudents());
 
@@ -224,6 +241,24 @@ public class AdminStudentController implements Initializable {
 
         pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
         pagination.setPageFactory(this::createPage);
+
+    }
+
+    public void FilterComboBoxInitialize(){
+        comboBoxLevelFilter.setValue("Level");
+        conboBoxSchoolFilter.setValue("School");
+
+        ArrayList<String> levels= new ArrayList<>();
+        for(Grade_level level: GradeLevelService.getAllLevels()){
+            levels.add(level.getLevel_id()+" "+level.getLevel_name());
+        }
+        comboBoxLevelFilter.getItems().addAll(levels);
+
+        ArrayList<String> schools = new ArrayList<>();
+        for(School s: SchoolRepository.getAllSchools()){
+            schools.add(s.getId()+" "+s.getName());
+        }
+        conboBoxSchoolFilter.getItems().addAll(schools);
 
     }
 

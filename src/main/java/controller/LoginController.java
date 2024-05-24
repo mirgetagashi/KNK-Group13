@@ -48,22 +48,18 @@ public class LoginController {
             if(useremail.contains("@student")){
                 Students student= StudentService.getByEmail(useremail);
                 StudentSession.setStudent(student);
-                Navigator.navigate(ae,Navigator.STUDENT_PROFILE);
+                Navigator.navigate(ae,Navigator.STUDENT_TABLE);
             }else if(useremail.contains("@teacher")){
                 Teacher teacher= TeacherService.getByEmail(useremail);
                 TeacherSession.setTeacher(teacher);
                 Navigator.navigate(ae,Navigator.TEACHER_TABLE);
-            }else if(useremail.contains("@admin")){
+            }else{
                 Administrator admin= AdminService.getByEmail(useremail);
                 AdminSession.setAdmin(admin);
                 Navigator.navigate(ae,Navigator.ADMIN_PAGE);
-            }else {
-                Navigator.navigate(ae,Navigator.ADMIN_STUDENT_PAGE);
-            }
-
         }
 
-    }
+    }}
     @FXML
     private void handleCancelClick(ActionEvent ae){
     }

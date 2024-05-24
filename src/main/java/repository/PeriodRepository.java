@@ -1,8 +1,7 @@
 package repository;
 
-import model.Major;
 import model.Period;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,7 +1,7 @@
 package repository;
 
 import model.*;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

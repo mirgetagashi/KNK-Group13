@@ -13,8 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.dto.ChangePasswordRequestDto;
-import service.DBConnector;
+import Database.DBConnector;
 import service.PasswordHasher;
 
 public class ResetPasswordController {

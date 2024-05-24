@@ -2,6 +2,7 @@ package service;
 
 import model.Students;
 import model.dto.*;
+import model.filter.StudentFilter;
 import repository.StudentRepository;
 
 import java.sql.SQLException;
@@ -49,6 +50,17 @@ public class StudentService {
         return PasswordHasher.compareSaltedHash(
                 password, salt, passwordHash
         );
+    }
+    public static ArrayList<Students> filterStudents(StudentFilter filter){
+        try{
+
+            return StudentRepository.getByFilter(filter);
+        }catch (SQLException e){
+            return null;
+        }
+    }
+    public static ArrayList<Students> filter(StudentFilter filter) throws SQLException {
+        return StudentRepository.getByFilter(filter);
     }
 
 

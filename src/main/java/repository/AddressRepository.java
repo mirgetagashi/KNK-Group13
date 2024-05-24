@@ -1,9 +1,7 @@
 package repository;
 
 import model.Address;
-import model.Period;
-import model.Students;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.*;
 import java.util.ArrayList;

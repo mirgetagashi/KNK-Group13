@@ -1,9 +1,8 @@
 package repository;
 
 import model.*;
-import model.dto.CreateStudentDto;
 import model.dto.CreateTeacherDto;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

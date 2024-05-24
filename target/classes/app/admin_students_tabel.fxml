@@ -80,11 +80,10 @@
                   </Button>
                 </children>
             </AnchorPane>
-         <ComboBox fx:id="comboBoxMajorFilter" layoutX="433.0" layoutY="26.0" prefHeight="19.0" prefWidth="150.0" promptText="Major" />
          <ComboBox fx:id="conboBoxSchoolFilter" layoutX="261.0" layoutY="65.0" prefWidth="150.0" promptText="School" />
-         <ComboBox fx:id="comboBoxLevelFilter" layoutX="433.0" layoutY="65.0" prefWidth="150.0" promptText="Level" />
+         <ComboBox fx:id="comboBoxLevelFilter" layoutX="423.0" layoutY="26.0" prefWidth="150.0" promptText="Level" />
          <TextField fx:id="txtFilterName" layoutX="262.0" layoutY="26.0" promptText="Name" />
-         <Button layoutX="622.0" layoutY="52.0" mnemonicParsing="false" onAction="#handleFilterClick" text="Filter" />
+         <Button layoutX="423.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleFilterClick" text="Filter" />
          <Pagination fx:id="pagination" layoutX="237.0" layoutY="98.0" prefHeight="370.0" prefWidth="658.0" />
         </AnchorPane>
     </children>

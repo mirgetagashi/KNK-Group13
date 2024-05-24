@@ -1,13 +1,26 @@
 package controller;
 
 import app.Navigator;
+import app.SessionManager.AdminSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class AdminNavigatorController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+
+public class AdminNavigatorController implements Initializable {
+
+    @FXML
+    private Label adminName;
+
+    @FXML
+    private AnchorPane changePane;
 
     @FXML
     private HBox root;
@@ -16,45 +29,53 @@ public class AdminNavigatorController {
     private AnchorPane side_ankerpane;
 
     @FXML
-    private AnchorPane pane;
-
-    @FXML
     void handleDashboardClick(ActionEvent event) {
-        //Navigator.navigate(pane,Navigator.ADMIN_DASHBOARD_PAGE);
 
     }
 
     @FXML
     void handleHelpClick(ActionEvent event) {
 
-
     }
 
     @FXML
-    void handleProfileClick(ActionEvent event) {
-      //  Navigator.navigate(pane,Navigator.navigate(Navigator.ADMIN_PROFILE););
-
+    void handleLogOutClick(ActionEvent event) {
+        AdminSession.setAdmin(null);
+        Navigator.navigate(event,Navigator.LOGIN_PAGE);
     }
 
     @FXML
     void handleStudentsClick(ActionEvent event) {
-        Navigator.navigate(pane,Navigator.ADMIN_STUDENT_PAGE);
 
     }
 
     @FXML
     void handleTeacherClick(ActionEvent event) {
-        Navigator.navigate(pane,Navigator.ADMIN_TEACHER_PAGE);
 
     }
 
     @FXML
-    void hanldeSchoolsClick(ActionEvent event) {
-        Navigator.navigate(pane,Navigator.ADMIN_SCHOOLS_PAGE);
+    void help(MouseEvent event) {
 
     }
 
+    @FXML
+    void profile(MouseEvent event) {
 
+    }
 
+    @FXML
+    void student_dashboard(MouseEvent event) {
 
+    }
+
+    @FXML
+    void student_statistics(MouseEvent event) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        adminName.setText(AdminSession.getAdmin().getFirstName()+" "+AdminSession.getAdmin().getLastName());
+    }
 }

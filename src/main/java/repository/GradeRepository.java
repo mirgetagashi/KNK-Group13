@@ -4,7 +4,7 @@ import model.Grades;
 import model.dto.CreateGradeDto;
 import model.dto.DeleteGradeDto;
 import model.dto.UpdateGradeDto;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

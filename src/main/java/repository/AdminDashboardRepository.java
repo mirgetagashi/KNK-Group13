@@ -2,7 +2,7 @@ package repository;
 
 import model.SchoolTable;
 import model.School_Statistic;
-import service.DBConnector;
+import Database.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

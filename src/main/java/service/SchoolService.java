@@ -35,6 +35,9 @@ public class SchoolService {
         return SchoolRepository.addSchoolMajor(userData);
     }
 
+    public static ArrayList<School> getAllSchools(){
+        return SchoolRepository.getAllSchools();
+    }
     public static ArrayList<School> getSchoolByCity(int city_id) {
         return SchoolRepository.getSchoolByCity(city_id);
     }

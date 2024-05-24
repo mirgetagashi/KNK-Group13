@@ -4,44 +4,77 @@ import repository.GradeLevelRepository;
 import repository.MajorRepository;
 import repository.SchoolRepository;
 
+import java.util.ArrayList;
+
 public class StudentFilter extends Filter{
     private String name;
     private String school;
-    private String major;
     private String level;
 
-    private int page;
-    private int size;
-
-    public StudentFilter(String name, String school, String major, String level, int page, int size) {
+    public void setName(String name) {
         this.name = name;
-        this.school = school;
-        this.major = major;
-        this.level = level;
-        this.page = page;
-        this.size = size;
     }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
 
     @Override
     public String buildQuery() {
         StringBuilder  query=new StringBuilder();
-        if(this.name!=null){
-            query.append(" AND std_name like "+ this.name+"%");
+        if(this.name!=null && !name.isEmpty()){
+            query.append(" AND std_name like ? ");
         }
-        if(this.school!=null){
-            int id= SchoolRepository.getSchoolByName(this.school).getId();
-            query.append(" AND school_id = "+ id);
-        }
-        if(this.major!=null){
-            int id= MajorRepository.getMajorByName(this.major).getId();
-            query.append(" AND major_id = "+id);
-        }
-        if(this.level!=null){
-            int id= GradeLevelRepository.getLevelByName(this.level).getLevel_id();
-            query.append(" AND level_id = "+id);
+        if(!this.school.equals("School")){
+            int id=returnId(this.school);
+            query.append(" AND school_id = ?");
         }
 
+        if(!this.level.equals("Level")){
+            int id=returnId(this.level);
+            query.append(" AND level_id = ?");
+        }
 
         return query.toString();
+    }
+
+
+    @Override
+    public ArrayList<Object> getFilterParams() {
+        ArrayList<Object> params = new ArrayList<>();
+        if (name != null && !name.isEmpty()) {
+            params.add(name+"%");
+        }
+        if(!this.school.equals("School")){
+            params.add(returnId(school));
+        }
+
+        if(!this.level.equals("Level")){
+            params.add(returnId(level));
+        }
+        return params;
+    }
+
+    private int returnId(String select){
+        String[] vargu=select.split(" ");
+        int id=Integer.parseInt(vargu[0]);
+        return id;
     }
 }
