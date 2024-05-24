@@ -31,7 +31,11 @@ public class GradeService {
             System.out.println("Student already has grades in another level.");
             return false;
         }
-
+        boolean isLevelConsistent = GradeRepository.isStudentLevelConsistent(teacherTableDto.getStudentId(), teacherTableDto.getLevel_Id());
+        if (!isLevelConsistent) {
+            System.out.println("The student's level does not match the level being assigned.");
+            return false;
+        }
         CreateGradeDto createGradeDto = new CreateGradeDto(
                 teacherTableDto.getTeacher_id(),
                 teacherTableDto.getSubject_id(),

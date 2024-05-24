@@ -116,6 +116,25 @@ public class GradeRepository {
         }
         return false;
     }
+    public static boolean isStudentLevelConsistent(int studentId, int levelId) {
+        String query = "SELECT s.level_id = ? AS is_consistent " +
+                "FROM Students s " +
+                "WHERE s.std_id = ?";
+
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, levelId);
+            stmt.setInt(2, studentId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getBoolean("is_consistent");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     public static boolean gradesExistForStudentInAnyOtherLevel(int studentId, int currentLevelId) {
         String query = "SELECT COUNT(*) FROM grades WHERE std_id = ? AND level_id <> ? AND (period1_grade IS NOT NULL OR period2_grade IS NOT NULL)";

@@ -87,7 +87,7 @@ public class TeacherTableController implements Initializable {
             alert.setContentText("The grade has been added successfully.");
             alert.showAndWait();
         } else {
-            showMessage("Student ID does not exist.", "error");
+            showMessage("Check the data you inserted.\nSomething is wrong!", "error");
         }
     }
 
