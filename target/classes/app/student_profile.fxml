@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
@@ -7,132 +8,130 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.MeshView?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentProfileController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="401.0" prefWidth="687.0" style="-fx-background-color: #EAEBEE;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="401.0" prefWidth="687.0" style="-fx-background-color: #002554;" VBox.vgrow="ALWAYS">
          <children>
-            <Pane layoutX="16.0" layoutY="25.0" prefHeight="344.0" prefWidth="607.0" style="-fx-background-color: white; -fx-background-radius: 30px;">
+            <Pane layoutX="7.0" layoutY="5.0" prefHeight="391.0" prefWidth="628.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="email" alignment="CENTER" layoutX="359.0" layoutY="275.0" prefHeight="19.0" prefWidth="110.0" style="-fx-border-radius: 10; -fx-border-color: grey;" styleClass="email" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="email" alignment="CENTER" layoutX="358.0" layoutY="284.0" prefHeight="19.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="12.5" />
                      </font>
                   </Label>
-                  <Text fill="#7c7c7c" layoutX="524.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="62.32734869917317">
-                     <font>
-                        <Font size="8.0" />
-                     </font>
-                  </Text>
-                  <Label fx:id="lastName" alignment="CENTER" layoutX="359.0" layoutY="141.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-radius: 20; -fx-border-color: grey;" styleClass="last-name" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="lastName" alignment="CENTER" layoutX="357.0" layoutY="150.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="186.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="school" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="189.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="24.0" fitWidth="19.0" layoutX="521.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="student-profile">
-                     <image>
-                        <Image url="@../Images/people.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="gender" alignment="CENTER" layoutX="154.0" layoutY="274.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="gender" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="gender" alignment="CENTER" layoutX="131.0" layoutY="281.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="address" alignment="CENTER" layoutX="359.0" layoutY="186.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" styleClass="address" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="address" alignment="CENTER" layoutX="357.0" layoutY="195.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="level" alignment="CENTER" layoutX="359.0" layoutY="231.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-radius: 20; -fx-border-color: grey;" styleClass="level" textAlignment="CENTER" textFill="#686868">
+                  <Label fx:id="level" alignment="CENTER" layoutX="358.0" layoutY="240.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#686868">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="231.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 20;" textAlignment="CENTER" textFill="#727272" />
-                  <Text fill="#8a8a8a" layoutX="125.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student profile" textAlignment="CENTER" wrappingWidth="158.5054331251995">
+                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="238.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272" />
+                  <Text fill="#8a8a8a" layoutX="13.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student profile" textAlignment="CENTER" wrappingWidth="165.0">
                      <font>
-                        <Font name="Monospaced Bold" size="17.5" />
+                        <Font name="Monospaced Bold" size="20.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="52.0" fitWidth="47.0" layoutX="140.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" styleClass="student-profile">
+                  <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="16.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" styleClass="student-profile">
                      <image>
                         <Image url="@../Images/people.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="141.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey; -fx-border-radius: 30;" styleClass="first-name" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="144.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" stylesheets="@style.css" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="first-name" />
+                        <String fx:value="textfield-design" />
+                     </styleClass>
                   </Label>
-                  <Text fill="#727272" layoutX="198.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back!">
+                  <Text fill="#b9b9b9" layoutX="64.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome back!">
                      <font>
-                        <Font size="6.0" />
+                        <Font name="System Bold" size="7.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="154.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </Text>
-                  <Text fill="#727272" layoutX="154.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="37.92308044433594">
+                  <Text fill="#727272" layoutX="132.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="154.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="52.31307710069984">
+                  <Text fill="#727272" layoutX="131.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="46.92308044433594">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="154.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="52.31307710069984">
+                  <Text fill="#727272" layoutX="129.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="52.31307710069984">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="359.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
+                  <Text fill="#727272" layoutX="129.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="52.31307710069984">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="359.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+                  <Text fill="#727272" layoutX="357.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="359.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
+                  <Text fill="#727272" layoutX="357.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="359.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
+                  <Text fill="#727272" layoutX="357.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#727272" layoutX="357.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Text>
                   <MeshView layoutX="52.0" layoutY="82.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#002552" height="344.0" stroke="#b29758" strokeType="INSIDE" width="107.0" />
-                  <Line endX="113.23269653320312" layoutX="225.0" layoutY="113.0" startX="-100.0" stroke="#b29758" />
-                  <Text fill="#727272" layoutX="201.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi!">
+                  <Line endX="113.23269653320312" layoutX="162.0" layoutY="88.0" startX="-100.0" stroke="#6f6f6f" />
+                  <Text fill="#797979" layoutX="65.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi!">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Montserrat Regular" size="34.0" />
                      </font>
                   </Text>
-                  <Line endX="65.40168762207031" endY="190.56048583984375" layoutX="39.0" layoutY="151.0" startX="-37.784812927246094" startY="86.27426147460938" stroke="#b29758" />
-                  <Line endX="55.99998474121094" endY="-25.201751708984375" layoutX="51.0" layoutY="165.0" startX="-29.259044647216797" startY="179.0" stroke="#b29758" />
-                  <Line endX="-18.550334930419922" endY="-136.6068572998047" layoutX="57.0" layoutY="139.0" startX="-7.300270080566406" startY="201.75009155273438" stroke="#b29758" />
-                  <ImageView fitHeight="69.0" fitWidth="105.0" layoutX="419.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fx:id="txtChangePassword" fill="#696666" layoutX="361.0" layoutY="315.0" onMouseClicked="#handleChangePassword" strokeType="OUTSIDE" strokeWidth="0.0" text="Change password!" underline="true" />
+                  <Text fx:id="txtChangePassword" fill="#a8a8a8" layoutX="42.0" layoutY="117.0" onMouseClicked="#handleChangePassword" strokeType="OUTSIDE" strokeWidth="0.0" text="Change password!">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Text>
+                  <CubicCurve controlX1="-124.0" controlX2="-32.0" controlY1="-116.0" controlY2="-8.0" endX="-141.0" endY="-134.0" fill="WHITE" layoutX="141.0" layoutY="353.0" startX="-137.0" startY="33.5" stroke="#002554" />
+                  <ImageView fitHeight="20.0" fitWidth="21.0" layoutX="20.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/editFromStudentProfile.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

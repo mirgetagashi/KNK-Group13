@@ -2,48 +2,83 @@
 
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherDashboardController">
+<AnchorPane id="teacherDashboard" layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="916.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherDashboardController">
    <children>
-      <Pane layoutX="151.0" layoutY="25.0" prefHeight="223.0" prefWidth="590.0" style="-fx-background-color: white; -fx-border-radius: 50;" styleClass="pane" stylesheets="@dashboard.css">
+      <PieChart fx:id="gradesPieChart" layoutX="133.0" layoutY="400.0" prefHeight="171.0" prefWidth="325.0" />
+      <Label layoutX="34.0" layoutY="41.0" prefHeight="35.0" prefWidth="313.0" text="Students Gradebook" textFill="#8d8d8d">
+         <font>
+            <Font name="Montserrat Bold" size="26.0" />
+         </font>
+      </Label>
+      <Text fill="#4a4a4a" layoutX="51.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+         <font>
+            <Font name="Montserrat Regular" size="17.0" />
+         </font>
+      </Text>
+      <Pane layoutX="37.0" layoutY="81.0" opacity="0.91" prefHeight="147.0" prefWidth="862.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="box" stylesheets="@style.css">
          <children>
-            <Pane layoutX="54.0" layoutY="47.0" prefHeight="145.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
-               <children>
-                  <Label layoutX="53.0" layoutY="39.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css" text="My Students" textFill="#fff9f9">
-                     <font>
-                        <Font name="Montserrat Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="myStudents" layoutX="73.0" layoutY="73.0" prefHeight="35.0" prefWidth="48.0" textFill="WHITE" />
-               </children></Pane>
-            <Pane layoutX="316.0" layoutY="47.0" prefHeight="145.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
-               <children>
-                  <Label layoutX="41.0" layoutY="39.0" text="Grades Avarage" textFill="#f7f4f4">
-                     <font>
-                        <Font name="Montserrat Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="gradesAverage" layoutX="74.0" layoutY="73.0" prefHeight="35.0" prefWidth="57.0" textFill="#f7f5f5">
-                     <font>
-                        <Font size="20.0" />
-                     </font></Label>
-               </children>
-            </Pane>
-            <Label layoutX="54.0" layoutY="20.0" prefHeight="17.0" prefWidth="102.0" text="Statistics">
+            <Label layoutX="42.0" layoutY="14.0" prefHeight="37.0" prefWidth="183.0" text="Hi, Alyssa" textFill="#6f6f6f">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Montserrat Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="51.0" text="Get Ready to Wow with Our Decks" textFill="#656565" />
+            <ImageView fitHeight="242.0" fitWidth="252.0" layoutX="561.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/dashboardMainPhoto.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="290.0" layoutY="265.0" prefHeight="82.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+         <children>
+            <Label layoutX="30.0" layoutY="22.0" text="Grades Avarage" textFill="#f7f4f4">
+               <font>
+                  <Font name="Montserrat Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="gradesAverage" alignment="CENTER" layoutX="71.0" layoutY="44.0" prefHeight="35.0" prefWidth="57.0" textFill="#f7f5f5">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <PieChart fx:id="gradesPieChart" layoutX="186.0" layoutY="298.0" prefHeight="282.0" prefWidth="518.0" />
-      <Label layoutX="329.0" layoutY="249.0" prefHeight="35.0" prefWidth="232.0" text="Students Gradebook">
+      <Pane layoutX="69.0" layoutY="265.0" prefHeight="82.0" prefWidth="194.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+         <children>
+            <Label layoutX="41.0" layoutY="12.0" prefHeight="41.0" prefWidth="121.0" style="-fx-background-color: #002554;" stylesheets="@dashboard.css" text="My Students" textFill="#fff9f9">
+               <font>
+                  <Font name="Montserrat Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="myStudents" alignment="CENTER" layoutX="76.0" layoutY="47.0" prefHeight="35.0" prefWidth="48.0" textFill="WHITE" />
+            <CubicCurve controlX1="29.126235961914062" controlX2="50.0" controlY1="-90.0" controlY2="100.0" endX="77.79290771484375" endY="-53.0" fill="#002554" layoutX="111.0" layoutY="53.0" startX="50.00001525878906" startY="29.0" stroke="WHITE" />
+         </children>
+      </Pane>
+      <Label layoutX="36.0" layoutY="232.0" prefHeight="29.0" prefWidth="176.0" text="Statistics" textFill="#979797">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Label layoutX="36.0" layoutY="371.0" prefHeight="29.0" prefWidth="176.0" text="Chart" textFill="#979797">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="61.0" fitWidth="57.0" layoutX="851.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Two_students_working_on_laptops_at_a_table-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <CubicCurve controlX1="13.821746826171875" controlX2="68.82174682617188" controlY1="-86.0" controlY2="76.0" endX="86.12623596191406" endY="-24.0" fill="WHITE" layoutX="145.0" layoutY="376.0" startX="-150.0" stroke="BLACK" />
+      <CubicCurve controlX1="-114.20709228515625" controlX2="18.79290771484375" controlY1="103.0" controlY2="-70.0" endX="198.0" endY="14.0" fill="WHITE" layoutX="718.0" layoutY="306.0" startX="-234.0" startY="-12.0" stroke="#002554" />
    </children>
 </AnchorPane>

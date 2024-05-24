@@ -15,3 +15,11 @@
 .default-color1.chart_bar{
 -fx-bar-fill:#002554;
 }
+
+
+.rectangle, .dashboard_pane {
+    -fx-fill: #dddddd;
+    -fx-stroke: white;
+    -fx-stroke-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.5, 0, 0);
+}

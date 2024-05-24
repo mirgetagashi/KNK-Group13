@@ -79,17 +79,17 @@ public class GradeRepository {
             return false;
         }
     }
-    public static Map<String, Integer> getGradesByStudent(String username) {
-        Map<String, Integer> grades = new HashMap<>();
-        String query = "SELECT g.subject, g.grade FROM grades g INNER JOIN students s ON g.student_id = s.id WHERE s.username = ?";
+    public static List< Integer> getGradesByStudent(int std_id) {
+       List<Integer> grades = new ArrayList<>();
+        String query = "SELECT final_grade from Grades WHERE std_id = ?";
 
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setString(1, username);
+            stmt.setInt(1, std_id);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                grades.put(rs.getString("subject"), rs.getInt("grade"));
+                grades.add( rs.getInt("final_grade"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

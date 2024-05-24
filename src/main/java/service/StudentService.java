@@ -94,8 +94,8 @@ public class StudentService {
 
         return StudentRepository.updatePassword(dto);
     }
-    public static Map<String, Integer> getGradesByStudent(String user){
-        return GradeRepository.getGradesByStudent(user);
+    public static List<Integer> getGradesByStudent(int std_id){
+        return GradeRepository.getGradesByStudent(std_id);
     }
     public static ArrayList<Students> getAllStudents(){
         return StudentRepository.getAllStudents();

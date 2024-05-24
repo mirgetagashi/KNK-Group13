@@ -1,12 +1,17 @@
 package controller;
 
+import app.SessionManager.StudentSession;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import model.Students;
 import service.StudentService;
+import service.TeacherDashboardService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class StudentChartController {
@@ -27,28 +32,29 @@ public class StudentChartController {
     }
 
     public void initialize() {
-        if (loggedInUsername != null) {
-            studentNameLabel.setText("Grades for Student: " + loggedInUsername);
-            loadStudentGrades(loggedInUsername);
+        studentNameLabel.setText(StudentSession.getStudent().getFirstName());
+
+        Students loggedStudent=StudentSession.getStudent();
+        int loggedStudentId=loggedStudent.getId();
+
+        List<Integer> gradeList = StudentService.getGradesByStudent(loggedStudentId);
+
+
+
+        int[] gradeCounts = new int[6];
+        for (int grade : gradeList) {
+            gradeCounts[grade]++;
         }
+
+        List<PieChart.Data> pieChartData = new ArrayList<>();
+        for (int i = 1; i <= 5; i++) {
+            pieChartData.add(new PieChart.Data("Grade " + i, gradeCounts[i]));
+        }
+
+        gradeChart.getData().addAll(pieChartData);
+
+
     }
 
-    private void loadStudentGrades(String username) {
-        Map<String, Integer> grades = StudentService.getGradesByStudent(username);
 
-        // Populate PieChart
-        gradeChart.getData().clear();
-        for (Map.Entry<String, Integer> entry : grades.entrySet()) {
-            PieChart.Data slice = new PieChart.Data(entry.getKey(), entry.getValue());
-            gradeChart.getData().add(slice);
-        }
-
-        // Populate LineChart
-        gradesLineChart.getData().clear();
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        for (Map.Entry<String, Integer> entry : grades.entrySet()) {
-            series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
-        }
-        gradesLineChart.getData().add(series);
-    }
 }
