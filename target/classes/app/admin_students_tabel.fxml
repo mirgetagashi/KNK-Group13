@@ -89,7 +89,7 @@
          <ComboBox fx:id="comboBoxLevelFilter" layoutX="465.0" layoutY="54.0" prefHeight="32.0" prefWidth="158.0" promptText="Level" styleClass="textfield-design" stylesheets="@style.css" />
          <TextField fx:id="txtFilterName" layoutX="274.0" layoutY="66.0" promptText="Name" styleClass="textfield-design" stylesheets="@style.css" />
          <Button layoutX="799.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
-         <Pagination fx:id="pagination" layoutX="237.0" layoutY="98.0" opacity="0.0" prefHeight="370.0" prefWidth="724.0" styleClass="table-view" stylesheets="@style.css" />
+         <Pagination fx:id="pagination" layoutX="262.0" layoutY="98.0" prefHeight="370.0" prefWidth="620.0" styleClass="table-view" stylesheets="@style.css" />
          <Label layoutX="271.0" layoutY="22.0" text="Filters:" textFill="#686868">
             <font>
                <Font size="30.0" />
