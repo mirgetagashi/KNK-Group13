@@ -67,7 +67,7 @@
          </image>
       </ImageView>
       <Pagination fx:id="pagination" layoutX="249.0" layoutY="88.0" prefHeight="367.0" prefWidth="606.0" />
-      <TextField fx:id="txtNameFilter" layoutX="552.0" layoutY="49.0" prefHeight="34.0" prefWidth="166.0" promptText="Name" styleClass="textfield-design" stylesheets="@style.css" />
+      <TextField fx:id="txtNameFilter" layoutX="552.0" layoutY="49.0" prefHeight="34.0" prefWidth="166.0" promptText="Student ID" styleClass="textfield-design" stylesheets="@style.css" />
       <Button layoutX="741.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
     </children>
 </AnchorPane>

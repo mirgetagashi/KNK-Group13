@@ -109,7 +109,7 @@ public class LoginController {
             } else if (useremail.contains("@teacher")) {
                 Teacher teacher = TeacherService.getByEmail(useremail);
                 TeacherSession.setTeacher(teacher);
-                Navigator.navigate(event, Navigator.TEACHER_DASHBOARD);
+                Navigator.navigate(event, Navigator.TEACHER_NAVIGATOR);
             } else {
                 Administrator admin = AdminService.getByEmail(useremail);
                 AdminSession.setAdmin(admin);
