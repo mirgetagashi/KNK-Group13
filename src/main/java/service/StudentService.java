@@ -36,10 +36,10 @@ public class StudentService {
         String passwordHash = PasswordHasher.generateSaltedHash(
                 password, salt
         );
-        boolean studentExist=StudentRepository.doesStudentExist(email);
-        if(studentExist){
-            return false;
-        }
+//        boolean studentExist=StudentRepository.doesStudentExist(email);
+//        if(studentExist){
+//            return false;
+//        }
 
         CreateStudentDto createStudentData = new CreateStudentDto(
                 userData.getFirstName(),
