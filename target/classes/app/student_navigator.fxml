@@ -62,7 +62,7 @@
                         <Image url="@../Images/profile.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="70.0" layoutY="130.0" text="Lum Hoxha" textFill="WHITE">
+                  <Label fx:id="navName" layoutX="56.0" layoutY="131.0" prefHeight="19.0" prefWidth="126.0" text="Lum Hoxha" textFill="WHITE">
                      <font>
                         <Font name="Fahkwang Medium" size="13.0" />
                      </font>

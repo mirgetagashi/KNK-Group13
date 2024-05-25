@@ -10,13 +10,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="571.0" prefWidth="849.0" style="-fx-background-color: white;" styleClass="pab" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentChartController">
     <children>
         <Pane layoutX="12.0" layoutY="32.0" prefHeight="98.0" prefWidth="820.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="pane">
             <children>
 
-                <Label fx:id="studentNameLabel" layoutX="178.0" layoutY="47.0" style="-fx-font-size: 16px; -fx-padding: 10;" text="Emri i Studentit">
+                <Label fx:id="studentNameLabel" layoutX="178.0" layoutY="47.0" style="-fx-font-size: 16px; -fx-padding: 10;">
                     <font>
                         <Font size="16.0" />
                     </font>

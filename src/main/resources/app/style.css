@@ -296,6 +296,9 @@
         -fx-border-radius: 3px;
         -fx-background-radius: 3px;
 }
+.labelElement{
+-fx-underline: false;
+}
 
 
 

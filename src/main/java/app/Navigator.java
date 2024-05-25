@@ -12,32 +12,29 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Navigator {
+
     public final static String LOGIN_PAGE = "login_form.fxml";
-    public final static String ADMIN_STUDENT_PAGE="admin_students_tabel.fxml";
-    public  final static String ADMIN_PAGE="admin_navigator.fxml";
-    public  final static String STUDENT_PAGE="student_navigator.fxml";
-    public  final static String TEACHER_PAGE="teacher_navigator.fxml";
-    public  final static String TEACHER_TABLE="teacherTable.fxml";
-    public  final static String ADMIN_TEACHER_PAGE="admin_teachers_table.fxml";
-    public  final static String ADMIN_SCHOOLS_PAGE="admin_schools_table.fxml";
-    public  final static String TEACHER_DASHBOARD="teacherDashboard.fxml";
-    public  final static String TEACHER_NAVIGATOR="teacherNavigator.fxml";
+    public final static String ADMIN_STUDENT_PAGE = "admin_students_tabel.fxml";
+    public final static String ADMIN_PAGE = "admin_navigator.fxml";
+    public final static String STUDENT_PAGE = "student_navigator.fxml";
+    public final static String TEACHER_PAGE = "teacher_navigator.fxml";
+    public final static String TEACHER_TABLE = "teacherTable.fxml";
+    public final static String ADMIN_TEACHER_PAGE = "admin_teachers_table.fxml";
+    public final static String ADMIN_SCHOOLS_PAGE = "admin_schools_table.fxml";
+    public final static String TEACHER_DASHBOARD = "teacherDashboard.fxml";
+    public final static String HELP_PAGE = "help.fxml";
+    public final static String STUDENT_NAVIGATOR = "student_navigator.fxml";
+    public final static String STUDENT_TABLE = "student_table.fxml";
+    public final static String STUDENT_CHART = "student_chart.fxml";
+    public final static String FORGET_PASSWORD = "change_password.fxml";
+    public final static String STUDENT_SETTINGS = "settings_student.fxml";
+    public final static String STUDENT_PROFILE = "student_profile.fxml";
+    public final static String ADMIN_DASHBOARD = "admin_dashboard.fxml";
+    public final static String FIRST_PAGE = "first_page.fxml";
+    public final static String TEACHER_NAVIGATOR = "teacherNavigator.fxml";
+    public final static String TEACHER_PROFILE = "teacherProfile.fxml";
 
-    public  final static String HELP_PAGE="help.fxml";
 
-    public  final static String STUDENT_NAVIGATOR="student_navigator.fxml";
-    public  final static String FIRST_PAGE="first_page.fxml";
-
-
-
-
-    public  final static String STUDENT_TABLE="student_table.fxml";
-    public  final static String STUDENT_CHART="student_chart.fxml";
-    public  final static String FORGET_PASSWORD="change_password.fxml";
-    public  final static String STUDENT_SETTINGS="settings_student.fxml";
-
-    public  final static String STUDENT_PROFILE="student_profile.fxml";
-    public  final static String ADMIN_DASHBOARD="admin_dashboard.fxml";
     public static void navigate(Event event, String form) {
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();

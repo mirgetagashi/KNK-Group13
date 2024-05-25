@@ -1,12 +1,15 @@
 package controller;
 
 import app.Navigator;
+import app.SessionManager.StudentSession;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import model.Students;
 
 public class StudentNavigatorController {
 
@@ -18,6 +21,9 @@ public class StudentNavigatorController {
 
     @FXML
     private AnchorPane side_ankerpane;
+    @FXML
+    private Label navName;
+
 
     @FXML
     void help(MouseEvent event) {
@@ -67,6 +73,16 @@ public class StudentNavigatorController {
             Navigator.navigate(dashBo,Navigator.HELP_PAGE);
 
         }
+
+    }
+    public void initialize() {
+        Students loggedStudent= StudentSession.getStudent();
+        int loggedStudentId=loggedStudent.getId();
+        String studentName=loggedStudent.getFirstName();
+        String studentSurname=loggedStudent.getLastName();
+        String fullName=studentName + " "+studentSurname;
+        navName.setText(fullName);
+
 
     }
 
