@@ -11,8 +11,11 @@ public class App extends Application {
 
     public void start(Stage stage) {
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         Navigator.navigate(stage, Navigator.HELP_PAGE);
+=======
+>>>>>>> Stashed changes
 
         Navigator.navigate(stage, Navigator.ADMIN_TEACHER_PAGE);
 

@@ -8,9 +8,13 @@ public class DBConnector {
     private static String URL = "jdbc:mysql://localhost:3306/project_knk";
     private static String USER = "root";
 
+<<<<<<< Updated upstream
 
     private static String PASSWORD = "";
 
+=======
+    private static String PASSWORD = "mirgeta12.,";
+>>>>>>> Stashed changes
 
 
     private static Connection connection = null;

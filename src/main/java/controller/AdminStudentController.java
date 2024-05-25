@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.*;
 import model.dto.StudentDto;
+import model.dto.TeacherGradeUpdateDto;
 import model.filter.StudentFilter;
 import repository.*;
 import service.*;
@@ -194,7 +195,17 @@ public class AdminStudentController implements Initializable {
 
     @FXML
     void handleEditClick(ActionEvent event) {
-        // Edit logic goes here
+        Students selectedItem = StudentTable.getSelectionModel().getSelectedItem();
+        int studentId = selectedItem.getId();
+        String firstName= this.txtFirstName.getText();
+        String lastName= this.txtLastName.getText();
+        LocalDate birthday=this.datePickerBirthday.getValue();
+        String gener= this.getGender(event);
+        int city_id= returnId(cityComboBox.getValue());
+        int school_id=returnId(schoolComboBox.getValue());
+        int major_id=returnId(majorComboBox.getValue());
+        int level_id=returnId(periodComboBox.getValue());
+
     }
 
     public String getGender(ActionEvent ae) {
