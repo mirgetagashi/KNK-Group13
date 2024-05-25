@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AdminSchoolsController  implements Initializable {
+public class AdminSchoolsController implements Initializable {
 
     @FXML
     private TableColumn<SchoolTable, String> columnCity;
@@ -39,7 +39,6 @@ public class AdminSchoolsController  implements Initializable {
 
     @FXML
     private TableColumn<SchoolTable, Integer> columnNumberOfMajors;
-
 
     @FXML
     private TableView<SchoolTable> tblSchools;
@@ -68,7 +67,7 @@ public class AdminSchoolsController  implements Initializable {
     void handleFilterClick(ActionEvent event) {
         SchoolFilter filter = new SchoolFilter();
         String input = txtNameFilter.getText().trim();
-        
+
         if (!input.isEmpty()) {
             filter.setName(input);
             filter.setCity(input);
@@ -87,8 +86,6 @@ public class AdminSchoolsController  implements Initializable {
         tblSchools.setItems(filteredData);
     }
 
-
-
     @FXML
     void handleAddMajorToSchoolClick(ActionEvent event) {
         invisiblePane.setVisible(true);
@@ -100,33 +97,31 @@ public class AdminSchoolsController  implements Initializable {
         if (selectedItem != null) {
             String selectedCity = ComboBoxMajors.getValue();
             String[] vargu = selectedCity.split(" ");
-            int id=Integer.parseInt(vargu[0]);
-            AddSchoolMajorDto userData= new AddSchoolMajorDto(selectedItem.getId(),id);
+            int id = Integer.parseInt(vargu[0]);
+            AddSchoolMajorDto userData = new AddSchoolMajorDto(selectedItem.getId(), id);
             boolean add = SchoolService.addSchoolMajor(userData);
 
             if (add) {
-                Navigator.navigate( hBox, Navigator.ADMIN_SCHOOLS_PAGE);
+                Navigator.navigate(hBox, Navigator.ADMIN_SCHOOLS_PAGE);
             } else {
-                 System.out.println("Gabim");
+                System.out.println("Gabim");
             }
         }
     }
 
     @FXML
     void handleAddClick(ActionEvent event) {
-            int id=returnId(comboBoxCity.getValue());
-        CreateSchoolDto userData= new CreateSchoolDto(
+        int id = returnId(comboBoxCity.getValue());
+        CreateSchoolDto userData = new CreateSchoolDto(
                 this.txtName.getText(),
                 id
         );
         boolean isAdded;
-        isAdded= SchoolService.add(userData);
-        if(isAdded){
-            Navigator.navigate(event,Navigator.ADMIN_SCHOOLS_PAGE);
+        isAdded = SchoolService.add(userData);
+        if (isAdded) {
+            Navigator.navigate(event, Navigator.ADMIN_SCHOOLS_PAGE);
         }
-
     }
-
 
     @FXML
     void handleUpdateClick(ActionEvent event) {
@@ -135,18 +130,28 @@ public class AdminSchoolsController  implements Initializable {
     @FXML
     void handleDeleteClick(ActionEvent event) {
         SchoolTable selectedItem = tblSchools.getSelectionModel().getSelectedItem();
-
-
         if (selectedItem != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this school?");
 
-            boolean deleted = SchoolService.delete(selectedItem.getId());
+            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
 
-
-            if (deleted) {
-                tblSchools.getItems().remove(selectedItem);
-            } else {
-                System.out.println("Please select a row to delete.");
-            }
+            alert.showAndWait().ifPresent(response -> {
+                if (response == buttonTypeYes) {
+                    boolean deleted = SchoolService.delete(selectedItem.getId());
+                    if (deleted) {
+                        tblSchools.getItems().remove(selectedItem);
+                    } else {
+                        System.out.println("Error occurred while deleting.");
+                    }
+                }
+            });
+        } else {
+            System.out.println("Please select a row to delete.");
         }
     }
 
@@ -168,30 +173,26 @@ public class AdminSchoolsController  implements Initializable {
         dataList = FXCollections.observableArrayList(FXCollections.observableArrayList(AdminDashboardRepository.getSchoolsInfo()));
 
         pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
-
         pagination.setPageFactory(this::createPage);
-
 
         comboBoxCity.setValue("Address");
         ComboBoxMajors.setValue("Majors");
-        ArrayList<String> majors= new ArrayList<>();
+
+        ArrayList<String> majors = new ArrayList<>();
         for (Major major : MajorService.getAllMajors()) {
-            majors.add(major.getId()+" "+major.getMajor_name());
+            majors.add(major.getId() + " " + major.getMajor_name());
         }
         ComboBoxMajors.getItems().addAll(majors);
 
-        ArrayList<String> cities= new ArrayList<>();
-        for (Address city : (AddressService.getAllCities())) {
-            cities.add(city.getId()+" "+city.getCity());
+        ArrayList<String> cities = new ArrayList<>();
+        for (Address city : AddressService.getAllCities()) {
+            cities.add(city.getId() + " " + city.getCity());
         }
         comboBoxCity.getItems().addAll(cities);
-
     }
 
-
-    private int returnId(String select){
-        String[] vargu=select.split(" ");
-        int id=Integer.parseInt(vargu[0]);
-        return id;
+    private int returnId(String select) {
+        String[] vargu = select.split(" ");
+        return Integer.parseInt(vargu[0]);
     }
 }

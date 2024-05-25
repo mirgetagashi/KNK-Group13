@@ -57,14 +57,14 @@ public class StudentNavigatorController {
     void handleKeyPressed(KeyEvent event) {
         if (event.isControlDown() && event.getCode() == KeyCode.P) {
 
-            Navigator.navigate(root, Navigator.STUDENT_PROFILE);
+            Navigator.navigate(dashBo, Navigator.STUDENT_PROFILE);
         } else if (event.isControlDown() && event.getCode() == KeyCode.D) {
-            Navigator.navigate(root,Navigator.STUDENT_CHART);
+            Navigator.navigate(dashBo,Navigator.STUDENT_CHART);
 
         }else if (event.isControlDown() && event.getCode() == KeyCode.T) {
-            Navigator.navigate(root,Navigator.STUDENT_TABLE);
+            Navigator.navigate(dashBo,Navigator.STUDENT_TABLE);
         }else if (event.isControlDown() && event.getCode() == KeyCode.H) {
-            Navigator.navigate(root,Navigator.HELP_PAGE);
+            Navigator.navigate(dashBo,Navigator.HELP_PAGE);
 
         }
 
