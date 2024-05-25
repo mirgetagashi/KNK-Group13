@@ -35,11 +35,29 @@ public class SchoolRepository {
     }
     public static ArrayList<SchoolTable> getByFilter(SchoolFilter filter) throws SQLException {
         ArrayList<SchoolTable> schools = new ArrayList<>();
-        StringBuilder query= new StringBuilder("select * from School_Table_Info where 1=1 ");
+        StringBuilder query = new StringBuilder("select * from School_Table_Info where 1=1 ");
         ArrayList<Object> params = new ArrayList<>();
 
-        query.append(filter.buildQuery());
-        params.addAll(filter.getFilterParams());
+        String nameQueryPart = "";
+        String cityQueryPart = "";
+
+        if (filter.getName() != null && !filter.getName().isEmpty()) {
+            nameQueryPart = "school_name like ?";
+            params.add(filter.getName() + "%");
+        }
+
+        if (filter.getCity() != null && !filter.getCity().isEmpty()) {
+            cityQueryPart = "city like ?";
+            params.add(filter.getCity() + "%");
+        }
+
+        if (!nameQueryPart.isEmpty() && !cityQueryPart.isEmpty()) {
+            query.append(" AND (" + nameQueryPart + " OR " + cityQueryPart + ")");
+        } else if (!nameQueryPart.isEmpty()) {
+            query.append(" AND " + nameQueryPart);
+        } else if (!cityQueryPart.isEmpty()) {
+            query.append(" AND " + cityQueryPart);
+        }
 
         try {
             Connection connection = DBConnector.getConnection();
@@ -63,6 +81,7 @@ public class SchoolRepository {
         }
         return schools;
     }
+
 
     public static boolean delete(int id){
         String query = "DELETE FROM School WHERE school_id = ?";

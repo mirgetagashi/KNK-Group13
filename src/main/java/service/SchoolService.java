@@ -23,14 +23,14 @@ public class SchoolService {
         return SchoolRepository.delete(id);
     }
 
-    public static ArrayList<SchoolTable> filterSchool(SchoolFilter filter){
-        try{
-
+    public static ArrayList<SchoolTable> filterSchool(SchoolFilter filter) {
+        try {
             return SchoolRepository.getByFilter(filter);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             return null;
         }
     }
+
 
 
 

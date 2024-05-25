@@ -67,20 +67,23 @@ public class AdminSchoolsController  implements Initializable {
     @FXML
     void handleFilterClick(ActionEvent event) {
         SchoolFilter filter = new SchoolFilter();
-        filter.setName(txtNameFilter.getText());
+        String input = txtNameFilter.getText().trim();
+        
+        if (!input.isEmpty()) {
+            filter.setName(input);
+            filter.setCity(input);
+        }
+
         ArrayList<SchoolTable> filterSchool = SchoolService.filterSchool(filter);
         if (filterSchool == null) {
             System.out.println("Error occurred, check filter code!");
         } else {
             this.updateTable(filterSchool);
         }
-
     }
-
 
     private void updateTable(ArrayList<SchoolTable> filterSchool) {
         ObservableList<SchoolTable> filteredData = FXCollections.observableArrayList(filterSchool);
-
         tblSchools.setItems(filteredData);
     }
 
