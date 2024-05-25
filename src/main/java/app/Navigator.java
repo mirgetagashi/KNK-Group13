@@ -31,6 +31,8 @@ public class Navigator {
     public final static String ADMIN_DASHBOARD = "admin_dashboard.fxml";
     public final static String FIRST_PAGE = "first_page.fxml";
     public final static String PROVA = "prova.fxml";
+    public final static String TEACHER_NAVIGATOR = "teacher_navigator.fxml";
+
     public static void navigate(Event event, String form) {
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
