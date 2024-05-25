@@ -33,7 +33,7 @@
                         <Image url="@../Images/dashboardMainPhoto.png" />
                     </image>
                 </ImageView>
-            <Label fx:id="DashboardNmae" layoutX="82.0" layoutY="16.0" prefHeight="37.0" prefWidth="183.0" textFill="#6f6f6f">
+            <Label fx:id="nameD" layoutX="82.0" layoutY="16.0" prefHeight="37.0" prefWidth="183.0" textFill="#6f6f6f">
                <font>
                   <Font name="Montserrat Bold" size="30.0" />
                </font>
