@@ -150,12 +150,18 @@ public class AdminStudentController implements Initializable {
                 this.getGender(event),
                 java.sql.Date.valueOf(datePickerBirthday.getValue()));
 
+
         boolean response = StudentService.signUp(userSignUpData);
+        boolean validimi= Validator.validateStudent(userSignUpData);
+        if (!validimi){
+            showAlert("The information provided is incorrect.");
+        }
 
         if (response) {
             Navigator.navigate(event, Navigator.ADMIN_STUDENT_PAGE);
         } else {
             validateFields();
+
         }
     }
 
@@ -369,7 +375,15 @@ public class AdminStudentController implements Initializable {
             String[] vargu = select.split(" ");
             return Integer.parseInt(vargu[0]);
         }
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
+
+}
 
 
 

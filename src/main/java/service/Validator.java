@@ -1,26 +1,21 @@
 package service;
 
+import model.Students;
+import model.dto.StudentDto;
+import repository.StudentRepository;
+
 import java.util.Calendar;
 import java.util.Date;
 
 public class Validator {
 
 
-//    public static boolean validate(UserDto userData){
-//        String firstName = userData.getFirstName();
-//        String lastName = userData.getLastName();
-//        String email = userData.getEmail();
-//        String password = userData.getPassword();
-//        String confirmPassword = userData.getConfirmPassword();
-//        Date birthday = userData.getBirthday();
-//
-//
-//        boolean respond = firstNameValidate(firstName) && lastNameValidate(lastName) && passwordValidate(password,confirmPassword) && emailValidate(email)
-//                && birthdayValidate(birthday);
-//
-//        return  respond;
-//
-//    }
+    public static boolean validateStudent(StudentDto userData){
+        return firstNameValidate(userData.getFirstName())
+                && lastNameValidate(userData.getLastName())
+                &&  passwordValidate(userData.getPassword(), userData.getConfirmPassword())
+                && emailValidate(userData.getEmail()) && birthdayValidate(userData.getBirthday());
+    }
 
     public static boolean firstNameValidate(String firstName){
         if (!firstName.matches("[a-zA-Z]+")){
@@ -49,11 +44,15 @@ public class Validator {
 
     public static boolean emailValidate(String email) {
         String emailPattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+        Students user = StudentRepository.getByEmail(email);
+        if (user == null) {
+            return false;
+        }
         if (!email.matches(emailPattern)) {
             return false;
-        } else if (!email.contains("@student") && !email.contains("@teacher")) {
+        } else if (!email.contains("@student") && email.isEmpty()) {
             return false;
-        } else {
+        }else {
             return true;
         }
     }
@@ -66,7 +65,7 @@ public class Validator {
         if (now.get(Calendar.DAY_OF_YEAR) < calBirthday.get(Calendar.DAY_OF_YEAR)) {
             age--;
         }
-        return age >= 14 && age <= 64;
+        return age >= 14 && age <= 20;
     }
 
 
