@@ -38,23 +38,7 @@ public class StudentRepository {
         }
 
     }
-    public static boolean delete(int id) {
 
-        String query = "DELETE FROM Students WHERE std_id = ?";
-
-        try {
-            Connection conn = DBConnector.getConnection();
-            PreparedStatement pst= conn.prepareStatement(query);
-            pst.setInt(1, id);
-            pst.executeUpdate();
-            pst.close();
-            conn.close();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 
     public static Students getByEmail(String email){
         String query = "SELECT * FROM STUDENTS WHERE email = ? LIMIT 1;";
@@ -104,6 +88,24 @@ public class StudentRepository {
             return null;
         }
         return students;
+    }
+
+    public static boolean delete(int id) {
+
+        String query = "DELETE FROM Students WHERE std_id = ?";
+
+        try {
+            Connection conn = DBConnector.getConnection();
+            PreparedStatement pst= conn.prepareStatement(query);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+            pst.close();
+            conn.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public static String getSaltById(int studentId){

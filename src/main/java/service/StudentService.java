@@ -89,6 +89,7 @@ public class StudentService {
             return null;
         }
     }
+
     public static ArrayList<Students> filter(StudentFilter filter) throws SQLException {
         return StudentRepository.getByFilter(filter);
     }

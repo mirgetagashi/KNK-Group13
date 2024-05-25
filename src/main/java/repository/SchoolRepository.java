@@ -33,6 +33,8 @@ public class SchoolRepository {
         }
 
     }
+
+
     public static ArrayList<SchoolTable> getByFilter(SchoolFilter filter) throws SQLException {
         ArrayList<SchoolTable> schools = new ArrayList<>();
         StringBuilder query = new StringBuilder("select * from School_Table_Info where 1=1 ");

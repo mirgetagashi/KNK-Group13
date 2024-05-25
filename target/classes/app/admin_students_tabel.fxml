@@ -48,6 +48,11 @@
                             <Font size="13.0" />
                         </font>
                     </RadioButton>
+               <RadioButton fx:id="radioButtonFemale" layoutX="74.0" layoutY="4.0" mnemonicParsing="false" stylesheets="@style.css" text="F" textFill="#575757">
+                  <font>
+                     <Font size="13.0" />
+                  </font>
+               </RadioButton>
                 </children>
             </AnchorPane>
             <ComboBox fx:id="cityComboBox" layoutX="45.0" layoutY="205.0" prefHeight="39.0" prefWidth="174.0" promptText="City" styleClass="textfield-design" stylesheets="@style.css" />
@@ -57,27 +62,17 @@
             <TextField fx:id="txtFirstName" layoutX="53.0" layoutY="40.0" promptText="First Name" styleClass="textfield-design" stylesheets="@style.css" />
             <TextField fx:id="txtLastName" layoutX="53.0" layoutY="82.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
             <DatePicker fx:id="datePickerBirthday" layoutX="53.0" layoutY="119.0" prefHeight="27.0" prefWidth="174.0" promptText="Birthday" styleClass="textfield-design" stylesheets="@style.css" />
-        <Button layoutX="53.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="38.0" prefWidth="192.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
-        <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;">
+        <Button layoutX="32.0" layoutY="382.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="19.0" prefWidth="190.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
+        <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
         <children>
-            <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="Email" />
-            <PasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="134.0" promptText="Password" />
-            <PasswordField fx:id="pwdConfirmPassword" layoutX="55.0" layoutY="203.0" promptText="Confirm Password" />
-            <Button layoutX="27.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Add" textFill="WHITE">
+            <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css" />
+            <PasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="118.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css" />
+            <PasswordField fx:id="pwdConfirmPassword" layoutX="55.0" layoutY="166.0" promptText="Confirm Password" styleClass="textfield-design" stylesheets="@style.css" />
+            <Button layoutX="64.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="42.0" prefWidth="150.0" styleClass="button-design" stylesheets="@style.css" text="Add" textFill="WHITE">
                 <font>
                     <Font size="14.0" />
                         </font>
             </Button>
-            <Button layoutX="110.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
-                <font>
-                    <Font size="14.0" />
-                </font>
-            </Button>
-            <Button layoutX="16.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </Button>
                 </children>
             </AnchorPane>
             <ComboBox fx:id="conboBoxSchoolFilter" layoutX="631.0" layoutY="54.0" prefHeight="32.0" prefWidth="131.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
@@ -115,6 +110,16 @@
                 </effect>
             </CubicCurve>
          <Pagination fx:id="pagination" layoutX="259.0" layoutY="104.0" prefHeight="365.0" prefWidth="620.0" />
+      <Button layoutX="32.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="42.0" prefWidth="94.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+              </Button>
+      <Button layoutX="138.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="85.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
+          <font>
+              <Font size="14.0" />
+          </font>
+      </Button>
         </AnchorPane>
     </children>
 </HBox>

@@ -12,17 +12,12 @@ import javafx.scene.layout.AnchorPane;
 import model.*;
 import model.dto.StudentTeacherDto;
 import model.dto.TeacherDto;
-import model.filter.StudentFilter;
 import model.filter.TeacherFilter;
-import repository.AddressRepository;
-import repository.SchoolRepository;
-import repository.SubjectRepository;
-import repository.TeacherRepository;
-import service.GradeLevelService;
-import service.StudentService;
-import service.TeacherService;
+import repository.*;
+import service.*;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -127,7 +122,7 @@ public class AdminTeacherController implements Initializable {
         StudentTeacherDto userData= new StudentTeacherDto(teacher_id, school_id, level_id);
     }
 
-    private void addSelection(){
+    private void addIDSelection(){
         TeachersTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 System.out.println("Teacher selected: " + newSelection.getId()); // Debugging line
@@ -203,6 +198,35 @@ public class AdminTeacherController implements Initializable {
 
     }
 
+
+    private void addSelection(){
+        TeachersTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                txtFirstName.setText(String.valueOf(newSelection.getFirstName()));
+                txtLastName.setText(String.valueOf(newSelection.getLastName()));
+                java.sql.Date date = newSelection.getBirthday();
+                LocalDate localDate = date.toLocalDate();
+                datePickerBirthday.setValue(localDate);
+
+                String gender = newSelection.getGender();
+                if ("Male".equalsIgnoreCase(gender)) {
+                    radioButtonMale.setSelected(true);
+                } else if ("Female".equalsIgnoreCase(gender)) {
+                    radioButtonFemale.setSelected(true);
+                } else {
+                    radioButtonFemale.setSelected(false);
+                    radioButtonMale.setSelected(false);
+                }
+                cityComboBox.setValue(newSelection.getAddress_id()+" "+ AddressService.getById(newSelection.getAddress_id()));
+                schoolComboBox.setValue(newSelection.getSchool_id()+" "+ SchoolService.getById(newSelection.getSchool_id()));
+                subjectComboBox.setValue(newSelection.getSubject_id()+" "+ MajorRepository.getById(newSelection.getSubject_id()));
+
+            } else {
+                System.out.println("Selection is null");
+            }
+        });
+    }
+
     @FXML
     void handleDeleteClick(ActionEvent event) {
         Teacher selectedItem = TeachersTable.getSelectionModel().getSelectedItem();
@@ -247,6 +271,7 @@ public class AdminTeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.addSelection();
 
             dataList = FXCollections.observableArrayList(TeacherRepository.getAllTeachers());
             columnAddress.setCellValueFactory(new PropertyValueFactory<>("address_id"));
@@ -261,7 +286,7 @@ public class AdminTeacherController implements Initializable {
 
             pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
             pagination.setPageFactory(this::createPage);
-            this.addSelection();
+            this.addIDSelection();
 
 
 

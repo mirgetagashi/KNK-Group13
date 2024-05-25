@@ -53,7 +53,7 @@
         <TextField fx:id="txtLastName" layoutX="24.0" layoutY="137.0" prefHeight="32.0" prefWidth="183.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
         <DatePicker fx:id="datePickerBirthday" layoutX="24.0" layoutY="175.0" prefHeight="32.0" prefWidth="183.0" promptText="Birthday" styleClass="textfield-design" stylesheets="@style.css" />
         <ComboBox fx:id="subjectComboBox" layoutX="24.0" layoutY="352.0" prefHeight="32.0" prefWidth="183.0" promptText="Subject" styleClass="combobox-design" stylesheets="@style.css" />
-        <Button layoutX="139.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleNextClick" styleClass="button-design" stylesheets="@style.css" text="Next" />
+        <Button layoutX="36.0" layoutY="437.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="41.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
         <TextField fx:id="txtEducation" layoutX="24.0" layoutY="393.0" prefHeight="32.0" prefWidth="183.0" promptText="Education" styleClass="textfield-design" stylesheets="@style.css" />
         <AnchorPane fx:id="invisiblePane" layoutY="72.0" prefHeight="472.0" prefWidth="232.0" style="-fx-background-color: white;" visible="false">
             <children>
@@ -66,16 +66,6 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="36.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="42.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
-                <Button layoutX="36.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="41.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
             </children>
         </AnchorPane>
       <Pagination fx:id="pagination" layoutX="230.0" layoutY="119.0" prefHeight="414.0" prefWidth="690.0" />
@@ -83,12 +73,22 @@
       <TextField fx:id="txtLastNameFilter" layoutX="656.0" layoutY="72.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
       <Button layoutX="832.0" layoutY="52.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
       <Button layoutX="230.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleTeacherStudentClick" prefHeight="42.0" prefWidth="137.0" styleClass="button-design" stylesheets="@style.css" text="TeacherStudent" />
-      <AnchorPane fx:id="studentTeacherPane" layoutX="9.0" layoutY="69.0" prefHeight="446.0" prefWidth="214.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="studentTeacherPane" layoutX="9.0" layoutY="69.0" prefHeight="446.0" prefWidth="214.0" style="-fx-background-color: white;" visible="false">
          <children>
             <TextField fx:id="teacherID" layoutX="27.0" layoutY="69.0" prefHeight="34.0" prefWidth="160.0" promptText="Teacher ID" styleClass="textfield-design" stylesheets="@style.css" />
             <ComboBox fx:id="comboBoxLevel" layoutX="27.0" layoutY="126.0" prefWidth="150.0" promptText="Level" styleClass="box" stylesheets="@style.css" />
             <Button layoutX="27.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleAddTeacherStudentClick" prefHeight="42.0" prefWidth="137.0" styleClass="button-design" stylesheets="@style.css" text="TeacherStudent" />
          </children>
       </AnchorPane>
+          <Button layoutX="127.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="42.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
+              <font>
+                  <Font size="14.0" />
+              </font>
+          </Button>
+          <Button layoutX="24.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="97.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
+              <font>
+                  <Font size="14.0" />
+              </font>
+          </Button>
     </children>
 </AnchorPane>

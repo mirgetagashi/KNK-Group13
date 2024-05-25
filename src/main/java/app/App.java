@@ -13,6 +13,7 @@ public class App extends Application {
 
         Navigator.navigate(stage, Navigator.HELP_PAGE);
 
+        Navigator.navigate(stage, Navigator.ADMIN_TEACHER_PAGE);
 
     }
 }

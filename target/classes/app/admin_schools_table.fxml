@@ -29,7 +29,7 @@
             <Button layoutX="38.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="Add" />
             <Button layoutX="37.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleUpdateClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="Update" />
             <Button layoutX="38.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="Delete" />
-            <AnchorPane fx:id="invisiblePane" layoutX="38.0" layoutY="54.0" prefHeight="327.0" prefWidth="250.0" style="-fx-background-color: white;" visible="false">
+            <AnchorPane fx:id="invisiblePane" layoutX="24.0" layoutY="54.0" prefHeight="412.0" prefWidth="250.0" style="-fx-background-color: white;" visible="false">
                <children>
                   <ComboBox fx:id="ComboBoxMajors" layoutX="50.0" layoutY="41.0" prefWidth="150.0" promptText="Chose Majors" />
                   <Button layoutX="149.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleAddMajorsClick" text="Button" />
