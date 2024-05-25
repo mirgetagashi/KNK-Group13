@@ -3,6 +3,7 @@ package service;
 import model.*;
 import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
+import model.filter.SchoolFilter;
 import repository.SchoolRepository;
 
 import java.sql.SQLException;
@@ -20,6 +21,15 @@ public class SchoolService {
 
     public static boolean delete(int id){
         return SchoolRepository.delete(id);
+    }
+
+    public static ArrayList<SchoolTable> filterSchool(SchoolFilter filter){
+        try{
+
+            return SchoolRepository.getByFilter(filter);
+        }catch (SQLException e){
+            return null;
+        }
     }
 
 

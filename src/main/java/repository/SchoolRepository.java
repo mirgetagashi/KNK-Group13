@@ -4,6 +4,7 @@ import model.*;
 import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
 import Database.DBConnector;
+import model.filter.SchoolFilter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,6 +32,36 @@ public class SchoolRepository {
             return false;
         }
 
+    }
+    public static ArrayList<SchoolTable> getByFilter(SchoolFilter filter) throws SQLException {
+        ArrayList<SchoolTable> schools = new ArrayList<>();
+        StringBuilder query= new StringBuilder("select * from School_Table_Info where 1=1 ");
+        ArrayList<Object> params = new ArrayList<>();
+
+        query.append(filter.buildQuery());
+        params.addAll(filter.getFilterParams());
+
+        try {
+            Connection connection = DBConnector.getConnection();
+            PreparedStatement pst = connection.prepareStatement(query.toString());
+            for (int i = 0; i < params.size(); i++) {
+                pst.setObject(i + 1, params.get(i));
+            }
+
+            ResultSet result = pst.executeQuery();
+            while (result.next()) {
+                schools.add(new SchoolTable(
+                        result.getInt("School_id"),
+                        result.getString("School_Name"),
+                        result.getString("City"),
+                        result.getInt("Number_of_Students"),
+                        result.getInt("Number_of_Majors")
+                ));
+            }
+        } catch (Exception e) {
+            return null;
+        }
+        return schools;
     }
 
     public static boolean delete(int id){

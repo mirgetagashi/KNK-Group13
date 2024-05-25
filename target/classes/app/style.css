@@ -203,7 +203,6 @@
     -fx-translate-y: -10px; /* Adjust this value to move the image up if necessary */
 }
 
-
 /* teacher Dashboard */
 
 
@@ -296,44 +295,6 @@
     -fx-background-color: #DDDDDD;
         -fx-border-radius: 3px;
         -fx-background-radius: 3px;
-
-.pie-chart {
-    -fx-background-color: #002554; /* Background color */
-}
-
-.chart-legend {
-    -fx-background-color: transparent;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-}
-
-.chart-title {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #ffffff; /* White title text for better contrast */
-}
-
-/* Add some shadow effects for a modern look */
-.chart-pie {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0.0, 0.0);
-}
-
-.chart-pie .chart-pie-label {
-    -fx-fill: #ffffff; /* White labels for better contrast */
-    -fx-font-weight: bold;
-}
-
-.chart-pie .default-color0.chart-pie-label {
-    -fx-pie-color: #727272;
-}
-
-.chart-pie .default-color1.chart-pie-label {
-    -fx-pie-color: #a0a0a0;
-}
-
-.chart-pie .default-color2.chart-pie-label {
-    -fx-pie-color: #c0c0c0;
-
 }
 
 

@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import model.*;
 import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
+import model.filter.SchoolFilter;
 import repository.*;
 import service.AddressService;
 import service.MajorService;
@@ -62,9 +63,25 @@ public class AdminSchoolsController  implements Initializable {
     private ObservableList<SchoolTable> dataList;
     @FXML
     private TextField txtNameFilter;
+
     @FXML
     void handleFilterClick(ActionEvent event) {
+        SchoolFilter filter = new SchoolFilter();
+        filter.setName(txtNameFilter.getText());
+        ArrayList<SchoolTable> filterSchool = SchoolService.filterSchool(filter);
+        if (filterSchool == null) {
+            System.out.println("Error occurred, check filter code!");
+        } else {
+            this.updateTable(filterSchool);
+        }
 
+    }
+
+
+    private void updateTable(ArrayList<SchoolTable> filterSchool) {
+        ObservableList<SchoolTable> filteredData = FXCollections.observableArrayList(filterSchool);
+
+        tblSchools.setItems(filteredData);
     }
 
 
