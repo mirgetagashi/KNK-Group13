@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="908.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherTableController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="870.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherTableController">
     <children>
-        <TableView fx:id="studentTable" layoutX="257.0" layoutY="52.0" prefHeight="324.0" prefWidth="572.0" stylesheets="@style.css">
+        <TableView fx:id="studentTable" layoutX="257.0" layoutY="106.0" prefHeight="302.0" prefWidth="572.0" stylesheets="@style.css">
             <columns>
                 <TableColumn fx:id="studentIdColumn" minWidth="30.0" prefWidth="100.0" text="Student ID" />
                 <TableColumn fx:id="levelColumn" prefWidth="100.0" text="Level " />
@@ -66,6 +66,8 @@
             <Image url="@../Images/settings.png" />
          </image>
       </ImageView>
-      <Pagination fx:id="pagination" layoutX="249.0" layoutY="40.0" prefHeight="381.0" prefWidth="606.0" />
+      <Pagination fx:id="pagination" layoutX="249.0" layoutY="88.0" prefHeight="367.0" prefWidth="606.0" />
+      <TextField fx:id="txtNameFilter" layoutX="552.0" layoutY="49.0" prefHeight="34.0" prefWidth="166.0" promptText="Name" styleClass="textfield-design" stylesheets="@style.css" />
+      <Button layoutX="741.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
     </children>
 </AnchorPane>

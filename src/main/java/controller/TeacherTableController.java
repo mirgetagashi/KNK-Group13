@@ -23,6 +23,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
+import model.filter.TeacherTableFilter;
 import service.GradeLevelService;
 import service.GradeService;
 
@@ -58,10 +59,36 @@ public class TeacherTableController implements Initializable {
     private TableColumn<Grades, Integer> finalGradeColumn;
     @FXML
     private Label messageLabel;
+    @FXML
+    private TextField txtNameFilter;
 
     @FXML
     private Pagination pagination;
     private final static int rowsPerPage = 15;
+    @FXML
+    void handleFilterClick(ActionEvent event) {
+        TeacherTableFilter filter = new TeacherTableFilter();
+        String studentIdInput = txtNameFilter.getText().trim();
+        if (!studentIdInput.isEmpty()) {
+            try {
+                int studentId = Integer.parseInt(studentIdInput);
+                filter.setStudentId(studentId);
+                ArrayList<Grades> filteredGrades = GradeService.filterGrades(filter);
+                if (filteredGrades == null) {
+                    System.out.println("Error occurred, check filter code!");
+                } else {
+                    updateTable(filteredGrades);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid Student ID");
+            }
+        }
+    }
+
+    private void updateTable(ArrayList<Grades> filterGrades) {
+        ObservableList<Grades> filteredData = FXCollections.observableArrayList(filterGrades);
+        studentTable.setItems(filteredData);
+    }
 
     private ObservableList<Grades> dataList;
     @FXML

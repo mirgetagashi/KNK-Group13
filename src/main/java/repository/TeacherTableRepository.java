@@ -2,6 +2,7 @@ package repository;
 
 import model.Grades;
 import Database.DBConnector;
+import model.filter.TeacherTableFilter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,6 +31,36 @@ public static ArrayList<Grades> getGradesTable(){
     return grades;
 
 }
+    public static ArrayList<Grades> getGradesByFilter(TeacherTableFilter filter) {
+        ArrayList<Grades> grades = new ArrayList<>();
+        StringBuilder query = new StringBuilder("SELECT * FROM Grades WHERE 1=1 ");
+        query.append(filter.buildQuery());
+
+        try (Connection connection = DBConnector.getConnection();
+             PreparedStatement pst = connection.prepareStatement(query.toString())) {
+            ArrayList<Object> params = filter.getFilterParams();
+            for (int i = 0; i < params.size(); i++) {
+                pst.setObject(i + 1, params.get(i));
+            }
+            ResultSet result = pst.executeQuery();
+            while (result.next()) {
+                grades.add(new Grades(
+                        result.getInt("grade_id"),
+                        result.getInt("level_id"),
+                        result.getInt("period1_grade"),
+                        result.getInt("period2_grade"),
+                        result.getInt("final_grade"),
+                        result.getInt("std_id"),
+                        result.getInt("subject_id"),
+                        result.getInt("t_id")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return grades;
+    }
 
     private static Grades getFromResultSet(ResultSet resultSet) {
         try {

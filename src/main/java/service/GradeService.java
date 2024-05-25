@@ -6,6 +6,7 @@ import model.dto.*;
 import repository.GradeRepository;
 import repository.StudentRepository;
 import repository.TeacherTableRepository;
+import model.filter.TeacherTableFilter;
 
 import java.util.ArrayList;
 
@@ -46,6 +47,9 @@ public class GradeService {
         );
 
         return GradeRepository.create(createGradeDto);
+    }
+    public static ArrayList<Grades> filterGrades(TeacherTableFilter filteri) {
+        return TeacherTableRepository.getGradesByFilter(filteri);
     }
 
     public static boolean deleteGrade(TeacherGradeDeleteDto teacherGradeDeleteDto) {
