@@ -66,6 +66,8 @@ public class TeacherTableController implements Initializable {
 
     @FXML
     private Pagination pagination;
+    @FXML
+    private AnchorPane pane;
     private final static int rowsPerPage = 15;
     GradeLevelService GradeLevelService= new GradeLevelService();
     service.SchoolService SchoolService= new SchoolService();
@@ -113,7 +115,7 @@ public class TeacherTableController implements Initializable {
         boolean response = GradeService.addGrade(teacherTableDto);
         if (response) {
 //            showMessage("Grade added successfully.","succes");
-            Navigator.navigate(ae, Navigator.TEACHER_TABLE);
+            Navigator.navigate(pane, Navigator.TEACHER_TABLE);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText("Grade Added Successfully");
