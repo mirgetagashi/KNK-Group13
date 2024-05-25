@@ -18,45 +18,48 @@
          <children>
             <Pane layoutX="-2.0" prefHeight="526.0" prefWidth="849.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="email" alignment="CENTER" layoutX="478.0" layoutY="394.0" prefHeight="19.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="email" alignment="CENTER" layoutX="478.0" layoutY="394.0" prefHeight="19.0" prefWidth="135.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
-                        <Font size="12.5" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lastName" alignment="CENTER" layoutX="477.0" layoutY="260.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="lastName" alignment="CENTER" layoutX="477.0" layoutY="256.0" prefHeight="20.0" prefWidth="133.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
-                        <Font size="12.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="299.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="299.0" prefHeight="19.0" prefWidth="131.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gender" alignment="CENTER" layoutX="251.0" layoutY="391.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="gender" alignment="CENTER" layoutX="251.0" layoutY="391.0" prefHeight="19.0" prefWidth="140.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="address" alignment="CENTER" layoutX="477.0" layoutY="305.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="address" alignment="CENTER" layoutX="477.0" layoutY="301.0" prefHeight="20.0" prefWidth="132.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
-                        <Font size="12.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="level" alignment="CENTER" layoutX="478.0" layoutY="350.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#686868">
+                  <Label fx:id="level" alignment="CENTER" layoutX="478.0" layoutY="347.0" prefHeight="20.0" prefWidth="133.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#686868">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="348.0" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272" />
+                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="348.0" prefHeight="19.0" prefWidth="131.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                     <font>
+                        <Font size="19.0" />
+                     </font></Label>
                   <Text fill="#8a8a8a" layoutX="-9.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student profile" textAlignment="CENTER" wrappingWidth="165.0">
                      <font>
                         <Font name="Monospaced Bold" size="20.0" />
                      </font>
                   </Text>
-                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="254.0" prefHeight="20.0" prefWidth="110.0" style="-fx-border-color: grey;" stylesheets="@style.css" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="254.0" prefHeight="20.0" prefWidth="131.0" style="-fx-border-color: grey;" stylesheets="@style.css" textAlignment="CENTER" textFill="#727272">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                      <styleClass>
                         <String fx:value="first-name" />
@@ -65,46 +68,46 @@
                   </Label>
                   <Text fill="#727272" layoutX="252.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="251.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="46.92308044433594">
+                  <Text fill="#727272" layoutX="251.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="79.89742802276692">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="249.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="52.31307710069984">
+                  <Text fill="#727272" layoutX="249.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="96.24164779486614">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="249.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="52.31307710069984">
+                  <Text fill="#727272" layoutX="251.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="79.89742802276692">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
                   <Text fill="#727272" layoutX="477.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
                   <Text fill="#727272" layoutX="477.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
                   <Text fill="#727272" layoutX="477.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
                   <Text fill="#727272" layoutX="477.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="19.0" />
                      </font>
                   </Text>
                   <MeshView layoutX="52.0" layoutY="82.0" />
-                  <CubicCurve controlX1="-94.0" controlX2="-32.0" controlY1="-134.0" controlY2="-8.0" endX="-141.0" endY="-134.0" fill="WHITE" layoutX="140.0" layoutY="505.0" startX="-137.0" startY="33.5" stroke="#002554" />
+                  <CubicCurve controlX1="-94.0" controlX2="-32.0" controlY1="-134.0" controlY2="-8.0" endX="-141.0" endY="-134.0" fill="WHITE" layoutX="140.0" layoutY="505.0" startX="-138.0" startY="21.0" stroke="#002554" />
                   <Pane layoutX="27.0" layoutY="45.0" prefHeight="96.0" prefWidth="803.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="pane">
                      <children>
                         <Text fill="#797979" layoutX="19.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi!,">
@@ -117,7 +120,7 @@
                               <Font name="System Bold" size="35.0" />
                            </font>
                         </Text>
-                        <ImageView fitHeight="195.0" fitWidth="252.0" layoutX="579.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="215.0" fitWidth="215.0" layoutX="561.0" layoutY="-53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/dash2.png" />
                            </image>
@@ -134,12 +137,11 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Text fill="#b9b9b9" layoutX="14.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student info:">
+                  <Text fill="#b9b9b9" layoutX="56.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student details ">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Text>
-                  <CubicCurve controlX1="-80.70709228515625" controlX2="50.0" controlY1="-106.108642578125" controlY2="100.0" endX="39.796112060546875" endY="-42.89018249511719" fill="WHITE" layoutX="140.0" layoutY="270.0" startX="-150.0" stroke="BLACK" />
                </children>
             </Pane>
          </children>

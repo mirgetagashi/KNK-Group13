@@ -77,7 +77,7 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <CubicCurve controlX1="-40.969085693359375" controlX2="50.0" controlY1="-60.0" controlY2="100.0" endX="146.620849609375" endY="-60.0" fill="WHITE" layoutX="270.0" layoutY="190.0" startX="-134.2408905029297" startY="69.40292358398438" stroke="BLACK" />
-      <CubicCurve controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" endX="57.82887268066406" endY="2.515594482421875" fill="WHITE" layoutX="66.0" layoutY="296.0" startX="-66.0" startY="2.515594482421875" stroke="BLACK" />
+      <CubicCurve controlX1="-40.969085693359375" controlX2="50.0" controlY1="-60.0" controlY2="100.0" endX="146.620849609375" endY="-60.0" fill="WHITE" layoutX="270.0" layoutY="190.0" startX="-141.0" startY="75.0" stroke="BLACK" />
+      <CubicCurve controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" endX="62.99998474121094" endY="-31.0" fill="WHITE" layoutX="66.0" layoutY="296.0" startX="-66.0" startY="2.515594482421875" stroke="BLACK" />
    </children>
 </AnchorPane>
