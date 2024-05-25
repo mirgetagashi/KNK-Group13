@@ -21,7 +21,7 @@
    <children>
       <Pane layoutX="37.0" layoutY="3.0" prefHeight="266.0" prefWidth="904.0" style="-fx-background-color: white; -fx-border-radius: 50;" styleClass="pane" stylesheets="@dashboard.css" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="11.0">
          <children>
-            <Label layoutX="17.0" layoutY="14.0" styleClass="adminTxt" text="Admin Dashboard">
+            <Label layoutX="17.0" layoutY="14.0" styleClass="adminTxt" text="%lblAdminDashboard">
                <font>
                   <Font name="Montserrat Bold" size="12.0" />
                </font>
@@ -43,12 +43,12 @@
                </textFill>
             </Label>
             <Line endX="-72.0" layoutX="242.0" layoutY="23.0" rotate="90.0" startX="-100.0" stroke="#727272" styleClass="line" />
-            <Label layoutX="165.0" layoutY="14.0" text="Hello Admin, Welcome back!" textFill="#a8a5a5">
+            <Label layoutX="165.0" layoutY="14.0" text="%lblHelloAdmin" textFill="#a8a5a5">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="66.0" text="Statistics " textFill="#727272">
+            <Label layoutX="30.0" layoutY="66.0" text="%lblStatistics" textFill="#727272">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -60,7 +60,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="26.0" layoutY="43.0" text="Students Number" textFill="WHITE">
+                  <Label layoutX="26.0" layoutY="43.0" text="%lblStudentsNumber" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="16.0" />
                      </font>
@@ -74,7 +74,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="27.0" layoutY="43.0" text="Teachers Number" textFill="WHITE">
+                  <Label layoutX="27.0" layoutY="43.0" text="%lblTeachersNumber" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="16.0" />
                      </font>
@@ -88,7 +88,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="33.0" layoutY="43.0" text="Schools Number" textFill="WHITE">
+                  <Label layoutX="33.0" layoutY="43.0" text="%lblSchoolsNumber" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Bold" size="16.0" />
                      </font>
@@ -133,14 +133,14 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="26.0" layoutY="112.0" text="Lowest" textFill="#f23524">
+            <Label layoutX="26.0" layoutY="112.0" text="%lblLowest" textFill="#f23524">
                <font>
                   <Font name="Montserrat Bold" size="14.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="578.0" layoutY="345.0" lineSpacing="1.2" text="Graph" textFill="#002554" textOverrun="LEADING_ELLIPSIS" />
+      <Label layoutX="578.0" layoutY="345.0" lineSpacing="1.2" text="%lblGraph" textFill="#002554" textOverrun="LEADING_ELLIPSIS" />
       <QuadCurve controlX="-50.0" controlY="-100.0" endX="68.3809814453125" endY="-35.017822265625" fill="#eaebee" layoutX="883.0" layoutY="428.0" startX="60.0" startY="116.0" stroke="#002554" strokeType="INSIDE" />
       <QuadCurve controlX="-50.0" controlY="-100.0" endX="58.3809814453125" endY="-25.0" fill="#eaebee" layoutX="893.0" layoutY="438.0" opacity="0.27" startX="50.0" startY="106.0" stroke="#002554" strokeType="INSIDE" styleClass="pane" />
       <QuadCurve controlX="-24.0" controlY="-53.0" endX="59.01837158203125" endY="-1.0" fill="#eaebee" layoutX="893.0" layoutY="438.0" startX="50.0" startY="106.0" stroke="#002554" strokeType="INSIDE" />
