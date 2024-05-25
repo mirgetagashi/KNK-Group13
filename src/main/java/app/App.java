@@ -15,6 +15,8 @@ public class App extends Application {
 
         Navigator.navigate(stage, Navigator.FIRST_PAGE);
         stage.setResizable(false);
+        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+
 
     }
 }

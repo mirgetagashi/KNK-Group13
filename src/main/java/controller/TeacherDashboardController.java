@@ -30,10 +30,16 @@ public class TeacherDashboardController implements Initializable {
     @FXML
     private PieChart gradesPieChart;
 
+    @FXML
+    private Label nameD;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Teacher loggedInTeacher = TeacherSession.getTeacher();
         int loggedInTeacherId = loggedInTeacher.getId();
+        String teachersName=loggedInTeacher.getFirstName();
+
+        nameD.setText(teachersName);
 
         double averageGrade = TeacherDashboardService.calculateAverageFinalGradeByTeacherId(loggedInTeacherId);
         gradesAverage.setText(String.format("%.2f", averageGrade));

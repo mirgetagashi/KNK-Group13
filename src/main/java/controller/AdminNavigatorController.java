@@ -43,11 +43,6 @@ public class AdminNavigatorController implements Initializable {
     }
 
     @FXML
-    void handleHelpClick(ActionEvent event) {
-
-    }
-
-    @FXML
     void handleLogOutClick(ActionEvent event) {
         AdminSession.setAdmin(null);
         Navigator.navigate(event,Navigator.LOGIN_PAGE);
