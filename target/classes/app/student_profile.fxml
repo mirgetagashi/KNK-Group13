@@ -18,37 +18,37 @@
          <children>
             <Pane layoutX="-2.0" prefHeight="526.0" prefWidth="849.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="email" alignment="CENTER" layoutX="478.0" layoutY="394.0" prefHeight="19.0" prefWidth="135.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="email" alignment="CENTER" layoutX="458.0" layoutY="414.0" prefHeight="19.0" prefWidth="135.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lastName" alignment="CENTER" layoutX="477.0" layoutY="256.0" prefHeight="20.0" prefWidth="133.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="lastName" alignment="CENTER" layoutX="457.0" layoutY="276.0" prefHeight="20.0" prefWidth="133.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="299.0" prefHeight="19.0" prefWidth="131.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="school" alignment="CENTER" contentDisplay="CENTER" layoutX="232.0" layoutY="319.0" prefHeight="19.0" prefWidth="131.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="gender" alignment="CENTER" layoutX="251.0" layoutY="391.0" prefHeight="19.0" prefWidth="140.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="gender" alignment="CENTER" layoutX="231.0" layoutY="411.0" prefHeight="19.0" prefWidth="140.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="address" alignment="CENTER" layoutX="477.0" layoutY="301.0" prefHeight="20.0" prefWidth="132.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="address" alignment="CENTER" layoutX="457.0" layoutY="321.0" prefHeight="20.0" prefWidth="132.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="level" alignment="CENTER" layoutX="478.0" layoutY="347.0" prefHeight="20.0" prefWidth="133.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#686868">
+                  <Label fx:id="level" alignment="CENTER" layoutX="458.0" layoutY="367.0" prefHeight="20.0" prefWidth="133.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#686868">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="251.0" layoutY="348.0" prefHeight="19.0" prefWidth="131.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="birthday" alignment="CENTER" contentDisplay="CENTER" layoutX="231.0" layoutY="368.0" prefHeight="19.0" prefWidth="131.0" style="-fx-border-color: grey;" styleClass="textfield-design" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="19.0" />
                      </font></Label>
@@ -57,7 +57,7 @@
                         <Font name="Monospaced Bold" size="20.0" />
                      </font>
                   </Text>
-                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="254.0" prefHeight="20.0" prefWidth="131.0" style="-fx-border-color: grey;" stylesheets="@style.css" textAlignment="CENTER" textFill="#727272">
+                  <Label fx:id="firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="230.0" layoutY="274.0" prefHeight="20.0" prefWidth="131.0" style="-fx-border-color: grey;" stylesheets="@style.css" textAlignment="CENTER" textFill="#727272">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -66,42 +66,42 @@
                         <String fx:value="textfield-design" />
                      </styleClass>
                   </Label>
-                  <Text fill="#727272" layoutX="252.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+                  <Text fill="#727272" layoutX="232.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="251.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="79.89742802276692">
+                  <Text fill="#727272" layoutX="231.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School:" wrappingWidth="79.89742802276692">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="249.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="96.24164779486614">
+                  <Text fill="#727272" layoutX="229.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:" wrappingWidth="96.24164779486614">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="251.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="79.89742802276692">
+                  <Text fill="#727272" layoutX="231.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="79.89742802276692">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="477.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
+                  <Text fill="#727272" layoutX="457.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="477.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
+                  <Text fill="#727272" layoutX="457.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="477.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
+                  <Text fill="#727272" layoutX="457.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level:">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <Text fill="#727272" layoutX="477.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
+                  <Text fill="#727272" layoutX="457.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -120,7 +120,7 @@
                               <Font name="System Bold" size="35.0" />
                            </font>
                         </Text>
-                        <ImageView fitHeight="215.0" fitWidth="215.0" layoutX="561.0" layoutY="-53.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="220.0" fitWidth="243.0" layoutX="553.0" layoutY="-51.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/dash2.png" />
                            </image>
