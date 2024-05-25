@@ -11,7 +11,6 @@ public class App extends Application {
 
     public void start(Stage stage) {
 
-        // Navigator.navigate(stage, Navigator.ADMIN_TEACHER_PAGE);
         Navigator.navigate(stage, Navigator.LOGIN_PAGE);
 
     }

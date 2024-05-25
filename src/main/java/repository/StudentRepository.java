@@ -4,6 +4,8 @@ import model.*;
 import model.dto.ChangePasswordDto;
 import model.dto.CreateStudentDto;
 import Database.DBConnector;
+import model.dto.UpdateGradeDto;
+import model.dto.UpdateStudentDto;
 import model.filter.StudentFilter;
 
 import java.sql.*;
@@ -103,6 +105,30 @@ public class StudentRepository {
             conn.close();
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean update(UpdateStudentDto userData) {
+        String query = "UPDATE Students SET std_name = ?, std_lastName = ?, address_id = ?, school_id = ?, major_id = ?, level_id = ?  WHERE std_id = ?";
+
+        try {
+            Connection conn = DBConnector.getConnection();
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, userData.getFirstName());
+            pst.setString(2, userData.getLastName());
+            pst.setInt(3, userData.getAddress());
+            pst.setInt(4, userData.getSchool());
+            pst.setInt(5, userData.getMajor());
+            pst.setInt(6, userData.getLevel());
+            pst.setInt(7,userData.getId());
+
+            pst.executeUpdate();
+            pst.close();
+            conn.close();
+            return true;
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }

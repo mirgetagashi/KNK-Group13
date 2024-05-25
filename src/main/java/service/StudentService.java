@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -22,15 +23,15 @@ public class StudentService {
 
         String email= userData.getEmail();
 
-        // Llogaritja e moshës
-        LocalDate birthday = userData.getBirthday().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-        LocalDate today = LocalDate.now();
-        int age = Period.between(birthday, today).getYears();
-
-        // Kontrollimi i moshës
-        if (age < 14 || age > 18) {
-            return false;
-        }
+//        // Llogaritja e moshës
+//        Date birthday = userData.getBirthday();
+//        LocalDate today = LocalDate.now();
+//        int age = Period.between(birthday, today).getYears();
+//
+//        // Kontrollimi i moshës
+//        if (age < 14 || age > 18) {
+//            return false;
+//        }
 
 
 
@@ -45,10 +46,7 @@ public class StudentService {
 //            return false;
 //        }
 
-        boolean studentExist=StudentRepository.doesStudentExist(email);
-        if(studentExist){
-            return false;
-        }
+
 
         CreateStudentDto createStudentData = new CreateStudentDto(
                 userData.getFirstName(),
@@ -92,6 +90,14 @@ public class StudentService {
 
     public static ArrayList<Students> filter(StudentFilter filter) throws SQLException {
         return StudentRepository.getByFilter(filter);
+    }
+
+    public static boolean update(UpdateStudentDto userData){
+        return StudentRepository.update(userData);
+    }
+
+    public static Students getById(int id){
+        return StudentRepository.getById(id);
     }
 
 

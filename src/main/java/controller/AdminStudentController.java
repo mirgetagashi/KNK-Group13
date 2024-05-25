@@ -1,6 +1,8 @@
 package controller;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import app.Navigator;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,9 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import model.*;
 import model.dto.StudentDto;
 import model.dto.TeacherGradeUpdateDto;
+import model.dto.UpdateStudentDto;
 import model.filter.StudentFilter;
 import repository.*;
 import service.*;
@@ -196,17 +200,45 @@ public class AdminStudentController implements Initializable {
     @FXML
     void handleEditClick(ActionEvent event) {
         Students selectedItem = StudentTable.getSelectionModel().getSelectedItem();
-        int studentId = selectedItem.getId();
         String firstName= this.txtFirstName.getText();
         String lastName= this.txtLastName.getText();
-        LocalDate birthday=this.datePickerBirthday.getValue();
-        String gener= this.getGender(event);
         int city_id= returnId(cityComboBox.getValue());
         int school_id=returnId(schoolComboBox.getValue());
         int major_id=returnId(majorComboBox.getValue());
         int level_id=returnId(periodComboBox.getValue());
 
+        if (selectedItem != null) {
+            int studentId = selectedItem.getId();
+            UpdateStudentDto updateDto= new UpdateStudentDto(
+                    studentId,
+                    firstName,
+                    lastName,
+                    city_id,
+                    school_id,
+                    major_id,
+                    level_id
+            );
+
+            boolean updated = StudentService.update(updateDto);
+            if (updated) {
+                showAlert(Alert.AlertType.INFORMATION, "Update Successful", "The student information was successfully updated.");
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Update Failed", "Failed to update the student information.");
+            }
+
+
+        }
     }
+
+    private void showAlert(AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
 
     public String getGender(ActionEvent ae) {
         if (radioButtonMale.isSelected()) {
@@ -232,20 +264,10 @@ public class AdminStudentController implements Initializable {
                 Date date = newSelection.getBirthday();
                 LocalDate localDate = date.toLocalDate();
                 datePickerBirthday.setValue(localDate);
-
-                String gender = newSelection.getGender();
-                if ("Male".equalsIgnoreCase(gender)) {
-                    radioButtonMale.setSelected(true);
-                } else if ("Female".equalsIgnoreCase(gender)) {
-                    radioButtonFemale.setSelected(true);
-                } else {
-                    radioButtonFemale.setSelected(false);
-                    radioButtonMale.setSelected(false);
-                }
-                cityComboBox.setValue(newSelection.getAddress_id()+" "+AddressService.getById(newSelection.getAddress_id()));
-                schoolComboBox.setValue(newSelection.getSchool()+" "+SchoolService.getById(newSelection.getSchool()));
-                majorComboBox.setValue(newSelection.getMajor()+" "+MajorRepository.getById(newSelection.getMajor()));
-                majorComboBox.setValue(newSelection.getLevel()+" "+GradeLevelService.getLevelById(newSelection.getLevel()));
+                cityComboBox.setValue(newSelection.getAddress_id()+" "+AddressService.getById(newSelection.getAddress_id()).getCity());
+                schoolComboBox.setValue(newSelection.getSchool()+" "+SchoolService.getById(newSelection.getSchool()).getName());
+                majorComboBox.setValue(newSelection.getMajor()+" "+MajorRepository.getById(newSelection.getMajor()).getMajor_name());
+                periodComboBox.setValue(newSelection.getLevel()+" "+GradeLevelService.getLevelById(newSelection.getLevel()).getLevel_name());
 
 
             } else {
