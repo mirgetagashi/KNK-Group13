@@ -44,7 +44,7 @@
                   </ImageView>
                   <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="41.0" layoutY="290.0" onMouseClicked="#settings" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/profile-svgrepo-com%20(1).png" />
+                        <Image url="@../Images/profile-svgrepo-com (1).png" />
                      </image>
                   </ImageView>
                   <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
@@ -88,7 +88,7 @@
                         <Image url="@../Images/log-out-1-svgrepo-com (1).png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="64.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleLogOutClick" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #002554;" text="Log out" textFill="WHITE">
+                  <Button layoutX="64.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleLogOutCLick" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #002554;" text="Log out" textFill="WHITE">
                      <font>
                         <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
