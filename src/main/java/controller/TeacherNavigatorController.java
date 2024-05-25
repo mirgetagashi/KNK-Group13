@@ -2,6 +2,7 @@ package controller;
 import app.Navigator;
 import app.SessionManager.StudentSession;
 import app.SessionManager.TeacherSession;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -45,6 +46,12 @@ public class TeacherNavigatorController {
     @FXML
     private Label navName;{
 
+    }
+
+    @FXML
+    void handleLogOutCLick(ActionEvent event) {
+        TeacherSession.setTeacher(null);
+        Navigator.navigate(event, Navigator.LOGIN_PAGE);
     }
 
     public void initialize() {

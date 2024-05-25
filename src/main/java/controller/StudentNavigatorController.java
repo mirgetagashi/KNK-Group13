@@ -2,6 +2,7 @@ package controller;
 
 import app.Navigator;
 import app.SessionManager.StudentSession;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -29,6 +30,12 @@ public class StudentNavigatorController {
     void help(MouseEvent event) {
         Navigator.navigate(dashBo, Navigator.HELP_PAGE);
 
+    }
+
+    @FXML
+    void handleLogOutCLick(ActionEvent event) {
+        StudentSession.setStudent(null);
+        Navigator.navigate(event,Navigator.LOGIN_PAGE);
     }
 
     @FXML
