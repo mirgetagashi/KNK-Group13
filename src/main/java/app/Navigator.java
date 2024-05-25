@@ -21,6 +21,7 @@ public class Navigator {
     public  final static String ADMIN_TEACHER_PAGE="admin_teachers_table.fxml";
     public  final static String ADMIN_SCHOOLS_PAGE="admin_schools_table.fxml";
     public  final static String TEACHER_DASHBOARD="teacherDashboard.fxml";
+    public  final static String TEACHER_NAVIGATOR="teacherNavigator.fxml";
 
     public  final static String HELP_PAGE="help.fxml";
 
