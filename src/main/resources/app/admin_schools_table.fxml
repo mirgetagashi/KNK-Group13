@@ -14,33 +14,33 @@
 <HBox fx:id="hBox" prefHeight="588.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminSchoolsController">
     <children>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="943.0" style="-fx-background-color: white;" stylesheets="@style.css" VBox.vgrow="ALWAYS">
-         <children>
-            <TableView fx:id="tblSchools" layoutX="293.0" layoutY="106.0" prefHeight="384.0" prefWidth="559.0">
-              <columns>
-                <TableColumn fx:id="columnID" prefWidth="75.0" text="School ID" />
-                <TableColumn fx:id="columnName" prefWidth="133.5999755859375" text="School Name" />
-                  <TableColumn fx:id="columnCity" prefWidth="95.199951171875" text="City" />
-                  <TableColumn fx:id="columnNumOfStudents" prefWidth="123.20001220703125" text="Num of Students" />
-                  <TableColumn fx:id="columnNumberOfMajors" prefWidth="123.2000732421875" text="Num of  Majors" />
-              </columns>
-            </TableView>
-            <TextField fx:id="txtName" layoutX="37.0" layoutY="61.0" prefHeight="42.0" prefWidth="196.0" promptText="School Name" styleClass="textfield-design" />
-            <ComboBox fx:id="comboBoxCity" layoutX="38.0" layoutY="117.0" maxWidth="350.0" prefHeight="31.0" prefWidth="221.0" promptText="City" />
-            <Button layoutX="38.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="Add" />
-            <Button layoutX="37.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleUpdateClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="Update" />
-            <Button layoutX="38.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="Delete" />
-            <AnchorPane fx:id="invisiblePane" layoutX="24.0" layoutY="54.0" prefHeight="412.0" prefWidth="250.0" style="-fx-background-color: white;" visible="false">
-               <children>
-                  <ComboBox fx:id="ComboBoxMajors" layoutX="50.0" layoutY="41.0" prefWidth="150.0" promptText="Chose Majors" />
-                  <Button layoutX="149.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleAddMajorsClick" text="Button" />
-                  <Label layoutX="50.0" layoutY="14.0" text="Select School From Table First" />
-               </children>
-            </AnchorPane>
-            <Button layoutX="38.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleAddMajorToSchoolClick" prefHeight="41.0" prefWidth="222.0" styleClass="button-design" text="Add Major to School" />
-            <Pagination fx:id="pagination" layoutX="294.0" layoutY="105.0" prefHeight="442.0" prefWidth="552.0" />
-            <TextField fx:id="txtNameFilter" layoutX="559.0" layoutY="54.0" prefHeight="34.0" prefWidth="166.0" promptText="Name" styleClass="textfield-design" />
-            <Button layoutX="744.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
-         </children>
+            <children>
+                <TableView fx:id="tblSchools" layoutX="293.0" layoutY="106.0" prefHeight="384.0" prefWidth="559.0">
+                    <columns>
+                        <TableColumn fx:id="columnID" prefWidth="75.0" text="%schoolID" />
+                        <TableColumn fx:id="columnName" prefWidth="133.5999755859375" text="%schoolName" />
+                        <TableColumn fx:id="columnCity" prefWidth="95.199951171875" text="%city" />
+                        <TableColumn fx:id="columnNumOfStudents" prefWidth="123.20001220703125" text="%numOfStudents" />
+                        <TableColumn fx:id="columnNumberOfMajors" prefWidth="123.2000732421875" text="%numOfMajors" />
+                    </columns>
+                </TableView>
+                <TextField fx:id="txtName" layoutX="37.0" layoutY="61.0" prefHeight="42.0" prefWidth="196.0" promptText="%schoolNamePrompt" styleClass="textfield-design" />
+                <ComboBox fx:id="comboBoxCity" layoutX="38.0" layoutY="117.0" maxWidth="350.0" prefHeight="31.0" prefWidth="221.0" promptText="%cityPrompt" />
+                <Button layoutX="38.0" layoutY="209.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="%add" />
+                <Button layoutX="37.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleUpdateClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="%update" />
+                <Button layoutX="38.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="38.0" prefWidth="221.0" styleClass="button-design" text="%delete" />
+                <AnchorPane fx:id="invisiblePane" layoutX="24.0" layoutY="54.0" prefHeight="412.0" prefWidth="250.0" style="-fx-background-color: white;" visible="false">
+                    <children>
+                        <ComboBox fx:id="ComboBoxMajors" layoutX="50.0" layoutY="41.0" prefWidth="150.0" promptText="%chooseMajors" />
+                        <Button layoutX="149.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleAddMajorsClick" text="%button" />
+                        <Label layoutX="50.0" layoutY="14.0" text="%selectSchoolFirst" />
+                    </children>
+                </AnchorPane>
+                <Button layoutX="38.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleAddMajorToSchoolClick" prefHeight="41.0" prefWidth="222.0" styleClass="button-design" text="%addMajorToSchool" />
+                <Pagination fx:id="pagination" layoutX="294.0" layoutY="105.0" prefHeight="442.0" prefWidth="552.0" />
+                <TextField fx:id="txtNameFilter" layoutX="559.0" layoutY="54.0" prefHeight="34.0" prefWidth="166.0" promptText="%name" styleClass="textfield-design" />
+                <Button layoutX="744.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="%filter" />
+            </children>
         </AnchorPane>
     </children>
 </HBox>

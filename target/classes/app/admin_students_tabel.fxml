@@ -25,61 +25,60 @@
         <AnchorPane layoutX="1.0" maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="906.0" style="-fx-background-color: white;" stylesheets="@style.css" VBox.vgrow="ALWAYS">
             <TableView fx:id="StudentTable" layoutX="257.0" layoutY="103.0" prefHeight="311.0" prefWidth="620.0">
                 <columns>
-                    <TableColumn fx:id="columnStudentID" prefWidth="32.799986243247986" text="ID" />
-                    <TableColumn fx:id="columnStudentName" prefWidth="80.8000717163086" text="First Name" />
-                    <TableColumn fx:id="columnStudentLastName" prefWidth="83.20001983642578" text="Last Name" />
-                    <TableColumn fx:id="columnStudentEmail" prefWidth="84.79998779296875" text="Email" />
-                    <TableColumn fx:id="columnsStudentAddress" prefWidth="84.79998779296875" text="Address" />
-                    <TableColumn fx:id="columnsStudentSchool" prefWidth="88.0" text="School" />
-                    <TableColumn fx:id="columnsStudentMajor" prefWidth="79.19998168945312" text="Major" />
-                    <TableColumn fx:id="columnsStudentLevel" prefWidth="85.5999755859375" text="Level" />
+                    <TableColumn fx:id="columnStudentID" prefWidth="32.799986243247986" text="%id" />
+                    <TableColumn fx:id="columnStudentName" prefWidth="80.8000717163086" text="%firstName" />
+                    <TableColumn fx:id="columnStudentLastName" prefWidth="83.20001983642578" text="%lastName" />
+                    <TableColumn fx:id="columnStudentEmail" prefWidth="84.79998779296875" text="%email" />
+                    <TableColumn fx:id="columnsStudentAddress" prefWidth="84.79998779296875" text="%address" />
+                    <TableColumn fx:id="columnsStudentSchool" prefWidth="88.0" text="%school" />
+                    <TableColumn fx:id="columnsStudentMajor" prefWidth="79.19998168945312" text="%major" />
+                    <TableColumn fx:id="columnsStudentLevel" prefWidth="85.5999755859375" text="%level" />
                 </columns>
-
             </TableView>
             <AnchorPane layoutX="48.0" layoutY="159.0" prefHeight="32.0" prefWidth="183.0" style="-fx-border-radius: px; -fx-border-color: #002554;" styleClass="textfield-design" stylesheets="@style.css">
                 <children>
-                    <Label layoutX="14.0" layoutY="6.0" stylesheets="@style.css" text="Gender:">
+                    <Label layoutX="14.0" layoutY="6.0" stylesheets="@style.css" text="%gender">
                         <font>
                             <Font size="14.0" />
                         </font>
                     </Label>
-                    <RadioButton fx:id="radioButtonMale" layoutX="127.0" layoutY="6.0" mnemonicParsing="false" stylesheets="@style.css" text="M" textFill="#575757">
+                    <RadioButton fx:id="radioButtonMale" layoutX="127.0" layoutY="6.0" mnemonicParsing="false" stylesheets="@style.css" text="%male" textFill="#575757">
                         <font>
                             <Font size="13.0" />
                         </font>
                     </RadioButton>
-               <RadioButton fx:id="radioButtonFemale" layoutX="74.0" layoutY="4.0" mnemonicParsing="false" stylesheets="@style.css" text="F" textFill="#575757">
-                  <font>
-                     <Font size="13.0" />
-                  </font>
-               </RadioButton>
-                </children>
-            </AnchorPane>
-            <ComboBox fx:id="cityComboBox" layoutX="45.0" layoutY="205.0" prefHeight="39.0" prefWidth="174.0" promptText="City" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="schoolComboBox" layoutX="46.0" layoutY="249.0" prefHeight="39.0" prefWidth="165.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="majorComboBox" layoutX="47.0" layoutY="294.0" prefHeight="34.0" prefWidth="192.0" promptText="Major" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="periodComboBox" layoutX="48.0" layoutY="336.0" prefHeight="38.0" prefWidth="192.0" promptText="Period" styleClass="textfield-design" stylesheets="@style.css" />
-            <TextField fx:id="txtFirstName" layoutX="53.0" layoutY="40.0" promptText="First Name" styleClass="textfield-design" stylesheets="@style.css" />
-            <TextField fx:id="txtLastName" layoutX="53.0" layoutY="82.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
-            <DatePicker fx:id="datePickerBirthday" layoutX="53.0" layoutY="119.0" prefHeight="27.0" prefWidth="174.0" promptText="Birthday" styleClass="textfield-design" stylesheets="@style.css" />
-        <Button layoutX="32.0" layoutY="382.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="19.0" prefWidth="190.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
-        <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
-        <children>
-            <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css" />
-            <PasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="118.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css" />
-            <PasswordField fx:id="pwdConfirmPassword" layoutX="55.0" layoutY="166.0" promptText="Confirm Password" styleClass="textfield-design" stylesheets="@style.css" />
-            <Button layoutX="64.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="42.0" prefWidth="150.0" styleClass="button-design" stylesheets="@style.css" text="Add" textFill="WHITE">
-                <font>
-                    <Font size="14.0" />
+                    <RadioButton fx:id="radioButtonFemale" layoutX="74.0" layoutY="4.0" mnemonicParsing="false" stylesheets="@style.css" text="%female" textFill="#575757">
+                        <font>
+                            <Font size="13.0" />
                         </font>
-            </Button>
+                    </RadioButton>
                 </children>
             </AnchorPane>
-            <ComboBox fx:id="conboBoxSchoolFilter" layoutX="631.0" layoutY="54.0" prefHeight="32.0" prefWidth="131.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="comboBoxLevelFilter" layoutX="465.0" layoutY="54.0" prefHeight="32.0" prefWidth="158.0" promptText="Level" styleClass="textfield-design" stylesheets="@style.css" />
-            <TextField fx:id="txtFilterName" layoutX="274.0" layoutY="66.0" promptText="Name" styleClass="textfield-design" stylesheets="@style.css" />
-            <Button layoutX="804.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
-            <Label layoutX="271.0" layoutY="22.0" text="Filters:" textFill="#686868">
+            <ComboBox fx:id="cityComboBox" layoutX="45.0" layoutY="205.0" prefHeight="39.0" prefWidth="174.0" promptText="%city" styleClass="textfield-design" stylesheets="@style.css" />
+            <ComboBox fx:id="schoolComboBox" layoutX="46.0" layoutY="249.0" prefHeight="39.0" prefWidth="165.0" promptText="%school" styleClass="textfield-design" stylesheets="@style.css" />
+            <ComboBox fx:id="majorComboBox" layoutX="47.0" layoutY="294.0" prefHeight="34.0" prefWidth="192.0" promptText="%major" styleClass="textfield-design" stylesheets="@style.css" />
+            <ComboBox fx:id="periodComboBox" layoutX="48.0" layoutY="336.0" prefHeight="38.0" prefWidth="192.0" promptText="%period" styleClass="textfield-design" stylesheets="@style.css" />
+            <TextField fx:id="txtFirstName" layoutX="53.0" layoutY="40.0" promptText="%firstName" styleClass="textfield-design" stylesheets="@style.css" />
+            <TextField fx:id="txtLastName" layoutX="53.0" layoutY="82.0" promptText="%lastName" styleClass="textfield-design" stylesheets="@style.css" />
+            <DatePicker fx:id="datePickerBirthday" layoutX="53.0" layoutY="119.0" prefHeight="27.0" prefWidth="174.0" promptText="%birthday" styleClass="textfield-design" stylesheets="@style.css" />
+            <Button layoutX="32.0" layoutY="382.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="19.0" prefWidth="190.0" styleClass="button-design" stylesheets="@style.css" text="%next" />
+            <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
+                <children>
+                    <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="%email" styleClass="textfield-design" stylesheets="@style.css" />
+                    <PasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="118.0" promptText="%password" styleClass="textfield-design" stylesheets="@style.css" />
+                    <PasswordField fx:id="pwdConfirmPassword" layoutX="55.0" layoutY="166.0" promptText="%confirmPassword" styleClass="textfield-design" stylesheets="@style.css" />
+                    <Button layoutX="64.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="42.0" prefWidth="150.0" styleClass="button-design" stylesheets="@style.css" text="%add" textFill="WHITE">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+            <ComboBox fx:id="conboBoxSchoolFilter" layoutX="631.0" layoutY="54.0" prefHeight="32.0" prefWidth="131.0" promptText="%school" styleClass="textfield-design" stylesheets="@style.css" />
+            <ComboBox fx:id="comboBoxLevelFilter" layoutX="465.0" layoutY="54.0" prefHeight="32.0" prefWidth="158.0" promptText="%level" styleClass="textfield-design" stylesheets="@style.css" />
+            <TextField fx:id="txtFilterName" layoutX="274.0" layoutY="66.0" promptText="%name" styleClass="textfield-design" stylesheets="@style.css" />
+            <Button layoutX="804.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="%filter" />
+            <Label layoutX="271.0" layoutY="22.0" text="%filters" textFill="#686868">
                 <font>
                     <Font size="30.0" />
                 </font>
@@ -109,17 +108,17 @@
                     <BoxBlur width="92.0" />
                 </effect>
             </CubicCurve>
-         <Pagination fx:id="pagination" layoutX="259.0" layoutY="104.0" prefHeight="365.0" prefWidth="620.0" />
-      <Button layoutX="32.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="42.0" prefWidth="94.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
-                  <font>
-                      <Font size="14.0" />
-                  </font>
-              </Button>
-      <Button layoutX="138.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="85.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
-          <font>
-              <Font size="14.0" />
-          </font>
-      </Button>
+            <Pagination fx:id="pagination" layoutX="259.0" layoutY="104.0" prefHeight="365.0" prefWidth="620.0" />
+            <Button layoutX="32.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="42.0" prefWidth="94.0" styleClass="button-design" stylesheets="@style.css" text="%edit" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Button>
+            <Button layoutX="138.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="85.0" styleClass="button-design" stylesheets="@style.css" text="%delete" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Button>
         </AnchorPane>
     </children>
 </HBox>

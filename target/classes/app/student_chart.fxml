@@ -14,18 +14,17 @@
     <children>
         <Pane layoutX="12.0" layoutY="22.0" prefHeight="98.0" prefWidth="820.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="pane">
             <children>
-
-                <Label fx:id="studentNameLabel" layoutX="178.0" layoutY="47.0" style="-fx-font-size: 16px; -fx-padding: 10;" text="Emri i Studentit">
+                <Label fx:id="studentNameLabel" layoutX="178.0" layoutY="47.0" style="-fx-font-size: 16px; -fx-padding: 10;">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Label>
-                <Text layoutX="32.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi, ">
+                <Text layoutX="32.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblHi">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text fill="#808080" layoutX="78.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to dashboard">
+                <Text fill="#808080" layoutX="78.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblWelcome">
                     <font>
                         <Font size="40.0" />
                     </font>
@@ -34,7 +33,7 @@
         </Pane>
         <Pane layoutX="418.0" layoutY="243.0" prefHeight="109.0" prefWidth="259.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
             <children>
-                <Label layoutX="70.0" layoutY="5.0" text="Avarage Grade" textFill="WHITE">
+                <Label layoutX="70.0" layoutY="5.0" text="%lblAverageGrade" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="19.0" />
                     </font>
@@ -48,7 +47,7 @@
         </Pane>
         <Pane layoutX="129.0" layoutY="246.0" prefHeight="109.0" prefWidth="259.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
             <children>
-                <Label layoutX="69.0" layoutY="3.0" text="Passed Subjects" textFill="WHITE">
+                <Label layoutX="69.0" layoutY="3.0" text="%lblPassedSubjects" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -66,12 +65,12 @@
                 <Image url="@../Images/dash.png" />
             </image>
         </ImageView>
-        <Text layoutX="29.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statictics">
+        <Text layoutX="29.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblStatistics">
             <font>
                 <Font size="23.0" />
             </font>
         </Text>
-        <Text layoutX="31.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chart:">
+        <Text layoutX="27.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblChart">
             <font>
                 <Font size="23.0" />
             </font>

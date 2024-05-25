@@ -108,17 +108,17 @@
          </children>
       </Pane>
       <BarChart fx:id="chart" layoutX="386.0" layoutY="354.0" opacity="0.62" prefHeight="193.0" prefWidth="428.0" styleClass="default-color0" stylesheets="@dashboard.css">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
       </BarChart>
       <AnchorPane layoutX="143.0" layoutY="346.0" prefHeight="193.0" prefWidth="197.0" style="-fx-border-color: #fafafa; -fx-border-radius: 1;" styleClass="pane">
          <children>
             <Line endX="47.0" layoutX="119.0" layoutY="103.0" opacity="0.53" startX="-100.0" stroke="#c9c9c9" />
-            <Label layoutX="23.0" layoutY="55.0" text="Highest" textAlignment="CENTER" textFill="#31c32c">
+            <Label layoutX="23.0" layoutY="55.0" text="%lblHighest" textAlignment="CENTER" textFill="#31c32c">
                <font>
                   <Font name="Montserrat Bold" size="14.0" />
                </font>

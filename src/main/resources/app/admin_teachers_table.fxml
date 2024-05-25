@@ -17,73 +17,73 @@
     <children>
         <TableView fx:id="TeachersTable" layoutX="232.0" layoutY="120.0" prefHeight="365.0" prefWidth="690.0">
             <columns>
-                <TableColumn fx:id="columnID" prefWidth="32.799986243247986" text="ID" />
-                <TableColumn fx:id="columnFirstName" prefWidth="80.8000717163086" text="First Name" />
-                <TableColumn fx:id="columnLastName" prefWidth="83.20001983642578" text="Last Name" />
-                <TableColumn fx:id="columnBirthday" prefWidth="84.79998779296875" text="Birthday" />
-                <TableColumn fx:id="columnEmail" prefWidth="84.79998779296875" text="Email" />
-                <TableColumn fx:id="columnAddress" prefWidth="88.0" text="Address" />
-                <TableColumn fx:id="columnTitle" prefWidth="79.19998168945312" text="Title" />
-                <TableColumn fx:id="columnSchool" prefWidth="85.5999755859375" text="School" />
-                <TableColumn fx:id="columnSubject" prefWidth="85.5999755859375" text="Subject" />
+                <TableColumn fx:id="columnID" prefWidth="32.799986243247986" text="%id" />
+                <TableColumn fx:id="columnFirstName" prefWidth="80.8000717163086" text="%firstName" />
+                <TableColumn fx:id="columnLastName" prefWidth="83.20001983642578" text="%lastName" />
+                <TableColumn fx:id="columnBirthday" prefWidth="84.79998779296875" text="%birthday" />
+                <TableColumn fx:id="columnEmail" prefWidth="84.79998779296875" text="%email" />
+                <TableColumn fx:id="columnAddress" prefWidth="88.0" text="%address" />
+                <TableColumn fx:id="columnTitle" prefWidth="79.19998168945312" text="%title" />
+                <TableColumn fx:id="columnSchool" prefWidth="85.5999755859375" text="%school" />
+                <TableColumn fx:id="columnSubject" prefWidth="85.5999755859375" text="%subject" />
             </columns>
         </TableView>
         <AnchorPane layoutX="24.0" layoutY="224.0" prefHeight="32.0" prefWidth="183.0" style="-fx-border-radius: 10px; -fx-border-color: #002554;">
             <children>
-                <Label layoutX="14.0" layoutY="6.0" text="Gender:">
+                <Label layoutX="14.0" layoutY="6.0" text="%gender">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <RadioButton fx:id="radioButtonMale" layoutX="126.0" layoutY="6.0" mnemonicParsing="false" text="M">
+                <RadioButton fx:id="radioButtonMale" layoutX="126.0" layoutY="6.0" mnemonicParsing="false" text="%male">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </RadioButton>
-                <RadioButton fx:id="radioButtonFemale" layoutX="77.0" layoutY="6.0" mnemonicParsing="false" text="F">
+                <RadioButton fx:id="radioButtonFemale" layoutX="77.0" layoutY="6.0" mnemonicParsing="false" text="%female">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </RadioButton>
             </children>
         </AnchorPane>
-        <ComboBox fx:id="cityComboBox" layoutX="24.0" layoutY="260.0" prefHeight="32.0" prefWidth="183.0" promptText="City" styleClass="textfield-design" stylesheets="@style.css" />
-        <ComboBox fx:id="schoolComboBox" layoutX="24.0" layoutY="307.0" prefHeight="32.0" prefWidth="183.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
-        <TextField fx:id="txtFirstName" layoutX="24.0" layoutY="94.0" prefHeight="32.0" prefWidth="183.0" promptText="First Name" styleClass="textfield-design" stylesheets="@style.css" />
-        <TextField fx:id="txtLastName" layoutX="24.0" layoutY="137.0" prefHeight="32.0" prefWidth="183.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
-        <DatePicker fx:id="datePickerBirthday" layoutX="24.0" layoutY="175.0" prefHeight="32.0" prefWidth="183.0" promptText="Birthday" styleClass="textfield-design" stylesheets="@style.css" />
-        <ComboBox fx:id="subjectComboBox" layoutX="24.0" layoutY="352.0" prefHeight="32.0" prefWidth="183.0" promptText="Subject" styleClass="combobox-design" stylesheets="@style.css" />
-        <Button layoutX="36.0" layoutY="437.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="41.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
-        <TextField fx:id="txtEducation" layoutX="24.0" layoutY="393.0" prefHeight="32.0" prefWidth="183.0" promptText="Education" styleClass="textfield-design" stylesheets="@style.css" />
+        <ComboBox fx:id="cityComboBox" layoutX="24.0" layoutY="260.0" prefHeight="32.0" prefWidth="183.0" promptText="%city" styleClass="textfield-design" stylesheets="@style.css" />
+        <ComboBox fx:id="schoolComboBox" layoutX="24.0" layoutY="307.0" prefHeight="32.0" prefWidth="183.0" promptText="%school" styleClass="textfield-design" stylesheets="@style.css" />
+        <TextField fx:id="txtFirstName" layoutX="24.0" layoutY="94.0" prefHeight="32.0" prefWidth="183.0" promptText="%firstName" styleClass="textfield-design" stylesheets="@style.css" />
+        <TextField fx:id="txtLastName" layoutX="24.0" layoutY="137.0" prefHeight="32.0" prefWidth="183.0" promptText="%lastName" styleClass="textfield-design" stylesheets="@style.css" />
+        <DatePicker fx:id="datePickerBirthday" layoutX="24.0" layoutY="175.0" prefHeight="32.0" prefWidth="183.0" promptText="%birthday" styleClass="textfield-design" stylesheets="@style.css" />
+        <ComboBox fx:id="subjectComboBox" layoutX="24.0" layoutY="352.0" prefHeight="32.0" prefWidth="183.0" promptText="%subject" styleClass="combobox-design" stylesheets="@style.css" />
+        <Button layoutX="36.0" layoutY="437.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="41.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="%next" />
+        <TextField fx:id="txtEducation" layoutX="24.0" layoutY="393.0" prefHeight="32.0" prefWidth="183.0" promptText="%education" styleClass="textfield-design" stylesheets="@style.css" />
         <AnchorPane fx:id="invisiblePane" layoutY="72.0" prefHeight="472.0" prefWidth="232.0" style="-fx-background-color: white;" visible="false">
             <children>
-                <TextField fx:id="txtEmail" layoutX="23.0" layoutY="93.0" prefHeight="32.0" prefWidth="183.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css" />
-                <PasswordField fx:id="pwdPassword" layoutX="23.0" layoutY="156.0" prefHeight="32.0" prefWidth="183.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css" />
-                <PasswordField fx:id="pwdConfirmPassword" layoutX="23.0" layoutY="225.0" prefHeight="32.0" prefWidth="183.0" promptText="Confirm Password" styleClass="textfield-design" stylesheets="@style.css" />
-                <ComboBox fx:id="titleComboBox" layoutX="39.0" layoutY="36.0" prefHeight="34.0" prefWidth="183.0" promptText="Title" styleClass="combobox-design" stylesheets="@style.css" />
-                <Button layoutX="36.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="41.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="Add" textFill="WHITE">
+                <TextField fx:id="txtEmail" layoutX="23.0" layoutY="93.0" prefHeight="32.0" prefWidth="183.0" promptText="%email" styleClass="textfield-design" stylesheets="@style.css" />
+                <PasswordField fx:id="pwdPassword" layoutX="23.0" layoutY="156.0" prefHeight="32.0" prefWidth="183.0" promptText="%password" styleClass="textfield-design" stylesheets="@style.css" />
+                <PasswordField fx:id="pwdConfirmPassword" layoutX="23.0" layoutY="225.0" prefHeight="32.0" prefWidth="183.0" promptText="%confirmPassword" styleClass="textfield-design" stylesheets="@style.css" />
+                <ComboBox fx:id="titleComboBox" layoutX="39.0" layoutY="36.0" prefHeight="34.0" prefWidth="183.0" promptText="%title" styleClass="combobox-design" stylesheets="@style.css" />
+                <Button layoutX="36.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="41.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="%add" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
             </children>
         </AnchorPane>
-      <Pagination fx:id="pagination" layoutX="230.0" layoutY="119.0" prefHeight="414.0" prefWidth="690.0" />
-      <TextField fx:id="txtFirstNameFilter" layoutX="656.0" layoutY="40.0" promptText="First Name" styleClass="textfield-design" stylesheets="@style.css" />
-      <TextField fx:id="txtLastNameFilter" layoutX="656.0" layoutY="72.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
-      <Button layoutX="832.0" layoutY="52.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
-      <Button layoutX="230.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleTeacherStudentClick" prefHeight="42.0" prefWidth="137.0" styleClass="button-design" stylesheets="@style.css" text="TeacherStudent" />
-      <AnchorPane fx:id="studentTeacherPane" layoutX="9.0" layoutY="69.0" prefHeight="446.0" prefWidth="214.0" style="-fx-background-color: white;" visible="false">
-         <children>
-            <TextField fx:id="teacherID" layoutX="27.0" layoutY="69.0" prefHeight="34.0" prefWidth="160.0" promptText="Teacher ID" styleClass="textfield-design" stylesheets="@style.css" />
-            <ComboBox fx:id="comboBoxLevel" layoutX="27.0" layoutY="126.0" prefWidth="150.0" promptText="Level" styleClass="box" stylesheets="@style.css" />
-            <Button layoutX="27.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleAddTeacherStudentClick" prefHeight="42.0" prefWidth="137.0" styleClass="button-design" stylesheets="@style.css" text="TeacherStudent" />
-         </children>
-      </AnchorPane>
-          <Button layoutX="36.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
-              <font>
-                  <Font size="14.0" />
-              </font>
-          </Button>
+        <Pagination fx:id="pagination" layoutX="230.0" layoutY="119.0" prefHeight="414.0" prefWidth="690.0" />
+        <TextField fx:id="txtFirstNameFilter" layoutX="656.0" layoutY="40.0" promptText="%firstName" styleClass="textfield-design" stylesheets="@style.css" />
+        <TextField fx:id="txtLastNameFilter" layoutX="656.0" layoutY="72.0" promptText="%lastName" styleClass="textfield-design" stylesheets="@style.css" />
+        <Button layoutX="832.0" layoutY="52.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="%filter" />
+        <Button layoutX="230.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleTeacherStudentClick" prefHeight="42.0" prefWidth="137.0" styleClass="button-design" stylesheets="@style.css" text="%teacherStudent" />
+        <AnchorPane fx:id="studentTeacherPane" layoutX="9.0" layoutY="69.0" prefHeight="446.0" prefWidth="214.0" style="-fx-background-color: white;" visible="false">
+            <children>
+                <TextField fx:id="teacherID" layoutX="27.0" layoutY="69.0" prefHeight="34.0" prefWidth="160.0" promptText="%teacherID" styleClass="textfield-design" stylesheets="@style.css" />
+                <ComboBox fx:id="comboBoxLevel" layoutX="27.0" layoutY="126.0" prefWidth="150.0" promptText="%level" styleClass="box" stylesheets="@style.css" />
+                <Button layoutX="27.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleAddTeacherStudentClick" prefHeight="42.0" prefWidth="137.0" styleClass="button-design" stylesheets="@style.css" text="%teacherStudent" />
+            </children>
+        </AnchorPane>
+        <Button layoutX="36.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="%delete" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>

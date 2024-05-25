@@ -49,21 +49,21 @@
 <?import javafx.scene.text.Font?>
 
 <VBox fx:id="rootVBox" onKeyPressed="#handleKeyPressed" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="342.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
-      <children>
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="342.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+         <children>
             <AnchorPane layoutX="-13.0" layoutY="-10.0" prefHeight="420.0" prefWidth="300.0" style="-fx-background-color: #002554;">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <children>
-                  <Label layoutX="54.0" layoutY="29.0" text="Edu." textFill="#d3d3d3" />
+                  <Label layoutX="54.0" layoutY="29.0" text="%lblEdu" textFill="#d3d3d3" />
                   <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="15.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/logo-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="25.0" layoutY="52.0" text="Education, Simplified" textFill="WHITE">
+                  <Label layoutX="25.0" layoutY="52.0" text="%lblEducationSimplified" textFill="WHITE">
                      <font>
                         <Font name="Montserrat Regular" size="12.0" />
                      </font>
@@ -83,22 +83,22 @@
             </AnchorPane>
             <Pane id="rightPane" layoutX="283.0" prefHeight="410.0" prefWidth="404.0" style="-fx-background-color: white;" styleClass="rightPane" stylesheets="@style.css">
                <children>
-                  <Label id="LoginText" layoutX="114.0" layoutY="65.0" prefHeight="74.0" prefWidth="194.0" stylesheets="@style.css" text="Login" textFill="#002554" textOverrun="CLIP">
+                  <Label id="LoginText" layoutX="114.0" layoutY="65.0" prefHeight="74.0" prefWidth="194.0" stylesheets="@style.css" text="%lblLogin" textFill="#002554" textOverrun="CLIP">
                      <font>
                         <Font name="Montserrat Bold" size="61.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtEmail" layoutX="107.0" layoutY="148.0" prefHeight="32.0" prefWidth="200.0" promptText="Email" styleClass="textfield-design" stylesheets="@style.css">
+                  <TextField fx:id="txtEmail" layoutX="107.0" layoutY="148.0" prefHeight="32.0" prefWidth="200.0" promptText="%lblEmail" styleClass="textfield-design" stylesheets="@style.css">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="pwdPassword" layoutX="104.0" layoutY="200.0" prefHeight="32.0" prefWidth="200.0" promptText="Password" styleClass="textfield-design" stylesheets="@style.css">
+                  <PasswordField fx:id="pwdPassword" layoutX="104.0" layoutY="200.0" prefHeight="32.0" prefWidth="200.0" promptText="%lblPassword" styleClass="textfield-design" stylesheets="@style.css">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </PasswordField>
-                  <Label layoutX="143.0" layoutY="236.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="Forgot password" textFill="#002554" underline="true">
+                  <Label layoutX="143.0" layoutY="236.0" onMouseClicked="#handleForgotPasswordClick" styleClass="label-design" stylesheets="@style.css" text="%lblForgotPassword" textFill="#002554" underline="true">
                      <font>
                         <Font name="Montserrat Bold" size="12.0" />
                      </font>
@@ -113,7 +113,7 @@
                         <Image url="@../Images/password-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="79.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="41.0" prefWidth="239.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
+                  <Button layoutX="79.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="41.0" prefWidth="239.0" styleClass="button-design" stylesheets="@style.css" text="%lblLogin" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -125,7 +125,7 @@
                   <Label fx:id="lblErrorMessage" layoutX="125.0" layoutY="256.0" prefHeight="17.0" prefWidth="156.0" textFill="red" />
                </children>
             </Pane>
-      </children>
-    </AnchorPane>
-  </children>
+         </children>
+      </AnchorPane>
+   </children>
 </VBox>
