@@ -8,8 +8,8 @@ public class Teacher extends User{
     private int school_id;
     private int subject_id;
 
-    public Teacher(int id, String firstName, String lastName, String email, String salt, String passwordHash, int address, String gender, Date birthday, String title, String education, int school_id, int subject_id) {
-        super(id, firstName, lastName, email, salt, passwordHash, address, gender, birthday);
+    public Teacher(int id, String firstName, String lastName, String email, String salt, String passwordHash, int address_id, String gender, Date birthday, String title, String education, int school_id, int subject_id) {
+        super(id, firstName, lastName, email, salt, passwordHash, address_id, gender, birthday);
         this.title = title;
         this.education = education;
         this.school_id = school_id;
@@ -63,8 +63,8 @@ public class Teacher extends User{
     }
 
     @Override
-    public int getAddress() {
-        return super.getAddress();
+    public int getAddress_id() {
+        return super.getAddress_id();
     }
 
     @Override

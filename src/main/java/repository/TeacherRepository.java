@@ -3,10 +3,13 @@ package repository;
 import model.*;
 import model.dto.CreateTeacherDto;
 import Database.DBConnector;
+import model.filter.StudentFilter;
+import model.filter.TeacherFilter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -105,6 +108,32 @@ public class TeacherRepository {
                 teachers.add(teacher);
             }
         }catch (Exception e){
+            return null;
+        }
+        return teachers;
+    }
+
+    public static ArrayList<Teacher> getByFilter(TeacherFilter filter) throws SQLException {
+        ArrayList<Teacher> teachers = new ArrayList<>();
+        StringBuilder query = new StringBuilder("SELECT * FROM Teachers WHERE 1=1 ");
+        ArrayList<Object> params = new ArrayList<>();
+
+        query.append(filter.buildQuery());
+        params.addAll(filter.getFilterParams());
+
+        try {
+            Connection connection = DBConnector.getConnection();
+            PreparedStatement pst = connection.prepareStatement(query.toString());
+            for (int i = 0; i < params.size(); i++) {
+                pst.setObject(i + 1, params.get(i));
+            }
+
+            ResultSet result = pst.executeQuery();
+            while (result.next()) {
+                Teacher teacher = getFromResultSet(result);
+                teachers.add(teacher);
+            }
+        } catch (Exception e) {
             return null;
         }
         return teachers;

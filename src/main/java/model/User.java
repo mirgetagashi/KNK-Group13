@@ -9,7 +9,7 @@ public class User {
     private String email;
     private String salt;
     private String passwordHash;
-    private int address;
+    private int address_id;
     private String gender;
     private Date birthday;
 
@@ -21,7 +21,7 @@ public class User {
         this.email = email;
         this.salt = salt;
         this.passwordHash = passwordHash;
-        this.address = address;
+        this.address_id = address;
         this.gender = gender;
         this.birthday = birthday;
     }
@@ -50,8 +50,8 @@ public class User {
         return passwordHash;
     }
 
-    public int getAddress() {
-        return address;
+    public int getAddress_id() {
+        return address_id;
     }
 
     public String getGender() {

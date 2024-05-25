@@ -171,25 +171,6 @@ public class StudentRepository {
 
 
 
-//    public static ArrayList<Students> getByFilter(StudentFilter filter){
-//        ArrayList<Students> students = new ArrayList<>();
-//        String query = "SELECT * FROM users WHERE 1 == 1 ";
-//        String filterQuery = filter.buildQuery();
-//        query += filterQuery;
-//        Connection connection = DBConnector.getConnection();
-//        try{
-//            PreparedStatement pst = connection.prepareStatement(query);
-//            ResultSet result = pst.executeQuery();
-//            while (result.next()){
-//                Students student= getFromResultSet(result);
-//                students.add(student);
-//            }
-//        }catch (Exception e){
-//            return null;
-//        }
-//        return students;
-//    }
-
 
     private static Students getFromResultSet(ResultSet result){
         try{

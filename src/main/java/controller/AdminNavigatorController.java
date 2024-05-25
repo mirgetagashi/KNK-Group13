@@ -30,6 +30,8 @@ public class AdminNavigatorController implements Initializable {
 
     @FXML
     void handleDashboardClick(ActionEvent event) {
+        Navigator.navigate(changePane, Navigator.ADMIN_DASHBOARD);
+
 
     }
 
@@ -46,33 +48,24 @@ public class AdminNavigatorController implements Initializable {
 
     @FXML
     void handleStudentsClick(ActionEvent event) {
+        Navigator.navigate(changePane, Navigator.ADMIN_STUDENT_PAGE);
 
     }
 
     @FXML
     void handleTeacherClick(ActionEvent event) {
+        Navigator.navigate(changePane,Navigator.ADMIN_TEACHER_PAGE);
 
     }
 
-    @FXML
-    void help(MouseEvent event) {
 
-    }
 
     @FXML
     void profile(MouseEvent event) {
 
     }
 
-    @FXML
-    void student_dashboard(MouseEvent event) {
 
-    }
-
-    @FXML
-    void student_statistics(MouseEvent event) {
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

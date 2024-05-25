@@ -3,9 +3,12 @@ package service;
 import model.Students;
 import model.Teacher;
 import model.dto.*;
+import model.filter.StudentFilter;
+import model.filter.TeacherFilter;
 import repository.StudentRepository;
 import repository.TeacherRepository;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TeacherService {
@@ -55,6 +58,15 @@ public class TeacherService {
 
     public static boolean delete(int id) {
         return TeacherRepository.delete(id);
+    }
+
+    public static ArrayList<Teacher> filterTeacher(TeacherFilter filter){
+        try{
+
+            return TeacherRepository.getByFilter(filter);
+        }catch (SQLException e){
+            return null;
+        }
     }
 
     public static ArrayList<Teacher> getAllTeachers(){

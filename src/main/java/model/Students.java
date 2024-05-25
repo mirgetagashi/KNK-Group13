@@ -39,8 +39,8 @@ public class Students extends User{
         return super.getPasswordHash();
     }
 
-    public int getAddress() {
-        return super.getAddress();
+    public int getAddress_id() {
+        return super.getAddress_id();
     }
 
     public int getSchool() {

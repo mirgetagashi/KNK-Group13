@@ -1,12 +1,11 @@
 package service;
 
-import model.School;
-import model.School_Major;
-import model.Students;
+import model.*;
 import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
 import repository.SchoolRepository;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SchoolService {

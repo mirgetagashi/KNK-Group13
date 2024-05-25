@@ -10,10 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import model.Address;
-import model.Major;
-import model.SchoolTable;
-import model.Students;
+import model.*;
 import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
 import repository.*;
@@ -63,6 +60,13 @@ public class AdminSchoolsController  implements Initializable {
     private final static int rowsPerPage = 15;
 
     private ObservableList<SchoolTable> dataList;
+    @FXML
+    private TextField txtNameFilter;
+    @FXML
+    void handleFilterClick(ActionEvent event) {
+
+    }
+
 
 
     @FXML

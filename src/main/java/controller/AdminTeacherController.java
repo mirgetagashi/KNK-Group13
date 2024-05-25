@@ -6,24 +6,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import model.Address;
-import model.School;
-import model.Subject;
-import model.Teacher;
+import model.*;
+import model.dto.StudentTeacherDto;
 import model.dto.TeacherDto;
+import model.filter.StudentFilter;
+import model.filter.TeacherFilter;
 import repository.AddressRepository;
 import repository.SchoolRepository;
 import repository.SubjectRepository;
 import repository.TeacherRepository;
+import service.GradeLevelService;
+import service.StudentService;
 import service.TeacherService;
 
 import java.net.URL;
@@ -104,6 +100,80 @@ public class AdminTeacherController implements Initializable {
     private AnchorPane invisiblePane;
 
     @FXML
+    private TextField txtFirstNameFilter;
+
+
+    @FXML
+    private TextField txtLastNameFilter;
+    @FXML
+    private AnchorPane studentTeacherPane;
+    @FXML
+    private TextField teacherID;
+
+    @FXML
+    private ComboBox<String> comboBoxLevel;
+
+    @FXML
+    private Pagination pagination;
+    private final static int rowsPerPage = 15;
+
+    private ObservableList<Teacher> dataList;
+    @FXML
+    void handleAddTeacherStudentClick(ActionEvent event) {
+        Teacher selectedItem = TeachersTable.getSelectionModel().getSelectedItem();
+        int teacher_id= selectedItem.getId();
+        int school_id=selectedItem.getSchool_id();
+        int level_id= returnId(comboBoxLevel.getValue());
+        StudentTeacherDto userData= new StudentTeacherDto(teacher_id, school_id, level_id);
+    }
+
+    private void addSelection(){
+        TeachersTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                System.out.println("Teacher selected: " + newSelection.getId()); // Debugging line
+                teacherID.setText(String.valueOf(newSelection.getId()));
+            } else {
+                System.out.println("Selection is null"); // Debugging line
+            }
+        });
+    }
+
+
+    @FXML
+    void handleTeacherStudentClick(ActionEvent event) {
+        studentTeacherPane.setVisible(true);
+
+    }
+
+    private TableView<Teacher> createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, dataList.size());
+        TeachersTable.setItems(FXCollections.observableArrayList(dataList.subList(fromIndex, toIndex)));
+        return TeachersTable;
+    }
+
+
+    @FXML
+    void handleFilterClick(ActionEvent event) {
+        TeacherFilter filter = new TeacherFilter();
+        filter.setFirstName(this.txtFirstNameFilter.getText());
+        filter.setLastName(this.txtLastNameFilter.getText());
+        ArrayList<Teacher> filterTeacher = TeacherService.filterTeacher(filter);
+        if (filterTeacher == null) {
+            System.out.println("Error occurred, check filter code!");
+        } else {
+            this.updateTable(filterTeacher);
+        }
+    }
+
+        private void updateTable(ArrayList<Teacher> filterTeacher) {
+            ObservableList<Teacher> filteredData = FXCollections.observableArrayList(filterTeacher);
+
+            TeachersTable.setItems(filteredData);
+        }
+
+
+    @FXML
     void handleAddClick(ActionEvent event) {
         int cityID=returnId(cityComboBox.getValue());
         int schoolID=returnId(schoolComboBox.getValue());
@@ -178,9 +248,7 @@ public class AdminTeacherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
-        ObservableList<Teacher> teachers = FXCollections.observableArrayList(TeacherRepository.getAllTeachers());
-        if (TeachersTable != null) {
+            dataList = FXCollections.observableArrayList(TeacherRepository.getAllTeachers());
             columnAddress.setCellValueFactory(new PropertyValueFactory<>("address_id"));
             columnBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
             columnTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -191,10 +259,10 @@ public class AdminTeacherController implements Initializable {
             columnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
             columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-            TeachersTable.setItems(teachers);
-        } else {
-            System.out.println("StudentTable is null.");
-        }
+            pagination.setPageCount((int) Math.ceil((double) dataList.size() / rowsPerPage));
+            pagination.setPageFactory(this::createPage);
+            this.addSelection();
+
 
 
             cityComboBox.setValue("Address");
@@ -215,6 +283,14 @@ public class AdminTeacherController implements Initializable {
 
         String[] titles={"Bsc","Msc","Phd"};
         titleComboBox.getItems().addAll(titles);
+
+
+        ArrayList<String> levels= new ArrayList<>();
+        for(Grade_level level: GradeLevelService.getAllLevels()){
+            levels.add(level.getLevel_id()+" "+level.getLevel_name());
+        }
+        comboBoxLevel.getItems().addAll(levels);
+
     }
 
 

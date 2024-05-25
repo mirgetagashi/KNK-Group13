@@ -15,7 +15,7 @@ public class MajorRepository {
         ArrayList<Major> majors = new ArrayList<>();
 
         try (Connection conn = DBConnector.getConnection()) {
-            String query = "SELECT m.major_name FROM majors m " +
+            String query = "SELECT m.major_name, m.major_id FROM majors m " +
                     "INNER JOIN school_major sm ON sm.major_id = m.major_id " +
                     "WHERE sm.school_id = ?";
             PreparedStatement pst = conn.prepareStatement(query);

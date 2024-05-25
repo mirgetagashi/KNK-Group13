@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import repository.AddressRepository;
-import repository.SchoolRepository;
 import service.AddressService;
 import service.SchoolService;
 import javafx.scene.input.MouseEvent;
@@ -74,6 +72,6 @@ public class StudentProfileController implements Initializable {
         school.setText(SchoolService.getById(StudentSession.getStudent().getSchool()).getName());
         email.setText(StudentSession.getStudent().getEmail());
         birthday.setText(String.valueOf(StudentSession.getStudent().getBirthday()));
-        address.setText(AddressService.getById(StudentSession.getStudent().getAddress()).getCity());
+        address.setText(AddressService.getById(StudentSession.getStudent().getAddress_id()).getCity());
     }
 }

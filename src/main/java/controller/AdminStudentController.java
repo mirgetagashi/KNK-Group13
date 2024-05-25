@@ -234,7 +234,7 @@ public class AdminStudentController implements Initializable {
         columnStudentName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         columnStudentLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         columnStudentID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        columnsStudentAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        columnsStudentAddress.setCellValueFactory(new PropertyValueFactory<>("address_id"));
         columnsStudentMajor.setCellValueFactory(new PropertyValueFactory<>("major"));
         columnsStudentLevel.setCellValueFactory(new PropertyValueFactory<>("level"));
         columnsStudentSchool.setCellValueFactory(new PropertyValueFactory<>("school"));
