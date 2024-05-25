@@ -36,6 +36,13 @@ public class AdminNavigatorController implements Initializable {
     }
 
     @FXML
+    void handleSchoolsClick(ActionEvent event) {
+        Navigator.navigate(changePane, Navigator.ADMIN_SCHOOLS_PAGE);
+
+
+    }
+
+    @FXML
     void handleHelpClick(ActionEvent event) {
 
     }

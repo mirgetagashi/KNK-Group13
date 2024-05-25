@@ -32,7 +32,7 @@
                         <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
-                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="238.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="        Schools" textFill="WHITE">
+                  <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleSchoolsClick" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="        Schools" textFill="WHITE">
                      <font>
                         <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
