@@ -251,11 +251,6 @@ public class AdminTeacherController implements Initializable {
 
     }
 
-    @FXML
-    void handleEditClick(ActionEvent event) {
-
-    }
-
 
     public String getGender(ActionEvent ae){
         String  genderSelect;
