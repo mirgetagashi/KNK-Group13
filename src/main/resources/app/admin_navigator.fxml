@@ -42,6 +42,7 @@
                         <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>
                   </Button>
+                  </Button>
                   <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="41.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/school.png" />
@@ -113,9 +114,7 @@
                            <bumpInput>
                               <Shadow />
                            </bumpInput>
-                           <light>
-                              <Light.Distant />
-                           </light>
+
                         </Lighting>
                      </effect>
                   </ImageView>
