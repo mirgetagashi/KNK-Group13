@@ -64,7 +64,10 @@
                         <Font name="Montserrat Bold" size="16.0" />
                     </font>
                 </Label>
-                <Label fx:id="myStudents" alignment="CENTER" layoutX="76.0" layoutY="47.0" prefHeight="35.0" prefWidth="48.0" textFill="WHITE" />
+                <Label fx:id="myStudents" alignment="CENTER" layoutX="76.0" layoutY="47.0" prefHeight="35.0" prefWidth="48.0" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
                 <CubicCurve controlX1="29.126235961914062" controlX2="50.0" controlY1="-90.0" controlY2="100.0" endX="77.79290771484375" endY="-53.0" fill="#002554" layoutX="111.0" layoutY="53.0" startX="50.00001525878906" startY="29.0" stroke="WHITE" />
             </children>
         </Pane>

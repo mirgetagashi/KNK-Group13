@@ -28,8 +28,6 @@ public class AdminNavigatorController implements Initializable {
     @FXML
     private AnchorPane side_ankerpane;
     @FXML
-    private Label name;
-    @FXML
     void handleDashboardClick(ActionEvent event) {
         Navigator.navigate(changePane, Navigator.ADMIN_DASHBOARD);
 
@@ -73,7 +71,6 @@ public class AdminNavigatorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         adminName.setText(AdminSession.getAdmin().getFirstName()+" "+AdminSession.getAdmin().getLastName());
-        name.setText(AdminSession.getAdmin().getFirstName()+" "+AdminSession.getAdmin().getLastName());
 
 
     }

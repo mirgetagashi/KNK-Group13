@@ -9,7 +9,7 @@ public class DBConnector {
     private static String USER = "root";
     
 
-    private static String PASSWORD = "mirgeta12.,";
+    private static String PASSWORD = "";
 
     private static Connection connection = null;
 

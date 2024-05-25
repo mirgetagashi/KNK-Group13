@@ -1,6 +1,7 @@
 package service;
 
 import model.dto.StudentTeacherDto;
+import repository.GradeRepository;
 import repository.StudentTeacherRepository;
 
 import java.util.ArrayList;
@@ -16,4 +17,7 @@ public class StudentTeacherService {
 
         return StudentTeacherRepository.addStudentTeacher(teacher_id,school_id,level_id);
     }
+    public static double calculateAverageFinalGradeStudent(int std_id) {return GradeRepository.calculateAverageFinalGradeStudent(std_id);}
+
+    public static double getNumberOfStudentsByTeacherId(int teacher_id){return StudentTeacherRepository.getNumberOfStudentsByTeacherId(teacher_id);}
 }

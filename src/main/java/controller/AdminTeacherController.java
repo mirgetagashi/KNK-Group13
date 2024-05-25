@@ -217,9 +217,9 @@ public class AdminTeacherController implements Initializable {
                     radioButtonFemale.setSelected(false);
                     radioButtonMale.setSelected(false);
                 }
-                cityComboBox.setValue(AddressService.getById(newSelection.getAddress_id()).getCity());
-                schoolComboBox.setValue(SchoolService.getById(newSelection.getSchool_id()).getName());
-                subjectComboBox.setValue(MajorRepository.getById(newSelection.getSubject_id()).getMajor_name());
+                cityComboBox.setValue(newSelection.getAddress_id()+" "+AddressService.getById(newSelection.getAddress_id()).getCity());
+                schoolComboBox.setValue(newSelection.getSchool_id()+" "+SchoolService.getById(newSelection.getSchool_id()).getName());
+                subjectComboBox.setValue(newSelection.getSubject_id()+" "+MajorRepository.getById(newSelection.getSubject_id()).getMajor_name());
 
             } else {
                 System.out.println("Selection is null");

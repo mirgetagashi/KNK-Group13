@@ -12,6 +12,7 @@ import repository.AdminDashboardRepository;
 import repository.GradeRepository;
 import repository.TeacherDashboardRepository;
 import service.GradeService;
+import service.StudentTeacherService;
 import service.TeacherDashboardService;
 
 import java.net.URL;
@@ -41,6 +42,7 @@ public class TeacherDashboardController implements Initializable {
 
         nameD.setText(teachersName);
 
+
         double averageGrade = TeacherDashboardService.calculateAverageFinalGradeByTeacherId(loggedInTeacherId);
         gradesAverage.setText(String.format("%.2f", averageGrade));
 
@@ -59,5 +61,8 @@ public class TeacherDashboardController implements Initializable {
         }
 
         gradesPieChart.getData().addAll(pieChartData);
+        int studentsNumber = (int) StudentTeacherService.getNumberOfStudentsByTeacherId(loggedInTeacherId);
+        myStudents.setText(String.valueOf(studentsNumber));
+
     }
 }

@@ -12,7 +12,7 @@ public class App extends Application {
     public void start(Stage stage) {
 
 
-        Navigator.navigate(stage, Navigator.ADMIN_STUDENT_PAGE);
+        Navigator.navigate(stage, Navigator.FIRST_PAGE);
         stage.setResizable(false);
 
 
