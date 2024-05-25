@@ -1,9 +1,11 @@
 package app;
 
 import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -19,6 +21,7 @@ public class Navigator {
     public  final static String ADMIN_TEACHER_PAGE="admin_teachers_table.fxml";
     public  final static String ADMIN_SCHOOLS_PAGE="admin_schools_table.fxml";
     public  final static String TEACHER_DASHBOARD="teacherDashboard.fxml";
+    public  final static String HELP_PAGE="help.fxml";
 
 
 
@@ -35,6 +38,12 @@ public class Navigator {
 
 
     public static void navigate(Event event, String form){
+        Node eventNode = (Node) event.getSource();
+        Stage stage = (Stage) eventNode.getScene().getWindow();
+        navigate(stage, form);
+    }
+
+    public static void navigate(MouseEvent event, String form){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
         navigate(stage, form);
@@ -66,5 +75,9 @@ public class Navigator {
         }
     }
 
-
+    public static void navigate(java.awt.event.MouseEvent event, String forgetPassword) {
+        Node eventNode = (Node) event.getSource();
+        Stage stage = (Stage) eventNode.getScene().getWindow();
+        navigate(stage, forgetPassword);
+    }
 }

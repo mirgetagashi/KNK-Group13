@@ -8,11 +8,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="951.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="951.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelpController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="127.0" layoutX="267.0" layoutY="172.0" stroke="BLACK" strokeType="INSIDE" styleClass="dashboard_pane" width="208.0" />
       <Pane layoutX="-32.0" layoutY="-7.0" prefHeight="127.0" prefWidth="979.0" style="-fx-background-color: #002554;" styleClass="dashboard_pane">
@@ -33,7 +35,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="21.0" layoutY="135.0" text="If you are loogged in as Student" textFill="#727272">
+      <Label layoutX="13.0" layoutY="125.0" text="If you are loogged in as Student" textFill="#727272">
          <font>
             <Font name="System Bold" size="15.5" />
          </font>
@@ -54,15 +56,7 @@
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>
             </Label>
-            <Label layoutX="4.0" layoutY="50.0" prefHeight="53.0" prefWidth="201.0" text="After you are logged in succesfully in the Upon logging in, the navigation bar will appear at the top of the page." wrapText="true">
-               <font>
-                  <Font size="10.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
-               </cursor>
-            </Label>
-            <Label layoutX="5.0" layoutY="84.0" prefHeight="53.0" prefWidth="183.0" wrapText="true">
+            <Label layoutX="4.0" layoutY="50.0" prefHeight="53.0" prefWidth="201.0" text="After you are logged in succesfully in the Upon logging in, the navigation bar will appear at the left of the page." wrapText="true">
                <font>
                   <Font size="10.0" />
                </font>
@@ -92,7 +86,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="502.0" layoutY="190.0" prefHeight="53.0" prefWidth="183.0" text="You can view and update your profile information. By pressing the PROFILE in the navbar" wrapText="true">
+      <Label layoutX="502.0" layoutY="190.0" prefHeight="53.0" prefWidth="183.0" text="You can view and update your profile information. By pressing the PROFILE button in the navbar or CTRL + P" wrapText="true">
          <font>
             <Font size="10.0" />
          </font>
@@ -166,7 +160,7 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
       </Label>
-      <Label layoutX="502.0" layoutY="364.0" prefHeight="53.0" prefWidth="183.0" text="By pressing in the statictcs you canMonitor student progress and performance in your courses." wrapText="true">
+      <Label layoutX="502.0" layoutY="364.0" prefHeight="53.0" prefWidth="183.0" text="By pressing in the statistics you canMonitor student progress and performance in your courses." wrapText="true">
          <font>
             <Font size="10.0" />
          </font>
@@ -184,27 +178,27 @@
       </Label>
       <Pane id="das" layoutX="745.0" layoutY="169.0" prefHeight="312.0" prefWidth="192.0" styleClass="rightPane">
          <children>
-            <Label layoutX="14.0" layoutY="12.0" text="Popular activities" textFill="WHITE">
+            <Label layoutX="27.0" layoutY="12.0" text="Popular activities" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="64.0" layoutY="50.0" onMouseClicked="#goToProfile" text="Edit Profile" textFill="WHITE">
+            <Label fx:id="goToProfile" layoutX="74.0" layoutY="51.0" onMouseClicked="#goToProfile" text="Profile" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="40.0" layoutY="76.0" onMouseClicked="#goToChangePassowrd" text="Change passowrd" textFill="WHITE">
+            <Label fx:id="goToChangePassword" layoutX="40.0" layoutY="76.0" onMouseClicked="#goToChangePassword" text="Change password" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="75.0" layoutY="126.0" onMouseClicked="#goToChangePassowrd" prefHeight="0.0" prefWidth="136.0" text="Statistics" textFill="WHITE">
+            <Label fx:id="goToStatictics" layoutX="72.0" layoutY="126.0" onMouseClicked="#goToStatictics" prefHeight="0.0" prefWidth="136.0" text="Statistics" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="49.0" layoutY="102.0" onMouseClicked="#goToChangePassowrd" text="Add homework" textFill="WHITE">
+            <Label layoutX="49.0" layoutY="102.0" text="Add homework" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -219,5 +213,52 @@
             <Font name="System Bold" size="15.5" />
          </font>
       </Label>
+      <Label layoutX="28.0" layoutY="487.0" text="Shortcuts:" textFill="#727272">
+         <font>
+            <Font name="System Bold" size="15.5" />
+         </font>
+      </Label>
+      <Line endX="347.65478515625" endY="1.52587890625E-5" layoutX="362.0" layoutY="163.0" startX="-335.6604309082031" startY="1.52587890625E-5" />
+      <Circle fill="#c0c1c3" layoutX="141.0" layoutY="161.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#c0c1c3" layoutX="593.0" layoutY="162.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#c0c1c3" layoutX="369.0" layoutY="161.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="138.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+      <Text layoutX="365.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
+      <Text layoutX="589.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
+      <Line endX="347.65478515625" endY="1.52587890625E-5" layoutX="360.0" layoutY="335.0" startX="-335.6604309082031" startY="1.52587890625E-5" />
+      <Circle fill="#c0c1c3" layoutX="139.0" layoutY="333.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#c0c1c3" layoutX="368.0" layoutY="334.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#c0c1c3" layoutX="593.0" layoutY="333.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="364.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" />
+      <Text layoutX="589.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" />
+      <Text layoutX="136.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="66.0" layoutY="512.0" stroke="BLACK" strokeType="INSIDE" styleClass="dashboard_pane" width="171.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="255.0" layoutY="512.0" stroke="BLACK" strokeType="INSIDE" styleClass="dashboard_pane" width="171.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="451.0" layoutY="512.0" stroke="BLACK" strokeType="INSIDE" styleClass="dashboard_pane" width="171.0" />
+      <Text layoutX="107.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To open Profile">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#6b6b6b" layoutX="113.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press CTRL + P" />
+      <Text layoutX="271.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To open Student table">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#6b6b6b" layoutX="298.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press CTRL + T" />
+      <Text layoutX="475.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To open dashboard">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#6b6b6b" layoutX="494.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press CTRL + D" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="637.0" layoutY="511.0" stroke="BLACK" strokeType="INSIDE" styleClass="dashboard_pane" width="171.0" />
+      <Text layoutX="665.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To ask for HELP">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fill="#6b6b6b" layoutX="677.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press CTRL + H" />
    </children>
 </AnchorPane>

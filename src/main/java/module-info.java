@@ -3,6 +3,7 @@ module com.example.knkgroup13 {
     requires javafx.fxml;
     requires java.sql;
     requires fontawesomefx;
+    requires java.desktop;
 
     exports app;
     opens controller to javafx.fxml;
