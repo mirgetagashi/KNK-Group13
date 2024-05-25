@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherNavigatorController">
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1031.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TeacherNavigatorController">
     <children>
         <VBox prefHeight="572.0" prefWidth="156.0">
             <children>
@@ -59,7 +59,7 @@
                                 <Image url="@../Images/profile.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="name" layoutX="70.0" layoutY="130.0" text="Lum Hoxha" textFill="WHITE">
+                        <Label fx:id="name" layoutX="70.0" layoutY="130.0" textFill="WHITE">
                             <font>
                                 <Font name="Fahkwang Medium" size="13.0" />
                             </font>
@@ -106,7 +106,7 @@
                     </children></AnchorPane>
             </children>
         </VBox>
-        <AnchorPane fx:id="dashBo" prefHeight="500.0" prefWidth="818.0">
+        <AnchorPane fx:id="dashBo" prefHeight="678.0" prefWidth="869.0">
             <children>
                 <fx:include source="teacherDashboard.fxml" />
             </children></AnchorPane>

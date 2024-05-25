@@ -41,6 +41,8 @@ public class StudentChartController {
 
         Students loggedStudent=StudentSession.getStudent();
         int loggedStudentId=loggedStudent.getId();
+        String studentName=loggedStudent.getFirstName();
+        studentNameLabel.setText(studentName);
 
         List<Integer> gradeList = StudentService.getGradesByStudent(loggedStudentId);
 

@@ -10,16 +10,18 @@ public class TeacherNavigatorController {
     private HBox root;
 
     @FXML
-    private AnchorPane pane;
+    private AnchorPane dashBo;
+
+
 
     @FXML
     void dashboard(MouseEvent event) {
-        Navigator.navigate(pane,Navigator.TEACHER_DASHBOARD);
+        Navigator.navigate(dashBo,Navigator.TEACHER_DASHBOARD);
 
     }
     @FXML
     void addgrade(MouseEvent event) {
-        Navigator.navigate(pane,Navigator.TEACHER_TABLE);
+        Navigator.navigate(dashBo,Navigator.TEACHER_TABLE);
 
 
     }
@@ -27,6 +29,7 @@ public class TeacherNavigatorController {
     @FXML
     void help(MouseEvent event) {
 
+        Navigator.navigate(dashBo,Navigator.HELP_PAGE);
     }
 
     @FXML
