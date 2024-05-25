@@ -52,7 +52,7 @@
                 <Spinner fx:id="period2GradeSpinner" layoutX="21.0" layoutY="279.0" prefHeight="30.0" prefWidth="183.0" style="-fx-border-color: #002554; -fx-border-radius: 5px;" />
               <Button layoutX="86.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleUpdateClick" prefHeight="30.0" prefWidth="62.0" styleClass="button-design" stylesheets="@style.css" text="Update" textFill="WHITE" />
               <Button layoutX="158.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="30.0" prefWidth="54.0" styleClass="button-design" stylesheets="@style.css" text="Delete " textFill="WHITE" />
-            <Label fx:id="messageLabel" layoutX="35.0" layoutY="375.0" prefHeight="18.0" prefWidth="167.0" />
+            <Label fx:id="messageLabel" layoutX="23.0" layoutY="375.0" prefHeight="47.0" prefWidth="194.0" />
             </children>
         </AnchorPane>
       <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="793.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">

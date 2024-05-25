@@ -7,6 +7,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import model.Students;
+import service.GradeService;
 import service.StudentService;
 import service.TeacherDashboardService;
 
@@ -25,11 +26,15 @@ public class StudentChartController {
     @FXML
     private PieChart gradeChart;
 
-    private String loggedInUsername;
+    @FXML
+    private Label avGrade;
 
-    public void setLoggedInUsername(String username) {
-        this.loggedInUsername = username;
-    }
+    @FXML
+    private Label passedSubjects;
+
+
+
+
 
     public void initialize() {
         studentNameLabel.setText(StudentSession.getStudent().getFirstName());
@@ -39,8 +44,12 @@ public class StudentChartController {
 
         List<Integer> gradeList = StudentService.getGradesByStudent(loggedStudentId);
 
+        int length = gradeList.size();
+        passedSubjects.setText(String.valueOf(length));
 
 
+         double averageGrade= GradeService.calculateAverageFinalGradeStudent(loggedStudentId);
+         avGrade.setText(String.format("%.2f",averageGrade));
         int[] gradeCounts = new int[6];
         for (int grade : gradeList) {
             gradeCounts[grade]++;

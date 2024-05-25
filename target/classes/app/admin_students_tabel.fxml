@@ -120,6 +120,41 @@
                 </effect>
             </CubicCurve>
          <Pagination fx:id="pagination" layoutX="259.0" layoutY="103.0" prefHeight="356.0" prefWidth="620.0" />
+         <ComboBox fx:id="conboBoxSchoolFilter" layoutX="631.0" layoutY="54.0" prefHeight="32.0" prefWidth="131.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
+         <ComboBox fx:id="comboBoxLevelFilter" layoutX="465.0" layoutY="54.0" prefHeight="32.0" prefWidth="158.0" promptText="Level" styleClass="textfield-design" stylesheets="@style.css" />
+         <TextField fx:id="txtFilterName" layoutX="274.0" layoutY="66.0" promptText="Name" styleClass="textfield-design" stylesheets="@style.css" />
+         <Button layoutX="799.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
+         <Pagination fx:id="pagination" layoutX="262.0" layoutY="98.0" prefHeight="370.0" prefWidth="620.0" styleClass="table-view" stylesheets="@style.css" />
+         <Label layoutX="271.0" layoutY="22.0" text="Filters:" textFill="#686868">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+         <CubicCurve controlX1="58.0" controlX2="50.0" controlY1="-108.0" controlY2="100.0" endX="157.5" endY="-46.5" fill="WHITE" layoutX="149.0" layoutY="462.0" startX="-150.0" stroke="BLACK">
+            <effect>
+               <BoxBlur width="92.0" />
+            </effect>
+         </CubicCurve>
+         <Line endX="41.0" layoutX="276.0" layoutY="86.0" opacity="0.32" rotate="90.0" startX="-100.0">
+            <styleClass>
+               <String fx:value="arrow" />
+               <String fx:value="curve" />
+               <String fx:value="line" />
+            </styleClass>
+            <effect>
+               <Reflection />
+            </effect>
+         </Line>
+         <CubicCurve controlX1="31.0" controlX2="50.0" controlY1="-95.0" controlY2="100.0" endX="157.5" endY="-46.5" fill="WHITE" layoutX="482.0" layoutY="461.0" startX="-150.0" stroke="BLACK">
+            <effect>
+               <BoxBlur width="92.0" />
+            </effect>
+         </CubicCurve>
+         <CubicCurve controlX1="31.0" controlX2="50.0" controlY1="-95.0" controlY2="100.0" endX="112.0" endY="-46.0" fill="WHITE" layoutX="763.0" layoutY="470.0" startX="-150.0" stroke="BLACK">
+            <effect>
+               <BoxBlur width="92.0" />
+            </effect>
+         </CubicCurve>
         </AnchorPane>
     </children>
 </HBox>

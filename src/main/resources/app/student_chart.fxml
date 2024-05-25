@@ -10,6 +10,18 @@
       <children>
       
           <Label fx:id="studentNameLabel" layoutX="54.0" layoutY="12.0" style="-fx-font-size: 16px; -fx-padding: 10;" text="Emri i Studentit" />
+         <Pane layoutX="71.0" layoutY="59.0" prefHeight="109.0" prefWidth="200.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+            <children>
+               <Label layoutX="45.0" layoutY="14.0" text="Passed Subjects" textFill="WHITE" />
+               <Label fx:id="passedSubjects" layoutX="45.0" layoutY="54.0" text="Label" textFill="#faf5f5" />
+            </children>
+         </Pane>
+         <Pane layoutX="351.0" layoutY="60.0" prefHeight="109.0" prefWidth="200.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+            <children>
+               <Label layoutX="26.0" layoutY="21.0" text="Avarage Grade" textFill="WHITE" />
+               <Label fx:id="avGrade" layoutX="26.0" layoutY="49.0" text="Label" textFill="WHITE" />
+            </children>
+         </Pane>
       </children>
    </Pane>
     <PieChart fx:id="gradeChart" layoutX="176.0" layoutY="42.0" prefHeight="290.0" prefWidth="400.0" />

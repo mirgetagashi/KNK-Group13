@@ -8,6 +8,8 @@ import repository.StudentRepository;
 import repository.TeacherDashboardRepository;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -17,12 +19,27 @@ public class StudentService {
     public static boolean signUp(StudentDto userData) {
         String password = userData.getPassword();
         String confirmPassword = userData.getConfirmPassword();
+        String email= userData.getEmail();
+
+        // Llogaritja e moshës
+        LocalDate birthday = userData.getBirthday().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+        LocalDate today = LocalDate.now();
+        int age = Period.between(birthday, today).getYears();
+
+        // Kontrollimi i moshës
+        if (age < 14 || age > 18) {
+            return false;
+        }
 
 
         String salt = PasswordHasher.generateSalt();
         String passwordHash = PasswordHasher.generateSaltedHash(
                 password, salt
         );
+//        boolean studentExist=StudentRepository.doesStudentExist(email);
+//        if(studentExist){
+//            return false;
+//        }
 
         CreateStudentDto createStudentData = new CreateStudentDto(
                 userData.getFirstName(),
@@ -107,5 +124,6 @@ public class StudentService {
     public static Students getByEmail(String email){
         return StudentRepository.getByEmail(email);
     }
+
 }
 
