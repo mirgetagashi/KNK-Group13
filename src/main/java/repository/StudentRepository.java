@@ -122,6 +122,25 @@ public class StudentRepository {
         return null;
     }
 
+    public static boolean doesStudentExist(String email) {
+        String query = "SELECT COUNT(*) > 0 AS student_exists FROM Students WHERE email = ?";
+
+        try (Connection conn = DriverManager.getConnection("jdbc:your_database_url", "your_db_user", "your_db_password");
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getBoolean("student_exists");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public static boolean updatePassword(ChangePasswordDto userData) {
         String newHashPassword=userData.getNewHashPassword();
         int id= userData.getId();

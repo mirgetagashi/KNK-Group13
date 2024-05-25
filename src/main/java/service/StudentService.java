@@ -19,6 +19,7 @@ public class StudentService {
     public static boolean signUp(StudentDto userData) {
         String password = userData.getPassword();
         String confirmPassword = userData.getConfirmPassword();
+
         String email= userData.getEmail();
 
         // Llogaritja e moshës
@@ -32,6 +33,9 @@ public class StudentService {
         }
 
 
+
+
+
         String salt = PasswordHasher.generateSalt();
         String passwordHash = PasswordHasher.generateSaltedHash(
                 password, salt
@@ -40,6 +44,11 @@ public class StudentService {
 //        if(studentExist){
 //            return false;
 //        }
+
+        boolean studentExist=StudentRepository.doesStudentExist(email);
+        if(studentExist){
+            return false;
+        }
 
         CreateStudentDto createStudentData = new CreateStudentDto(
                 userData.getFirstName(),

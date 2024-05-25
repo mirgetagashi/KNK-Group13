@@ -48,11 +48,6 @@
                             <Font size="13.0" />
                         </font>
                     </RadioButton>
-                    <RadioButton fx:id="radioButtonFemale" layoutX="77.0" layoutY="6.0" mnemonicParsing="false" text="F" textFill="#575757">
-                        <font>
-                            <Font size="13.0" />
-                        </font>
-                    </RadioButton>
                 </children>
             </AnchorPane>
             <ComboBox fx:id="cityComboBox" layoutX="45.0" layoutY="205.0" prefHeight="39.0" prefWidth="174.0" promptText="City" styleClass="textfield-design" stylesheets="@style.css" />
@@ -62,23 +57,23 @@
             <TextField fx:id="txtFirstName" layoutX="53.0" layoutY="40.0" promptText="First Name" styleClass="textfield-design" stylesheets="@style.css" />
             <TextField fx:id="txtLastName" layoutX="53.0" layoutY="82.0" promptText="Last Name" styleClass="textfield-design" stylesheets="@style.css" />
             <DatePicker fx:id="datePickerBirthday" layoutX="53.0" layoutY="119.0" prefHeight="27.0" prefWidth="174.0" promptText="Birthday" styleClass="textfield-design" stylesheets="@style.css" />
-            <Button layoutX="53.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="38.0" prefWidth="192.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
-            <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
-                <children>
-                    <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="Email" />
-                    <PasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="134.0" promptText="Password" />
-                    <PasswordField fx:id="pwdConfirmPassword" layoutX="55.0" layoutY="203.0" promptText="Confirm Password" />
-                    <Button layoutX="27.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Add" textFill="WHITE">
-                        <font>
-                            <Font size="14.0" />
+        <Button layoutX="53.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleNextClick" prefHeight="38.0" prefWidth="192.0" styleClass="button-design" stylesheets="@style.css" text="Next" />
+        <AnchorPane fx:id="invisiblePane" layoutX="-1.0" layoutY="-7.0" prefHeight="493.0" prefWidth="258.0" style="-fx-background-color: white;" visible="false">
+        <children>
+            <TextField fx:id="txtEmail" layoutX="55.0" layoutY="71.0" promptText="Email" />
+            <PasswordField fx:id="pwdPassword" layoutX="55.0" layoutY="134.0" promptText="Password" />
+            <PasswordField fx:id="pwdConfirmPassword" layoutX="55.0" layoutY="203.0" promptText="Confirm Password" />
+            <Button layoutX="27.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleAddClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Add" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
                         </font>
-                    </Button>
-                    <Button layoutX="110.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </Button>
-                    <Button layoutX="16.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
+            </Button>
+            <Button layoutX="110.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Button>
+            <Button layoutX="16.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="26.0" prefWidth="78.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
                         <font>
                             <Font size="14.0" />
                         </font>
@@ -119,42 +114,6 @@
                     <BoxBlur width="92.0" />
                 </effect>
             </CubicCurve>
-         <Pagination fx:id="pagination" layoutX="259.0" layoutY="103.0" prefHeight="356.0" prefWidth="620.0" />
-         <ComboBox fx:id="conboBoxSchoolFilter" layoutX="631.0" layoutY="54.0" prefHeight="32.0" prefWidth="131.0" promptText="School" styleClass="textfield-design" stylesheets="@style.css" />
-         <ComboBox fx:id="comboBoxLevelFilter" layoutX="465.0" layoutY="54.0" prefHeight="32.0" prefWidth="158.0" promptText="Level" styleClass="textfield-design" stylesheets="@style.css" />
-         <TextField fx:id="txtFilterName" layoutX="274.0" layoutY="66.0" promptText="Name" styleClass="textfield-design" stylesheets="@style.css" />
-         <Button layoutX="799.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleFilterClick" prefHeight="38.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Filter" />
-         <Pagination fx:id="pagination" layoutX="262.0" layoutY="98.0" prefHeight="370.0" prefWidth="620.0" styleClass="table-view" stylesheets="@style.css" />
-         <Label layoutX="271.0" layoutY="22.0" text="Filters:" textFill="#686868">
-            <font>
-               <Font size="30.0" />
-            </font>
-         </Label>
-         <CubicCurve controlX1="58.0" controlX2="50.0" controlY1="-108.0" controlY2="100.0" endX="157.5" endY="-46.5" fill="WHITE" layoutX="149.0" layoutY="462.0" startX="-150.0" stroke="BLACK">
-            <effect>
-               <BoxBlur width="92.0" />
-            </effect>
-         </CubicCurve>
-         <Line endX="41.0" layoutX="276.0" layoutY="86.0" opacity="0.32" rotate="90.0" startX="-100.0">
-            <styleClass>
-               <String fx:value="arrow" />
-               <String fx:value="curve" />
-               <String fx:value="line" />
-            </styleClass>
-            <effect>
-               <Reflection />
-            </effect>
-         </Line>
-         <CubicCurve controlX1="31.0" controlX2="50.0" controlY1="-95.0" controlY2="100.0" endX="157.5" endY="-46.5" fill="WHITE" layoutX="482.0" layoutY="461.0" startX="-150.0" stroke="BLACK">
-            <effect>
-               <BoxBlur width="92.0" />
-            </effect>
-         </CubicCurve>
-         <CubicCurve controlX1="31.0" controlX2="50.0" controlY1="-95.0" controlY2="100.0" endX="112.0" endY="-46.0" fill="WHITE" layoutX="763.0" layoutY="470.0" startX="-150.0" stroke="BLACK">
-            <effect>
-               <BoxBlur width="92.0" />
-            </effect>
-         </CubicCurve>
         </AnchorPane>
     </children>
 </HBox>

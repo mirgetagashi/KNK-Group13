@@ -42,7 +42,7 @@
                     <font>
                         <Font size="14.0" />
                     </font></Text>
-                <Button layoutX="22.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleAddGradeClick" prefHeight="30.0" prefWidth="54.0" styleClass="button-design" stylesheets="@style.css" text="Add " textFill="WHITE" />
+                <Button layoutX="22.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleAddGradeClick" prefHeight="30.0" prefWidth="54.0" stylesheets="@style.css" text="Add " textFill="WHITE" />
                 <Spinner fx:id="period1GradeSpinner" layoutX="21.0" layoutY="205.0" prefHeight="30.0" prefWidth="183.0" style="-fx-border-color: #002554; -fx-border-radius: 5px;" />
                 <ComboBox fx:id="levelComboBox" layoutX="21.0" layoutY="141.0" prefHeight="32.0" prefWidth="183.0" styleClass="textfield-design" stylesheets="@style.css" />
                 <Text layoutX="21.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Second Period Grade:" wrappingWidth="143.08123779296875">
@@ -50,9 +50,15 @@
                         <Font size="14.0" />
                     </font></Text>
                 <Spinner fx:id="period2GradeSpinner" layoutX="21.0" layoutY="279.0" prefHeight="30.0" prefWidth="183.0" style="-fx-border-color: #002554; -fx-border-radius: 5px;" />
+
               <Button layoutX="86.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleUpdateClick" prefHeight="30.0" prefWidth="62.0" styleClass="button-design" stylesheets="@style.css" text="Update" textFill="WHITE" />
               <Button layoutX="158.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="30.0" prefWidth="54.0" styleClass="button-design" stylesheets="@style.css" text="Delete " textFill="WHITE" />
             <Label fx:id="messageLabel" layoutX="23.0" layoutY="375.0" prefHeight="47.0" prefWidth="194.0" />
+
+              <Button layoutX="86.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleUpdateClick" prefHeight="30.0" prefWidth="62.0" stylesheets="@style.css" text="Update" textFill="WHITE" />
+              <Button layoutX="158.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="30.0" prefWidth="54.0" stylesheets="@style.css" text="Delete " textFill="WHITE" />
+            <Label fx:id="messageLabel" layoutX="35.0" layoutY="375.0" prefHeight="18.0" prefWidth="167.0" />
+
             </children>
         </AnchorPane>
       <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="793.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
