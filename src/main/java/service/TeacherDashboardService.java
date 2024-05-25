@@ -1,15 +1,17 @@
 package service;
 
 import repository.TeacherDashboardRepository;
+import service.Interface.TeacherDashboardInterface;
 
 import java.util.List;
 
-public class TeacherDashboardService {
+public class TeacherDashboardService implements TeacherDashboardInterface {
 
-    public static double calculateAverageFinalGradeByTeacherId(int teacherId) {
+
+    public double calculateAverageFinalGradeByTeacherId(int teacherId) {
         return TeacherDashboardRepository.calculateAverageFinalGradeByTeacherId(teacherId);
     }
-    public static List<Integer> getGradesByTeacherId(int teacherId){
+    public List<Integer> getGradesByTeacherId(int teacherId){
         return TeacherDashboardRepository.getGradesByTeacherId(teacherId);
     }
 }

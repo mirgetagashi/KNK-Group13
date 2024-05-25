@@ -7,14 +7,8 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import model.Teacher;
-
-import repository.AdminDashboardRepository;
-import repository.GradeRepository;
-import repository.TeacherDashboardRepository;
-import service.GradeService;
 import service.StudentTeacherService;
 import service.TeacherDashboardService;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +27,7 @@ public class TeacherDashboardController implements Initializable {
 
     @FXML
     private Label nameD;
+    TeacherDashboardService TeacherDashboardService= new TeacherDashboardService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

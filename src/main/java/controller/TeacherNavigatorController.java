@@ -10,6 +10,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import model.Students;
 import model.Teacher;
+import service.GradeLevelService;
+import service.GradeService;
+import service.SchoolService;
+import service.TeacherService;
 
 public class TeacherNavigatorController {
     @FXML

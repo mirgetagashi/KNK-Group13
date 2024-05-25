@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Validator {
+    static StudentRepository StudentRepository= new StudentRepository();
 
 
     public static boolean validateStudent(StudentDto userData){

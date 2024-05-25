@@ -21,6 +21,7 @@ public class ChangePasswordController {
 
     @FXML
     private PasswordField oldPwd;
+    StudentService StudentService= new StudentService();
 
     @FXML
     void handleCancel(ActionEvent event) {

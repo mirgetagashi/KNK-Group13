@@ -2,13 +2,13 @@ package repository;
 
 import model.Address;
 import Database.DBConnector;
+import repository.Interface.AddressInterface;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AddressRepository {
-
-    public static ArrayList<Address> getAllCities(){
+public class AddressRepository implements AddressInterface {
+    public  ArrayList<Address> getAllCities(){
         ArrayList<Address> cities = new ArrayList<>();
         String query = "SELECT * FROM Address";
         Connection connection = DBConnector.getConnection();
@@ -27,7 +27,7 @@ public class AddressRepository {
 
 
 
-    public static Address getAddressByCity(String city){
+    public  Address getAddressByCity(String city){
         String query = "SELECT * FROM Address WHERE city = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -44,7 +44,7 @@ public class AddressRepository {
     }
 
 
-    public static Address getById(int address_id){
+    public  Address getById(int address_id){
         String query = "SELECT * FROM Address WHERE address_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -73,12 +73,5 @@ public class AddressRepository {
             return null;
         }
     }
-
-
-
-
-
-
-
 
 }

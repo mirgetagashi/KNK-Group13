@@ -109,6 +109,11 @@ public class AdminStudentController implements Initializable {
     private final static int rowsPerPage = 15;
 
     private ObservableList<Students> dataList;
+    AddressService AddressService= new AddressService();
+    GradeLevelService GradeLevelService= new GradeLevelService();
+    SchoolService SchoolService= new SchoolService();
+    MajorService MajorService= new MajorService();
+    StudentService StudentService= new StudentService();
 
     @FXML
     void handleFilterClick(ActionEvent event) {

@@ -62,6 +62,9 @@ public class AdminSchoolsController implements Initializable {
     private ObservableList<SchoolTable> dataList;
     @FXML
     private TextField txtNameFilter;
+    AddressService AddressService= new AddressService();
+    SchoolService SchoolService= new SchoolService();
+    MajorService MajorService= new MajorService();
 
     @FXML
     void handleFilterClick(ActionEvent event) {
@@ -119,7 +122,7 @@ public class AdminSchoolsController implements Initializable {
         boolean isAdded;
         isAdded = SchoolService.add(userData);
         if (isAdded) {
-            Navigator.navigate(event, Navigator.ADMIN_SCHOOLS_PAGE);
+            Navigator.navigate(hBox, Navigator.ADMIN_SCHOOLS_PAGE);
         }
     }
 

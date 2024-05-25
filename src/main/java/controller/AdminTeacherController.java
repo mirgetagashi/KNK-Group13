@@ -111,6 +111,14 @@ public class AdminTeacherController implements Initializable {
     @FXML
     private Pagination pagination;
     private final static int rowsPerPage = 15;
+    AddressService AddressService= new AddressService();
+    GradeLevelService GradeLevelService= new GradeLevelService();
+    SchoolService SchoolService= new SchoolService();
+    TeacherService TeacherService= new TeacherService();
+    SubjectRepository SubjectRepository= new SubjectRepository();
+    MajorRepository MajorRepository= new MajorRepository();
+    TeacherRepository TeacherRepository= new TeacherRepository();
+
 
     private ObservableList<Teacher> dataList;
     @FXML
@@ -181,8 +189,8 @@ public class AdminTeacherController implements Initializable {
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText(),
-                AddressRepository.getById(cityID),
-                SchoolRepository.getById(schoolID),
+                AddressService.getById(cityID),
+                SchoolService.getById(schoolID),
                 SubjectRepository.getById(subjectID),
                 this.txtEducation.getText(),
                 titleComboBox.getValue(),
@@ -289,7 +297,7 @@ public class AdminTeacherController implements Initializable {
             schoolComboBox.setValue("School");
             subjectComboBox.setValue("Subject");
             ArrayList<String> cities= new ArrayList<>();
-            for (Address city : (AddressRepository.getAllCities())) {
+            for (Address city : (AddressService.getAllCities())) {
                 cities.add(city.getId()+" "+city.getCity());
             }
             cityComboBox.getItems().addAll(cities);
@@ -317,7 +325,7 @@ public class AdminTeacherController implements Initializable {
 
     private void handleCitySelection(ActionEvent event) {
         int id=returnId(cityComboBox.getValue());
-        ArrayList<School> schools = SchoolRepository.getSchoolByCity(id);
+        ArrayList<School> schools = SchoolService.getSchoolByCity(id);
         for(School s: schools){
             schoolComboBox.getItems().addAll(s.getId()+" "+s.getName());
         }

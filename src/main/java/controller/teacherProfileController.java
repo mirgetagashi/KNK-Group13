@@ -8,8 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import service.AddressService;
-import service.SchoolService;
+import service.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,6 +40,8 @@ public class teacherProfileController implements Initializable {
 
     @FXML
     private Text txtChangePassword;
+    SchoolService SchoolService= new SchoolService();
+    AddressService AddressService= new AddressService();
 
     @FXML
     void handleChangePassword(MouseEvent event) {

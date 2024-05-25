@@ -3,12 +3,14 @@ package service;
 import model.dto.StudentTeacherDto;
 import repository.GradeRepository;
 import repository.StudentTeacherRepository;
+import service.Interface.StudentTeacherInterface;
 
 import java.util.ArrayList;
 
-public class StudentTeacherService {
+public class StudentTeacherService implements StudentTeacherInterface {
+    static GradeRepository GradeRepository= new GradeRepository();
 
-    public static boolean addStudentTeacher(StudentTeacherDto userData){
+    public boolean addStudentTeacher(StudentTeacherDto userData){
         int teacher_id= userData.getTeacherId();
         int school_id=userData.getSchoolId();
         int level_id= userData.getLevelId();

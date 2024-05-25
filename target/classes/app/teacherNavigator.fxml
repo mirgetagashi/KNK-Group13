@@ -17,7 +17,7 @@
             <children>
                 <AnchorPane fx:id="side_ankerpane" prefHeight="682.0" prefWidth="202.0" styleClass="side-anchor" stylesheets="@style.css">
                     <children>
-                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-13.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="           Dashboard" textFill="WHITE">
+                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-13.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#dashboard" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="%lblAdminDashboard" textFill="WHITE">
                             <font>
                                 <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                             </font>
@@ -27,12 +27,12 @@
                                 <Image url="@../Images/dashboard-svgrepo-com.png" />
                             </image>
                         </ImageView>
-                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#profile" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Profile" textFill="WHITE">
+                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#profile" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="%lblProfile" textFill="WHITE">
                             <font>
                                 <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                             </font>
                         </Button>
-                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#addgrade" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="        Statistics" textFill="WHITE">
+                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#addgrade" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="%lblStatistics" textFill="WHITE">
                             <font>
                                 <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                             </font>
@@ -42,9 +42,7 @@
                                 <Image url="@../Images/statistics-svgrepo-com.png" />
                             </image>
                         </ImageView>
-
-
-                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="Help  " textFill="WHITE">
+                        <Button accessibleRole="IMAGE_VIEW" cache="true" layoutX="-5.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#help" prefHeight="45.0" prefWidth="195.0" style="-fx-background-color: #002554;" styleClass="navigator_btn" text="%lblHelp" textFill="WHITE">
                             <font>
                                 <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                             </font>
@@ -59,7 +57,7 @@
                                 <Image url="@../Images/profile.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="name" layoutX="70.0" layoutY="130.0" textFill="WHITE">
+                        <Label fx:id="name" layoutX="70.0" layoutY="130.0" text="%lblName" textFill="WHITE">
                             <font>
                                 <Font name="Fahkwang Medium" size="13.0" />
                             </font>
@@ -85,7 +83,7 @@
                                 <Image url="@../Images/log-out-1-svgrepo-com (1).png" />
                             </image>
                         </ImageView>
-                        <Button layoutX="63.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleLogOutCLick" prefHeight="27.0" prefWidth="107.0" style="-fx-background-color: #002554;" text="Log out" textFill="WHITE">
+                        <Button layoutX="64.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleLogOutCLick" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #002554;" text="%lblLogout" textFill="WHITE">
                             <font>
                                 <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                             </font>
@@ -98,19 +96,20 @@
                         <Line endX="92.40640258789062" endY="7.62939453125E-6" layoutX="106.0" layoutY="404.0" startX="-100.0" stroke="WHITE" />
                         <CubicCurve controlX1="-50.0" controlX2="-4.194862365722656" controlY1="-100.0" controlY2="64.0" endX="135.0" endY="-18.0" fill="#002554" layoutX="61.0" layoutY="174.0" startX="-121.0" startY="4.0" stroke="WHITE" />
                         <CubicCurve controlX1="-50.0" controlX2="-4.194862365722656" controlY1="-100.0" controlY2="64.0" endX="-140.7071075439453" endY="-30.70709228515625" fill="#002554" layoutX="146.0" layoutY="434.0" startX="-146.0" startY="3.0" stroke="WHITE" />
-                  <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="41.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/profile-svgrepo-com (1).png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="navName" layoutX="61.0" layoutY="132.0" prefHeight="18.0" prefWidth="119.0" text="Label" textFill="WHITE" />
-                    </children></AnchorPane>
+                        <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="41.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Images/profile-svgrepo-com (1).png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="navName" layoutX="61.0" layoutY="132.0" prefHeight="18.0" prefWidth="119.0" text="%lblName" textFill="WHITE" />
+                    </children>
+                </AnchorPane>
             </children>
         </VBox>
         <AnchorPane fx:id="dashBo" prefHeight="678.0" prefWidth="869.0">
             <children>
                 <fx:include source="teacherDashboard.fxml" />
-            </children></AnchorPane>
-
+            </children>
+        </AnchorPane>
     </children>
 </HBox>

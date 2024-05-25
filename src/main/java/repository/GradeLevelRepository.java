@@ -1,6 +1,7 @@
 package repository;
 import model.Grade_level;
 import Database.DBConnector;
+import repository.Interface.GradeLevelInterface;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,9 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class GradeLevelRepository {
+public class GradeLevelRepository implements GradeLevelInterface {
 
-    public static Grade_level getLevelByName(String level) {
+    public  Grade_level getLevelByName(String level) {
         String query = "SELECT * FROM Grade_level WHERE level_name = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -28,7 +29,7 @@ public class GradeLevelRepository {
 
 
 
-    public static ArrayList<Grade_level> getAllLevels() {
+    public  ArrayList<Grade_level> getAllLevels() {
         ArrayList<Grade_level> levels = new ArrayList<>();
 
         try (Connection conn = DBConnector.getConnection()) {
@@ -46,7 +47,7 @@ public class GradeLevelRepository {
         return levels;
 
     }
-    public static Grade_level getLevelById(int id) {
+    public  Grade_level getLevelById(int id) {
         String query = "SELECT * FROM Grade_level WHERE level_id = ? LIMIT 1;";
         try (Connection connection = DBConnector.getConnection();
              PreparedStatement pst = connection.prepareStatement(query)) {
@@ -63,7 +64,7 @@ public class GradeLevelRepository {
     }
 
 
-    private static Grade_level getFromResultSet(ResultSet result) {
+    private  Grade_level getFromResultSet(ResultSet result) {
         try {
             int id = result.getInt("level_id");
             String level_name = result.getString("level_name");
@@ -74,6 +75,5 @@ public class GradeLevelRepository {
             return null;
         }
     }
-
 
 }

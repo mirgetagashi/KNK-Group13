@@ -6,6 +6,7 @@ import model.filter.StudentFilter;
 import repository.GradeRepository;
 import repository.StudentRepository;
 import repository.TeacherDashboardRepository;
+import service.Interface.StudentInterface;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -15,9 +16,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class StudentService {
+public class StudentService implements StudentInterface {
+    StudentRepository StudentRepository= new StudentRepository();
+    GradeRepository GradeRepository= new GradeRepository();
 
-    public static boolean signUp(StudentDto userData) {
+    public boolean signUp(StudentDto userData) {
         String password = userData.getPassword();
         String confirmPassword = userData.getConfirmPassword();
 
@@ -45,7 +48,7 @@ public class StudentService {
         return StudentRepository.create(createStudentData);
     }
 
-    public static boolean login(LoginUserDto loginData) {
+    public boolean login(LoginUserDto loginData) {
         Students user = StudentRepository.getByEmail(loginData.getEmail());
         if (user == null) {
             return false;
@@ -59,7 +62,7 @@ public class StudentService {
                 password, salt, passwordHash
         );
     }
-    public static ArrayList<Students> filterStudents(StudentFilter filter){
+    public ArrayList<Students> filterStudents(StudentFilter filter){
         try{
 
             return StudentRepository.getByFilter(filter);
@@ -68,20 +71,20 @@ public class StudentService {
         }
     }
 
-    public static ArrayList<Students> filter(StudentFilter filter) throws SQLException {
+    public ArrayList<Students> filter(StudentFilter filter) throws SQLException {
         return StudentRepository.getByFilter(filter);
     }
 
-    public static boolean update(UpdateStudentDto userData){
+    public boolean update(UpdateStudentDto userData){
         return StudentRepository.update(userData);
     }
 
-    public static Students getById(int id){
+    public  Students getById(int id){
         return StudentRepository.getById(id);
     }
 
 
-    public static boolean changePassword(ChangePasswordRequestDto userData){
+    public boolean changePassword(ChangePasswordRequestDto userData){
         int id= userData.getId();
         String salt= userData.getSalt();
         String passwordHash= userData.getPasswordHash();
@@ -107,17 +110,17 @@ public class StudentService {
 
         return StudentRepository.updatePassword(dto);
     }
-    public static List<Integer> getGradesByStudent(int std_id){
+    public List<Integer> getGradesByStudent(int std_id){
         return GradeRepository.getGradesByStudent(std_id);
     }
-    public static ArrayList<Students> getAllStudents(){
+    public ArrayList<Students> getAllStudents(){
         return StudentRepository.getAllStudents();
     }
 
-    public static boolean delete(int id){
+    public boolean delete(int id){
         return StudentRepository.delete(id);
     }
-    public static Students getByEmail(String email){
+    public Students getByEmail(String email){
         return StudentRepository.getByEmail(email);
     }
 

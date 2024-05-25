@@ -7,14 +7,15 @@ import Database.DBConnector;
 import model.dto.UpdateGradeDto;
 import model.dto.UpdateStudentDto;
 import model.filter.StudentFilter;
+import repository.Interface.StudentInterface;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class StudentRepository {
+public class StudentRepository implements StudentInterface {
 
 
-    public static boolean create(CreateStudentDto userData){
+    public  boolean create(CreateStudentDto userData){
         Connection conn = DBConnector.getConnection();
         String query = " INSERT INTO STUDENTS (std_name, std_lastName, email, salt, passwordHash, address_id, school_id, major_id, level_id,gender, birthday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
         try{
@@ -42,7 +43,7 @@ public class StudentRepository {
     }
 
 
-    public static Students getByEmail(String email){
+    public  Students getByEmail(String email){
         String query = "SELECT * FROM STUDENTS WHERE email = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -58,7 +59,7 @@ public class StudentRepository {
         }
     }
 
-    public static Students getById(int std_id){
+    public  Students getById(int std_id){
         String query = "SELECT * FROM Students WHERE std_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -75,7 +76,7 @@ public class StudentRepository {
     }
 
 
-    public static ArrayList<Students> getAllStudents(){
+    public  ArrayList<Students> getAllStudents(){
         ArrayList<Students> students = new ArrayList<>();
         String query = "SELECT * FROM Students;";
         Connection connection = DBConnector.getConnection();
@@ -92,7 +93,7 @@ public class StudentRepository {
         return students;
     }
 
-    public static boolean delete(int id) {
+    public  boolean delete(int id) {
 
         String query = "DELETE FROM Students WHERE std_id = ?";
 
@@ -110,7 +111,7 @@ public class StudentRepository {
         }
     }
 
-    public static boolean update(UpdateStudentDto userData) {
+    public  boolean update(UpdateStudentDto userData) {
         String query = "UPDATE Students SET std_name = ?, std_lastName = ?, address_id = ?, school_id = ?, major_id = ?, level_id = ?  WHERE std_id = ?";
 
         try {
@@ -134,7 +135,7 @@ public class StudentRepository {
         }
     }
 
-    public static String getSaltById(int studentId){
+    public  String getSaltById(int studentId){
         String query = "SELECT salt FROM Students WHERE id = ?";
         try(Connection connection = DBConnector.getConnection();
             PreparedStatement pst = connection.prepareStatement(query)){
@@ -150,7 +151,7 @@ public class StudentRepository {
         return null;
     }
 
-    public static boolean doesStudentExist(String email) {
+    public  boolean doesStudentExist(String email) {
         String query = "SELECT COUNT(*) > 0 AS student_exists FROM Students WHERE email = ?";
 
         try (Connection conn = DriverManager.getConnection("jdbc:your_database_url", "your_db_user", "your_db_password");
@@ -169,7 +170,7 @@ public class StudentRepository {
         return false;
     }
 
-    public static boolean updatePassword(ChangePasswordDto userData) {
+    public  boolean updatePassword(ChangePasswordDto userData) {
         String newHashPassword=userData.getNewHashPassword();
         int id= userData.getId();
         String query = "UPDATE Students SET passwordHash = ? WHERE std_id = ?;";
@@ -189,7 +190,7 @@ public class StudentRepository {
 
 
 
-    public static ArrayList<Students> getByFilter(StudentFilter filter) throws SQLException {
+    public  ArrayList<Students> getByFilter(StudentFilter filter) throws SQLException {
         ArrayList<Students> students = new ArrayList<>();
         StringBuilder query = new StringBuilder("SELECT * FROM Students WHERE 1=1 ");
         ArrayList<Object> params = new ArrayList<>();
@@ -219,7 +220,7 @@ public class StudentRepository {
 
 
 
-    private static Students getFromResultSet(ResultSet result){
+    private  Students getFromResultSet(ResultSet result){
         try{
             int id = result.getInt("std_id");
             String firstName = result.getString("std_name");

@@ -88,7 +88,7 @@
                         <Image url="@../Images/log-out-1-svgrepo-com (1).png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="64.0" layoutY="469.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #002554;" text="%btnLogout" textFill="WHITE">
+                  <Button layoutX="64.0" layoutY="469.0" mnemonicParsing="false" onAction="#handleLogOutClick" prefHeight="20.0" prefWidth="65.0" style="-fx-background-color: #002554;" text="%btnLogout" textFill="WHITE">
                      <font>
                         <Font name="Adelle Sans Devanagari Semibold" size="13.0" />
                      </font>

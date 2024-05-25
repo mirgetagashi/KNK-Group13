@@ -33,7 +33,7 @@ public class StudentNavigatorController {
     }
 
     @FXML
-    void handleLogOutCLick(ActionEvent event) {
+    void handleLogOutClick(ActionEvent event) {
         StudentSession.setStudent(null);
         Navigator.navigate(event,Navigator.LOGIN_PAGE);
     }

@@ -16,9 +16,7 @@ import model.Administrator;
 import model.Students;
 import model.Teacher;
 import model.dto.LoginUserDto;
-import service.AdminService;
-import service.StudentService;
-import service.TeacherService;
+import service.*;
 
 public class LoginController {
     @FXML
@@ -28,6 +26,9 @@ public class LoginController {
     @FXML
     private Label lblErrorMessage; // Add this line
 
+    AdminService AdminService= new AdminService();
+    TeacherService TeacherService= new TeacherService();
+    StudentService StudentService= new StudentService();
     @FXML
     private void handleCancelClick(ActionEvent ae) {
     }

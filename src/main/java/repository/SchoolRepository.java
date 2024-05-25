@@ -12,11 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SchoolRepository {
+public class SchoolRepository implements repository.SchoolInterface {
 
 
 
-    public static boolean create(CreateSchoolDto userData){
+    public  boolean create(CreateSchoolDto userData){
         Connection conn = DBConnector.getConnection();
         String query = " INSERT INTO SCHOOL (school_name, address_id) VALUES (?, ?); ";
         try{
@@ -35,7 +35,7 @@ public class SchoolRepository {
     }
 
 
-    public static ArrayList<SchoolTable> getByFilter(SchoolFilter filter) throws SQLException {
+    public  ArrayList<SchoolTable> getByFilter(SchoolFilter filter) throws SQLException {
         ArrayList<SchoolTable> schools = new ArrayList<>();
         StringBuilder query = new StringBuilder("select * from School_Table_Info where 1=1 ");
         ArrayList<Object> params = new ArrayList<>();
@@ -85,7 +85,7 @@ public class SchoolRepository {
     }
 
 
-    public static boolean delete(int id){
+    public  boolean delete(int id){
         String query = "DELETE FROM School WHERE school_id = ?";
 
         try {
@@ -103,28 +103,28 @@ public class SchoolRepository {
     }
 
 
-   public static ArrayList<School> getSchoolByCity(int city_id) {
-       ArrayList<School> schools = new ArrayList<>();
+    public  ArrayList<School> getSchoolByCity(int city_id) {
+        ArrayList<School> schools = new ArrayList<>();
 
-       String query = "select * from school where address_id=?";
-       Connection conn = DBConnector.getConnection();
-       try{
-           PreparedStatement pst = conn.prepareStatement(query);
-           pst.setInt(1, city_id);
-           ResultSet rs = pst.executeQuery();
-           while (rs.next()) {
-               int school_id=rs.getInt("school_id");
-               String school_name = rs.getString("school_name");
-               int address_id=rs.getInt("address_id");
-               schools.add(new School(school_id, school_name, address_id));
-           }
-       } catch (SQLException e) {
-           System.out.println("Diçka ka shkuar gabim: " + e.getMessage());
-       }
-       return schools;
-   }
+        String query = "select * from school where address_id=?";
+        Connection conn = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, city_id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                int school_id=rs.getInt("school_id");
+                String school_name = rs.getString("school_name");
+                int address_id=rs.getInt("address_id");
+                schools.add(new School(school_id, school_name, address_id));
+            }
+        } catch (SQLException e) {
+            System.out.println("Diçka ka shkuar gabim: " + e.getMessage());
+        }
+        return schools;
+    }
 
-    public static ArrayList<School> getAllSchools(){
+    public  ArrayList<School> getAllSchools(){
         ArrayList<School> schools = new ArrayList<>();
         String query = "SELECT * FROM School;";
         Connection connection = DBConnector.getConnection();
@@ -141,7 +141,7 @@ public class SchoolRepository {
         return schools;
     }
 
-    public static boolean addSchoolMajor(AddSchoolMajorDto userData){
+    public  boolean addSchoolMajor(AddSchoolMajorDto userData){
         String query = "insert into school_major(school_id, major_id) values(?, ?);";
         Connection connection = DBConnector.getConnection();
         try{
@@ -157,7 +157,7 @@ public class SchoolRepository {
         }
     }
 
-    public static School_Major getSchoolMajor(AddSchoolMajorDto userData){
+    public  School_Major getSchoolMajor(AddSchoolMajorDto userData){
         int school_id= userData.getSchool_id();
         int major_id= userData.getMajor_id();
         String query="select * from school_major where school_id=? and major_id=? LIMIT 1;";
@@ -182,7 +182,7 @@ public class SchoolRepository {
 
 
 
-    public static School getById(int school_id){
+    public  School getById(int school_id){
         String query = "SELECT * FROM School WHERE school_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -199,7 +199,7 @@ public class SchoolRepository {
     }
 
 
-    private static School getFromResultSet(ResultSet result){
+    private  School getFromResultSet(ResultSet result){
         try{
             int id = result.getInt("school_id");
             String name = result.getString("school_name");

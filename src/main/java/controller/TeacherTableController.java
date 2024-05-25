@@ -26,6 +26,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.filter.TeacherTableFilter;
 import service.GradeLevelService;
 import service.GradeService;
+import service.SchoolService;
+import service.TeacherService;
 
 
 import java.net.URL;
@@ -65,6 +67,10 @@ public class TeacherTableController implements Initializable {
     @FXML
     private Pagination pagination;
     private final static int rowsPerPage = 15;
+    GradeLevelService GradeLevelService= new GradeLevelService();
+    service.SchoolService SchoolService= new SchoolService();
+    service.TeacherService TeacherService= new TeacherService();
+    GradeService GradeService = new GradeService();
     @FXML
     void handleFilterClick(ActionEvent event) {
         TeacherTableFilter filter = new TeacherTableFilter();

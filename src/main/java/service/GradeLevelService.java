@@ -2,13 +2,15 @@ package service;
 
 import model.Grade_level;
 import repository.GradeLevelRepository;
+import service.Interface.GradeLevelInterface;
 
 import java.util.ArrayList;
 
-public class GradeLevelService {
+public class GradeLevelService implements GradeLevelInterface {
+    GradeLevelRepository  GradeLevelRepository= new GradeLevelRepository();
 
-    public static ArrayList<Grade_level> getAllLevels() {
+    public ArrayList<Grade_level> getAllLevels() {
         return GradeLevelRepository.getAllLevels();
     }
-    public static Grade_level getLevelById(int id){return  GradeLevelRepository.getLevelById(id);}
+    public Grade_level getLevelById(int id){return  GradeLevelRepository.getLevelById(id);}
 }

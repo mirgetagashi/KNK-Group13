@@ -7,9 +7,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import model.Students;
-import service.GradeService;
-import service.StudentService;
-import service.TeacherDashboardService;
+import service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +29,8 @@ public class StudentChartController {
 
     @FXML
     private Label passedSubjects;
+    StudentService StudentService= new StudentService();
+    GradeService GradeService = new GradeService();
 
 
 

@@ -4,14 +4,16 @@ import model.Address;
 import model.Students;
 import repository.AddressRepository;
 import repository.StudentRepository;
+import service.Interface.AddressInterface;
 
 import java.util.ArrayList;
 
-public class AddressService {
-    public static ArrayList<Address> getAllCities(){
+public class AddressService implements AddressInterface {
+    AddressRepository  AddressRepository= new AddressRepository();
+    public ArrayList<Address> getAllCities(){
         return AddressRepository.getAllCities();
     }
-    public static Address getById(int id){
+    public Address getById(int id){
         return AddressRepository.getById(id);
     }
 }

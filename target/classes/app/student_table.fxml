@@ -8,23 +8,21 @@
 
 <VBox prefHeight="400.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentTableController">
     <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="718.0" stylesheets="@style.css" VBox.vgrow="ALWAYS">
-         <children>
-
-            <TableView fx:id="studentTable" layoutX="61.0" layoutY="27.0" prefHeight="311.0" prefWidth="583.0">
-              <columns>
-
-                <TableColumn fx:id="subjectId" prefWidth="73.60003662109375" text="Subject ID" />
-                  <TableColumn fx:id="subject" prefWidth="61.5999755859375" text="Subject" />
-                  <TableColumn fx:id="profFirstName" prefWidth="91.20001220703125" text="Teacher's FN" />
-                  <TableColumn fx:id="profLastName" prefWidth="89.5999755859375" text="Teacher's LN" />
-                  <TableColumn fx:id="firstPeriodGrade" prefWidth="78.39996337890625" text="1st period " />
-                  <TableColumn fx:id="secondPeriodGrade" prefWidth="95.20001220703125" text="2nd period " />
-                  <TableColumn fx:id="finalGrade" prefWidth="109.5999755859375" text="Final grade" />
-              </columns>
-            </TableView>
-            <Pagination fx:id="pagination" layoutX="60.0" layoutY="25.0" prefHeight="358.0" prefWidth="583.0" />
-         </children>
-    </AnchorPane>
-  </children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="718.0" stylesheets="@style.css" VBox.vgrow="ALWAYS">
+            <children>
+                <TableView fx:id="studentTable" layoutX="61.0" layoutY="27.0" prefHeight="311.0" prefWidth="583.0">
+                    <columns>
+                        <TableColumn fx:id="subjectId" prefWidth="73.60003662109375" text="%lblSubjectID" />
+                        <TableColumn fx:id="subject" prefWidth="61.5999755859375" text="%lblSubject" />
+                        <TableColumn fx:id="profFirstName" prefWidth="91.20001220703125" text="%lblTeacherFirstName" />
+                        <TableColumn fx:id="profLastName" prefWidth="89.5999755859375" text="%lblTeacherLastName" />
+                        <TableColumn fx:id="firstPeriodGrade" prefWidth="78.39996337890625" text="%lblFirstPeriod" />
+                        <TableColumn fx:id="secondPeriodGrade" prefWidth="95.20001220703125" text="%lblSecondPeriod" />
+                        <TableColumn fx:id="finalGrade" prefWidth="109.5999755859375" text="%lblFinalGrade" />
+                    </columns>
+                </TableView>
+                <Pagination fx:id="pagination" layoutX="60.0" layoutY="25.0" prefHeight="358.0" prefWidth="583.0" />
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>

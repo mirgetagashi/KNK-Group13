@@ -2,20 +2,22 @@ package service;
 
 import model.Major;
 import repository.MajorRepository;
+import service.Interface.MajorInterface;
 
 import java.util.ArrayList;
 
-public class MajorService {
+public class MajorService implements MajorInterface {
+    MajorRepository MajorRepository= new MajorRepository();
 
-    public static ArrayList<Major> getAllMajors(){
+    public ArrayList<Major> getAllMajors(){
         return MajorRepository.getAllMajors();
     }
 
-    public static ArrayList<Major> getMajorBySchool(int school_id){
+    public ArrayList<Major> getMajorBySchool(int school_id){
         return MajorRepository.getMajorBySchool(school_id);
     }
 
-    public static Major getById(int id){
+    public Major getById(int id){
         return MajorRepository.getById(id);
     }
 }
