@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.CubicCurve?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.MeshView?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -105,7 +104,6 @@
                      </font>
                   </Text>
                   <MeshView layoutX="52.0" layoutY="82.0" />
-                  <Line endX="41.9405517578125" endY="3.814697265625E-6" layoutX="108.0" layoutY="32.0" startX="-100.0" stroke="#6f6f6f" />
                   <CubicCurve controlX1="-94.0" controlX2="-32.0" controlY1="-134.0" controlY2="-8.0" endX="-141.0" endY="-134.0" fill="WHITE" layoutX="140.0" layoutY="505.0" startX="-137.0" startY="33.5" stroke="#002554" />
                   <Pane layoutX="27.0" layoutY="45.0" prefHeight="96.0" prefWidth="803.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="pane">
                      <children>
@@ -138,9 +136,10 @@
                   </Pane>
                   <Text fill="#b9b9b9" layoutX="14.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student info:">
                      <font>
-                        <Font name="System Bold" size="28.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
+                  <CubicCurve controlX1="-80.70709228515625" controlX2="50.0" controlY1="-106.108642578125" controlY2="100.0" endX="39.796112060546875" endY="-42.89018249511719" fill="WHITE" layoutX="140.0" layoutY="270.0" startX="-150.0" stroke="BLACK" />
                </children>
             </Pane>
          </children>

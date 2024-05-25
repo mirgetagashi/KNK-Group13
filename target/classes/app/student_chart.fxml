@@ -2,27 +2,82 @@
 
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="640.0" spacing="20" style="-fx-padding: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentChartController">
-   <Pane prefHeight="181.0" prefWidth="619.0">
-      <children>
-      
-          <Label fx:id="studentNameLabel" layoutX="54.0" layoutY="12.0" style="-fx-font-size: 16px; -fx-padding: 10;" text="Emri i Studentit" />
-         <Pane layoutX="71.0" layoutY="59.0" prefHeight="109.0" prefWidth="200.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
-            <children>
-               <Label layoutX="45.0" layoutY="14.0" text="Passed Subjects" textFill="WHITE" />
-               <Label fx:id="passedSubjects" layoutX="45.0" layoutY="54.0" text="Label" textFill="#faf5f5" />
-            </children>
-         </Pane>
-         <Pane layoutX="351.0" layoutY="60.0" prefHeight="109.0" prefWidth="200.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
-            <children>
-               <Label layoutX="26.0" layoutY="21.0" text="Avarage Grade" textFill="WHITE" />
-               <Label fx:id="avGrade" layoutX="26.0" layoutY="49.0" text="Label" textFill="WHITE" />
-            </children>
-         </Pane>
-      </children>
-   </Pane>
-    <PieChart fx:id="gradeChart" layoutX="176.0" layoutY="42.0" prefHeight="290.0" prefWidth="400.0" />
-</VBox>
+
+<AnchorPane prefHeight="571.0" prefWidth="849.0" style="-fx-background-color: white;" styleClass="pab" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentChartController">
+   <children>
+      <Pane layoutX="12.0" layoutY="32.0" prefHeight="98.0" prefWidth="820.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="pane">
+         <children>
+         
+                <Label fx:id="studentNameLabel" layoutX="178.0" layoutY="40.0" style="-fx-font-size: 16px; -fx-padding: 10;" text="Emri i Studentit">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Text layoutX="32.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi, ">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+            <Text fill="#808080" layoutX="78.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to dashboard">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="418.0" layoutY="263.0" prefHeight="109.0" prefWidth="259.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+         <children>
+            <Label layoutX="70.0" layoutY="5.0" text="Avarage Grade" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="avGrade" layoutX="115.0" layoutY="43.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="129.0" layoutY="265.0" prefHeight="109.0" prefWidth="259.0" style="-fx-background-color: #002554;" styleClass="box" stylesheets="@dashboard.css">
+         <children>
+            <Label layoutX="69.0" layoutY="3.0" text="Passed Subjects" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="passedSubjects" layoutX="108.0" layoutY="44.0" text="Label" textFill="#faf5f5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+       <PieChart fx:id="gradeChart" layoutX="126.0" layoutY="399.0" prefHeight="181.0" prefWidth="416.0" />
+      <ImageView fitHeight="216.0" fitWidth="316.0" layoutX="590.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/dash.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="29.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statictics">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="27.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chart:">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <CubicCurve controlX1="-40.969085693359375" controlX2="50.0" controlY1="-60.0" controlY2="100.0" endX="146.620849609375" endY="-60.0" fill="WHITE" layoutX="270.0" layoutY="190.0" startX="-130.2030487060547" startY="75.0" stroke="BLACK" />
+      <CubicCurve controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" endX="63.00001525878906" endY="-7.70281982421875" fill="WHITE" layoutX="66.0" layoutY="296.0" startX="-66.0" startY="2.515594482421875" stroke="BLACK" />
+   </children>
+</AnchorPane>
