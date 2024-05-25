@@ -113,12 +113,7 @@
                         <Image url="@../Images/password-svgrepo-com.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="103.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleCancelClick" prefHeight="40.0" prefWidth="92.0" styleClass="button-design" stylesheets="@style.css" text="Cancel" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="218.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="40.0" prefWidth="90.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
+                  <Button layoutX="79.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="41.0" prefWidth="239.0" styleClass="button-design" stylesheets="@style.css" text="Login" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -127,6 +122,7 @@
                   <QuadCurve controlX="-102.73027038574219" controlY="-24.0" endX="-14.73028564453125" endY="-72.0" fill="WHITE" layoutX="34.0" layoutY="72.0" startX="-34.0" startY="40.0" stroke="#002554" strokeType="INSIDE" />
                   <QuadCurve controlX="20.26971435546875" controlY="88.0" endX="-35.0" endY="238.66665649414062" fill="WHITE" layoutX="35.0" layoutY="116.0" startX="-35.0" startY="-4.0" stroke="#002554" strokeType="INSIDE" />
                   <QuadCurve controlX="-271.0635986328125" controlY="-11.666667938232422" endX="-234.39694213867188" endY="43.0" fill="WHITE" layoutX="233.0" layoutY="69.0" startX="-213.73028564453125" startY="-69.0" stroke="#002554" strokeType="INSIDE" />
+                  <Label fx:id="lblErrorMessage" layoutX="125.0" layoutY="256.0" prefHeight="17.0" prefWidth="156.0" textFill="red" />
                </children>
             </Pane>
       </children>

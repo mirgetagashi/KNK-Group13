@@ -6,6 +6,7 @@ import app.SessionManager.StudentSession;
 import app.SessionManager.TeacherSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -24,7 +25,8 @@ public class LoginController {
     private TextField txtEmail;
     @FXML
     private PasswordField pwdPassword;
-
+    @FXML
+    private Label lblErrorMessage; // Add this line
 
     @FXML
     private void handleCancelClick(ActionEvent ae) {
@@ -36,6 +38,7 @@ public class LoginController {
 
     @FXML
     private void handleLoginClick(ActionEvent ae) {
+        lblErrorMessage.setText(""); // Clear error message
         LoginUserDto loginUserData = new LoginUserDto(
                 this.txtEmail.getText(),
                 this.pwdPassword.getText()
@@ -67,8 +70,9 @@ public class LoginController {
                 AdminSession.setAdmin(admin);
                 Navigator.navigate(ae, Navigator.ADMIN_PAGE);
             }
+        } else {
+            lblErrorMessage.setText("Incorrect email or password!"); // Set error message
         }
-
     }
 
     @FXML
@@ -78,8 +82,8 @@ public class LoginController {
         }
     }
 
-
     private void loginUser(KeyEvent event) {
+        lblErrorMessage.setText(""); // Clear error message
         LoginUserDto loginUserData = new LoginUserDto(
                 this.txtEmail.getText(),
                 this.pwdPassword.getText()
@@ -105,13 +109,14 @@ public class LoginController {
             } else if (useremail.contains("@teacher")) {
                 Teacher teacher = TeacherService.getByEmail(useremail);
                 TeacherSession.setTeacher(teacher);
-                Navigator.navigate(event, Navigator.TEACHER_TABLE);
+                Navigator.navigate(event, Navigator.TEACHER_DASHBOARD);
             } else {
                 Administrator admin = AdminService.getByEmail(useremail);
                 AdminSession.setAdmin(admin);
                 Navigator.navigate(event, Navigator.ADMIN_PAGE);
             }
+        } else {
+            lblErrorMessage.setText("Incorrect email or password!"); // Set error message
         }
     }
-
 }
