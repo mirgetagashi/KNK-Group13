@@ -23,30 +23,10 @@ public class StudentService {
 
         String email= userData.getEmail();
 
-//        // Llogaritja e moshës
-//        Date birthday = userData.getBirthday();
-//        LocalDate today = LocalDate.now();
-//        int age = Period.between(birthday, today).getYears();
-//
-//        // Kontrollimi i moshës
-//        if (age < 14 || age > 18) {
-//            return false;
-//        }
-
-
-
-
-
         String salt = PasswordHasher.generateSalt();
         String passwordHash = PasswordHasher.generateSaltedHash(
                 password, salt
         );
-//        boolean studentExist=StudentRepository.doesStudentExist(email);
-//        if(studentExist){
-//            return false;
-//        }
-
-
 
         CreateStudentDto createStudentData = new CreateStudentDto(
                 userData.getFirstName(),

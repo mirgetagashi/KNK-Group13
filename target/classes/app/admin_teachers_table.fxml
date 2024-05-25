@@ -80,12 +80,7 @@
             <Button layoutX="27.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleAddTeacherStudentClick" prefHeight="42.0" prefWidth="137.0" styleClass="button-design" stylesheets="@style.css" text="TeacherStudent" />
          </children>
       </AnchorPane>
-          <Button layoutX="127.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleEditClick" prefHeight="42.0" prefWidth="87.0" styleClass="button-design" stylesheets="@style.css" text="Edit" textFill="WHITE">
-              <font>
-                  <Font size="14.0" />
-              </font>
-          </Button>
-          <Button layoutX="24.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="97.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
+          <Button layoutX="36.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleDeleteClick" prefHeight="42.0" prefWidth="160.0" styleClass="button-design" stylesheets="@style.css" text="Delete" textFill="WHITE">
               <font>
                   <Font size="14.0" />
               </font>

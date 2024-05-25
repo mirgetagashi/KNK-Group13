@@ -266,7 +266,7 @@ public class AdminStudentController implements Initializable {
                 datePickerBirthday.setValue(localDate);
                 cityComboBox.setValue(newSelection.getAddress_id()+" "+AddressService.getById(newSelection.getAddress_id()).getCity());
                 schoolComboBox.setValue(newSelection.getSchool()+" "+SchoolService.getById(newSelection.getSchool()).getName());
-                majorComboBox.setValue(newSelection.getMajor()+" "+MajorRepository.getById(newSelection.getMajor()).getMajor_name());
+                majorComboBox.setValue(newSelection.getMajor()+" "+MajorService.getById(newSelection.getMajor()).getMajor_name());
                 periodComboBox.setValue(newSelection.getLevel()+" "+GradeLevelService.getLevelById(newSelection.getLevel()).getLevel_name());
 
 
@@ -316,7 +316,7 @@ public class AdminStudentController implements Initializable {
         comboBoxLevelFilter.getItems().addAll(levels);
 
         ArrayList<String> schools = new ArrayList<>();
-        for (School s : SchoolRepository.getAllSchools()) {
+        for (School s : SchoolService.getAllSchools()) {
             schools.add(s.getId() + " " + s.getName());
         }
         conboBoxSchoolFilter.getItems().addAll(schools);

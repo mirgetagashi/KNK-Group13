@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.knk_project.controllers.LogInNxenesiController">
+    <children>
+        <Label fx:id="logInStudentBanner" layoutX="161.0" layoutY="31.0" text="Log In as student ">
+            <font>
+                <Font name="Arial" size="35.0" />
+            </font>
+        </Label>
+        <Label fx:id="messageLabel" alignment="CENTER" layoutX="10.0" layoutY="87.0" prefHeight="18.0" prefWidth="578.0" />
+        <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="170.0" layoutY="126.0" prefHeight="30.0" prefWidth="260.0" promptText="Enter your username" style="-fx-background-radius: 20px;" />
+        <PasswordField fx:id="passwordPasswordField" alignment="CENTER" layoutX="170.0" layoutY="173.0" prefHeight="30.0" prefWidth="260.0" promptText="Enter your password" style="-fx-background-radius: 20;" />
+        <Button fx:id="logInButton" layoutX="174.0" layoutY="256.0" mnemonicParsing="false" onAction="#logInClick" prefHeight="30.0" prefWidth="260.0" style="-fx-background-radius: 20px;" text="Log in " />
+        <Button layoutX="479.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadEnglishText">
+            <graphic>
+                <ImageView fitHeight="36.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/UK-US_flag.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="554.0" layoutY="12.0" mnemonicParsing="false" onAction="#loadAlbanianText">
+            <graphic>
+                <ImageView fitHeight="36.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/Flag_of_the_Democratic_Government_of_Albania_(1944–1946).png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>

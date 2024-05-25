@@ -19,6 +19,7 @@ public class SchoolService {
         return SchoolRepository.create(userData);
     }
 
+
     public static boolean delete(int id){
         return SchoolRepository.delete(id);
     }
