@@ -40,9 +40,6 @@ public class teacherProfileController implements Initializable {
 
     @FXML
     private Text txtChangePassword;
-    SchoolService SchoolService= new SchoolService();
-    AddressService AddressService= new AddressService();
-
     @FXML
     void handleChangePassword(MouseEvent event) {
         Navigator.navigate(event,Navigator.FORGET_PASSWORD);

@@ -5,14 +5,11 @@ import model.dto.AddSchoolMajorDto;
 import model.dto.CreateSchoolDto;
 import model.filter.SchoolFilter;
 import repository.SchoolRepository;
-import service.Interface.SchoolInterface;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SchoolService implements SchoolInterface {
-    SchoolRepository SchoolRepository= new SchoolRepository();
-    public boolean add(CreateSchoolDto userData){
+public class SchoolService {
+    public static boolean add(CreateSchoolDto userData){
         String name=userData.getName();
         if(!name.matches("[a-zA-Z ]+")){
             return false;
@@ -22,11 +19,11 @@ public class SchoolService implements SchoolInterface {
     }
 
 
-    public boolean delete(int id){
+    public static boolean delete(int id){
         return SchoolRepository.delete(id);
     }
 
-    public ArrayList<SchoolTable> filterSchool(SchoolFilter filter) {
+    public static ArrayList<SchoolTable> filterSchool(SchoolFilter filter) {
         try {
             return SchoolRepository.getByFilter(filter);
         } catch (SQLException e) {
@@ -37,7 +34,7 @@ public class SchoolService implements SchoolInterface {
 
 
 
-    public boolean addSchoolMajor(AddSchoolMajorDto userData){
+    public static boolean addSchoolMajor(AddSchoolMajorDto userData){
         int school_id= userData.getSchool_id();
         int major_id=userData.getMajor_id();
         School_Major schoolMajor=SchoolRepository.getSchoolMajor(userData);
@@ -47,14 +44,14 @@ public class SchoolService implements SchoolInterface {
         return SchoolRepository.addSchoolMajor(userData);
     }
 
-    public ArrayList<School> getAllSchools(){
+    public static ArrayList<School> getAllSchools(){
         return SchoolRepository.getAllSchools();
     }
-    public ArrayList<School> getSchoolByCity(int city_id) {
+    public static ArrayList<School> getSchoolByCity(int city_id) {
         return SchoolRepository.getSchoolByCity(city_id);
     }
 
-    public School getById(int id){
+    public static School getById(int id){
         return SchoolRepository.getById(id);
     }
 }

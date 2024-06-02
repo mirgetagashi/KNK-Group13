@@ -7,15 +7,13 @@ import model.filter.StudentFilter;
 import model.filter.TeacherFilter;
 import repository.StudentRepository;
 import repository.TeacherRepository;
-import service.Interface.TeacherInterface;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class TeacherService implements TeacherInterface {
-    TeacherRepository TeacherRepository= new TeacherRepository();
+public class TeacherService {
 
-    public boolean login(LoginUserDto loginData){
+
+    public static boolean login(LoginUserDto loginData){
         Teacher user = TeacherRepository.getByEmail(loginData.getEmail());
         if(user == null){
             return false;
@@ -30,7 +28,7 @@ public class TeacherService implements TeacherInterface {
         );
     }
 
-    public boolean signUp(TeacherDto teacherData){
+    public static boolean signUp(TeacherDto teacherData){
         String password = teacherData.getPassword();
         String confirmPassword = teacherData.getConfirmPassword();
 
@@ -58,11 +56,11 @@ public class TeacherService implements TeacherInterface {
         return TeacherRepository.create(createTeacherDto);
     }
 
-    public boolean delete(int id) {
+    public static boolean delete(int id) {
         return TeacherRepository.delete(id);
     }
 
-    public ArrayList<Teacher> filterTeacher(TeacherFilter filter){
+    public static ArrayList<Teacher> filterTeacher(TeacherFilter filter){
         try{
 
             return TeacherRepository.getByFilter(filter);
@@ -71,11 +69,11 @@ public class TeacherService implements TeacherInterface {
         }
     }
 
-    public ArrayList<Teacher> getAllTeachers(){
+    public static ArrayList<Teacher> getAllTeachers(){
         return TeacherRepository.getAllTeachers();
     }
 
-    public Teacher getByEmail(String email){
+    public static Teacher getByEmail(String email){
         return TeacherRepository.getByEmail(email);
     }
 }

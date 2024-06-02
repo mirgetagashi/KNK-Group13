@@ -27,7 +27,7 @@ public class Navigator {
     public final static String STUDENT_TABLE = "student_table.fxml";
     public final static String STUDENT_CHART = "student_chart.fxml";
     public final static String FORGET_PASSWORD = "change_password.fxml";
-    public final static String STUDENT_SETTINGS = "settings_student.fxml";
+    public final static String STUDENT_SETTINGS = "change_password.fxml";
     public final static String STUDENT_PROFILE = "student_profile.fxml";
     public final static String ADMIN_DASHBOARD = "admin_dashboard.fxml";
     public final static String FIRST_PAGE = "first_page.fxml";
@@ -60,10 +60,7 @@ public class Navigator {
         pane.getChildren().add(formPane);
     }
 
-//    private void changeLanguage(){
-//        Locale locale = Locale.of("sq");
-//        Locale.setDefault(locale);
-//    }
+
 
     private static Pane loadPane(String form, Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle("translations.content", locale);

@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 import model.*;
 import model.dto.StudentDto;
@@ -109,11 +110,8 @@ public class AdminStudentController implements Initializable {
     private final static int rowsPerPage = 15;
 
     private ObservableList<Students> dataList;
-    AddressService AddressService= new AddressService();
-    GradeLevelService GradeLevelService= new GradeLevelService();
-    SchoolService SchoolService= new SchoolService();
-    MajorService MajorService= new MajorService();
-    StudentService StudentService= new StudentService();
+    @FXML
+    private HBox pane;
 
     @FXML
     void handleFilterClick(ActionEvent event) {
@@ -163,7 +161,7 @@ public class AdminStudentController implements Initializable {
         }
 
         if (response) {
-            Navigator.navigate(event, Navigator.ADMIN_STUDENT_PAGE);
+            Navigator.navigate(pane, Navigator.ADMIN_STUDENT_PAGE);
         } else {
             validateFields();
 
@@ -233,6 +231,7 @@ public class AdminStudentController implements Initializable {
             boolean updated = StudentService.update(updateDto);
             if (updated) {
                 showAlert(Alert.AlertType.INFORMATION, "Update Successful", "The student information was successfully updated.");
+                Navigator.navigate(pane, Navigator.ADMIN_STUDENT_PAGE);
             } else {
                 showAlert(Alert.AlertType.ERROR, "Update Failed", "Failed to update the student information.");
             }

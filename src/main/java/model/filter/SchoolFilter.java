@@ -6,6 +6,8 @@ public class SchoolFilter extends Filter {
     private String name;
     private String city;
 
+
+
     public String getName() {
         return name;
     }

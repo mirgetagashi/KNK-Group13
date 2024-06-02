@@ -2,15 +2,13 @@ package repository;
 
 import model.*;
 import Database.DBConnector;
-import repository.Interface.AdminInterface;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class AdminRepository implements AdminInterface {
+public class AdminRepository {
 
-    public  Administrator getByEmail(String email){
+    public  static Administrator getByEmail(String email){
         String query = "SELECT * FROM Administrator WHERE email = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -26,7 +24,7 @@ public class AdminRepository implements AdminInterface {
         }
     }
 
-    public  Administrator getById(int std_id){
+    public  static Administrator getById(int std_id){
         String query = "SELECT * FROM Administrator WHERE std_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -42,7 +40,7 @@ public class AdminRepository implements AdminInterface {
         }
     }
 
-    private  Administrator getFromResultSet(ResultSet result){
+    private  static Administrator getFromResultSet(ResultSet result){
         try{
             int id = result.getInt("a_id");
             String firstName = result.getString("a_name");

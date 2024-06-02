@@ -22,5 +22,4 @@ public class HelpController {
 
     }
 
-    // Add other event handler methods as needed
 }

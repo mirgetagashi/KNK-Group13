@@ -4,6 +4,7 @@ import app.Navigator;
 import app.SessionManager.StudentSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -12,7 +13,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import model.Students;
 
-public class StudentNavigatorController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class StudentNavigatorController implements Initializable {
 
     @FXML
     private AnchorPane dashBo;
@@ -82,7 +86,9 @@ public class StudentNavigatorController {
         }
 
     }
-    public void initialize() {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         Students loggedStudent= StudentSession.getStudent();
         int loggedStudentId=loggedStudent.getId();
         String studentName=loggedStudent.getFirstName();
@@ -91,6 +97,6 @@ public class StudentNavigatorController {
         navName.setText(fullName);
 
 
-    }
 
+    }
 }

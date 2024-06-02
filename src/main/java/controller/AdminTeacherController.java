@@ -111,13 +111,9 @@ public class AdminTeacherController implements Initializable {
     @FXML
     private Pagination pagination;
     private final static int rowsPerPage = 15;
-    AddressService AddressService= new AddressService();
-    GradeLevelService GradeLevelService= new GradeLevelService();
-    SchoolService SchoolService= new SchoolService();
-    TeacherService TeacherService= new TeacherService();
-    SubjectRepository SubjectRepository= new SubjectRepository();
-    MajorRepository MajorRepository= new MajorRepository();
-    TeacherRepository TeacherRepository= new TeacherRepository();
+    @FXML
+    private AnchorPane pane;
+
 
 
     private ObservableList<Teacher> dataList;
@@ -201,7 +197,7 @@ public class AdminTeacherController implements Initializable {
         boolean response = TeacherService.signUp(userSignUpData);
 
         if (response) {
-            Navigator.navigate(event, Navigator.ADMIN_TEACHER_PAGE);
+            Navigator.navigate(pane, Navigator.ADMIN_TEACHER_PAGE);
         }
 
     }

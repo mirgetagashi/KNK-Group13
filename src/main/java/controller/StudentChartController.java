@@ -29,11 +29,6 @@ public class StudentChartController {
 
     @FXML
     private Label passedSubjects;
-    StudentService StudentService= new StudentService();
-    GradeService GradeService = new GradeService();
-
-
-
 
 
     public void initialize() {

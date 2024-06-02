@@ -67,42 +67,42 @@
                                 <String fx:value="textfield-design" />
                             </styleClass>
                         </Label>
-                        <Text fill="#727272" layoutX="252.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblFirstName">
+                        <Text fill="#727272" layoutX="240.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblFirstName">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
-                        <Text fill="#727272" layoutX="251.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblSchool" wrappingWidth="79.89742802276692">
+                        <Text fill="#727272" layoutX="249.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblSchool" wrappingWidth="79.89742802276692">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
-                        <Text fill="#727272" layoutX="249.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblBirthday" wrappingWidth="96.24164779486614">
+                        <Text fill="#727272" layoutX="247.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblBirthday" wrappingWidth="96.24164779486614">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
-                        <Text fill="#727272" layoutX="251.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblGender" wrappingWidth="79.89742802276692">
+                        <Text fill="#727272" layoutX="249.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblGender" wrappingWidth="79.89742802276692">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
-                        <Text fill="#727272" layoutX="477.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLastName">
+                        <Text fill="#727272" layoutX="477.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLastName">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
-                        <Text fill="#727272" layoutX="477.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblAddress">
+                        <Text fill="#727272" layoutX="477.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblAddress">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
-                        <Text fill="#727272" layoutX="477.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLevel">
+                        <Text fill="#727272" layoutX="477.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblLevel">
                             <font>
                                 <Font size="19.0" />
                             </font>
                         </Text>
-                        <Text fill="#727272" layoutX="477.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblEmail" textAlignment="CENTER">
+                        <Text fill="#727272" layoutX="477.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblEmail" textAlignment="CENTER">
                             <font>
                                 <Font size="19.0" />
                             </font>

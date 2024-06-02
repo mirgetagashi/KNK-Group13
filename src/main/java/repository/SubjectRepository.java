@@ -2,16 +2,14 @@ package repository;
 
 import model.Subject;
 import Database.DBConnector;
-import repository.Interface.SubjectInterface;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class SubjectRepository implements SubjectInterface {
+public class SubjectRepository {
 
-    public  ArrayList<Subject> getAllSubjects(){
+    public  static ArrayList<Subject> getAllSubjects(){
         ArrayList<Subject> subjects = new ArrayList<>();
         String query = "SELECT * FROM Subjects;";
         Connection connection = DBConnector.getConnection();
@@ -28,7 +26,7 @@ public class SubjectRepository implements SubjectInterface {
         return subjects;
     }
 
-    public  Subject getSubjectByName(String subject){
+    public  static Subject getSubjectByName(String subject){
         String query = "SELECT * FROM SUBJECTS WHERE subject_name = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -44,7 +42,7 @@ public class SubjectRepository implements SubjectInterface {
         }
     }
 
-    public  Subject getById(int subject_id){
+    public static  Subject getById(int subject_id){
         String query = "SELECT * FROM Subjects WHERE subject_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{

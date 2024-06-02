@@ -5,9 +5,6 @@ import model.dto.*;
 import model.filter.StudentFilter;
 import repository.GradeRepository;
 import repository.StudentRepository;
-import repository.TeacherDashboardRepository;
-import service.Interface.StudentInterface;
-
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -16,11 +13,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class StudentService implements StudentInterface {
-    StudentRepository StudentRepository= new StudentRepository();
-    GradeRepository GradeRepository= new GradeRepository();
+public class StudentService {
 
-    public boolean signUp(StudentDto userData) {
+    public static boolean signUp(StudentDto userData) {
         String password = userData.getPassword();
         String confirmPassword = userData.getConfirmPassword();
 
@@ -48,7 +43,7 @@ public class StudentService implements StudentInterface {
         return StudentRepository.create(createStudentData);
     }
 
-    public boolean login(LoginUserDto loginData) {
+    public static  boolean login(LoginUserDto loginData) {
         Students user = StudentRepository.getByEmail(loginData.getEmail());
         if (user == null) {
             return false;
@@ -62,7 +57,7 @@ public class StudentService implements StudentInterface {
                 password, salt, passwordHash
         );
     }
-    public ArrayList<Students> filterStudents(StudentFilter filter){
+    public static ArrayList<Students> filterStudents(StudentFilter filter){
         try{
 
             return StudentRepository.getByFilter(filter);
@@ -71,20 +66,20 @@ public class StudentService implements StudentInterface {
         }
     }
 
-    public ArrayList<Students> filter(StudentFilter filter) throws SQLException {
+    public static ArrayList<Students> filter(StudentFilter filter) throws SQLException {
         return StudentRepository.getByFilter(filter);
     }
 
-    public boolean update(UpdateStudentDto userData){
+    public static boolean update(UpdateStudentDto userData){
         return StudentRepository.update(userData);
     }
 
-    public  Students getById(int id){
+    public  static Students getById(int id){
         return StudentRepository.getById(id);
     }
 
 
-    public boolean changePassword(ChangePasswordRequestDto userData){
+    public static boolean changePassword(ChangePasswordRequestDto userData){
         int id= userData.getId();
         String salt= userData.getSalt();
         String passwordHash= userData.getPasswordHash();
@@ -110,17 +105,17 @@ public class StudentService implements StudentInterface {
 
         return StudentRepository.updatePassword(dto);
     }
-    public List<Integer> getGradesByStudent(int std_id){
+    public static List<Integer> getGradesByStudent(int std_id){
         return GradeRepository.getGradesByStudent(std_id);
     }
-    public ArrayList<Students> getAllStudents(){
+    public static ArrayList<Students> getAllStudents(){
         return StudentRepository.getAllStudents();
     }
 
-    public boolean delete(int id){
+    public static boolean delete(int id){
         return StudentRepository.delete(id);
     }
-    public Students getByEmail(String email){
+    public static Students getByEmail(String email){
         return StudentRepository.getByEmail(email);
     }
 

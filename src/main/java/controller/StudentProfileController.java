@@ -44,8 +44,6 @@ public class StudentProfileController implements Initializable {
 
     @FXML
     private Label school;
-    AddressService AddressService= new AddressService();
-    SchoolService SchoolService = new SchoolService();
 
     @FXML
     void handleCancel(ActionEvent event) {

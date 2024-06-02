@@ -114,7 +114,6 @@
                         </Lighting>
                      </effect>
                   </ImageView>
-                  <Label fx:id="navName" layoutX="49.0" layoutY="132.0" prefHeight="18.0" prefWidth="116.0" text="%lblNavName" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>

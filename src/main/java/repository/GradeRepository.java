@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class GradeRepository {
 
-    public  boolean create(CreateGradeDto createGradeDto) {
+    public static boolean create(CreateGradeDto createGradeDto) {
         Connection conn = DBConnector.getConnection();
         String query = "INSERT INTO GRADES (level_id, period1_grade, period2_grade, final_grade, std_id, subject_id, t_id) " +
                 "VALUES (?, ?, ?, calculate_final_grade(?, ?), ?, ?, ?)";
@@ -41,7 +41,7 @@ public class GradeRepository {
             return false;
         }
     }
-    public  boolean deleteGrade(DeleteGradeDto deleteGradeDto) {
+    public static  boolean deleteGrade(DeleteGradeDto deleteGradeDto) {
 
         String query = "DELETE FROM Grades WHERE grade_id = ?";
         try {
@@ -57,7 +57,7 @@ public class GradeRepository {
             return false;
         }
     }
-    public boolean updateGrade(UpdateGradeDto updateGradeDto) {
+    public static boolean updateGrade(UpdateGradeDto updateGradeDto) {
         String query = "UPDATE Grades SET period1_grade = ?, period2_grade = ?, final_grade = calculate_final_grade(?, ?) " +
                 "WHERE grade_id = ?";
         try {
@@ -79,7 +79,7 @@ public class GradeRepository {
             return false;
         }
     }
-    public  List< Integer> getGradesByStudent(int std_id) {
+    public  static List< Integer> getGradesByStudent(int std_id) {
         List<Integer> grades = new ArrayList<>();
         String query = "SELECT final_grade from Grades WHERE std_id = ?";
 
@@ -101,7 +101,7 @@ public class GradeRepository {
 
 
 
-    public  boolean gradesExistForStudentAndLevel(int studentId, int level_id) {
+    public static boolean gradesExistForStudentAndLevel(int studentId, int level_id) {
         String query = "SELECT COUNT(*) FROM grades WHERE std_id = ? AND level_id = ? AND (period1_grade IS NOT NULL OR period2_grade IS NOT NULL)";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -116,7 +116,7 @@ public class GradeRepository {
         }
         return false;
     }
-    public  boolean isStudentLevelConsistent(int studentId, int levelId) {
+    public static boolean isStudentLevelConsistent(int studentId, int levelId) {
         String query = "SELECT s.level_id = ? AS is_consistent " +
                 "FROM Students s " +
                 "WHERE s.std_id = ?";
@@ -136,7 +136,7 @@ public class GradeRepository {
     }
 
 
-    public  boolean gradesExistForStudentInAnyOtherLevel(int studentId, int currentLevelId) {
+    public static boolean gradesExistForStudentInAnyOtherLevel(int studentId, int currentLevelId) {
         String query = "SELECT COUNT(*) FROM grades WHERE std_id = ? AND level_id <> ? AND (period1_grade IS NOT NULL OR period2_grade IS NOT NULL)";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -151,7 +151,7 @@ public class GradeRepository {
         }
         return false;
     }
-    public  ArrayList<Grades> getAllGrades() {
+    public static ArrayList<Grades> getAllGrades() {
         ArrayList<Grades> grades = new ArrayList<>();
         String query = "SELECT * FROM Grades";
         try (Connection conn = DBConnector.getConnection();
@@ -170,7 +170,7 @@ public class GradeRepository {
         return grades;
     }
 
-    public  int getPeriod1Grade(int gradeId) {
+    public static  int getPeriod1Grade(int gradeId) {
         String query = "SELECT period1_grade FROM Grades WHERE grade_id = ?";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
@@ -184,7 +184,7 @@ public class GradeRepository {
         }
         return -1; // Return a sentinel value or handle error appropriately
     }
-    public  int getPeriod2Grade(int gradeId) {
+    public static  int getPeriod2Grade(int gradeId) {
         String query = "SELECT period2_grade FROM Grades WHERE grade_id = ?";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
@@ -200,7 +200,7 @@ public class GradeRepository {
     }
 
 
-    private  Grades getFromResultSet(ResultSet resultSet) {
+    private static  Grades getFromResultSet(ResultSet resultSet) {
         try {
             int gradeId = resultSet.getInt("grade_id");
             int levelId = resultSet.getInt("level_id");
@@ -218,7 +218,7 @@ public class GradeRepository {
         }
     }
 
-    public  Grades getGradeById(int gradeId) {
+    public static  Grades getGradeById(int gradeId) {
         String query = "SELECT * FROM Grades WHERE grade_id = ? LIMIT 1;";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {
@@ -234,7 +234,7 @@ public class GradeRepository {
         return null;
     }
 
-    public  int countGrades() {
+    public static  int countGrades() {
         String query = "SELECT COUNT(*) FROM Grades";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement pst = conn.prepareStatement(query);
@@ -248,7 +248,7 @@ public class GradeRepository {
         }
         return 0; // Kthehet 0 nëse ka ndonjë problem
     }
-    public  double calculateAverageFinalGrade() {
+    public static  double calculateAverageFinalGrade() {
         String query = "SELECT AVG(final_grade) FROM Grades";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement pst = conn.prepareStatement(query);
@@ -263,7 +263,7 @@ public class GradeRepository {
         return 0.0; // Kthehet 0.0 nëse ka ndonjë problem
     }
 
-    public  double calculateAverageFinalGradeStudent(int std_id) {
+    public static  double calculateAverageFinalGradeStudent(int std_id) {
         String query = "SELECT AVG(final_grade) FROM Grades WHERE std_id = ?";
         try (Connection conn = DBConnector.getConnection();
              PreparedStatement pst = conn.prepareStatement(query)) {

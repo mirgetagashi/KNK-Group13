@@ -7,15 +7,12 @@ import repository.GradeRepository;
 import repository.StudentRepository;
 import repository.TeacherTableRepository;
 import model.filter.TeacherTableFilter;
-import service.Interface.GradeInterface;
 
 import java.util.ArrayList;
 
-public class GradeService implements GradeInterface {
-    GradeRepository GradeRepository = new GradeRepository();
-    StudentRepository StudentRepository= new StudentRepository();
+public class GradeService {
 
-    public boolean addGrade(TeacherTableDto teacherTableDto) {
+    public static boolean addGrade(TeacherTableDto teacherTableDto) {
         Students student = StudentRepository.getById(teacherTableDto.getStudentId());
         if (student == null) {
             System.out.println("Student ID does not exist.");
@@ -51,11 +48,11 @@ public class GradeService implements GradeInterface {
 
         return GradeRepository.create(createGradeDto);
     }
-    public ArrayList<Grades> filterGrades(TeacherTableFilter filteri) {
+    public static ArrayList<Grades> filterGrades(TeacherTableFilter filteri) {
         return TeacherTableRepository.getGradesByFilter(filteri);
     }
 
-    public boolean deleteGrade(TeacherGradeDeleteDto teacherGradeDeleteDto) {
+    public static boolean deleteGrade(TeacherGradeDeleteDto teacherGradeDeleteDto) {
 
 
         DeleteGradeDto deleteGradeDto = new DeleteGradeDto(
@@ -71,12 +68,12 @@ public class GradeService implements GradeInterface {
         );
         return GradeRepository.deleteGrade(deleteGradeDto);
     }
-    public ArrayList<Grades> getAllGrades(){
+    public static  ArrayList<Grades> getAllGrades(){
         return GradeRepository.getAllGrades();
     }
-    public ArrayList<Grades> getGradesTable(){return TeacherTableRepository.getGradesTable();}
+    public static ArrayList<Grades> getGradesTable(){return TeacherTableRepository.getGradesTable();}
 
-    public boolean updateGrade(TeacherGradeUpdateDto teacherGradeUpdateDto) {
+    public static boolean updateGrade(TeacherGradeUpdateDto teacherGradeUpdateDto) {
         int gradeId = teacherGradeUpdateDto.getGradeId();
         int studentId= teacherGradeUpdateDto.getStudentId();
         int subjectId=teacherGradeUpdateDto.getSubject_id();
@@ -109,7 +106,7 @@ public class GradeService implements GradeInterface {
 
         return false;
     }
-    public double calculateAverageFinalGradeStudent(int std_id) {return GradeRepository.calculateAverageFinalGradeStudent(std_id);}
+    public static double calculateAverageFinalGradeStudent(int std_id) {return GradeRepository.calculateAverageFinalGradeStudent(std_id);}
 
 
 

@@ -24,11 +24,7 @@ public class LoginController {
     @FXML
     private PasswordField pwdPassword;
     @FXML
-    private Label lblErrorMessage; // Add this line
-
-    AdminService AdminService= new AdminService();
-    TeacherService TeacherService= new TeacherService();
-    StudentService StudentService= new StudentService();
+    private Label lblErrorMessage;
     @FXML
     private void handleCancelClick(ActionEvent ae) {
     }

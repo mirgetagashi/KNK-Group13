@@ -5,8 +5,6 @@ import model.dto.CreateTeacherDto;
 import Database.DBConnector;
 import model.filter.StudentFilter;
 import model.filter.TeacherFilter;
-import repository.Interface.TeacherInterface;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,8 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class TeacherRepository implements TeacherInterface {
-    public  boolean create(CreateTeacherDto userData){
+public class TeacherRepository  {
+    public  static boolean create(CreateTeacherDto userData){
         Connection conn = DBConnector.getConnection();
         String query = " INSERT INTO TEACHERS (t_name, t_lastName, email, salt, passwordHash, address_id, education, school_id, gender,title, subject_id, birthday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
         try{
@@ -46,7 +44,7 @@ public class TeacherRepository implements TeacherInterface {
     }
 
 
-    public  boolean delete(int id) {
+    public  static boolean delete(int id) {
 
         String query = "DELETE FROM Teachers WHERE t_id = ?";
 
@@ -65,7 +63,7 @@ public class TeacherRepository implements TeacherInterface {
     }
 
 
-    public  Teacher getByEmail(String email){
+    public static  Teacher getByEmail(String email){
         String query = "SELECT * FROM Teachers WHERE email = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -81,7 +79,7 @@ public class TeacherRepository implements TeacherInterface {
         }
     }
 
-    public  Teacher getById(int std_id){
+    public static  Teacher getById(int std_id){
         String query = "SELECT * FROM Teachers WHERE t_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -97,7 +95,7 @@ public class TeacherRepository implements TeacherInterface {
         }
     }
 
-    public  ArrayList<Teacher> getAllTeachers(){
+    public  static ArrayList<Teacher> getAllTeachers(){
         ArrayList<Teacher> teachers = new ArrayList<>();
         String query = "SELECT * FROM Teachers;";
         Connection connection = DBConnector.getConnection();
@@ -114,7 +112,7 @@ public class TeacherRepository implements TeacherInterface {
         return teachers;
     }
 
-    public  ArrayList<Teacher> getByFilter(TeacherFilter filter) throws SQLException {
+    public static  ArrayList<Teacher> getByFilter(TeacherFilter filter) throws SQLException {
         ArrayList<Teacher> teachers = new ArrayList<>();
         StringBuilder query = new StringBuilder("SELECT * FROM Teachers WHERE 1=1 ");
         ArrayList<Object> params = new ArrayList<>();
@@ -140,7 +138,7 @@ public class TeacherRepository implements TeacherInterface {
         return teachers;
     }
 
-    private  Teacher getFromResultSet(ResultSet result){
+    private static  Teacher getFromResultSet(ResultSet result){
         try{
             int id = result.getInt("t_id");
             String firstName = result.getString("t_name");

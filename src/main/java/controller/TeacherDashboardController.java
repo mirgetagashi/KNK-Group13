@@ -27,7 +27,6 @@ public class TeacherDashboardController implements Initializable {
 
     @FXML
     private Label nameD;
-    TeacherDashboardService TeacherDashboardService= new TeacherDashboardService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

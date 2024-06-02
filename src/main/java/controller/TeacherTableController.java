@@ -69,10 +69,6 @@ public class TeacherTableController implements Initializable {
     @FXML
     private AnchorPane pane;
     private final static int rowsPerPage = 15;
-    GradeLevelService GradeLevelService= new GradeLevelService();
-    service.SchoolService SchoolService= new SchoolService();
-    service.TeacherService TeacherService= new TeacherService();
-    GradeService GradeService = new GradeService();
     @FXML
     void handleFilterClick(ActionEvent event) {
         TeacherTableFilter filter = new TeacherTableFilter();

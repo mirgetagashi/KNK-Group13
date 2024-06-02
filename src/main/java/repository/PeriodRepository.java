@@ -2,18 +2,16 @@ package repository;
 
 import model.Period;
 import Database.DBConnector;
-import repository.Interface.PeriodInterface;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class PeriodRepository implements PeriodInterface {
+public class PeriodRepository {
 
 
-    public  ArrayList<Period> getAllPeriods(){
+    public  static ArrayList<Period> getAllPeriods(){
         ArrayList<Period> periods = new ArrayList<>();
 
         try (Connection conn = DBConnector.getConnection()) {
@@ -31,7 +29,7 @@ public class PeriodRepository implements PeriodInterface {
         return periods;
 
     }
-    public  Period getPeriodByName(String period) {
+    public  static Period getPeriodByName(String period) {
         String query = "SELECT * FROM Period WHERE period_name = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -47,7 +45,7 @@ public class PeriodRepository implements PeriodInterface {
         }
     }
 
-    public  Period getById(int period_id){
+    public  static Period getById(int period_id){
         String query = "SELECT * FROM Period WHERE period_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -63,7 +61,7 @@ public class PeriodRepository implements PeriodInterface {
         }
     }
 
-    private   Period getFromResultSet(ResultSet result){
+    private   static Period getFromResultSet(ResultSet result){
         try{
             int id = result.getInt("period_id");
             String period_name = result.getString("period_name");

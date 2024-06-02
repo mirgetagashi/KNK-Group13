@@ -2,17 +2,15 @@ package repository;
 
 import model.Major;
 import Database.DBConnector;
-import repository.Interface.MajorInterface;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MajorRepository implements MajorInterface {
+public class MajorRepository  {
 
-    public  ArrayList<Major> getMajorBySchool(int school_id){
+    public  static ArrayList<Major> getMajorBySchool(int school_id){
         ArrayList<Major> majors = new ArrayList<>();
 
         try (Connection conn = DBConnector.getConnection()) {
@@ -33,7 +31,7 @@ public class MajorRepository implements MajorInterface {
         return majors;
     }
 
-    public  Major getMajorByName(String major_name){
+    public  static Major getMajorByName(String major_name){
         String query = "SELECT * FROM MAJORS WHERE major_name = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -49,7 +47,7 @@ public class MajorRepository implements MajorInterface {
         }
     }
 
-    public  Major getById(int major_id){
+    public  static Major getById(int major_id){
         String query = "SELECT * FROM Majors WHERE major_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -65,7 +63,7 @@ public class MajorRepository implements MajorInterface {
         }
     }
 
-    public  ArrayList<Major> getAllMajors(){
+    public  static ArrayList<Major> getAllMajors(){
         ArrayList<Major> majors = new ArrayList<>();
         String query = "SELECT * FROM MAJORS";
         Connection connection = DBConnector.getConnection();
@@ -81,7 +79,7 @@ public class MajorRepository implements MajorInterface {
         return majors;
     }
 
-    private  Major getFromResultSet(ResultSet result){
+    private  static Major getFromResultSet(ResultSet result){
         try{
             int id = result.getInt("major_id");
             String major_name = result.getString("major_name");

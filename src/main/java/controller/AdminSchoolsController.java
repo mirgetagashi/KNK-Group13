@@ -62,10 +62,6 @@ public class AdminSchoolsController implements Initializable {
     private ObservableList<SchoolTable> dataList;
     @FXML
     private TextField txtNameFilter;
-    AddressService AddressService= new AddressService();
-    SchoolService SchoolService= new SchoolService();
-    MajorService MajorService= new MajorService();
-
     @FXML
     void handleFilterClick(ActionEvent event) {
         SchoolFilter filter = new SchoolFilter();

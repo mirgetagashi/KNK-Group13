@@ -4,13 +4,11 @@ import model.Administrator;
 import model.Students;
 import model.dto.LoginUserDto;
 import repository.AdminRepository;
-import repository.StudentRepository;
-import service.Interface.AdminInterface;
 
-public class AdminService implements AdminInterface {
-    AdminRepository AdminRepository= new AdminRepository();
+public class AdminService {
 
-    public boolean login(LoginUserDto loginData){
+
+    public static boolean login(LoginUserDto loginData){
         Administrator user = AdminRepository.getByEmail(loginData.getEmail());
         if(user == null){
             return false;
@@ -24,7 +22,7 @@ public class AdminService implements AdminInterface {
                 password, salt, passwordHash
         );
     }
-    public Administrator getByEmail(String email){
+    public static Administrator getByEmail(String email){
         return AdminRepository.getByEmail(email);
     }
 

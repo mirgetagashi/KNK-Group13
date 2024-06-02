@@ -12,11 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SchoolRepository implements repository.SchoolInterface {
+public class SchoolRepository {
 
 
 
-    public  boolean create(CreateSchoolDto userData){
+    public  static boolean create(CreateSchoolDto userData){
         Connection conn = DBConnector.getConnection();
         String query = " INSERT INTO SCHOOL (school_name, address_id) VALUES (?, ?); ";
         try{
@@ -35,7 +35,7 @@ public class SchoolRepository implements repository.SchoolInterface {
     }
 
 
-    public  ArrayList<SchoolTable> getByFilter(SchoolFilter filter) throws SQLException {
+    public  static ArrayList<SchoolTable> getByFilter(SchoolFilter filter) throws SQLException {
         ArrayList<SchoolTable> schools = new ArrayList<>();
         StringBuilder query = new StringBuilder("select * from School_Table_Info where 1=1 ");
         ArrayList<Object> params = new ArrayList<>();
@@ -85,7 +85,7 @@ public class SchoolRepository implements repository.SchoolInterface {
     }
 
 
-    public  boolean delete(int id){
+    public  static boolean delete(int id){
         String query = "DELETE FROM School WHERE school_id = ?";
 
         try {
@@ -103,7 +103,7 @@ public class SchoolRepository implements repository.SchoolInterface {
     }
 
 
-    public  ArrayList<School> getSchoolByCity(int city_id) {
+    public  static ArrayList<School> getSchoolByCity(int city_id) {
         ArrayList<School> schools = new ArrayList<>();
 
         String query = "select * from school where address_id=?";
@@ -124,7 +124,7 @@ public class SchoolRepository implements repository.SchoolInterface {
         return schools;
     }
 
-    public  ArrayList<School> getAllSchools(){
+    public static  ArrayList<School> getAllSchools(){
         ArrayList<School> schools = new ArrayList<>();
         String query = "SELECT * FROM School;";
         Connection connection = DBConnector.getConnection();
@@ -141,7 +141,7 @@ public class SchoolRepository implements repository.SchoolInterface {
         return schools;
     }
 
-    public  boolean addSchoolMajor(AddSchoolMajorDto userData){
+    public  static boolean addSchoolMajor(AddSchoolMajorDto userData){
         String query = "insert into school_major(school_id, major_id) values(?, ?);";
         Connection connection = DBConnector.getConnection();
         try{
@@ -157,7 +157,7 @@ public class SchoolRepository implements repository.SchoolInterface {
         }
     }
 
-    public  School_Major getSchoolMajor(AddSchoolMajorDto userData){
+    public  static School_Major getSchoolMajor(AddSchoolMajorDto userData){
         int school_id= userData.getSchool_id();
         int major_id= userData.getMajor_id();
         String query="select * from school_major where school_id=? and major_id=? LIMIT 1;";
@@ -182,7 +182,7 @@ public class SchoolRepository implements repository.SchoolInterface {
 
 
 
-    public  School getById(int school_id){
+    public  static School getById(int school_id){
         String query = "SELECT * FROM School WHERE school_id = ? LIMIT 1;";
         Connection connection = DBConnector.getConnection();
         try{
@@ -199,7 +199,7 @@ public class SchoolRepository implements repository.SchoolInterface {
     }
 
 
-    private  School getFromResultSet(ResultSet result){
+    private  static School getFromResultSet(ResultSet result){
         try{
             int id = result.getInt("school_id");
             String name = result.getString("school_name");
